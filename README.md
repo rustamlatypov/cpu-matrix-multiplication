@@ -1,4 +1,4 @@
-# Parallelized matrix multiplication on CPU with OpenMP and GPU with CUDA
+# Parallelized matrix multiplication on CPU with OpenMP and on GPU with CUDA
 
 Developed in May, 2019.
 
