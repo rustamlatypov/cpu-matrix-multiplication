@@ -1,4 +1,4 @@
-# Sequential and parallel LSD radix sorts
+# Parallelized matrix multiplication on CPU with OpenMP and GPU with CUDA
 
 Developed in May, 2019.
 
