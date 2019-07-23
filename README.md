@@ -1,16 +1,4 @@
-# Parallelized matrix multiplication on CPU with OpenMP and on GPU with CUDA
+Exercise templates for CS-E4580 Programming Parallel Computers
+==============================================================
 
-Developed in May, 2019.
-
-## Description
-
-
-## Results
-
-
-## Software prerequisites
-
-
-## Author
-
-[Rustam Latypov](mailto:rustam.latypov@aalto.fi)
+Please see http://ppc.cs.aalto.fi/2019/ for instructions.
