@@ -1,0 +1,11 @@
+0
+
+Looks good! I think you could just use std::sort in the case with threads == 0.
+Also, it doesn't really make sense to use the number of threads as a recursion
+level. Consider a machine where you have 32 threads. That would mean creating
+up to 2^32 tasks. Consider instead intending to create a constant number of
+tasks per thread (to even out the work from having different sized partitions)
+
+--
+Grading by:
+juhok
