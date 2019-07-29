@@ -23,7 +23,7 @@ float* transpose(int ny, int nx, const float* data_) {
     return data.data();
 }
 
-double4_t* pad(int nyv, int ny, int nx, const float* data_, int P, int na) {
+double4_t* pad(int nyv, int ny, int nx, const float* data_, int P) {
 
     // aux data, padded
     double4_t* data = double4_alloc(nyv*nx);
@@ -32,7 +32,7 @@ double4_t* pad(int nyv, int ny, int nx, const float* data_, int P, int na) {
         for (int i = 0; i < nx; i++) {
             for (int k = 0; k < P; k++) {
 
-                data[k][i] = j < ny ? data_[k] : 0;
+                data[j*nx+i][k] = j*P+k < ny ? data_[(j*P+k)*nx+i] : 0;
 
             }
         }
@@ -51,19 +51,26 @@ void multiply(int ny1, int nx1, const float* data1__,
     int nye1 = ny1;
     while (nye1%(P*A) != 0) nye1++;
     int nyv1 = nye1/P;
+    int nyb1 = nyv1/A;
 
     int nye2 = nx2;
     while (nye2%(P*A) != 0) nye2++;
-    int nyv2 = nye2/A;
+    int nyv2 = nye2/P;
+    int nyb2 = nyv2/A;
 
-    const int na = (nx1 + P - 1) / P;
 
-    double4_t* data1 = pad(nyv1, ny1, nx1, data1__, P, na);
+    double4_t* data1 = pad(nyv1, ny1, nx1, data1__, P);
     float* data2_ = transpose(ny2, nx2, data2__);
-    double4_t* data2 = pad(nyv2, nx2, ny2, data2_, P, na);
 
-    print_v(nyv1, na, P, data1);
-    print_v(nyv2, na, P, data2);
+    int aux = nx2;
+    nx2 = ny2;
+    ny2 = aux;
+    print(ny2, nx2, data2_);
+
+    double4_t* data2 = pad(nyv2, ny2, nx2, data2_, P);
+
+    print_v(data1, nyv1, nx1, P);
+    print_v(data2, nyv2, nx2, P);
 
     free(data1);
     free(data2);

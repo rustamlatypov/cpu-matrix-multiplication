@@ -26,9 +26,6 @@ int main() {
     generate(ny2, nx2, D2.data());
     print(ny2, nx2, D2.data());
 
-    //correlate(ny, nx, data.data(), result.data());
     base_multiply(ny1, nx1, D1.data(), ny2, nx2, D2.data(), result.data());
-    //print(ny1, nx2, result.data());
-
     multiply(ny1, nx1, D1.data(), ny2, nx2, D2.data(), result.data());
 }

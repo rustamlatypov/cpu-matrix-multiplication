@@ -73,24 +73,23 @@ static void print(int ny, int nx, const float *matrix) {
         std::cout << '\n';
     }
     std::cout << '\n';
-
 }
 
-static void print_v(int ncd, int na, int nb, double4_t* data) {
-    for (int j = 0; j < ncd; j++) {
-        for (int i = 0; i < na; i++) {
-            for (int k = 0; k < nb; k++) {
+static void print_v(double4_t* data, int nyv, int nx, int P) {
+    for (int j = 0; j < nyv; j++) {
+        for (int k = 0; k < P; k++) {
+            for (int i = 0; i < nx; i++) {
 
-                double x = data[na*j + i][k];
-                if(std::abs(x) < 10.0) {
+                double x = data[j * nx + i][k];
+
+                if (std::abs(x) < 10.0) {
                     printf("% -7.3f", x);
                 } else {
                     printf("% -7.0e", x);
                 }
-
             }
+            std::cout << std::endl;
         }
-        std::cout << std::endl;
     }
     std::cout << std::endl;
 }
