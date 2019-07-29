@@ -32,7 +32,7 @@ double4_t* pad(int nyv, int ny, int nx, const float* data_, int P, int na) {
         for (int i = 0; i < nx; i++) {
             for (int k = 0; k < P; k++) {
 
-                data[][] = j < ny ? data_[] : 0;
+                data[k][i] = j < ny ? data_[k] : 0;
 
             }
         }
