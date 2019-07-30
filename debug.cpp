@@ -30,35 +30,6 @@ static void generate(int ny, int nx, float* data) {
     }
 }
 
-static void print(int ny, int nx, double *matrix) {
-    for(int j = 0; j < ny; j++) {
-        for(int i = 0; i < nx; i++) {
-            float x = matrix[j*nx+i];
-            if(std::abs(x) < 10.0) {
-                printf("% -7.3f", x);
-            } else {
-                printf("% -7.0e", x);
-            }
-        }
-        std::cout << '\n';
-    }
-    std::cout << '\n';
-}
-
-static void print(int ny, int nx, float *matrix) {
-    for(int j = 0; j < ny; j++) {
-        for(int i = 0; i < nx; i++) {
-            float x = matrix[j*nx+i];
-            if(std::abs(x) < 10.0) {
-                printf("% -7.3f", x);
-            } else {
-                printf("% -7.0e", x);
-            }
-        }
-        std::cout << '\n';
-    }
-    std::cout << '\n';
-}
 
 static void print(int ny, int nx, const float *matrix) {
     for (int j = 0; j < ny; j++) {
