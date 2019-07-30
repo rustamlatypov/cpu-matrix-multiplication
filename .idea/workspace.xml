@@ -12,13 +12,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a477fb4d-9bd6-4f05-a8a7-43eadc88af8a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel-matrix-multiplication.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel-matrix-multiplication.dir/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/parallel-matrix-multiplication.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/parallel-matrix-multiplication.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cp.cc" beforeDir="false" afterPath="$PROJECT_DIR$/cp.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/debug.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/debug.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CMakeRCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CompilerIdC/a.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CompilerIdCXX/a.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mm.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mm.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mm.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mm.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mm.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mm.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mm.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel-matrix-multiplication.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel-matrix-multiplication.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel-matrix-multiplication.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel-matrix-multiplication.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel-matrix-multiplication.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel-matrix-multiplication.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel-matrix-multiplication.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel-matrix-multiplication.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel-matrix-multiplication.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel-matrix-multiplication.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel-matrix-multiplication.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel-matrix-multiplication.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel-matrix-multiplication.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel-matrix-multiplication.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel-matrix-multiplication.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/mm.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/parallel-matrix-multiplication.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/parallel-matrix-multiplication.cbp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,11 +64,11 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
+            <state relative-caret-position="140">
               <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
             </state>
           </provider>
@@ -45,11 +77,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cp.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="925">
+              <caret line="73" selection-start-line="73" selection-end-line="73" />
             </state>
           </provider>
         </entry>
@@ -57,8 +86,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
+            <state relative-caret-position="1520">
+              <caret line="76" selection-start-line="76" selection-end-line="76" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -69,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/base.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="40">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -81,7 +110,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
+            <state relative-caret-position="560">
               <caret line="28" column="75" selection-start-line="28" selection-start-column="75" selection-end-line="28" selection-end-column="75" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
@@ -106,9 +135,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="962" />
-    <option name="height" value="1047" />
+    <option name="x" value="57" />
+    <option name="y" value="23" />
+    <option name="width" value="1436" />
+    <option name="height" value="1245" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -174,27 +204,28 @@
       <option name="presentableId" value="Default" />
       <updated>1564389525850</updated>
       <workItem from="1564389528136" duration="8281000" />
+      <workItem from="1564417048044" duration="127000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8281000" />
+    <option name="totallyTimeSpent" value="8408000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="962" height="1047" extended-state="0" />
+    <frame x="57" y="23" width="1436" height="1245" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.11419069" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.205165" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="CMake" order="0" />
       <window_info anchor="bottom" id="Terminal" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" />
-      <window_info anchor="bottom" id="Messages" order="4" weight="0.4595186" />
+      <window_info anchor="bottom" id="Messages" order="4" weight="0.45880312" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.25382933" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.25382933" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
@@ -215,16 +246,29 @@
         <state relative-caret-position="-150" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+    <entry file="file://$PROJECT_DIR$/debug.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+        <state relative-caret-position="1520">
+          <caret line="76" selection-start-line="76" selection-end-line="76" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
+        <state relative-caret-position="560">
           <caret line="28" column="75" selection-start-line="28" selection-start-column="75" selection-end-line="28" selection-end-column="75" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
@@ -232,33 +276,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base.cc">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/debug.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="140">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cp.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="925">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
         </state>
       </provider>
     </entry>
