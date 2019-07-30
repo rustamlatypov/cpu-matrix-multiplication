@@ -33,12 +33,12 @@ cmath
 -
 vector
 -
+omp.h
+-
 vector.h
 /cygdrive/c/Users/rulat/parallel-matrix-multiplication/vector.h
 cp.h
 /cygdrive/c/Users/rulat/parallel-matrix-multiplication/cp.h
-stopwatch.h
-/cygdrive/c/Users/rulat/parallel-matrix-multiplication/stopwatch.h
 
 /cygdrive/c/Users/rulat/parallel-matrix-multiplication/cp.h
 
@@ -65,4 +65,6 @@ cp.cc
 /cygdrive/c/Users/rulat/parallel-matrix-multiplication/cp.cc
 base.cc
 /cygdrive/c/Users/rulat/parallel-matrix-multiplication/base.cc
+stopwatch.h
+/cygdrive/c/Users/rulat/parallel-matrix-multiplication/stopwatch.h
 

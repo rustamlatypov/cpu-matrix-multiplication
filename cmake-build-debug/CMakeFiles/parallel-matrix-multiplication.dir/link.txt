@@ -1,1 +1,1 @@
-/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/parallel-matrix-multiplication.dir/main.cpp.o  -o parallel-matrix-multiplication.exe -Wl,--out-implib,libparallel-matrix-multiplication.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+/usr/bin/c++.exe  -std=c++11 -fopenmp -g  -Wl,--enable-auto-import CMakeFiles/parallel-matrix-multiplication.dir/main.cpp.o  -o parallel-matrix-multiplication.exe -Wl,--out-implib,libparallel-matrix-multiplication.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
