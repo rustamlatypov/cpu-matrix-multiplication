@@ -4,7 +4,7 @@
 #include "stopwatch.h"
 
 int main() {
-
+    /*
     int s = 500;
 
     int ny1 = s; int nx1 = s;
@@ -44,5 +44,29 @@ int main() {
         cumsum += abs(result_base[i] - result_fast[i]);
     }
     std::cout << "\nCumulative error: " << cumsum << std::endl;
+    */
 
+    int x = 4000;
+    int y = 4000;
+
+    double4_t* data1 = double4_alloc(x*y/4);
+    double4_t d1 = {double4_0};
+
+    std::vector<double> data2(x*y);
+    double d2 = 0.0;
+    double d = 99.99;
+
+    sw.record();
+    for (int i = 0; i < x*y/4; i++) {
+        d1 += data1[i]*d;
+    }
+    std::cout << d1[0] << ' ' << d1[1] << ' ' << d1[2] << ' ' << d1[3] << std::endl;
+
+    sw.record();
+    for (int i = 0; i < x*y; i++) {
+        d2 += data2[i]*d;
+    }
+
+    sw.record();
+    sw.print();
 }
