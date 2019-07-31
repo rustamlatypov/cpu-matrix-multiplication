@@ -20,7 +20,7 @@ LDFLAGS = -lm
 # In this section, you list the files that are part of the project.
 # If you add/change names of source files, here is where you
 # edit the Makefile.
-SOURCES = main.cpp debug.cpp cp.h cp.cc base.cc common/vector.h common/stopwatch.h
+SOURCES = main.cpp debug.cpp cp.h cp.cc base.cc
 OBJECTS = $(SOURCES:.c=.o)
 TARGET = main
 
