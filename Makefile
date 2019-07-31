@@ -1,29 +1,42 @@
-CXX = g++
-CC = $(CXX)
-RM = rm -f
+#
+# A simple makefile for managing build of project composed of C source files.
+#
 
-DEBUG_LEVEL = -g
-CPPFLAGS = -c -Wall -std=c++0x -Woverflow -Wextra 
 
-LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
-DIRECTORIES = $(wildcard */)
-DIRINCLUDE = $(addprefix -I , $(DIRECTORIES))
-SOURCES = $(wildcard **/*.hpp) $(wildcard *.cpp)
-OBJECTS = $(subst .cpp,.o,$(wildcard **/*.cpp)) $(subst .cpp,.o,$(wildcard *.cpp))
+# It is likely that default C compiler is already gcc, but explicitly
+# set, just to be sure
+CC = g++
 
-EXECUTABLE = main
+# The CFLAGS variable sets compile flags for gcc:
+#  -g        compile with debug information
+#  -Wall     give verbose compiler warnings
+#  -std=c99  use the C99 standard language definition
+CFLAGS = -g -Wall -std=c99
 
-all: $(SOURCES) $(EXECUTABLE)
+# The LDFLAGS variable sets flags for linker
+#  -lm   says to link in libm (the math library)
+LDFLAGS = -lm
 
-$(EXECUTABLE): $(OBJECTS)
-	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
+# In this section, you list the files that are part of the project.
+# If you add/change names of source files, here is where you
+# edit the Makefile.
+SOURCES = main.cpp debug.cpp cp.h cp.cc base.cc common/vector.h common/stopwatch.h
+OBJECTS = $(SOURCES:.c=.o)
+TARGET = main
 
-.cpp.o:
-	$(CC) $(CPPFLAGS) $< -o $@ $(DIRINCLUDE)
+
+# The first target defined in the makefile is the one
+# used when make is invoked with no argument. Given the definitions
+# above, this Makefile file will build the one named TARGET and
+# assume that it depends on all the named OBJECTS files.
+
+$(TARGET) : $(OBJECTS)
+    $(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+
+# Phony means not a "real" target, it doesn't build anything
+# The phony target "clean" is used to remove all compiled object files.
+
+.PHONY: clean
 
 clean:
-	$(RM) $(OBJECTS) $(EXECUTABLE)
-
-#"make" to compile
-#"make clean" to remove .o-files
-#"./main" to execute program
+    @rm -f $(TARGET) $(OBJECTS) core
