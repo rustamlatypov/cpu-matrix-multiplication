@@ -5,12 +5,14 @@
 #include <omp.h>
 #include "vector.h"
 #include "cp.h"
+#include "stopwatch.h"
+ppc::stopwatch sw;
 using namespace std;
 
 
 float* transpose(int ny, int nx, const float* data_, float* data) {
 
-    #pragma omp parallel for
+    //#pragma omp parallel for
     for (int i = 0; i < ny; i++) {
         for (int j = 0; j < nx; j++) {
             data[j*ny+i] = data_[i*nx+j];
@@ -31,7 +33,7 @@ double4_t* pad(int nyv, int ny, int nx, const float* data_, int P) {
     //                   0  0  0  0  0
     double4_t* data = double4_alloc(nyv*nx);
 
-    #pragma omp parallel for
+    //#pragma omp parallel for
     for (int j = 0; j < nyv; j++) {
         for (int i = 0; i < nx; i++) {
             for (int k = 0; k < P; k++) {
@@ -49,6 +51,7 @@ double4_t* pad(int nyv, int ny, int nx, const float* data_, int P) {
 void multiply(int ny1, int nx1, const float* D1_,
               int ny2, int nx2, const float* D2__, float* result) {
 
+    sw.record();
     constexpr int P = 4;
     constexpr int A = 2;
 
@@ -64,23 +67,24 @@ void multiply(int ny1, int nx1, const float* D1_,
 
 
     double4_t* D1 = pad(nyv1, ny1, nx1, D1_, P);
+    sw.record();
 
     std::vector<float> D2_(ny2*nx2);
     std::fill(D2_.begin(), D2_.end(), 0);
 
     transpose(ny2, nx2, D2__, D2_.data());
-
+    sw.record();
     int aux = nx2;
     nx2 = ny2;
     ny2 = aux;
     //print(ny2, nx2, D2_.data());
 
     double4_t* D2 = pad(nyv2, ny2, nx2, D2_.data(), P);
-
+    sw.record();
     //print_v(D1, nyv1, nx1, P);
     //print_v(D2, nyv2, nx2, P);
 
-    #pragma omp parallel for
+    //#pragma omp parallel for
     for (int j = 0; j < nyb1; j++) {
 
         for (int i = 0; i < nyb2; i++) {
@@ -140,7 +144,8 @@ void multiply(int ny1, int nx1, const float* D1_,
             }
         }
     }
-
+    sw.record();
     free(D1);
     free(D2);
+    sw.print();
 }

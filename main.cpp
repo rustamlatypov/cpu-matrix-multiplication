@@ -2,7 +2,6 @@
 #include "cp.cc"
 #include "base.cc"
 #include "stopwatch.h"
-ppc::stopwatch sw;
 
 int main() {
 
@@ -31,15 +30,15 @@ int main() {
     generate(ny2, nx2, D2.data());
     //print(ny2, nx2, D2.data());
 
-    sw.record();
+    //sw.record();
     base_multiply(ny1, nx1, D1.data(), ny2, nx2, D2.data(), result_base.data());
     //print(ny1, nx2, result_base.data());
-    sw.record();
+    //sw.record();
 
     multiply(ny1, nx1, D1.data(), ny2, nx2, D2.data(), result_fast.data());
     //print(ny1, nx2, result_fast.data());
-    sw.record();
-    sw.print();
+    //sw.record();
+    //sw.print();
 
     double cumsum = 0;
     for (int i = 0; i < ny1*nx2; i++) {
