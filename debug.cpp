@@ -6,7 +6,7 @@
 #include <cassert>
 #include "vector.h"
 
-static void generate(int ny, int nx, float* data) {
+static void generate(int ny, int nx, double* data) {
     std::mt19937 rng;
     std::uniform_real_distribution<double> unif(0.0f, 1.0f);
     std::bernoulli_distribution coin(0.2);
@@ -31,7 +31,7 @@ static void generate(int ny, int nx, float* data) {
 }
 
 
-static void print(int ny, int nx, const float *matrix) {
+static void print(int ny, int nx, const double *matrix) {
     for (int j = 0; j < ny; j++) {
         for (int i = 0; i < nx; i++) {
             float x = matrix[j * nx + i];

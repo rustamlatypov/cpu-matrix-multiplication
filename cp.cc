@@ -10,7 +10,7 @@ ppc::stopwatch sw;
 using namespace std;
 
 
-float* transpose(int ny, int nx, const float* data_, float* data) {
+float* transpose(int ny, int nx, const double* data_, double* data) {
 
     //#pragma omp parallel for
     for (int i = 0; i < ny; i++) {
@@ -20,7 +20,7 @@ float* transpose(int ny, int nx, const float* data_, float* data) {
     }
 }
 
-double4_t* pad(int nyv, int ny, int nx, const float* data_, int P) {
+double4_t* pad(int nyv, int ny, int nx, const double* data_, int P) {
 
     // horizontal padding such that rows are devisible by P*A
     // 1  2  3  4  5     1  2  3  4  5
@@ -48,8 +48,8 @@ double4_t* pad(int nyv, int ny, int nx, const float* data_, int P) {
 }
 
 
-void multiply(int ny1, int nx1, const float* D1_,
-              int ny2, int nx2, const float* D2__, float* result) {
+void multiply(int ny1, int nx1, const double* D1_,
+              int ny2, int nx2, const double* D2__, double* result) {
 
     sw.record();
     constexpr int P = 4;
@@ -69,7 +69,7 @@ void multiply(int ny1, int nx1, const float* D1_,
     double4_t* D1 = pad(nyv1, ny1, nx1, D1_, P);
     sw.record();
 
-    std::vector<float> D2_(ny2*nx2);
+    std::vector<double> D2_(ny2*nx2);
     std::fill(D2_.begin(), D2_.end(), 0);
 
     transpose(ny2, nx2, D2__, D2_.data());
