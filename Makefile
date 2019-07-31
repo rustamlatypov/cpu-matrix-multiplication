@@ -31,7 +31,7 @@ TARGET = main
 # assume that it depends on all the named OBJECTS files.
 
 $(TARGET) : $(OBJECTS)
-    $(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
 # Phony means not a "real" target, it doesn't build anything
 # The phony target "clean" is used to remove all compiled object files.
@@ -39,4 +39,4 @@ $(TARGET) : $(OBJECTS)
 .PHONY: clean
 
 clean:
-    @rm -f $(TARGET) $(OBJECTS) core
+	@rm -f $(TARGET) $(OBJECTS) core
