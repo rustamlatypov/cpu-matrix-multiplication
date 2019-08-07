@@ -7,9 +7,6 @@ LDFLAGS+=-fopenmp
 vpath %.h ../cp-common:../common
 vpath %.cc ../cp-common:../common
 
-pngcorrelate: pngcorrelate.o cp.o pngio.o error.o
-	$(CXX) $(LDFLAGS) $^ -lpng -o $@
-
 cp-test: cp-test.o cp.o error.o
 	$(CXX) $(LDFLAGS) $^ -o $@
 
