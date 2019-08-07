@@ -6,4 +6,4 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fopenmp")
 
 include_directories(common)
 
-add_executable(parallel_matrix_multiplication main.cpp)
+add_executable(parallel_matrix_multiplication mm/main.cpp)
