@@ -1,9 +1,0 @@
-0
-
-This code crashes if OMP_NUM_THREADS is more than 8.
-If you want a req_v for each thread, you could first declare a parallel region, then define a thread-local variable, then start a parallel for.
-Then, after the parallel for, you could use a critical section to save the best result.
-
---
-Grading by:
-dennis

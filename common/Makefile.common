@@ -46,3 +46,4 @@ clean: cleanthis
 
 cleanthis:
 	rm -f $(bin) *.o *.s *.asm1 *.asm2
+	
