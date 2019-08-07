@@ -49,23 +49,21 @@ int main() {
     int x = 4000;
     int y = 4000;
 
-    double4_t* data1 = double4_alloc(x*y/4);
-    double4_t d1 = {double4_0};
-
-    std::vector<double> data2(x*y);
-    double d2 = 0.0;
-    double d = 99.99;
-
-    sw.record();
-    for (int i = 0; i < x*y/4; i++) {
-        d1 += data1[i]*d;
-    }
-    std::cout << d1[0] << ' ' << d1[1] << ' ' << d1[2] << ' ' << d1[3] << std::endl;
+    float4_t d1 = {0.99, 0.99, 0.99, 0.99, };
+    double d2 = 0.99;
 
     sw.record();
     for (int i = 0; i < x*y; i++) {
-        d2 += data2[i]*d;
+        d1 += d1*d1;
     }
+
+    sw.record();
+    for (int i = 0; i < x*y; i++) {
+        d2 += d2*d2;
+    }
+
+    std::cout << std::endl << d1[0] << ' ' << d1[1] << ' ' << d1[2] << ' ' << d1[3] << std::endl;
+    std::cout << d2 << std::endl;
 
     sw.record();
     sw.print();
