@@ -1,4 +1,5 @@
 cp.o: cp.cc cp.h
+mm.o: main.cpp cp.cc cp.h
 cp-benchmark.o: ../cp-common/cp-benchmark.cc ../common/error.h \
  ../common/timer.h cp.h
 cp-test.o: ../cp-common/cp-test.cc cp.h ../common/error.h
