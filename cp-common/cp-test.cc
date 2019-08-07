@@ -246,7 +246,7 @@ static bool test(int ny, int nx, int mode, bool verbose) {
         default: error("unknown MODE");
     }
     std::vector<float> result(ny * ny);
-    correlate(ny, nx, data.data(), result.data());
+    //correlate(ny, nx, data.data(), result.data());
 
     float gvfa_error = verify_gvfa(ny, nx, data.data(), result.data(), 20);
     bool pass = gvfa_error < gvfa_limit;
