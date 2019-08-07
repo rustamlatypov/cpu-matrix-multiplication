@@ -1,4 +1,4 @@
-bin=pngcorrelate cp-test cp-benchmark
+bin=cp-test cp-benchmark
 include ../common/Makefile.common
 
 SOURCES+=./../cp-common/*.cc ./../common/*.cc
