@@ -1,0 +1,1344 @@
+
+cp.o:	file format Mach-O 64-bit x86-64
+
+Disassembly of section __TEXT,__text:
+__Z10preprocessPKfiiiii._omp_fn.1:
+; #pragma omp parallel for
+       0:	41 57 	pushq	%r15
+       2:	41 56 	pushq	%r14
+       4:	41 55 	pushq	%r13
+       6:	41 54 	pushq	%r12
+       8:	55 	pushq	%rbp
+       9:	53 	pushq	%rbx
+       a:	48 89 fb 	movq	%rdi, %rbx
+       d:	48 83 ec 28 	subq	$40, %rsp
+      11:	44 8b 6f 08 	movl	8(%rdi), %r13d
+      15:	e8 00 00 00 00 	callq	0 <__Z10preprocessPKfiiiii._omp_fn.1+0x1a>
+      1a:	89 c5 	movl	%eax, %ebp
+      1c:	e8 00 00 00 00 	callq	0 <__Z10preprocessPKfiiiii._omp_fn.1+0x21>
+      21:	41 89 c4 	movl	%eax, %r12d
+      24:	8b 43 14 	movl	20(%rbx), %eax
+      27:	44 29 e8 	subl	%r13d, %eax
+      2a:	99 	cltd
+      2b:	f7 fd 	idivl	%ebp
+      2d:	41 39 d4 	cmpl	%edx, %r12d
+      30:	0f 8c af 00 00 00 	jl	175 <__Z10preprocessPKfiiiii._omp_fn.1+0xe5>
+      36:	44 0f af e0 	imull	%eax, %r12d
+      3a:	41 01 d4 	addl	%edx, %r12d
+      3d:	44 01 e0 	addl	%r12d, %eax
+      40:	41 39 c4 	cmpl	%eax, %r12d
+      43:	0f 8d 8d 00 00 00 	jge	141 <__Z10preprocessPKfiiiii._omp_fn.1+0xd6>
+      49:	44 8b 73 10 	movl	16(%rbx), %r14d
+      4d:	44 01 e8 	addl	%r13d, %eax
+      50:	4c 8b 3b 	movq	(%rbx), %r15
+      53:	8b 53 0c 	movl	12(%rbx), %edx
+      56:	45 01 ec 	addl	%r13d, %r12d
+      59:	89 44 24 0c 	movl	%eax, 12(%rsp)
+      5d:	45 85 f6 	testl	%r14d, %r14d
+      60:	7e 74 	jle	116 <__Z10preprocessPKfiiiii._omp_fn.1+0xd6>
+      62:	85 d2 	testl	%edx, %edx
+      64:	7e 70 	jle	112 <__Z10preprocessPKfiiiii._omp_fn.1+0xd6>
+; data[na*j + i][k] = 0;
+      66:	8d 42 ff 	leal	-1(%rdx), %eax
+      69:	48 8d 2c c5 08 00 00 00 	leaq	8(,%rax,8), %rbp
+      71:	49 8d 47 20 	leaq	32(%r15), %rax
+      75:	45 89 e5 	movl	%r12d, %r13d
+      78:	48 89 44 24 18 	movq	%rax, 24(%rsp)
+      7d:	41 8d 46 ff 	leal	-1(%r14), %eax
+      81:	45 0f af ee 	imull	%r14d, %r13d
+      85:	48 89 44 24 10 	movq	%rax, 16(%rsp)
+      8a:	66 0f 1f 44 00 00 	nopw	(%rax,%rax)
+; for (int j = ny; j < ncd; j++) {
+      90:	48 8b 74 24 10 	movq	16(%rsp), %rsi
+; for (int i = 0; i < na; i++) {
+      95:	49 63 c5 	movslq	%r13d, %rax
+      98:	48 89 c1 	movq	%rax, %rcx
+      9b:	48 8d 1c 06 	leaq	(%rsi,%rax), %rbx
+      9f:	48 c1 e1 05 	shlq	$5, %rcx
+      a3:	48 c1 e3 05 	shlq	$5, %rbx
+      a7:	4c 01 f9 	addq	%r15, %rcx
+      aa:	48 03 5c 24 18 	addq	24(%rsp), %rbx
+      af:	90 	nop
+      b0:	48 89 cf 	movq	%rcx, %rdi
+      b3:	48 89 ea 	movq	%rbp, %rdx
+      b6:	31 f6 	xorl	%esi, %esi
+      b8:	e8 00 00 00 00 	callq	0 <__Z10preprocessPKfiiiii._omp_fn.1+0xbd>
+      bd:	48 89 c1 	movq	%rax, %rcx
+      c0:	48 83 c1 20 	addq	$32, %rcx
+      c4:	48 39 d9 	cmpq	%rbx, %rcx
+      c7:	75 e7 	jne	-25 <__Z10preprocessPKfiiiii._omp_fn.1+0xb0>
+      c9:	41 ff c4 	incl	%r12d
+      cc:	45 01 f5 	addl	%r14d, %r13d
+      cf:	44 39 64 24 0c 	cmpl	%r12d, 12(%rsp)
+      d4:	7f ba 	jg	-70 <__Z10preprocessPKfiiiii._omp_fn.1+0x90>
+; #pragma omp parallel for
+      d6:	48 83 c4 28 	addq	$40, %rsp
+      da:	5b 	popq	%rbx
+      db:	5d 	popq	%rbp
+      dc:	41 5c 	popq	%r12
+      de:	41 5d 	popq	%r13
+      e0:	41 5e 	popq	%r14
+      e2:	41 5f 	popq	%r15
+      e4:	c3 	retq
+      e5:	ff c0 	incl	%eax
+      e7:	31 d2 	xorl	%edx, %edx
+      e9:	e9 48 ff ff ff 	jmp	-184 <__Z10preprocessPKfiiiii._omp_fn.1+0x36>
+      ee:	66 90 	nop
+
+__Z10preprocessPKfiiiii._omp_fn.0:
+; #pragma omp parallel for
+      f0:	41 57 	pushq	%r15
+      f2:	41 56 	pushq	%r14
+      f4:	41 55 	pushq	%r13
+      f6:	41 54 	pushq	%r12
+      f8:	49 89 fc 	movq	%rdi, %r12
+      fb:	55 	pushq	%rbp
+      fc:	53 	pushq	%rbx
+      fd:	48 83 ec 18 	subq	$24, %rsp
+     101:	e8 00 00 00 00 	callq	0 <__Z10preprocessPKfiiiii._omp_fn.0+0x16>
+     106:	89 c5 	movl	%eax, %ebp
+     108:	e8 00 00 00 00 	callq	0 <__Z10preprocessPKfiiiii._omp_fn.0+0x1d>
+     10d:	89 c3 	movl	%eax, %ebx
+     10f:	41 8b 44 24 10 	movl	16(%r12), %eax
+     114:	99 	cltd
+     115:	f7 fd 	idivl	%ebp
+     117:	39 d3 	cmpl	%edx, %ebx
+     119:	0f 8c f3 01 00 00 	jl	499 <__Z10preprocessPKfiiiii._omp_fn.0+0x222>
+     11f:	0f af d8 	imull	%eax, %ebx
+     122:	01 d3 	addl	%edx, %ebx
+     124:	8d 2c 18 	leal	(%rax,%rbx), %ebp
+     127:	39 eb 	cmpl	%ebp, %ebx
+     129:	0f 8d a2 01 00 00 	jge	418 <__Z10preprocessPKfiiiii._omp_fn.0+0x1e1>
+     12f:	45 8b 74 24 1c 	movl	28(%r12), %r14d
+     134:	4d 8b 7c 24 08 	movq	8(%r12), %r15
+     139:	41 8b 4c 24 18 	movl	24(%r12), %ecx
+     13e:	41 8b 74 24 14 	movl	20(%r12), %esi
+     143:	4d 8b 0c 24 	movq	(%r12), %r9
+     147:	45 85 f6 	testl	%r14d, %r14d
+     14a:	0f 8e 81 01 00 00 	jle	385 <__Z10preprocessPKfiiiii._omp_fn.0+0x1e1>
+     150:	85 c9 	testl	%ecx, %ecx
+     152:	0f 8e 79 01 00 00 	jle	377 <__Z10preprocessPKfiiiii._omp_fn.0+0x1e1>
+     158:	49 8d 47 20 	leaq	32(%r15), %rax
+     15c:	45 89 f5 	movl	%r14d, %r13d
+     15f:	41 89 dc 	movl	%ebx, %r12d
+     162:	48 89 44 24 08 	movq	%rax, 8(%rsp)
+     167:	41 8d 46 ff 	leal	-1(%r14), %eax
+     16b:	44 0f af eb 	imull	%ebx, %r13d
+     16f:	44 0f af e6 	imull	%esi, %r12d
+     173:	48 89 04 24 	movq	%rax, (%rsp)
+; data[na*j + i][k] = pos < nx ? data_[nx*j + pos] : 0;
+     177:	c5 f1 57 c9 	vxorpd	%xmm1, %xmm1, %xmm1
+     17b:	c5 e9 57 d2 	vxorpd	%xmm2, %xmm2, %xmm2
+     17f:	c5 e1 57 db 	vxorpd	%xmm3, %xmm3, %xmm3
+     183:	c5 d9 57 e4 	vxorpd	%xmm4, %xmm4, %xmm4
+     187:	c5 d1 57 ed 	vxorpd	%xmm5, %xmm5, %xmm5
+     18b:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+; for (int j = 0; j < ny; j++) {
+     190:	48 8b 3c 24 	movq	(%rsp), %rdi
+; for (int i = 0; i < na; i++) {
+     194:	49 63 d5 	movslq	%r13d, %rdx
+     197:	4c 8d 14 17 	leaq	(%rdi,%rdx), %r10
+     19b:	48 89 d0 	movq	%rdx, %rax
+     19e:	48 c1 e0 05 	shlq	$5, %rax
+     1a2:	49 c1 e2 05 	shlq	$5, %r10
+     1a6:	4c 01 f8 	addq	%r15, %rax
+     1a9:	4c 03 54 24 08 	addq	8(%rsp), %r10
+; #pragma omp parallel for
+     1ae:	44 89 e7 	movl	%r12d, %edi
+     1b1:	31 d2 	xorl	%edx, %edx
+     1b3:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+     1bd:	0f 1f 00 	nopl	(%rax)
+; int pos = i * nb + k;
+     1c0:	c5 f9 28 c1 	vmovapd	%xmm1, %xmm0
+; data[na*j + i][k] = pos < nx ? data_[nx*j + pos] : 0;
+     1c4:	39 d6 	cmpl	%edx, %esi
+     1c6:	7e 0d 	jle	13 <__Z10preprocessPKfiiiii._omp_fn.0+0xe5>
+     1c8:	4c 63 c7 	movslq	%edi, %r8
+     1cb:	c5 f9 57 c0 	vxorpd	%xmm0, %xmm0, %xmm0
+     1cf:	c4 81 7a 5a 04 81 	vcvtss2sd	(%r9,%r8,4), %xmm0, %xmm0
+     1d5:	c5 fb 11 00 	vmovsd	%xmm0, (%rax)
+; for (int k = 0; k < nb; k++) {
+     1d9:	83 f9 01 	cmpl	$1, %ecx
+     1dc:	0f 84 ce 00 00 00 	je	206 <__Z10preprocessPKfiiiii._omp_fn.0+0x1c0>
+; int pos = i * nb + k;
+     1e2:	44 8d 42 01 	leal	1(%rdx), %r8d
+; data[na*j + i][k] = pos < nx ? data_[nx*j + pos] : 0;
+     1e6:	c5 f9 28 c2 	vmovapd	%xmm2, %xmm0
+     1ea:	44 39 c6 	cmpl	%r8d, %esi
+     1ed:	7e 11 	jle	17 <__Z10preprocessPKfiiiii._omp_fn.0+0x110>
+     1ef:	44 8d 47 01 	leal	1(%rdi), %r8d
+     1f3:	4d 63 c0 	movslq	%r8d, %r8
+     1f6:	c5 f9 57 c0 	vxorpd	%xmm0, %xmm0, %xmm0
+     1fa:	c4 81 7a 5a 04 81 	vcvtss2sd	(%r9,%r8,4), %xmm0, %xmm0
+     200:	c5 fb 11 40 08 	vmovsd	%xmm0, 8(%rax)
+; for (int k = 0; k < nb; k++) {
+     205:	83 f9 02 	cmpl	$2, %ecx
+     208:	0f 84 a2 00 00 00 	je	162 <__Z10preprocessPKfiiiii._omp_fn.0+0x1c0>
+; int pos = i * nb + k;
+     20e:	44 8d 42 02 	leal	2(%rdx), %r8d
+; data[na*j + i][k] = pos < nx ? data_[nx*j + pos] : 0;
+     212:	c5 f9 28 c3 	vmovapd	%xmm3, %xmm0
+     216:	44 39 c6 	cmpl	%r8d, %esi
+     219:	7e 11 	jle	17 <__Z10preprocessPKfiiiii._omp_fn.0+0x13c>
+     21b:	44 8d 47 02 	leal	2(%rdi), %r8d
+     21f:	4d 63 c0 	movslq	%r8d, %r8
+     222:	c5 f9 57 c0 	vxorpd	%xmm0, %xmm0, %xmm0
+     226:	c4 81 7a 5a 04 81 	vcvtss2sd	(%r9,%r8,4), %xmm0, %xmm0
+     22c:	c5 fb 11 40 10 	vmovsd	%xmm0, 16(%rax)
+; for (int k = 0; k < nb; k++) {
+     231:	83 f9 03 	cmpl	$3, %ecx
+     234:	74 7a 	je	122 <__Z10preprocessPKfiiiii._omp_fn.0+0x1c0>
+; int pos = i * nb + k;
+     236:	44 8d 42 03 	leal	3(%rdx), %r8d
+; data[na*j + i][k] = pos < nx ? data_[nx*j + pos] : 0;
+     23a:	c5 f9 28 c4 	vmovapd	%xmm4, %xmm0
+     23e:	44 39 c6 	cmpl	%r8d, %esi
+     241:	7e 11 	jle	17 <__Z10preprocessPKfiiiii._omp_fn.0+0x164>
+     243:	44 8d 47 03 	leal	3(%rdi), %r8d
+     247:	4d 63 c0 	movslq	%r8d, %r8
+     24a:	c5 f9 57 c0 	vxorpd	%xmm0, %xmm0, %xmm0
+     24e:	c4 81 7a 5a 04 81 	vcvtss2sd	(%r9,%r8,4), %xmm0, %xmm0
+     254:	c5 fb 11 40 18 	vmovsd	%xmm0, 24(%rax)
+; for (int k = 0; k < nb; k++) {
+     259:	83 f9 04 	cmpl	$4, %ecx
+     25c:	74 52 	je	82 <__Z10preprocessPKfiiiii._omp_fn.0+0x1c0>
+; int pos = i * nb + k;
+     25e:	44 8d 42 04 	leal	4(%rdx), %r8d
+; data[na*j + i][k] = pos < nx ? data_[nx*j + pos] : 0;
+     262:	c5 f9 28 c5 	vmovapd	%xmm5, %xmm0
+     266:	44 39 c6 	cmpl	%r8d, %esi
+     269:	7e 11 	jle	17 <__Z10preprocessPKfiiiii._omp_fn.0+0x18c>
+     26b:	44 8d 47 04 	leal	4(%rdi), %r8d
+     26f:	4d 63 c0 	movslq	%r8d, %r8
+     272:	c5 f9 57 c0 	vxorpd	%xmm0, %xmm0, %xmm0
+     276:	c4 81 7a 5a 04 81 	vcvtss2sd	(%r9,%r8,4), %xmm0, %xmm0
+     27c:	c5 fb 11 40 20 	vmovsd	%xmm0, 32(%rax)
+; for (int k = 0; k < nb; k++) {
+     281:	83 f9 05 	cmpl	$5, %ecx
+     284:	74 2a 	je	42 <__Z10preprocessPKfiiiii._omp_fn.0+0x1c0>
+     286:	41 b8 05 00 00 00 	movl	$5, %r8d
+; int pos = i * nb + k;
+     28c:	46 8d 1c 02 	leal	(%rdx,%r8), %r11d
+; data[na*j + i][k] = pos < nx ? data_[nx*j + pos] : 0;
+     290:	44 39 de 	cmpl	%r11d, %esi
+     293:	7f 4b 	jg	75 <__Z10preprocessPKfiiiii._omp_fn.0+0x1f0>
+     295:	4a c7 04 c0 00 00 00 00 	movq	$0, (%rax,%r8,8)
+     29d:	49 ff c0 	incq	%r8
+; for (int k = 0; k < nb; k++) {
+     2a0:	44 39 c1 	cmpl	%r8d, %ecx
+     2a3:	7f e7 	jg	-25 <__Z10preprocessPKfiiiii._omp_fn.0+0x19c>
+     2a5:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+     2af:	90 	nop
+     2b0:	48 83 c0 20 	addq	$32, %rax
+     2b4:	01 ca 	addl	%ecx, %edx
+     2b6:	01 cf 	addl	%ecx, %edi
+; for (int i = 0; i < na; i++) {
+     2b8:	4c 39 d0 	cmpq	%r10, %rax
+     2bb:	0f 85 ff fe ff ff 	jne	-257 <__Z10preprocessPKfiiiii._omp_fn.0+0xd0>
+     2c1:	ff c3 	incl	%ebx
+     2c3:	45 01 f5 	addl	%r14d, %r13d
+     2c6:	41 01 f4 	addl	%esi, %r12d
+     2c9:	39 dd 	cmpl	%ebx, %ebp
+     2cb:	0f 85 bf fe ff ff 	jne	-321 <__Z10preprocessPKfiiiii._omp_fn.0+0xa0>
+; #pragma omp parallel for
+     2d1:	48 83 c4 18 	addq	$24, %rsp
+     2d5:	5b 	popq	%rbx
+     2d6:	5d 	popq	%rbp
+     2d7:	41 5c 	popq	%r12
+     2d9:	41 5d 	popq	%r13
+     2db:	41 5e 	popq	%r14
+     2dd:	41 5f 	popq	%r15
+     2df:	c3 	retq
+; data[na*j + i][k] = pos < nx ? data_[nx*j + pos] : 0;
+     2e0:	46 8d 1c 07 	leal	(%rdi,%r8), %r11d
+     2e4:	4d 63 db 	movslq	%r11d, %r11
+     2e7:	c5 f9 57 c0 	vxorpd	%xmm0, %xmm0, %xmm0
+     2eb:	c4 81 7a 5a 04 99 	vcvtss2sd	(%r9,%r11,4), %xmm0, %xmm0
+     2f1:	c4 a1 7b 11 04 c0 	vmovsd	%xmm0, (%rax,%r8,8)
+     2f7:	49 ff c0 	incq	%r8
+; for (int k = 0; k < nb; k++) {
+     2fa:	44 39 c1 	cmpl	%r8d, %ecx
+     2fd:	7f 8d 	jg	-115 <__Z10preprocessPKfiiiii._omp_fn.0+0x19c>
+     2ff:	48 83 c0 20 	addq	$32, %rax
+     303:	01 ca 	addl	%ecx, %edx
+     305:	01 cf 	addl	%ecx, %edi
+; for (int i = 0; i < na; i++) {
+     307:	4c 39 d0 	cmpq	%r10, %rax
+     30a:	0f 85 b0 fe ff ff 	jne	-336 <__Z10preprocessPKfiiiii._omp_fn.0+0xd0>
+     310:	eb af 	jmp	-81 <__Z10preprocessPKfiiiii._omp_fn.0+0x1d1>
+     312:	ff c0 	incl	%eax
+; #pragma omp parallel for
+     314:	31 d2 	xorl	%edx, %edx
+     316:	e9 04 fe ff ff 	jmp	-508 <__Z10preprocessPKfiiiii._omp_fn.0+0x2f>
+     31b:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+
+__Z10preprocessPKfiiiii._omp_fn.2:
+; #pragma omp parallel for
+     320:	4c 8d 54 24 08 	leaq	8(%rsp), %r10
+     325:	48 83 e4 e0 	andq	$-32, %rsp
+     329:	41 ff 72 f8 	pushq	-8(%r10)
+     32d:	55 	pushq	%rbp
+     32e:	48 89 e5 	movq	%rsp, %rbp
+     331:	41 57 	pushq	%r15
+     333:	41 56 	pushq	%r14
+     335:	41 55 	pushq	%r13
+     337:	41 54 	pushq	%r12
+     339:	41 52 	pushq	%r10
+     33b:	53 	pushq	%rbx
+     33c:	48 89 fb 	movq	%rdi, %rbx
+     33f:	48 83 c4 80 	addq	$-128, %rsp
+     343:	e8 00 00 00 00 	callq	0 <__Z10preprocessPKfiiiii._omp_fn.2+0x28>
+     348:	41 89 c4 	movl	%eax, %r12d
+     34b:	e8 00 00 00 00 	callq	0 <__Z10preprocessPKfiiiii._omp_fn.2+0x30>
+     350:	89 c6 	movl	%eax, %esi
+     352:	8b 43 08 	movl	8(%rbx), %eax
+     355:	99 	cltd
+     356:	41 f7 fc 	idivl	%r12d
+     359:	39 d6 	cmpl	%edx, %esi
+     35b:	0f 8c 28 03 00 00 	jl	808 <__Z10preprocessPKfiiiii._omp_fn.2+0x369>
+     361:	0f af f0 	imull	%eax, %esi
+     364:	01 d6 	addl	%edx, %esi
+     366:	44 8d 04 30 	leal	(%rax,%rsi), %r8d
+     36a:	44 39 c6 	cmpl	%r8d, %esi
+     36d:	0f 8d aa 02 00 00 	jge	682 <__Z10preprocessPKfiiiii._omp_fn.2+0x2fd>
+     373:	4c 63 7b 14 	movslq	20(%rbx), %r15
+     377:	44 8b 4b 0c 	movl	12(%rbx), %r9d
+     37b:	4c 89 f8 	movq	%r15, %rax
+     37e:	44 8b 6b 10 	movl	16(%rbx), %r13d
+     382:	c5 d9 57 e4 	vxorpd	%xmm4, %xmm4, %xmm4
+     386:	48 8b 13 	movq	(%rbx), %rdx
+; int lim = nb - (na*nb-nx);
+     389:	44 89 f9 	movl	%r15d, %ecx
+     38c:	44 89 cb 	movl	%r9d, %ebx
+     38f:	c4 c1 5b 2a e1 	vcvtsi2sdl	%r9d, %xmm4, %xmm4
+     394:	41 89 c1 	movl	%eax, %r9d
+     397:	41 0f af cd 	imull	%r13d, %ecx
+     39b:	44 0f af ce 	imull	%esi, %r9d
+; for (int i = 0; i < na-1; i++) {
+     39f:	41 8d 7f ff 	leal	-1(%r15), %edi
+; int lim = nb - (na*nb-nx);
+     3a3:	29 cb 	subl	%ecx, %ebx
+     3a5:	4d 63 c9 	movslq	%r9d, %r9
+     3a8:	89 d9 	movl	%ebx, %ecx
+     3aa:	4d 89 ce 	movq	%r9, %r14
+     3ad:	89 fb 	movl	%edi, %ebx
+     3af:	44 8d 60 fe 	leal	-2(%rax), %r12d
+     3b3:	49 c1 e6 05 	shlq	$5, %r14
+     3b7:	4c 01 cb 	addq	%r9, %rbx
+     3ba:	4d 01 cc 	addq	%r9, %r12
+     3bd:	49 01 d6 	addq	%rdx, %r14
+     3c0:	48 c1 e3 05 	shlq	$5, %rbx
+     3c4:	48 83 c2 20 	addq	$32, %rdx
+     3c8:	49 c1 e4 05 	shlq	$5, %r12
+     3cc:	44 01 e9 	addl	%r13d, %ecx
+     3cf:	49 c1 e7 05 	shlq	$5, %r15
+     3d3:	48 01 d3 	addq	%rdx, %rbx
+     3d6:	49 01 d4 	addq	%rdx, %r12
+     3d9:	c5 e1 57 db 	vxorpd	%xmm3, %xmm3, %xmm3
+; double4_t avg_v = double4_0;
+     3dd:	c5 e9 57 d2 	vxorpd	%xmm2, %xmm2, %xmm2
+     3e1:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+     3eb:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+; for (int j = 0; j < ny; j++) {
+     3f0:	4c 89 f2 	movq	%r14, %rdx
+; for (int i = 0; i < na; i++) {
+     3f3:	c5 f9 57 c0 	vxorpd	%xmm0, %xmm0, %xmm0
+     3f7:	85 c0 	testl	%eax, %eax
+     3f9:	0f 8e 81 02 00 00 	jle	641 <__Z10preprocessPKfiiiii._omp_fn.2+0x360>
+     3ff:	90 	nop
+; sum4 += data[j*na+i];
+     400:	c5 fd 58 02 	vaddpd	(%rdx), %ymm0, %ymm0
+     404:	48 83 c2 20 	addq	$32, %rdx
+; for (int i = 0; i < na; i++) {
+     408:	48 39 d3 	cmpq	%rdx, %rbx
+     40b:	75 f3 	jne	-13 <__Z10preprocessPKfiiiii._omp_fn.2+0xe0>
+     40d:	c5 fb 58 cb 	vaddsd	%xmm3, %xmm0, %xmm1
+     411:	c5 f9 15 e8 	vunpckhpd	%xmm0, %xmm0, %xmm5
+     415:	c4 e3 7d 19 c0 01 	vextractf128	$1, %ymm0, %xmm0
+     41b:	c5 f3 58 cd 	vaddsd	%xmm5, %xmm1, %xmm1
+     41f:	c5 f3 58 c8 	vaddsd	%xmm0, %xmm1, %xmm1
+     423:	c5 f9 15 c0 	vunpckhpd	%xmm0, %xmm0, %xmm0
+     427:	c5 f3 58 c0 	vaddsd	%xmm0, %xmm1, %xmm0
+; double sum = hsum(sum4);
+     42b:	c5 fb 5e cc 	vdivsd	%xmm4, %xmm0, %xmm1
+; double4_t avg_v = double4_0;
+     42f:	c5 fd 29 55 b0 	vmovapd	%ymm2, -80(%rbp)
+; for (int k = 0; k < nb; k++) {
+     434:	45 85 ed 	testl	%r13d, %r13d
+     437:	7e 57 	jle	87 <__Z10preprocessPKfiiiii._omp_fn.2+0x170>
+; avg_v[k] = avg;
+     439:	c5 fb 11 4d b0 	vmovsd	%xmm1, -80(%rbp)
+; for (int k = 0; k < nb; k++) {
+     43e:	41 83 fd 01 	cmpl	$1, %r13d
+     442:	74 4c 	je	76 <__Z10preprocessPKfiiiii._omp_fn.2+0x170>
+; avg_v[k] = avg;
+     444:	c5 fb 11 4d b8 	vmovsd	%xmm1, -72(%rbp)
+; for (int k = 0; k < nb; k++) {
+     449:	41 83 fd 02 	cmpl	$2, %r13d
+     44d:	74 41 	je	65 <__Z10preprocessPKfiiiii._omp_fn.2+0x170>
+; avg_v[k] = avg;
+     44f:	c5 fb 11 4d c0 	vmovsd	%xmm1, -64(%rbp)
+; for (int k = 0; k < nb; k++) {
+     454:	41 83 fd 03 	cmpl	$3, %r13d
+     458:	74 36 	je	54 <__Z10preprocessPKfiiiii._omp_fn.2+0x170>
+; avg_v[k] = avg;
+     45a:	c5 fb 11 4d c8 	vmovsd	%xmm1, -56(%rbp)
+; for (int k = 0; k < nb; k++) {
+     45f:	41 83 fd 04 	cmpl	$4, %r13d
+     463:	74 2b 	je	43 <__Z10preprocessPKfiiiii._omp_fn.2+0x170>
+; avg_v[k] = avg;
+     465:	c5 fb 11 4d d0 	vmovsd	%xmm1, -48(%rbp)
+; for (int k = 0; k < nb; k++) {
+     46a:	41 83 fd 05 	cmpl	$5, %r13d
+     46e:	74 20 	je	32 <__Z10preprocessPKfiiiii._omp_fn.2+0x170>
+     470:	ba 05 00 00 00 	movl	$5, %edx
+     475:	4c 8d 4d b0 	leaq	-80(%rbp), %r9
+; avg_v[k] = avg;
+     479:	c4 c1 7b 11 0c d1 	vmovsd	%xmm1, (%r9,%rdx,8)
+     47f:	48 ff c2 	incq	%rdx
+; for (int k = 0; k < nb; k++) {
+     482:	41 39 d5 	cmpl	%edx, %r13d
+     485:	7f f2 	jg	-14 <__Z10preprocessPKfiiiii._omp_fn.2+0x159>
+     487:	66 0f 1f 84 00 00 00 00 00 	nopw	(%rax,%rax)
+; for (int i = 0; i < na-1; i++) {
+     490:	85 ff 	testl	%edi, %edi
+     492:	7e 22 	jle	34 <__Z10preprocessPKfiiiii._omp_fn.2+0x196>
+; data[j*na+i] -= avg_v;
+     494:	c5 fd 28 6d b0 	vmovapd	-80(%rbp), %ymm5
+     499:	4c 89 f2 	movq	%r14, %rdx
+     49c:	0f 1f 40 00 	nopl	(%rax)
+     4a0:	c5 fd 28 3a 	vmovapd	(%rdx), %ymm7
+     4a4:	48 83 c2 20 	addq	$32, %rdx
+     4a8:	c5 c5 5c c5 	vsubpd	%ymm5, %ymm7, %ymm0
+     4ac:	c5 fd 29 42 e0 	vmovapd	%ymm0, -32(%rdx)
+; for (int i = 0; i < na-1; i++) {
+     4b1:	4c 39 e2 	cmpq	%r12, %rdx
+     4b4:	75 ea 	jne	-22 <__Z10preprocessPKfiiiii._omp_fn.2+0x180>
+; avg_v = double4_0;
+     4b6:	c5 fd 29 55 b0 	vmovapd	%ymm2, -80(%rbp)
+; int lim = nb - (na*nb-nx);
+     4bb:	85 c9 	testl	%ecx, %ecx
+; for (int k = 0; k < lim; k++) avg_v[k] = avg;
+     4bd:	0f 8e 7d 01 00 00 	jle	381 <__Z10preprocessPKfiiiii._omp_fn.2+0x320>
+     4c3:	c5 fb 11 4d b0 	vmovsd	%xmm1, -80(%rbp)
+     4c8:	83 f9 01 	cmpl	$1, %ecx
+     4cb:	74 43 	je	67 <__Z10preprocessPKfiiiii._omp_fn.2+0x1f0>
+     4cd:	c5 fb 11 4d b8 	vmovsd	%xmm1, -72(%rbp)
+     4d2:	83 f9 02 	cmpl	$2, %ecx
+     4d5:	74 39 	je	57 <__Z10preprocessPKfiiiii._omp_fn.2+0x1f0>
+     4d7:	c5 fb 11 4d c0 	vmovsd	%xmm1, -64(%rbp)
+     4dc:	83 f9 03 	cmpl	$3, %ecx
+     4df:	74 2f 	je	47 <__Z10preprocessPKfiiiii._omp_fn.2+0x1f0>
+     4e1:	c5 fb 11 4d c8 	vmovsd	%xmm1, -56(%rbp)
+     4e6:	83 f9 04 	cmpl	$4, %ecx
+     4e9:	74 25 	je	37 <__Z10preprocessPKfiiiii._omp_fn.2+0x1f0>
+     4eb:	c5 fb 11 4d d0 	vmovsd	%xmm1, -48(%rbp)
+     4f0:	83 f9 05 	cmpl	$5, %ecx
+     4f3:	74 1b 	je	27 <__Z10preprocessPKfiiiii._omp_fn.2+0x1f0>
+     4f5:	ba 05 00 00 00 	movl	$5, %edx
+     4fa:	4c 8d 4d b0 	leaq	-80(%rbp), %r9
+     4fe:	c4 c1 7b 11 0c d1 	vmovsd	%xmm1, (%r9,%rdx,8)
+     504:	48 ff c2 	incq	%rdx
+     507:	39 d1 	cmpl	%edx, %ecx
+     509:	7f f3 	jg	-13 <__Z10preprocessPKfiiiii._omp_fn.2+0x1de>
+     50b:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+     510:	c5 fd 28 45 b0 	vmovapd	-80(%rbp), %ymm0
+; data[j*na + na-1] -= avg_v;
+     515:	c4 81 7d 28 74 3e e0 	vmovapd	-32(%r14,%r15), %ymm6
+     51c:	c5 cd 5c c0 	vsubpd	%ymm0, %ymm6, %ymm0
+     520:	c4 81 7d 29 44 3e e0 	vmovapd	%ymm0, -32(%r14,%r15)
+; sum4 = double4_0;
+     527:	85 c0 	testl	%eax, %eax
+; for (int i = 0; i < na; i++) {
+     529:	0f 8e 21 01 00 00 	jle	289 <__Z10preprocessPKfiiiii._omp_fn.2+0x330>
+     52f:	4c 89 f2 	movq	%r14, %rdx
+     532:	c5 f9 57 c0 	vxorpd	%xmm0, %xmm0, %xmm0
+     536:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+; double4_t e_v = data[j*na+i];
+     540:	c5 fd 28 0a 	vmovapd	(%rdx), %ymm1
+; sum4 += e_v * e_v;
+     544:	48 83 c2 20 	addq	$32, %rdx
+     548:	c4 e2 f5 b8 c1 	vfmadd231pd	%ymm1, %ymm1, %ymm0
+; for (int i = 0; i < na; i++) {
+     54d:	48 39 d3 	cmpq	%rdx, %rbx
+     550:	75 ee 	jne	-18 <__Z10preprocessPKfiiiii._omp_fn.2+0x220>
+; sum = hsum(sum4);
+     552:	c5 fb 58 eb 	vaddsd	%xmm3, %xmm0, %xmm5
+; for (int i = 0; i < 4; i++) sum += sum_v[i];
+     556:	c5 f9 15 c8 	vunpckhpd	%xmm0, %xmm0, %xmm1
+     55a:	c4 e3 7d 19 c0 01 	vextractf128	$1, %ymm0, %xmm0
+     560:	c5 f3 58 cd 	vaddsd	%xmm5, %xmm1, %xmm1
+     564:	c5 fb 58 c9 	vaddsd	%xmm1, %xmm0, %xmm1
+     568:	c5 f9 15 c0 	vunpckhpd	%xmm0, %xmm0, %xmm0
+     56c:	c5 fb 58 c1 	vaddsd	%xmm1, %xmm0, %xmm0
+; return sum;
+     570:	c5 f9 2e d8 	vucomisd	%xmm0, %xmm3
+; sum = sqrt(sum);
+     574:	c5 f3 51 c8 	vsqrtsd	%xmm0, %xmm1, %xmm1
+     578:	0f 87 14 01 00 00 	ja	276 <__Z10preprocessPKfiiiii._omp_fn.2+0x372>
+; sum4 = double4_0;
+     57e:	c5 fd 29 55 90 	vmovapd	%ymm2, -112(%rbp)
+; for (int k = 0; k < nb; k++) sum4[k] = sum;
+     583:	45 85 ed 	testl	%r13d, %r13d
+     586:	7e 52 	jle	82 <__Z10preprocessPKfiiiii._omp_fn.2+0x2ba>
+     588:	c5 fb 11 4d 90 	vmovsd	%xmm1, -112(%rbp)
+     58d:	41 83 fd 01 	cmpl	$1, %r13d
+     591:	74 47 	je	71 <__Z10preprocessPKfiiiii._omp_fn.2+0x2ba>
+     593:	c5 fb 11 4d 98 	vmovsd	%xmm1, -104(%rbp)
+     598:	41 83 fd 02 	cmpl	$2, %r13d
+     59c:	74 38 	je	56 <__Z10preprocessPKfiiiii._omp_fn.2+0x2b6>
+     59e:	c5 fb 11 4d a0 	vmovsd	%xmm1, -96(%rbp)
+     5a3:	41 83 fd 03 	cmpl	$3, %r13d
+     5a7:	74 2d 	je	45 <__Z10preprocessPKfiiiii._omp_fn.2+0x2b6>
+     5a9:	c5 fb 11 4d a8 	vmovsd	%xmm1, -88(%rbp)
+     5ae:	41 83 fd 04 	cmpl	$4, %r13d
+     5b2:	74 22 	je	34 <__Z10preprocessPKfiiiii._omp_fn.2+0x2b6>
+     5b4:	c5 fb 11 4d b0 	vmovsd	%xmm1, -80(%rbp)
+     5b9:	41 83 fd 05 	cmpl	$5, %r13d
+     5bd:	74 17 	je	23 <__Z10preprocessPKfiiiii._omp_fn.2+0x2b6>
+     5bf:	ba 05 00 00 00 	movl	$5, %edx
+     5c4:	4c 8d 4d 90 	leaq	-112(%rbp), %r9
+     5c8:	c4 c1 7b 11 0c d1 	vmovsd	%xmm1, (%r9,%rdx,8)
+     5ce:	48 ff c2 	incq	%rdx
+     5d1:	41 39 d5 	cmpl	%edx, %r13d
+     5d4:	7f f2 	jg	-14 <__Z10preprocessPKfiiiii._omp_fn.2+0x2a8>
+; for (int i = 0; i < na; i++) {
+     5d6:	85 c0 	testl	%eax, %eax
+     5d8:	7e 2c 	jle	44 <__Z10preprocessPKfiiiii._omp_fn.2+0x2e6>
+; data[j*na+i] /= sum4;
+     5da:	c5 fd 28 4d 90 	vmovapd	-112(%rbp), %ymm1
+     5df:	4c 89 f2 	movq	%r14, %rdx
+     5e2:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+     5ec:	0f 1f 40 00 	nopl	(%rax)
+     5f0:	c5 fd 28 32 	vmovapd	(%rdx), %ymm6
+     5f4:	48 83 c2 20 	addq	$32, %rdx
+     5f8:	c5 cd 5e c1 	vdivpd	%ymm1, %ymm6, %ymm0
+     5fc:	c5 fd 29 42 e0 	vmovapd	%ymm0, -32(%rdx)
+; for (int i = 0; i < na; i++) {
+     601:	48 39 d3 	cmpq	%rdx, %rbx
+     604:	75 ea 	jne	-22 <__Z10preprocessPKfiiiii._omp_fn.2+0x2d0>
+     606:	ff c6 	incl	%esi
+     608:	4d 01 fe 	addq	%r15, %r14
+     60b:	4c 01 fb 	addq	%r15, %rbx
+     60e:	4d 01 fc 	addq	%r15, %r12
+     611:	41 39 f0 	cmpl	%esi, %r8d
+     614:	0f 85 d6 fd ff ff 	jne	-554 <__Z10preprocessPKfiiiii._omp_fn.2+0xd0>
+     61a:	c5 f8 77 	vzeroupper
+; #pragma omp parallel for
+     61d:	48 83 ec 80 	subq	$-128, %rsp
+     621:	5b 	popq	%rbx
+     622:	41 5a 	popq	%r10
+     624:	41 5c 	popq	%r12
+     626:	41 5d 	popq	%r13
+     628:	41 5e 	popq	%r14
+     62a:	41 5f 	popq	%r15
+     62c:	5d 	popq	%rbp
+     62d:	49 8d 62 f8 	leaq	-8(%r10), %rsp
+     631:	c3 	retq
+     632:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+     63c:	0f 1f 40 00 	nopl	(%rax)
+; for (int k = 0; k < lim; k++) avg_v[k] = avg;
+     640:	c5 f9 57 c0 	vxorpd	%xmm0, %xmm0, %xmm0
+     644:	e9 cc fe ff ff 	jmp	-308 <__Z10preprocessPKfiiiii._omp_fn.2+0x1f5>
+     649:	0f 1f 80 00 00 00 00 	nopl	(%rax)
+; sum4 = double4_0;
+     650:	c5 fd 29 55 90 	vmovapd	%ymm2, -112(%rbp)
+; for (int k = 0; k < nb; k++) sum4[k] = sum;
+     655:	45 85 ed 	testl	%r13d, %r13d
+     658:	7e ac 	jle	-84 <__Z10preprocessPKfiiiii._omp_fn.2+0x2e6>
+     65a:	48 c7 45 90 00 00 00 00 	movq	$0, -112(%rbp)
+     662:	41 83 fd 01 	cmpl	$1, %r13d
+     666:	74 9e 	je	-98 <__Z10preprocessPKfiiiii._omp_fn.2+0x2e6>
+; sum = sqrt(sum);
+     668:	c5 f1 57 c9 	vxorpd	%xmm1, %xmm1, %xmm1
+     66c:	e9 22 ff ff ff 	jmp	-222 <__Z10preprocessPKfiiiii._omp_fn.2+0x273>
+     671:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+     67b:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+; for (int i = 0; i < na; i++) {
+     680:	c5 f9 57 c0 	vxorpd	%xmm0, %xmm0, %xmm0
+     684:	e9 a2 fd ff ff 	jmp	-606 <__Z10preprocessPKfiiiii._omp_fn.2+0x10b>
+     689:	ff c0 	incl	%eax
+; #pragma omp parallel for
+     68b:	31 d2 	xorl	%edx, %edx
+     68d:	e9 cf fc ff ff 	jmp	-817 <__Z10preprocessPKfiiiii._omp_fn.2+0x41>
+     692:	c5 fb 11 a5 68 ff ff ff 	vmovsd	%xmm4, -152(%rbp)
+     69a:	89 bd 74 ff ff ff 	movl	%edi, -140(%rbp)
+     6a0:	c5 fb 11 8d 78 ff ff ff 	vmovsd	%xmm1, -136(%rbp)
+     6a8:	89 4d 80 	movl	%ecx, -128(%rbp)
+     6ab:	44 89 45 84 	movl	%r8d, -124(%rbp)
+     6af:	89 45 88 	movl	%eax, -120(%rbp)
+     6b2:	89 75 8c 	movl	%esi, -116(%rbp)
+; sum = sqrt(sum);
+     6b5:	c5 f8 77 	vzeroupper
+     6b8:	e8 00 00 00 00 	callq	0 <__Z10preprocessPKfiiiii._omp_fn.2+0x39d>
+     6bd:	8b 75 8c 	movl	-116(%rbp), %esi
+     6c0:	8b 45 88 	movl	-120(%rbp), %eax
+     6c3:	44 8b 45 84 	movl	-124(%rbp), %r8d
+     6c7:	8b 4d 80 	movl	-128(%rbp), %ecx
+     6ca:	c5 fb 10 8d 78 ff ff ff 	vmovsd	-136(%rbp), %xmm1
+     6d2:	8b bd 74 ff ff ff 	movl	-140(%rbp), %edi
+     6d8:	c5 fb 10 a5 68 ff ff ff 	vmovsd	-152(%rbp), %xmm4
+     6e0:	c5 e9 57 d2 	vxorpd	%xmm2, %xmm2, %xmm2
+     6e4:	c5 e1 57 db 	vxorpd	%xmm3, %xmm3, %xmm3
+     6e8:	e9 91 fe ff ff 	jmp	-367 <__Z10preprocessPKfiiiii._omp_fn.2+0x25e>
+     6ed:	0f 1f 00 	nopl	(%rax)
+
+__Z9correlateiiPKfPf._omp_fn.3:
+; #pragma omp parallel for schedule(dynamic,1)
+     6f0:	55 	pushq	%rbp
+     6f1:	b9 01 00 00 00 	movl	$1, %ecx
+     6f6:	ba 01 00 00 00 	movl	$1, %edx
+     6fb:	48 89 e5 	movq	%rsp, %rbp
+     6fe:	41 57 	pushq	%r15
+     700:	41 56 	pushq	%r14
+     702:	41 55 	pushq	%r13
+     704:	41 54 	pushq	%r12
+     706:	53 	pushq	%rbx
+     707:	48 83 e4 e0 	andq	$-32, %rsp
+     70b:	48 81 ec e0 05 00 00 	subq	$1504, %rsp
+     712:	48 8b 47 08 	movq	8(%rdi), %rax
+     716:	8b 5f 14 	movl	20(%rdi), %ebx
+     719:	48 89 84 24 a0 02 00 00 	movq	%rax, 672(%rsp)
+     721:	8b 47 18 	movl	24(%rdi), %eax
+     724:	48 63 77 1c 	movslq	28(%rdi), %rsi
+     728:	89 84 24 98 00 00 00 	movl	%eax, 152(%rsp)
+     72f:	48 8b 07 	movq	(%rdi), %rax
+     732:	44 8b 77 10 	movl	16(%rdi), %r14d
+     736:	4c 8d 8c 24 b8 02 00 00 	leaq	696(%rsp), %r9
+     73e:	4c 8d 84 24 b0 02 00 00 	leaq	688(%rsp), %r8
+     746:	31 ff 	xorl	%edi, %edi
+     748:	89 9c 24 94 00 00 00 	movl	%ebx, 148(%rsp)
+     74f:	48 89 44 24 68 	movq	%rax, 104(%rsp)
+     754:	4c 89 4c 24 18 	movq	%r9, 24(%rsp)
+     759:	4c 89 44 24 20 	movq	%r8, 32(%rsp)
+     75e:	e8 00 00 00 00 	callq	0 <__Z9correlateiiPKfPf._omp_fn.3+0x73>
+     763:	84 c0 	testb	%al, %al
+     765:	0f 84 15 08 00 00 	je	2069 <__Z9correlateiiPKfPf._omp_fn.3+0x890>
+     76b:	43 8d 04 b6 	leal	(%r14,%r14,4), %eax
+     76f:	89 44 24 28 	movl	%eax, 40(%rsp)
+     773:	8d 04 9b 	leal	(%rbx,%rbx,4), %eax
+     776:	89 84 24 88 00 00 00 	movl	%eax, 136(%rsp)
+     77d:	48 8b 84 24 b0 02 00 00 	movq	688(%rsp), %rax
+     785:	8b 9c 24 98 00 00 00 	movl	152(%rsp), %ebx
+     78c:	89 44 24 70 	movl	%eax, 112(%rsp)
+     790:	48 8b 94 24 b8 02 00 00 	movq	696(%rsp), %rdx
+     798:	39 c3 	cmpl	%eax, %ebx
+     79a:	0f 8e c9 07 00 00 	jle	1993 <__Z9correlateiiPKfPf._omp_fn.3+0x879>
+     7a0:	39 d3 	cmpl	%edx, %ebx
+     7a2:	89 d1 	movl	%edx, %ecx
+     7a4:	0f 4c cb 	cmovll	%ebx, %ecx
+     7a7:	8d 1c 80 	leal	(%rax,%rax,4), %ebx
+     7aa:	89 d8 	movl	%ebx, %eax
+     7ac:	89 9c 24 9c 00 00 00 	movl	%ebx, 156(%rsp)
+     7b3:	41 0f af de 	imull	%r14d, %ebx
+     7b7:	8b bc 24 94 00 00 00 	movl	148(%rsp), %edi
+     7be:	89 4c 24 2c 	movl	%ecx, 44(%rsp)
+     7c2:	89 9c 24 8c 00 00 00 	movl	%ebx, 140(%rsp)
+     7c9:	89 c3 	movl	%eax, %ebx
+     7cb:	8d 40 01 	leal	1(%rax), %eax
+     7ce:	89 c1 	movl	%eax, %ecx
+     7d0:	89 d8 	movl	%ebx, %eax
+     7d2:	0f af df 	imull	%edi, %ebx
+     7d5:	0f af cf 	imull	%edi, %ecx
+     7d8:	89 9c 24 90 00 00 00 	movl	%ebx, 144(%rsp)
+     7df:	89 c3 	movl	%eax, %ebx
+     7e1:	8d 40 02 	leal	2(%rax), %eax
+     7e4:	0f af c7 	imull	%edi, %eax
+     7e7:	89 4c 24 3c 	movl	%ecx, 60(%rsp)
+     7eb:	89 4c 24 30 	movl	%ecx, 48(%rsp)
+     7ef:	89 44 24 34 	movl	%eax, 52(%rsp)
+     7f3:	8d 43 03 	leal	3(%rbx), %eax
+     7f6:	0f af c7 	imull	%edi, %eax
+     7f9:	89 4c 24 64 	movl	%ecx, 100(%rsp)
+     7fd:	89 44 24 38 	movl	%eax, 56(%rsp)
+     801:	8d 43 04 	leal	4(%rbx), %eax
+     804:	0f af c7 	imull	%edi, %eax
+     807:	89 44 24 60 	movl	%eax, 96(%rsp)
+; for (int j = 0; j < ncH; j++) {
+     80b:	48 63 84 24 90 00 00 00 	movslq	144(%rsp), %rax
+; for (int i = col_v; i < ncV; i++) {
+     813:	44 8b 94 24 9c 00 00 00 	movl	156(%rsp), %r10d
+     81b:	48 c1 e0 05 	shlq	$5, %rax
+     81f:	48 89 44 24 58 	movq	%rax, 88(%rsp)
+     824:	48 63 44 24 30 	movslq	48(%rsp), %rax
+     829:	45 8d 6a 04 	leal	4(%r10), %r13d
+     82d:	48 c1 e0 05 	shlq	$5, %rax
+     831:	48 89 44 24 50 	movq	%rax, 80(%rsp)
+     836:	48 63 44 24 34 	movslq	52(%rsp), %rax
+     83b:	45 8d 62 03 	leal	3(%r10), %r12d
+     83f:	48 c1 e0 05 	shlq	$5, %rax
+     843:	48 89 44 24 48 	movq	%rax, 72(%rsp)
+     848:	48 63 44 24 38 	movslq	56(%rsp), %rax
+     84d:	41 8d 5a 02 	leal	2(%r10), %ebx
+     851:	48 c1 e0 05 	shlq	$5, %rax
+     855:	48 89 44 24 40 	movq	%rax, 64(%rsp)
+     85a:	48 63 44 24 60 	movslq	96(%rsp), %rax
+     85f:	45 8d 5a 01 	leal	1(%r10), %r11d
+     863:	48 c1 e0 05 	shlq	$5, %rax
+     867:	49 89 c7 	movq	%rax, %r15
+; #pragma omp parallel for schedule(dynamic,1)
+     86a:	8b 44 24 3c 	movl	60(%rsp), %eax
+     86e:	89 84 24 a8 02 00 00 	movl	%eax, 680(%rsp)
+     875:	8b 44 24 70 	movl	112(%rsp), %eax
+     879:	89 84 24 ac 02 00 00 	movl	%eax, 684(%rsp)
+; asm("#foo");
+     880:	44 8b 8c 24 94 00 00 00 	movl	148(%rsp), %r9d
+; block[id][jd] = double4_0;
+     888:	c5 f9 57 c0 	vxorpd	%xmm0, %xmm0, %xmm0
+     88c:	c5 fd 29 84 24 c0 02 00 00 	vmovapd	%ymm0, 704(%rsp)
+     895:	c5 fd 29 84 24 60 03 00 00 	vmovapd	%ymm0, 864(%rsp)
+     89e:	c5 fd 29 84 24 00 04 00 00 	vmovapd	%ymm0, 1024(%rsp)
+     8a7:	c5 fd 29 84 24 a0 04 00 00 	vmovapd	%ymm0, 1184(%rsp)
+     8b0:	c5 fd 29 84 24 40 05 00 00 	vmovapd	%ymm0, 1344(%rsp)
+     8b9:	c5 fd 29 84 24 e0 02 00 00 	vmovapd	%ymm0, 736(%rsp)
+     8c2:	c5 fd 29 84 24 80 03 00 00 	vmovapd	%ymm0, 896(%rsp)
+     8cb:	c5 fd 29 84 24 20 04 00 00 	vmovapd	%ymm0, 1056(%rsp)
+     8d4:	c5 fd 29 84 24 c0 04 00 00 	vmovapd	%ymm0, 1216(%rsp)
+     8dd:	c5 fd 29 84 24 60 05 00 00 	vmovapd	%ymm0, 1376(%rsp)
+     8e6:	c5 fd 29 84 24 00 03 00 00 	vmovapd	%ymm0, 768(%rsp)
+     8ef:	c5 fd 29 84 24 a0 03 00 00 	vmovapd	%ymm0, 928(%rsp)
+     8f8:	c5 fd 29 84 24 40 04 00 00 	vmovapd	%ymm0, 1088(%rsp)
+     901:	c5 fd 29 84 24 e0 04 00 00 	vmovapd	%ymm0, 1248(%rsp)
+     90a:	c5 fd 29 84 24 80 05 00 00 	vmovapd	%ymm0, 1408(%rsp)
+     913:	c5 fd 29 84 24 20 03 00 00 	vmovapd	%ymm0, 800(%rsp)
+     91c:	c5 fd 29 84 24 c0 03 00 00 	vmovapd	%ymm0, 960(%rsp)
+     925:	c5 fd 29 84 24 60 04 00 00 	vmovapd	%ymm0, 1120(%rsp)
+     92e:	c5 fd 29 84 24 00 05 00 00 	vmovapd	%ymm0, 1280(%rsp)
+     937:	c5 fd 29 84 24 a0 05 00 00 	vmovapd	%ymm0, 1440(%rsp)
+     940:	c5 fd 29 84 24 40 03 00 00 	vmovapd	%ymm0, 832(%rsp)
+     949:	c5 fd 29 84 24 e0 03 00 00 	vmovapd	%ymm0, 992(%rsp)
+     952:	c5 fd 29 84 24 80 04 00 00 	vmovapd	%ymm0, 1152(%rsp)
+     95b:	c5 fd 29 84 24 20 05 00 00 	vmovapd	%ymm0, 1312(%rsp)
+     964:	c5 fd 29 84 24 c0 05 00 00 	vmovapd	%ymm0, 1472(%rsp)
+; for (int k = 0; k < na; k++) {
+     96d:	45 85 c9 	testl	%r9d, %r9d
+     970:	0f 8e db 04 00 00 	jle	1243 <__Z9correlateiiPKfPf._omp_fn.3+0x761>
+     976:	8b bc 24 a8 02 00 00 	movl	680(%rsp), %edi
+     97d:	8b 84 24 90 00 00 00 	movl	144(%rsp), %eax
+     984:	4c 63 c7 	movslq	%edi, %r8
+     987:	89 fa 	movl	%edi, %edx
+     989:	2b 44 24 64 	subl	100(%rsp), %eax
+     98d:	44 01 ca 	addl	%r9d, %edx
+     990:	44 01 c0 	addl	%r8d, %eax
+     993:	48 98 	cltq
+     995:	48 63 f2 	movslq	%edx, %rsi
+     998:	48 8b bc 24 a0 02 00 00 	movq	672(%rsp), %rdi
+     9a0:	48 89 84 24 80 02 00 00 	movq	%rax, 640(%rsp)
+     9a8:	49 ff c0 	incq	%r8
+     9ab:	48 ff c0 	incq	%rax
+     9ae:	48 ff c6 	incq	%rsi
+     9b1:	42 8d 0c 0a 	leal	(%rdx,%r9), %ecx
+     9b5:	48 c1 e0 05 	shlq	$5, %rax
+     9b9:	49 c1 e0 05 	shlq	$5, %r8
+     9bd:	48 c1 e6 05 	shlq	$5, %rsi
+     9c1:	48 89 fa 	movq	%rdi, %rdx
+     9c4:	48 01 f8 	addq	%rdi, %rax
+     9c7:	49 01 f8 	addq	%rdi, %r8
+     9ca:	48 01 fe 	addq	%rdi, %rsi
+     9cd:	48 63 f9 	movslq	%ecx, %rdi
+     9d0:	44 01 c9 	addl	%r9d, %ecx
+     9d3:	48 63 c9 	movslq	%ecx, %rcx
+     9d6:	48 ff c7 	incq	%rdi
+     9d9:	48 ff c1 	incq	%rcx
+     9dc:	48 c1 e7 05 	shlq	$5, %rdi
+     9e0:	48 c1 e1 05 	shlq	$5, %rcx
+     9e4:	48 01 d7 	addq	%rdx, %rdi
+     9e7:	48 01 d1 	addq	%rdx, %rcx
+     9ea:	41 8d 51 ff 	leal	-1(%r9), %edx
+     9ee:	48 03 94 24 80 02 00 00 	addq	640(%rsp), %rdx
+     9f6:	4c 8b 8c 24 a0 02 00 00 	movq	672(%rsp), %r9
+     9fe:	48 c1 e2 05 	shlq	$5, %rdx
+     a02:	49 8d 54 11 40 	leaq	64(%r9,%rdx), %rdx
+     a07:	4c 8b 8c 24 80 02 00 00 	movq	640(%rsp), %r9
+; __builtin_prefetch(&data[na*(i * V + l) + k + 1]);
+     a0f:	44 89 b4 24 84 00 00 00 	movl	%r14d, 132(%rsp)
+     a17:	49 f7 d9 	negq	%r9
+     a1a:	44 89 9c 24 80 00 00 00 	movl	%r11d, 128(%rsp)
+     a22:	89 5c 24 7c 	movl	%ebx, 124(%rsp)
+     a26:	44 89 64 24 78 	movl	%r12d, 120(%rsp)
+     a2b:	44 89 54 24 74 	movl	%r10d, 116(%rsp)
+     a30:	c5 fd 29 84 24 80 02 00 00 	vmovapd	%ymm0, 640(%rsp)
+     a39:	c5 fd 29 84 24 60 02 00 00 	vmovapd	%ymm0, 608(%rsp)
+     a42:	c5 fd 29 84 24 40 02 00 00 	vmovapd	%ymm0, 576(%rsp)
+     a4b:	c5 fd 29 84 24 20 02 00 00 	vmovapd	%ymm0, 544(%rsp)
+     a54:	c5 fd 29 84 24 00 02 00 00 	vmovapd	%ymm0, 512(%rsp)
+     a5d:	c5 fd 29 84 24 e0 01 00 00 	vmovapd	%ymm0, 480(%rsp)
+     a66:	c5 fd 29 84 24 c0 01 00 00 	vmovapd	%ymm0, 448(%rsp)
+     a6f:	c5 fd 29 84 24 a0 01 00 00 	vmovapd	%ymm0, 416(%rsp)
+     a78:	c5 fd 29 84 24 80 01 00 00 	vmovapd	%ymm0, 384(%rsp)
+     a81:	c5 fd 29 84 24 60 01 00 00 	vmovapd	%ymm0, 352(%rsp)
+     a8a:	c5 fd 29 84 24 40 01 00 00 	vmovapd	%ymm0, 320(%rsp)
+     a93:	c5 fd 29 84 24 00 01 00 00 	vmovapd	%ymm0, 256(%rsp)
+     a9c:	c5 fd 29 84 24 c0 00 00 00 	vmovapd	%ymm0, 192(%rsp)
+     aa5:	c5 fd 29 84 24 e0 00 00 00 	vmovapd	%ymm0, 224(%rsp)
+     aae:	c5 fd 29 84 24 20 01 00 00 	vmovapd	%ymm0, 288(%rsp)
+     ab7:	4c 8b 5c 24 58 	movq	88(%rsp), %r11
+     abc:	48 8b 5c 24 50 	movq	80(%rsp), %rbx
+     ac1:	4c 8b 64 24 48 	movq	72(%rsp), %r12
+     ac6:	4c 8b 74 24 40 	movq	64(%rsp), %r14
+     acb:	49 c1 e1 05 	shlq	$5, %r9
+     acf:	c5 fd 28 f8 	vmovapd	%ymm0, %ymm7
+     ad3:	c5 7d 28 c0 	vmovapd	%ymm0, %ymm8
+     ad7:	c5 7d 28 c8 	vmovapd	%ymm0, %ymm9
+     adb:	c5 7d 28 d0 	vmovapd	%ymm0, %ymm10
+     adf:	c5 7d 28 d8 	vmovapd	%ymm0, %ymm11
+     ae3:	c5 7d 28 e0 	vmovapd	%ymm0, %ymm12
+     ae7:	c5 7d 28 e8 	vmovapd	%ymm0, %ymm13
+     aeb:	c5 7d 28 f0 	vmovapd	%ymm0, %ymm14
+     aef:	c5 7d 28 f8 	vmovapd	%ymm0, %ymm15
+     af3:	49 89 d2 	movq	%rdx, %r10
+     af6:	c5 fd 29 84 24 a0 00 00 00 	vmovapd	%ymm0, 160(%rsp)
+     aff:	90 	nop
+     b00:	49 8d 14 01 	leaq	(%r9,%rax), %rdx
+; double4_t b8 = data[na*(i * V + l) + k];
+     b04:	c5 fd 28 40 e0 	vmovapd	-32(%rax), %ymm0
+; double4_t a8 = data[na*(j * H + d) + k];
+     b09:	c4 a1 7d 28 6c 1a e0 	vmovapd	-32(%rdx,%r11), %ymm5
+     b10:	c5 fd 28 64 1a e0 	vmovapd	-32(%rdx,%rbx), %ymm4
+     b16:	c4 a1 7d 28 5c 22 e0 	vmovapd	-32(%rdx,%r12), %ymm3
+     b1d:	c4 a1 7d 28 54 32 e0 	vmovapd	-32(%rdx,%r14), %ymm2
+     b24:	c4 a1 7d 28 4c 3a e0 	vmovapd	-32(%rdx,%r15), %ymm1
+; block[l][d] += a8 * b8;
+     b2b:	c4 62 fd b8 fd 	vfmadd231pd	%ymm5, %ymm0, %ymm15
+     b30:	c4 62 fd b8 f4 	vfmadd231pd	%ymm4, %ymm0, %ymm14
+     b35:	c4 62 fd b8 eb 	vfmadd231pd	%ymm3, %ymm0, %ymm13
+     b3a:	c4 62 fd b8 e2 	vfmadd231pd	%ymm2, %ymm0, %ymm12
+     b3f:	c4 e2 f5 a8 84 24 20 01 00 00 	vfmadd213pd	288(%rsp), %ymm1, %ymm0
+; __builtin_prefetch(&data[na*(i * V + l) + k + 1]);
+     b49:	0f 18 08 	prefetcht0	(%rax)
+; double4_t b8 = data[na*(i * V + l) + k];
+     b4c:	41 0f 18 08 	prefetcht0	(%r8)
+; block[l][d] += a8 * b8;
+     b50:	c5 fd 28 b4 24 a0 00 00 00 	vmovapd	160(%rsp), %ymm6
+; __builtin_prefetch(&data[na*(i * V + l) + k + 1]);
+     b59:	0f 18 0e 	prefetcht0	(%rsi)
+; block[l][d] += a8 * b8;
+     b5c:	c5 fd 29 84 24 20 01 00 00 	vmovapd	%ymm0, 288(%rsp)
+; __builtin_prefetch(&data[na*(i * V + l) + k + 1]);
+     b65:	c4 c1 7d 28 40 e0 	vmovapd	-32(%r8), %ymm0
+; for (int d = 0; d < H; d++) {
+     b6b:	0f 18 0f 	prefetcht0	(%rdi)
+; block[l][d] += a8 * b8;
+     b6e:	c4 62 d5 b8 d8 	vfmadd231pd	%ymm0, %ymm5, %ymm11
+; double4_t a8 = data[na*(j * H + d) + k];
+     b73:	c4 62 dd b8 d0 	vfmadd231pd	%ymm0, %ymm4, %ymm10
+     b78:	c4 62 e5 b8 c8 	vfmadd231pd	%ymm0, %ymm3, %ymm9
+     b7d:	c4 62 ed b8 c0 	vfmadd231pd	%ymm0, %ymm2, %ymm8
+     b82:	c4 e2 f5 a8 84 24 e0 00 00 00 	vfmadd213pd	224(%rsp), %ymm1, %ymm0
+; block[l][d] += a8 * b8;
+     b8c:	48 83 c0 20 	addq	$32, %rax
+; __builtin_prefetch(&data[na*(i * V + l) + k + 1]);
+     b90:	0f 18 09 	prefetcht0	(%rcx)
+     b93:	49 83 c0 20 	addq	$32, %r8
+     b97:	48 83 c6 20 	addq	$32, %rsi
+; block[l][d] += a8 * b8;
+     b9b:	c5 fd 29 84 24 e0 00 00 00 	vmovapd	%ymm0, 224(%rsp)
+; __builtin_prefetch(&data[na*(i * V + l) + k + 1]);
+     ba4:	c5 fd 28 46 c0 	vmovapd	-64(%rsi), %ymm0
+; for (int d = 0; d < H; d++) {
+     ba9:	48 83 c7 20 	addq	$32, %rdi
+; block[l][d] += a8 * b8;
+     bad:	c4 e2 dd b8 f0 	vfmadd231pd	%ymm0, %ymm4, %ymm6
+     bb2:	c4 e2 d5 b8 f8 	vfmadd231pd	%ymm0, %ymm5, %ymm7
+; double4_t a8 = data[na*(j * H + d) + k];
+     bb7:	48 83 c1 20 	addq	$32, %rcx
+; block[l][d] += a8 * b8;
+     bbb:	c5 fd 29 b4 24 a0 00 00 00 	vmovapd	%ymm6, 160(%rsp)
+; double4_t a8 = data[na*(j * H + d) + k];
+     bc4:	c5 fd 28 b4 24 c0 00 00 00 	vmovapd	192(%rsp), %ymm6
+; block[l][d] += a8 * b8;
+     bcd:	c4 e2 e5 b8 f0 	vfmadd231pd	%ymm0, %ymm3, %ymm6
+     bd2:	c5 fd 29 b4 24 c0 00 00 00 	vmovapd	%ymm6, 192(%rsp)
+; double4_t a8 = data[na*(j * H + d) + k];
+     bdb:	c5 fd 28 b4 24 00 01 00 00 	vmovapd	256(%rsp), %ymm6
+; block[l][d] += a8 * b8;
+     be4:	c4 e2 ed b8 f0 	vfmadd231pd	%ymm0, %ymm2, %ymm6
+     be9:	c4 e2 f5 a8 84 24 40 01 00 00 	vfmadd213pd	320(%rsp), %ymm1, %ymm0
+     bf3:	c5 fd 29 b4 24 00 01 00 00 	vmovapd	%ymm6, 256(%rsp)
+; double4_t a8 = data[na*(j * H + d) + k];
+     bfc:	c5 fd 29 84 24 40 01 00 00 	vmovapd	%ymm0, 320(%rsp)
+; __builtin_prefetch(&data[na*(i * V + l) + k + 1]);
+     c05:	c5 fd 28 b4 24 60 01 00 00 	vmovapd	352(%rsp), %ymm6
+; double4_t b8 = data[na*(i * V + l) + k];
+     c0e:	c5 fd 28 47 c0 	vmovapd	-64(%rdi), %ymm0
+; for (int d = 0; d < H; d++) {
+     c13:	c4 e2 d5 b8 f0 	vfmadd231pd	%ymm0, %ymm5, %ymm6
+; block[l][d] += a8 * b8;
+     c18:	c5 fd 29 b4 24 60 01 00 00 	vmovapd	%ymm6, 352(%rsp)
+; double4_t a8 = data[na*(j * H + d) + k];
+     c21:	c5 fd 28 b4 24 80 01 00 00 	vmovapd	384(%rsp), %ymm6
+; block[l][d] += a8 * b8;
+     c2a:	c4 e2 dd b8 f0 	vfmadd231pd	%ymm0, %ymm4, %ymm6
+     c2f:	c5 fd 29 b4 24 80 01 00 00 	vmovapd	%ymm6, 384(%rsp)
+; double4_t a8 = data[na*(j * H + d) + k];
+     c38:	c5 fd 28 b4 24 a0 01 00 00 	vmovapd	416(%rsp), %ymm6
+; block[l][d] += a8 * b8;
+     c41:	c4 e2 e5 b8 f0 	vfmadd231pd	%ymm0, %ymm3, %ymm6
+     c46:	c5 fd 29 b4 24 a0 01 00 00 	vmovapd	%ymm6, 416(%rsp)
+; double4_t a8 = data[na*(j * H + d) + k];
+     c4f:	c5 fd 28 b4 24 c0 01 00 00 	vmovapd	448(%rsp), %ymm6
+; block[l][d] += a8 * b8;
+     c58:	c4 e2 ed b8 f0 	vfmadd231pd	%ymm0, %ymm2, %ymm6
+     c5d:	c5 fd 29 b4 24 c0 01 00 00 	vmovapd	%ymm6, 448(%rsp)
+; double4_t a8 = data[na*(j * H + d) + k];
+     c66:	c4 e2 f5 a8 84 24 e0 01 00 00 	vfmadd213pd	480(%rsp), %ymm1, %ymm0
+; block[l][d] += a8 * b8;
+     c70:	c5 fd 29 84 24 e0 01 00 00 	vmovapd	%ymm0, 480(%rsp)
+; __builtin_prefetch(&data[na*(i * V + l) + k + 1]);
+     c79:	c5 fd 28 41 c0 	vmovapd	-64(%rcx), %ymm0
+; for (int d = 0; d < H; d++) {
+     c7e:	c4 e2 fd a8 ac 24 00 02 00 00 	vfmadd213pd	512(%rsp), %ymm0, %ymm5
+; block[l][d] += a8 * b8;
+     c88:	c4 e2 fd a8 a4 24 20 02 00 00 	vfmadd213pd	544(%rsp), %ymm0, %ymm4
+     c92:	c4 e2 fd a8 9c 24 40 02 00 00 	vfmadd213pd	576(%rsp), %ymm0, %ymm3
+     c9c:	c4 e2 fd a8 94 24 60 02 00 00 	vfmadd213pd	608(%rsp), %ymm0, %ymm2
+     ca6:	c4 e2 fd a8 8c 24 80 02 00 00 	vfmadd213pd	640(%rsp), %ymm0, %ymm1
+     cb0:	c5 fd 29 ac 24 00 02 00 00 	vmovapd	%ymm5, 512(%rsp)
+; double4_t a8 = data[na*(j * H + d) + k];
+     cb9:	c5 fd 29 a4 24 20 02 00 00 	vmovapd	%ymm4, 544(%rsp)
+     cc2:	c5 fd 29 9c 24 40 02 00 00 	vmovapd	%ymm3, 576(%rsp)
+     ccb:	c5 fd 29 94 24 60 02 00 00 	vmovapd	%ymm2, 608(%rsp)
+     cd4:	c5 fd 29 8c 24 80 02 00 00 	vmovapd	%ymm1, 640(%rsp)
+; for (int k = 0; k < na; k++) {
+     cdd:	49 39 c2 	cmpq	%rax, %r10
+     ce0:	0f 85 1a fe ff ff 	jne	-486 <__Z9correlateiiPKfPf._omp_fn.3+0x410>
+     ce6:	c5 fd 29 bc 24 00 04 00 00 	vmovapd	%ymm7, 1024(%rsp)
+     cef:	c5 fd 28 bc 24 c0 00 00 00 	vmovapd	192(%rsp), %ymm7
+     cf8:	c5 fd 28 8c 24 20 01 00 00 	vmovapd	288(%rsp), %ymm1
+     d01:	c5 fd 29 bc 24 40 04 00 00 	vmovapd	%ymm7, 1088(%rsp)
+     d0a:	c5 fd 28 bc 24 00 01 00 00 	vmovapd	256(%rsp), %ymm7
+     d13:	c5 fd 28 b4 24 a0 00 00 00 	vmovapd	160(%rsp), %ymm6
+     d1c:	c5 fd 29 bc 24 60 04 00 00 	vmovapd	%ymm7, 1120(%rsp)
+     d25:	c5 fd 28 bc 24 40 01 00 00 	vmovapd	320(%rsp), %ymm7
+     d2e:	c5 fd 29 8c 24 40 03 00 00 	vmovapd	%ymm1, 832(%rsp)
+     d37:	c5 fd 29 bc 24 80 04 00 00 	vmovapd	%ymm7, 1152(%rsp)
+     d40:	c5 fd 28 bc 24 60 01 00 00 	vmovapd	352(%rsp), %ymm7
+     d49:	c5 fd 28 8c 24 e0 00 00 00 	vmovapd	224(%rsp), %ymm1
+     d52:	c5 fd 29 bc 24 a0 04 00 00 	vmovapd	%ymm7, 1184(%rsp)
+     d5b:	c5 fd 28 bc 24 80 01 00 00 	vmovapd	384(%rsp), %ymm7
+     d64:	44 8b b4 24 84 00 00 00 	movl	132(%rsp), %r14d
+     d6c:	c5 fd 29 bc 24 c0 04 00 00 	vmovapd	%ymm7, 1216(%rsp)
+     d75:	c5 fd 28 bc 24 a0 01 00 00 	vmovapd	416(%rsp), %ymm7
+     d7e:	44 8b 9c 24 80 00 00 00 	movl	128(%rsp), %r11d
+     d86:	8b 5c 24 7c 	movl	124(%rsp), %ebx
+     d8a:	44 8b 64 24 78 	movl	120(%rsp), %r12d
+     d8f:	44 8b 54 24 74 	movl	116(%rsp), %r10d
+     d94:	c5 7d 29 bc 24 c0 02 00 00 	vmovapd	%ymm15, 704(%rsp)
+     d9d:	c5 7d 29 b4 24 e0 02 00 00 	vmovapd	%ymm14, 736(%rsp)
+     da6:	c5 7d 29 ac 24 00 03 00 00 	vmovapd	%ymm13, 768(%rsp)
+     daf:	c5 7d 29 a4 24 20 03 00 00 	vmovapd	%ymm12, 800(%rsp)
+     db8:	c5 7d 29 9c 24 60 03 00 00 	vmovapd	%ymm11, 864(%rsp)
+     dc1:	c5 7d 29 94 24 80 03 00 00 	vmovapd	%ymm10, 896(%rsp)
+     dca:	c5 7d 29 8c 24 a0 03 00 00 	vmovapd	%ymm9, 928(%rsp)
+     dd3:	c5 7d 29 84 24 c0 03 00 00 	vmovapd	%ymm8, 960(%rsp)
+     ddc:	c5 fd 29 8c 24 e0 03 00 00 	vmovapd	%ymm1, 992(%rsp)
+     de5:	c5 fd 29 b4 24 20 04 00 00 	vmovapd	%ymm6, 1056(%rsp)
+     dee:	c5 fd 29 bc 24 e0 04 00 00 	vmovapd	%ymm7, 1248(%rsp)
+     df7:	c5 fd 28 bc 24 c0 01 00 00 	vmovapd	448(%rsp), %ymm7
+     e00:	c5 fd 29 ac 24 40 05 00 00 	vmovapd	%ymm5, 1344(%rsp)
+     e09:	c5 fd 29 bc 24 00 05 00 00 	vmovapd	%ymm7, 1280(%rsp)
+     e12:	c5 fd 28 bc 24 e0 01 00 00 	vmovapd	480(%rsp), %ymm7
+     e1b:	c5 fd 29 a4 24 60 05 00 00 	vmovapd	%ymm4, 1376(%rsp)
+     e24:	c5 fd 29 bc 24 20 05 00 00 	vmovapd	%ymm7, 1312(%rsp)
+     e2d:	c5 fd 28 bc 24 80 02 00 00 	vmovapd	640(%rsp), %ymm7
+     e36:	c5 fd 29 9c 24 80 05 00 00 	vmovapd	%ymm3, 1408(%rsp)
+     e3f:	c5 fd 29 94 24 a0 05 00 00 	vmovapd	%ymm2, 1440(%rsp)
+     e48:	c5 fd 29 bc 24 c0 05 00 00 	vmovapd	%ymm7, 1472(%rsp)
+     e51:	8b 84 24 8c 00 00 00 	movl	140(%rsp), %eax
+; for (int jd = 0; jd < H; jd++) {
+     e58:	48 8b 7c 24 68 	movq	104(%rsp), %rdi
+     e5d:	41 8d 0c 02 	leal	(%r10,%rax), %ecx
+; __builtin_prefetch(&data[na*(i * V + l) + k + 1]);
+     e61:	8b 84 24 9c 00 00 00 	movl	156(%rsp), %eax
+; for (int jd = 0; jd < H; jd++) {
+     e68:	31 d2 	xorl	%edx, %edx
+; int jj = j * H + jd;
+     e6a:	44 39 d0 	cmpl	%r10d, %eax
+; if (ii < ny && jj < ny && ii >= jj) {
+     e6d:	44 89 d6 	movl	%r10d, %esi
+     e70:	0f 4d f0 	cmovgel	%eax, %esi
+     e73:	41 39 f6 	cmpl	%esi, %r14d
+     e76:	7e 09 	jle	9 <__Z9correlateiiPKfPf._omp_fn.3+0x791>
+     e78:	44 39 d0 	cmpl	%r10d, %eax
+     e7b:	0f 8e 13 01 00 00 	jle	275 <__Z9correlateiiPKfPf._omp_fn.3+0x8a4>
+; int jj = j * H + jd;
+     e81:	44 39 d8 	cmpl	%r11d, %eax
+; if (ii < ny && jj < ny && ii >= jj) {
+     e84:	44 89 de 	movl	%r11d, %esi
+     e87:	0f 4d f0 	cmovgel	%eax, %esi
+     e8a:	41 39 f6 	cmpl	%esi, %r14d
+     e8d:	7e 09 	jle	9 <__Z9correlateiiPKfPf._omp_fn.3+0x7a8>
+     e8f:	44 39 d8 	cmpl	%r11d, %eax
+     e92:	0f 8e 41 01 00 00 	jle	321 <__Z9correlateiiPKfPf._omp_fn.3+0x8e9>
+; int jj = j * H + jd;
+     e98:	39 d8 	cmpl	%ebx, %eax
+; if (ii < ny && jj < ny && ii >= jj) {
+     e9a:	89 de 	movl	%ebx, %esi
+     e9c:	0f 4d f0 	cmovgel	%eax, %esi
+     e9f:	41 39 f6 	cmpl	%esi, %r14d
+     ea2:	7e 08 	jle	8 <__Z9correlateiiPKfPf._omp_fn.3+0x7bc>
+     ea4:	39 d8 	cmpl	%ebx, %eax
+     ea6:	0f 8e 7a 01 00 00 	jle	378 <__Z9correlateiiPKfPf._omp_fn.3+0x936>
+; int jj = j * H + jd;
+     eac:	44 39 e0 	cmpl	%r12d, %eax
+; if (ii < ny && jj < ny && ii >= jj) {
+     eaf:	44 89 e6 	movl	%r12d, %esi
+     eb2:	0f 4d f0 	cmovgel	%eax, %esi
+     eb5:	41 39 f6 	cmpl	%esi, %r14d
+     eb8:	7e 09 	jle	9 <__Z9correlateiiPKfPf._omp_fn.3+0x7d3>
+     eba:	44 39 e0 	cmpl	%r12d, %eax
+     ebd:	0f 8e b0 01 00 00 	jle	432 <__Z9correlateiiPKfPf._omp_fn.3+0x983>
+; int jj = j * H + jd;
+     ec3:	44 39 e8 	cmpl	%r13d, %eax
+; if (ii < ny && jj < ny && ii >= jj) {
+     ec6:	44 89 ee 	movl	%r13d, %esi
+     ec9:	0f 4d f0 	cmovgel	%eax, %esi
+     ecc:	41 39 f6 	cmpl	%esi, %r14d
+     ecf:	7e 09 	jle	9 <__Z9correlateiiPKfPf._omp_fn.3+0x7ea>
+     ed1:	44 39 e8 	cmpl	%r13d, %eax
+     ed4:	0f 8e e6 01 00 00 	jle	486 <__Z9correlateiiPKfPf._omp_fn.3+0x9d0>
+; for (int jd = 0; jd < H; jd++) {
+     eda:	ff c2 	incl	%edx
+     edc:	ff c0 	incl	%eax
+     ede:	44 01 f1 	addl	%r14d, %ecx
+     ee1:	83 fa 05 	cmpl	$5, %edx
+     ee4:	75 84 	jne	-124 <__Z9correlateiiPKfPf._omp_fn.3+0x77a>
+; asm("#bar");
+     ee6:	ff 84 24 ac 02 00 00 	incl	684(%rsp)
+; for (int i = col_v; i < ncV; i++) {
+     eed:	8b bc 24 88 00 00 00 	movl	136(%rsp), %edi
+     ef4:	41 83 c5 05 	addl	$5, %r13d
+     ef8:	41 83 c2 05 	addl	$5, %r10d
+     efc:	8b 84 24 ac 02 00 00 	movl	684(%rsp), %eax
+     f03:	41 83 c4 05 	addl	$5, %r12d
+     f07:	83 c3 05 	addl	$5, %ebx
+     f0a:	41 83 c3 05 	addl	$5, %r11d
+     f0e:	01 bc 24 a8 02 00 00 	addl	%edi, 680(%rsp)
+     f15:	39 84 24 98 00 00 00 	cmpl	%eax, 152(%rsp)
+     f1c:	0f 8f 5e f9 ff ff 	jg	-1698 <__Z9correlateiiPKfPf._omp_fn.3+0x190>
+     f22:	ff 44 24 70 	incl	112(%rsp)
+     f26:	8b 4c 24 28 	movl	40(%rsp), %ecx
+     f2a:	83 84 24 9c 00 00 00 05 	addl	$5, 156(%rsp)
+     f32:	01 8c 24 8c 00 00 00 	addl	%ecx, 140(%rsp)
+     f39:	8b 5c 24 70 	movl	112(%rsp), %ebx
+     f3d:	01 7c 24 3c 	addl	%edi, 60(%rsp)
+     f41:	01 bc 24 90 00 00 00 	addl	%edi, 144(%rsp)
+     f48:	01 7c 24 30 	addl	%edi, 48(%rsp)
+     f4c:	01 7c 24 34 	addl	%edi, 52(%rsp)
+     f50:	01 7c 24 38 	addl	%edi, 56(%rsp)
+     f54:	01 7c 24 60 	addl	%edi, 96(%rsp)
+     f58:	01 7c 24 64 	addl	%edi, 100(%rsp)
+     f5c:	3b 5c 24 2c 	cmpl	44(%rsp), %ebx
+     f60:	0f 8c a5 f8 ff ff 	jl	-1883 <__Z9correlateiiPKfPf._omp_fn.3+0x11b>
+     f66:	c5 f8 77 	vzeroupper
+     f69:	48 8b 74 24 18 	movq	24(%rsp), %rsi
+     f6e:	48 8b 7c 24 20 	movq	32(%rsp), %rdi
+     f73:	e8 00 00 00 00 	callq	0 <__Z9correlateiiPKfPf._omp_fn.3+0x888>
+     f78:	84 c0 	testb	%al, %al
+     f7a:	0f 85 fd f7 ff ff 	jne	-2051 <__Z9correlateiiPKfPf._omp_fn.3+0x8d>
+     f80:	e8 00 00 00 00 	callq	0 <__Z9correlateiiPKfPf._omp_fn.3+0x895>
+; #pragma omp parallel for schedule(dynamic,1)
+     f85:	48 8d 65 d8 	leaq	-40(%rbp), %rsp
+     f89:	5b 	popq	%rbx
+     f8a:	41 5c 	popq	%r12
+     f8c:	41 5d 	popq	%r13
+     f8e:	41 5e 	popq	%r14
+     f90:	41 5f 	popq	%r15
+     f92:	5d 	popq	%rbp
+     f93:	c3 	retq
+; for (int kk = 0; kk < 4; kk++) sum += block[id][jd][kk];
+     f94:	48 63 f2 	movslq	%edx, %rsi
+     f97:	48 c1 e6 05 	shlq	$5, %rsi
+     f9b:	c5 c1 57 ff 	vxorpd	%xmm7, %xmm7, %xmm7
+     f9f:	c5 c3 58 84 34 c0 02 00 00 	vaddsd	704(%rsp,%rsi), %xmm7, %xmm0
+     fa8:	4c 63 c1 	movslq	%ecx, %r8
+; result[jj*ny+ii] = sum;
+     fab:	c5 c0 57 ff 	vxorps	%xmm7, %xmm7, %xmm7
+; for (int kk = 0; kk < 4; kk++) sum += block[id][jd][kk];
+     faf:	c5 fb 58 84 34 c8 02 00 00 	vaddsd	712(%rsp,%rsi), %xmm0, %xmm0
+     fb8:	c5 fb 58 84 34 d0 02 00 00 	vaddsd	720(%rsp,%rsi), %xmm0, %xmm0
+     fc1:	c5 fb 58 84 34 d8 02 00 00 	vaddsd	728(%rsp,%rsi), %xmm0, %xmm0
+; result[jj*ny+ii] = sum;
+     fca:	c5 c3 5a f8 	vcvtsd2ss	%xmm0, %xmm7, %xmm7
+     fce:	c4 a1 7a 11 3c 87 	vmovss	%xmm7, (%rdi,%r8,4)
+     fd4:	e9 a8 fe ff ff 	jmp	-344 <__Z9correlateiiPKfPf._omp_fn.3+0x791>
+; for (int kk = 0; kk < 4; kk++) sum += block[id][jd][kk];
+     fd9:	48 63 f2 	movslq	%edx, %rsi
+     fdc:	48 83 c6 05 	addq	$5, %rsi
+     fe0:	48 c1 e6 05 	shlq	$5, %rsi
+     fe4:	c5 c1 57 ff 	vxorpd	%xmm7, %xmm7, %xmm7
+     fe8:	c5 c3 58 84 34 c0 02 00 00 	vaddsd	704(%rsp,%rsi), %xmm7, %xmm0
+     ff1:	44 8d 41 01 	leal	1(%rcx), %r8d
+; result[jj*ny+ii] = sum;
+     ff5:	4d 63 c0 	movslq	%r8d, %r8
+; for (int kk = 0; kk < 4; kk++) sum += block[id][jd][kk];
+     ff8:	c5 fb 58 84 34 c8 02 00 00 	vaddsd	712(%rsp,%rsi), %xmm0, %xmm0
+    1001:	c5 c0 57 ff 	vxorps	%xmm7, %xmm7, %xmm7
+    1005:	c5 fb 58 84 34 d0 02 00 00 	vaddsd	720(%rsp,%rsi), %xmm0, %xmm0
+    100e:	c5 fb 58 84 34 d8 02 00 00 	vaddsd	728(%rsp,%rsi), %xmm0, %xmm0
+; result[jj*ny+ii] = sum;
+    1017:	c5 c3 5a f8 	vcvtsd2ss	%xmm0, %xmm7, %xmm7
+    101b:	c4 a1 7a 11 3c 87 	vmovss	%xmm7, (%rdi,%r8,4)
+    1021:	e9 72 fe ff ff 	jmp	-398 <__Z9correlateiiPKfPf._omp_fn.3+0x7a8>
+; for (int kk = 0; kk < 4; kk++) sum += block[id][jd][kk];
+    1026:	48 63 f2 	movslq	%edx, %rsi
+    1029:	48 83 c6 0a 	addq	$10, %rsi
+    102d:	48 c1 e6 05 	shlq	$5, %rsi
+    1031:	c5 c1 57 ff 	vxorpd	%xmm7, %xmm7, %xmm7
+    1035:	c5 c3 58 84 34 c0 02 00 00 	vaddsd	704(%rsp,%rsi), %xmm7, %xmm0
+    103e:	44 8d 41 02 	leal	2(%rcx), %r8d
+; result[jj*ny+ii] = sum;
+    1042:	4d 63 c0 	movslq	%r8d, %r8
+; for (int kk = 0; kk < 4; kk++) sum += block[id][jd][kk];
+    1045:	c5 fb 58 84 34 c8 02 00 00 	vaddsd	712(%rsp,%rsi), %xmm0, %xmm0
+    104e:	c5 c0 57 ff 	vxorps	%xmm7, %xmm7, %xmm7
+    1052:	c5 fb 58 84 34 d0 02 00 00 	vaddsd	720(%rsp,%rsi), %xmm0, %xmm0
+    105b:	c5 fb 58 84 34 d8 02 00 00 	vaddsd	728(%rsp,%rsi), %xmm0, %xmm0
+; result[jj*ny+ii] = sum;
+    1064:	c5 c3 5a f8 	vcvtsd2ss	%xmm0, %xmm7, %xmm7
+    1068:	c4 a1 7a 11 3c 87 	vmovss	%xmm7, (%rdi,%r8,4)
+    106e:	e9 39 fe ff ff 	jmp	-455 <__Z9correlateiiPKfPf._omp_fn.3+0x7bc>
+; for (int kk = 0; kk < 4; kk++) sum += block[id][jd][kk];
+    1073:	48 63 f2 	movslq	%edx, %rsi
+    1076:	48 83 c6 0f 	addq	$15, %rsi
+    107a:	48 c1 e6 05 	shlq	$5, %rsi
+    107e:	c5 c1 57 ff 	vxorpd	%xmm7, %xmm7, %xmm7
+    1082:	c5 c3 58 84 34 c0 02 00 00 	vaddsd	704(%rsp,%rsi), %xmm7, %xmm0
+    108b:	44 8d 41 03 	leal	3(%rcx), %r8d
+; result[jj*ny+ii] = sum;
+    108f:	4d 63 c0 	movslq	%r8d, %r8
+; for (int kk = 0; kk < 4; kk++) sum += block[id][jd][kk];
+    1092:	c5 fb 58 84 34 c8 02 00 00 	vaddsd	712(%rsp,%rsi), %xmm0, %xmm0
+    109b:	c5 c0 57 ff 	vxorps	%xmm7, %xmm7, %xmm7
+    109f:	c5 fb 58 84 34 d0 02 00 00 	vaddsd	720(%rsp,%rsi), %xmm0, %xmm0
+    10a8:	c5 fb 58 84 34 d8 02 00 00 	vaddsd	728(%rsp,%rsi), %xmm0, %xmm0
+; result[jj*ny+ii] = sum;
+    10b1:	c5 c3 5a f8 	vcvtsd2ss	%xmm0, %xmm7, %xmm7
+    10b5:	c4 a1 7a 11 3c 87 	vmovss	%xmm7, (%rdi,%r8,4)
+    10bb:	e9 03 fe ff ff 	jmp	-509 <__Z9correlateiiPKfPf._omp_fn.3+0x7d3>
+; for (int kk = 0; kk < 4; kk++) sum += block[id][jd][kk];
+    10c0:	48 63 f2 	movslq	%edx, %rsi
+    10c3:	48 83 c6 14 	addq	$20, %rsi
+    10c7:	48 c1 e6 05 	shlq	$5, %rsi
+    10cb:	c5 c1 57 ff 	vxorpd	%xmm7, %xmm7, %xmm7
+    10cf:	c5 c3 58 84 34 c0 02 00 00 	vaddsd	704(%rsp,%rsi), %xmm7, %xmm0
+    10d8:	44 8d 41 04 	leal	4(%rcx), %r8d
+; result[jj*ny+ii] = sum;
+    10dc:	4d 63 c0 	movslq	%r8d, %r8
+; for (int kk = 0; kk < 4; kk++) sum += block[id][jd][kk];
+    10df:	c5 fb 58 84 34 c8 02 00 00 	vaddsd	712(%rsp,%rsi), %xmm0, %xmm0
+    10e8:	c5 c0 57 ff 	vxorps	%xmm7, %xmm7, %xmm7
+    10ec:	c5 fb 58 84 34 d0 02 00 00 	vaddsd	720(%rsp,%rsi), %xmm0, %xmm0
+    10f5:	c5 fb 58 84 34 d8 02 00 00 	vaddsd	728(%rsp,%rsi), %xmm0, %xmm0
+; result[jj*ny+ii] = sum;
+    10fe:	c5 c3 5a f8 	vcvtsd2ss	%xmm0, %xmm7, %xmm7
+    1102:	c4 a1 7a 11 3c 87 	vmovss	%xmm7, (%rdi,%r8,4)
+    1108:	e9 cd fd ff ff 	jmp	-563 <__Z9correlateiiPKfPf._omp_fn.3+0x7ea>
+    110d:	0f 1f 00 	nopl	(%rax)
+
+__Z10preprocessPKfiiiii:
+; const int nb, const int na, const int ncd) {
+    1110:	41 57 	pushq	%r15
+    1112:	41 89 d7 	movl	%edx, %r15d
+; double4_t* data = double4_alloc(ncd*na);
+    1115:	44 89 ca 	movl	%r9d, %edx
+; const int nb, const int na, const int ncd) {
+    1118:	41 56 	pushq	%r14
+; double4_t* data = double4_alloc(ncd*na);
+    111a:	41 0f af d0 	imull	%r8d, %edx
+; const int nb, const int na, const int ncd) {
+    111e:	41 89 ce 	movl	%ecx, %r14d
+    1121:	41 55 	pushq	%r13
+; double4_t* data = double4_alloc(ncd*na);
+    1123:	48 63 d2 	movslq	%edx, %rdx
+; return static_cast<double4_t*>(aligned_malloc(sizeof(double4_t) * n));
+    1126:	48 c1 e2 05 	shlq	$5, %rdx
+; const int nb, const int na, const int ncd) {
+    112a:	41 54 	pushq	%r12
+    112c:	41 89 f5 	movl	%esi, %r13d
+; if (posix_memalign(&ret, 32, bytes)) {
+    112f:	be 20 00 00 00 	movl	$32, %esi
+; const int nb, const int na, const int ncd) {
+    1134:	55 	pushq	%rbp
+    1135:	44 89 c5 	movl	%r8d, %ebp
+    1138:	53 	pushq	%rbx
+    1139:	48 83 ec 38 	subq	$56, %rsp
+; if (posix_memalign(&ret, 32, bytes)) {
+    113d:	48 8d 5c 24 10 	leaq	16(%rsp), %rbx
+; const int nb, const int na, const int ncd) {
+    1142:	48 89 7c 24 08 	movq	%rdi, 8(%rsp)
+; if (posix_memalign(&ret, 32, bytes)) {
+    1147:	48 89 df 	movq	%rbx, %rdi
+; double4_t* data = double4_alloc(ncd*na);
+    114a:	44 89 4c 24 04 	movl	%r9d, 4(%rsp)
+; void* ret = nullptr;
+    114f:	48 c7 44 24 10 00 00 00 00 	movq	$0, 16(%rsp)
+; if (posix_memalign(&ret, 32, bytes)) {
+    1158:	e8 00 00 00 00 	callq	0 <__Z10preprocessPKfiiiii+0x4d>
+    115d:	85 c0 	testl	%eax, %eax
+    115f:	44 8b 4c 24 04 	movl	4(%rsp), %r9d
+    1164:	4c 8b 54 24 08 	movq	8(%rsp), %r10
+    1169:	0f 85 b1 00 00 00 	jne	177 <__Z10preprocessPKfiiiii+0x110>
+; return ret;
+    116f:	4c 8b 64 24 10 	movq	16(%rsp), %r12
+    1174:	48 89 de 	movq	%rbx, %rsi
+    1177:	31 c9 	xorl	%ecx, %ecx
+    1179:	31 d2 	xorl	%edx, %edx
+    117b:	48 8d 3d 00 00 00 00 	leaq	(%rip), %rdi
+; #pragma omp parallel for
+    1182:	4c 89 54 24 10 	movq	%r10, 16(%rsp)
+    1187:	44 89 4c 24 04 	movl	%r9d, 4(%rsp)
+    118c:	4c 89 64 24 18 	movq	%r12, 24(%rsp)
+    1191:	89 6c 24 2c 	movl	%ebp, 44(%rsp)
+    1195:	44 89 74 24 28 	movl	%r14d, 40(%rsp)
+    119a:	44 89 7c 24 24 	movl	%r15d, 36(%rsp)
+    119f:	44 89 6c 24 20 	movl	%r13d, 32(%rsp)
+    11a4:	e8 00 00 00 00 	callq	0 <__Z10preprocessPKfiiiii+0x99>
+; #pragma omp parallel for
+    11a9:	44 8b 4c 24 04 	movl	4(%rsp), %r9d
+    11ae:	48 89 de 	movq	%rbx, %rsi
+    11b1:	31 c9 	xorl	%ecx, %ecx
+    11b3:	31 d2 	xorl	%edx, %edx
+    11b5:	48 8d 3d 00 00 00 00 	leaq	(%rip), %rdi
+    11bc:	4c 89 64 24 10 	movq	%r12, 16(%rsp)
+    11c1:	44 89 4c 24 24 	movl	%r9d, 36(%rsp)
+    11c6:	89 6c 24 20 	movl	%ebp, 32(%rsp)
+    11ca:	44 89 74 24 1c 	movl	%r14d, 28(%rsp)
+    11cf:	44 89 6c 24 18 	movl	%r13d, 24(%rsp)
+    11d4:	e8 00 00 00 00 	callq	0 <__Z10preprocessPKfiiiii+0xc9>
+; #pragma omp parallel for
+    11d9:	48 89 de 	movq	%rbx, %rsi
+    11dc:	31 c9 	xorl	%ecx, %ecx
+    11de:	31 d2 	xorl	%edx, %edx
+    11e0:	48 8d 3d 00 00 00 00 	leaq	(%rip), %rdi
+    11e7:	4c 89 64 24 10 	movq	%r12, 16(%rsp)
+    11ec:	89 6c 24 24 	movl	%ebp, 36(%rsp)
+    11f0:	44 89 74 24 20 	movl	%r14d, 32(%rsp)
+    11f5:	44 89 7c 24 1c 	movl	%r15d, 28(%rsp)
+    11fa:	44 89 6c 24 18 	movl	%r13d, 24(%rsp)
+    11ff:	e8 00 00 00 00 	callq	0 <__Z10preprocessPKfiiiii+0xf4>
+; return data;
+    1204:	48 83 c4 38 	addq	$56, %rsp
+; }
+    1208:	5b 	popq	%rbx
+    1209:	5d 	popq	%rbp
+    120a:	4c 89 e0 	movq	%r12, %rax
+    120d:	41 5c 	popq	%r12
+    120f:	41 5d 	popq	%r13
+    1211:	41 5e 	popq	%r14
+    1213:	41 5f 	popq	%r15
+    1215:	c3 	retq
+    1216:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+; return nullptr;
+    1220:	45 31 e4 	xorl	%r12d, %r12d
+    1223:	e9 4c ff ff ff 	jmp	-180 <__Z10preprocessPKfiiiii+0x64>
+    1228:	0f 1f 84 00 00 00 00 00 	nopl	(%rax,%rax)
+
+__Z9correlateiiPKfPf:
+; void correlate(int ny, int nx, const float* data_, float* result) {
+    1230:	41 56 	pushq	%r14
+; const int na = (nx + nb - 1) / nb;
+    1232:	89 f0 	movl	%esi, %eax
+; void correlate(int ny, int nx, const float* data_, float* result) {
+    1234:	41 55 	pushq	%r13
+    1236:	49 89 cd 	movq	%rcx, %r13
+    1239:	41 54 	pushq	%r12
+; const int na = (nx + nb - 1) / nb;
+    123b:	44 8d 66 06 	leal	6(%rsi), %r12d
+; void correlate(int ny, int nx, const float* data_, float* result) {
+    123f:	55 	pushq	%rbp
+    1240:	89 fd 	movl	%edi, %ebp
+    1242:	48 89 d7 	movq	%rdx, %rdi
+    1245:	53 	pushq	%rbx
+; if (n%a==0 && n%b==0) return n; else n++;
+    1246:	ba 67 66 66 66 	movl	$1717986919, %edx
+    124b:	41 89 e9 	movl	%ebp, %r9d
+; void correlate(int ny, int nx, const float* data_, float* result) {
+    124e:	48 83 ec 20 	subq	$32, %rsp
+; const int na = (nx + nb - 1) / nb;
+    1252:	83 c0 03 	addl	$3, %eax
+    1255:	44 0f 49 e0 	cmovnsl	%eax, %r12d
+; if (n%a==0 && n%b==0) return n; else n++;
+    1259:	89 e8 	movl	%ebp, %eax
+    125b:	f7 ea 	imull	%edx
+    125d:	89 e8 	movl	%ebp, %eax
+    125f:	c1 f8 1f 	sarl	$31, %eax
+    1262:	d1 fa 	sarl	%edx
+    1264:	29 c2 	subl	%eax, %edx
+    1266:	8d 04 92 	leal	(%rdx,%rdx,4), %eax
+; const int na = (nx + nb - 1) / nb;
+    1269:	41 c1 fc 02 	sarl	$2, %r12d
+; const int ncd = div(ny, V, H);
+    126d:	39 c5 	cmpl	%eax, %ebp
+; if (n%a==0 && n%b==0) return n; else n++;
+    126f:	74 1f 	je	31 <__Z9correlateiiPKfPf+0x60>
+    1271:	b9 67 66 66 66 	movl	$1717986919, %ecx
+    1276:	41 ff c1 	incl	%r9d
+; while (true) {
+    1279:	44 89 c8 	movl	%r9d, %eax
+; if (n%a==0 && n%b==0) return n; else n++;
+    127c:	f7 e9 	imull	%ecx
+    127e:	44 89 c8 	movl	%r9d, %eax
+    1281:	c1 f8 1f 	sarl	$31, %eax
+    1284:	d1 fa 	sarl	%edx
+    1286:	29 c2 	subl	%eax, %edx
+    1288:	8d 04 92 	leal	(%rdx,%rdx,4), %eax
+    128b:	41 39 c1 	cmpl	%eax, %r9d
+    128e:	75 e6 	jne	-26 <__Z9correlateiiPKfPf+0x46>
+    1290:	44 89 c8 	movl	%r9d, %eax
+; const int ncV = ncd / V;
+    1293:	ba 67 66 66 66 	movl	$1717986919, %edx
+    1298:	f7 ea 	imull	%edx
+    129a:	44 89 c8 	movl	%r9d, %eax
+; double4_t* data = preprocess(data_, ny, nx, nb, na, ncd);
+    129d:	45 89 e0 	movl	%r12d, %r8d
+; const int ncV = ncd / V;
+    12a0:	89 d3 	movl	%edx, %ebx
+    12a2:	c1 f8 1f 	sarl	$31, %eax
+; double4_t* data = preprocess(data_, ny, nx, nb, na, ncd);
+    12a5:	89 f2 	movl	%esi, %edx
+    12a7:	b9 04 00 00 00 	movl	$4, %ecx
+    12ac:	89 ee 	movl	%ebp, %esi
+; const int ncV = ncd / V;
+    12ae:	d1 fb 	sarl	%ebx
+    12b0:	29 c3 	subl	%eax, %ebx
+; const int ncH = ncd / H;
+    12b2:	e8 00 00 00 00 	callq	0 <__Z9correlateiiPKfPf+0x87>
+; double4_t* data = preprocess(data_, ny, nx, nb, na, ncd);
+    12b7:	49 89 c6 	movq	%rax, %r14
+; #pragma omp parallel for schedule(dynamic,1)
+    12ba:	48 89 e6 	movq	%rsp, %rsi
+    12bd:	31 c9 	xorl	%ecx, %ecx
+    12bf:	31 d2 	xorl	%edx, %edx
+    12c1:	48 8d 3d 00 00 00 00 	leaq	(%rip), %rdi
+    12c8:	48 89 44 24 08 	movq	%rax, 8(%rsp)
+    12cd:	89 5c 24 1c 	movl	%ebx, 28(%rsp)
+    12d1:	89 5c 24 18 	movl	%ebx, 24(%rsp)
+    12d5:	44 89 64 24 14 	movl	%r12d, 20(%rsp)
+    12da:	4c 89 2c 24 	movq	%r13, (%rsp)
+    12de:	89 6c 24 10 	movl	%ebp, 16(%rsp)
+    12e2:	e8 00 00 00 00 	callq	0 <__Z9correlateiiPKfPf+0xb7>
+; free(data);
+    12e7:	4c 89 f7 	movq	%r14, %rdi
+    12ea:	e8 00 00 00 00 	callq	0 <__Z9correlateiiPKfPf+0xbf>
+; }
+    12ef:	48 83 c4 20 	addq	$32, %rsp
+    12f3:	5b 	popq	%rbx
+    12f4:	5d 	popq	%rbp
+    12f5:	41 5c 	popq	%r12
+    12f7:	41 5d 	popq	%r13
+    12f9:	41 5e 	popq	%r14
+    12fb:	c3 	retq
+Disassembly of section __TEXT,__text_startup:
+__GLOBAL__sub_I_cp.cc:
+    1300:	48 83 ec 08 	subq	$8, %rsp
+; static ios_base::Init __ioinit;
+    1304:	48 8d 3d 00 00 00 00 	leaq	(%rip), %rdi
+    130b:	e8 00 00 00 00 	callq	0 <__GLOBAL__sub_I_cp.cc+0x10>
+    1310:	48 8b 3d 00 00 00 00 	movq	(%rip), %rdi
+    1317:	48 8d 15 00 00 00 00 	leaq	(%rip), %rdx
+    131e:	48 8d 35 00 00 00 00 	leaq	(%rip), %rsi
+; }
+    1325:	48 83 c4 08 	addq	$8, %rsp
+; static ios_base::Init __ioinit;
+    1329:	e9 00 00 00 00 	jmp	0 <__GLOBAL__sub_I_cp.cc+0x2e>

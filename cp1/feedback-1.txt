@@ -1,0 +1,16 @@
+0
+
+Looks good!
+
+This is not a mistake by any means, but I recommend declaring local variables in
+the narrowest scope possible unless their construction is expensive (such as
+a heap allocation), as shown here:
+https://google.github.io/styleguide/cppguide.html#Local_Variables
+This improves clarity by making it clear that the value of the variable is
+temporary to that one iteration of the loop. Consider what might happen when
+the same variable is shared between loop iterations and you try to execute those
+iterations in parallel.
+
+--
+Grading by:
+juhok

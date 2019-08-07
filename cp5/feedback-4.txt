@@ -1,0 +1,7 @@
+0
+
+Looks good, just a bit more and you'll have 10/10. Consider checking out shared memory.
+
+--
+Grading by:
+pietu

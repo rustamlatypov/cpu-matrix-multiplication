@@ -1,0 +1,7 @@
+0
+
+Vectorization highly suggested.
+
+--
+Grading by:
+pietu

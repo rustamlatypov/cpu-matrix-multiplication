@@ -1,0 +1,9 @@
+0
+
+Note that the current code is running in 3.9s, and it seems that the benchmarked code (maybe https://github.com/cs-e4580-2019/solutions-rustamlatypov/blob/def50fe289ce9a2360db67189bf420f024ebc184/cp3a/cp.cc as it runs in 2.10s) is different than the current one.
+Please have the benchmarked version pushed to github at the time of the deadline.
+Also, you can try to ask e.g. on channel #advanced for ways of further improving the performance or look at parts V5-V7 in the course material.
+
+--
+Grading by:
+dennis
