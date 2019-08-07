@@ -10,7 +10,7 @@ ppc::stopwatch sw;
 using namespace std;
 
 
-float* transpose(int ny, int nx, const double* data_, double* data) {
+void transpose(int ny, int nx, const double* data_, double* data) {
 
     //#pragma omp parallel for
     for (int i = 0; i < ny; i++) {
