@@ -1,19 +1,19 @@
-bin=cp-test cp-benchmark main
+bin=test benchmark run
 include ../common/Makefile.common
 
-SOURCES+=./../cp-common/*.cc ./../common/*.cc ./../mm/*.cc
-CXXFLAGS+=-I ./ -I ./../cp-common -I ./../common -fopenmp
+SOURCES+= ./../common/*.cc ./../mm/*.cc
+CXXFLAGS+=-I ./ -I ./../common -fopenmp
 LDFLAGS+=-fopenmp
 vpath %.h ../cp-common:../common
 vpath %.cc ../cp-common:../common
 
-main: main.o
+run: run.o
 	$(CXX) $(LDFLAGS) $^ -o $@
 
-cp-test: cp-test.o cp.o error.o
+test: test.o cp.o error.o
 	$(CXX) $(LDFLAGS) $^ -o $@
 
-cp-benchmark: cp-benchmark.o cp.o error.o
+benchmark: benchmark.o cp.o error.o
 	$(CXX) $(LDFLAGS) $^ -o $@
 
 include Makefile.dep
