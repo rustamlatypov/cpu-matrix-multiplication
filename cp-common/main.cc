@@ -46,8 +46,8 @@ int main() {
     std::cout << "\nCumulative error: " << cumsum << std::endl;
     */
 
-    int x = 4000;
-    int y = 4000;
+    int x = 8000;
+    int y = 8000;
 
     double4_t d1 = {0.99, 0.99, 0.99, 0.99};
     double d2 = 0.99;
