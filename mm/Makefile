@@ -10,10 +10,10 @@ vpath %.cc ../cp-common:../common
 run: run.o
 	$(CXX) $(LDFLAGS) $^ -o $@
 
-test: test.o cp.o error.o
+test: test.o fast.o error.o
 	$(CXX) $(LDFLAGS) $^ -o $@
 
-benchmark: benchmark.o cp.o error.o
+benchmark: benchmark.o fast.o error.o
 	$(CXX) $(LDFLAGS) $^ -o $@
 
 include Makefile.dep
