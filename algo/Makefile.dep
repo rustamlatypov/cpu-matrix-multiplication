@@ -1,6 +1,0 @@
-fast.o: fast.cc
-benchmark.o: ../common/benchmark.cc ../common/error.h \
- ../common/timer.h cp.h
-test.o: ../common/test.cc cp.h ../common/error.h
-error.o: ../common/error.cc ../common/error.h
-mm.o: main.cpp fast.cc base.cc debug.cpp

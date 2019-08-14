@@ -1,14 +1,12 @@
-#include "debug.cc"
-#include "fast.cc"
+#include "debug.cpp"
+#include "cp.cc"
 #include "base.cc"
 #include "stopwatch.h"
 ppc::stopwatch sw;
 
-
-
 int main() {
     
-    int s = 100;
+    int s = 5000;
 
     int ny1 = s; int nx1 = s;
     int ny2 = s; int nx2 = s;

@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <cassert>
 
+#include "cp.h"
 #include "error.h"
 
 constexpr float allowed_error = STRICT_PRECISION
