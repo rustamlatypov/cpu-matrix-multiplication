@@ -1,4 +1,4 @@
-#include "debug.cpp"
+#include "debug.cc"
 #include "cp.cc"
 #include "base.cc"
 #include "stopwatch.h"
