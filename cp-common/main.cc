@@ -1,7 +1,7 @@
-#include "debug.cpp"
+//#include "debug.cpp"
 #include "cp.cc"
 #include "base.cc"
-#include "stopwatch.h"
+//#include "stopwatch.h"
 
 int main() {
     /*
