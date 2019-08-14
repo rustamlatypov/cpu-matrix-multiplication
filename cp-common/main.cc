@@ -49,7 +49,7 @@ int main() {
     int x = 4000;
     int y = 4000;
 
-    float4_t d1 = {0.99, 0.99, 0.99, 0.99, };
+    double4_t d1 = {0.99, 0.99, 0.99, 0.99};
     double d2 = 0.99;
 
     sw.record();
