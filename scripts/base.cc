@@ -1,10 +1,9 @@
 #include <iostream>
-#include "cp.h"
 
 void base_multiply(int ny1, int nx1, const double* D1,
         int ny2, int nx2, const double* D2, double* result) {
 
-    //#pragma omp parallel for
+    #pragma omp parallel for
     for (int i = 0; i < ny1; i++) {
         for (int j = 0; j < nx2; j++) {
 

@@ -1,6 +1,6 @@
 #include "debug.cpp"
-#include "cp.cc"
 #include "base.cc"
+#include "fast.cc"
 #include "stopwatch.h"
 ppc::stopwatch sw;
 

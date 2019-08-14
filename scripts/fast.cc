@@ -4,13 +4,12 @@
 #include <vector>
 #include <omp.h>
 #include "vector.h"
-#include "cp.h"
 using namespace std;
 
 
 void transpose(int ny, int nx, const double* data_, double* data) {
 
-    //#pragma omp parallel for
+    #pragma omp parallel for
     for (int i = 0; i < ny; i++) {
         for (int j = 0; j < nx; j++) {
             data[j*ny+i] = data_[i*nx+j];
@@ -31,7 +30,7 @@ double4_t* pad(int nyv, int ny, int nx, const double* data_, int P) {
     //                   0  0  0  0  0
     double4_t* data = double4_alloc(nyv*nx);
 
-    //#pragma omp parallel for
+    #pragma omp parallel for
     for (int j = 0; j < nyv; j++) {
         for (int i = 0; i < nx; i++) {
             for (int k = 0; k < P; k++) {
@@ -78,7 +77,7 @@ void multiply(int ny1, int nx1, const double* D1_,
     //print_v(D1, nyv1, nx1, P);
     //print_v(D2, nyv2, nx2, P);
 
-    //#pragma omp parallel for
+    #pragma omp parallel for
     for (int j = 0; j < nyb1; j++) {
 
         for (int i = 0; i < nyb2; i++) {
@@ -87,8 +86,8 @@ void multiply(int ny1, int nx1, const double* D1_,
 
             for (int k = 0; k < nx1; k++) {
 
-                //__builtin_prefetch(&D1[(j*A)*nx1 + k + 10]);
-                //__builtin_prefetch(&D2[(j*A)*nx1 + k + 10]);
+                __builtin_prefetch(&D1[(j*A)*nx1 + k + 10]);
+                __builtin_prefetch(&D2[(j*A)*nx1 + k + 10]);
                 double4_t a0 = D1[(j*A)*nx1 + k];
                 double4_t a1 = D1[(j*A+1)*nx1 + k];
 

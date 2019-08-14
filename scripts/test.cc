@@ -5,9 +5,9 @@
 #include <algorithm>
 #include <cassert>
 
-#include "cp.h"
 #include "error.h"
 
+constexpr bool STRICT_PRECISION = true;
 constexpr float allowed_error = STRICT_PRECISION
     ? std::numeric_limits<float>::epsilon() * 0.6
     : 1e-5;
