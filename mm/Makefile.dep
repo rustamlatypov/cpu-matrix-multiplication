@@ -2,11 +2,5 @@ cp.o: cp.cc cp.h
 benchmark.o: ../cp-common/benchmark.cc ../common/error.h \
  ../common/timer.h cp.h
 test.o: ../cp-common/test.cc cp.h ../common/error.h
-pngcorrelate.o: ../cp-common/pngcorrelate.cc ../common/pngio.h \
- ../common/image.h ../common/error.h ../common/timer.h cp.h
 error.o: ../common/error.cc ../common/error.h
-pngdiff.o: ../common/pngdiff.cc ../common/pngio.h ../common/image.h \
- ../common/error.h
-pngio.o: ../common/pngio.cc ../common/pngio.h ../common/image.h \
- ../common/error.h
- mm.o: main.cpp cp.cc cp.h base.cc debug.cpp
+mm.o: main.cpp cp.cc cp.h base.cc debug.cpp
