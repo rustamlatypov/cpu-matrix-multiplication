@@ -6,7 +6,7 @@ ppc::stopwatch sw;
 
 int main() {
     
-    int s = 4000;
+    int s = 1000;
 
     int ny1 = s; int nx1 = s;
     int ny2 = s; int nx2 = s;
