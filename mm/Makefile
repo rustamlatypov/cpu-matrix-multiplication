@@ -1,4 +1,4 @@
-bin=cp-test cp-benchmark main
+bin=test benchmark main
 include ../common/Makefile.common
 
 SOURCES+=./../cp-common/*.cc ./../common/*.cc ./../mm/*.cc
