@@ -53,7 +53,7 @@ int main() {
     double d2 = 0.99;
 
     sw.record();
-    for (int i = 0; i < x*y; i++) {
+    for (int i = 0; i < x*y/4; i++) {
         d1 += d1*d1;
     }
 
