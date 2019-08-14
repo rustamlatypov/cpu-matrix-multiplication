@@ -1,3 +1,0 @@
-/cygdrive/c/Users/rulat/parallel-matrix-multiplication/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/cygdrive/c/Users/rulat/parallel-matrix-multiplication/cmake-build-debug/CMakeFiles/parallel_matrix_multiplication.dir
-/cygdrive/c/Users/rulat/parallel-matrix-multiplication/cmake-build-debug/CMakeFiles/edit_cache.dir
