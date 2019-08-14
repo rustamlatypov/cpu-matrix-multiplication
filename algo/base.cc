@@ -1,5 +1,4 @@
 #include <iostream>
-#include "cp.h"
 
 void base_multiply(int ny1, int nx1, const double* D1,
         int ny2, int nx2, const double* D2, double* result) {

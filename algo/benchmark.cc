@@ -5,7 +5,6 @@
 #include <random>
 #include "error.h"
 #include "timer.h"
-#include "cp.h"
 
 static void benchmark(int ny, int nx) {
     std::mt19937 rng;

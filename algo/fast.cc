@@ -4,7 +4,6 @@
 #include <vector>
 #include <omp.h>
 #include "vector.h"
-#include "cp.h"
 using namespace std;
 
 
