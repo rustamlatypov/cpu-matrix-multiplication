@@ -7,7 +7,7 @@ LDFLAGS+=-fopenmp
 vpath %.h ../cp-common:../common
 vpath %.cc ../cp-common:../common
 
-mm: mm.o cp.o error.o
+mm: main.o cp.o error.o base.o
 	$(CXX) $(LDFLAGS) $^ -o $@
 
 cp-test: cp-test.o cp.o error.o
