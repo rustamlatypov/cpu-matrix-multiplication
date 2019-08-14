@@ -1,4 +1,4 @@
-bin=test benchmark main
+bin=run test benchmark
 include ../common/Makefile.common
 
 SOURCES+=./../cp-common/*.cc ./../common/*.cc ./../mm/*.cc
@@ -7,7 +7,7 @@ LDFLAGS+=-fopenmp
 vpath %.h ../cp-common:../common
 vpath %.cc ../cp-common:../common
 
-main: main.o
+run: run.o
 	$(CXX) $(LDFLAGS) $^ -o $@
 
 test: test.o cp.o error.o
