@@ -5,8 +5,6 @@
 #include <omp.h>
 #include "vector.h"
 #include "cp.h"
-#include "stopwatch.h"
-ppc::stopwatch sw;
 using namespace std;
 
 
@@ -51,7 +49,6 @@ double4_t* pad(int nyv, int ny, int nx, const double* data_, int P) {
 void multiply(int ny1, int nx1, const double* D1_,
               int ny2, int nx2, const double* D2__, double* result) {
 
-    sw.record();
     constexpr int P = 4;
     constexpr int A = 2;
 
@@ -67,20 +64,17 @@ void multiply(int ny1, int nx1, const double* D1_,
 
 
     double4_t* D1 = pad(nyv1, ny1, nx1, D1_, P);
-    sw.record();
 
     std::vector<double> D2_(ny2*nx2);
     std::fill(D2_.begin(), D2_.end(), 0);
 
     transpose(ny2, nx2, D2__, D2_.data());
-    sw.record();
     int aux = nx2;
     nx2 = ny2;
     ny2 = aux;
     //print(ny2, nx2, D2_.data());
 
     double4_t* D2 = pad(nyv2, ny2, nx2, D2_.data(), P);
-    sw.record();
     //print_v(D1, nyv1, nx1, P);
     //print_v(D2, nyv2, nx2, P);
 
@@ -144,8 +138,6 @@ void multiply(int ny1, int nx1, const double* D1_,
             }
         }
     }
-    sw.record();
     free(D1);
     free(D2);
-    sw.print();
 }

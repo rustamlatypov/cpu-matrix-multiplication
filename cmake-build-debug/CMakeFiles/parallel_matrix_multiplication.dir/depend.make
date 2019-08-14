@@ -6,5 +6,6 @@ CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.o: ../common/vec
 CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.o: ../mm/base.cc
 CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.o: ../mm/cp.cc
 CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.o: ../mm/cp.h
+CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.o: ../mm/debug.cpp
 CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.o: ../cp-common/main.cc
 

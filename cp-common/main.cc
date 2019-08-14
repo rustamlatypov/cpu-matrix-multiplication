@@ -1,10 +1,11 @@
-//#include "debug.cpp"
+#include "debug.cpp"
 #include "cp.cc"
 #include "base.cc"
-//#include "stopwatch.h"
+#include "stopwatch.h"
+ppc::stopwatch sw;
 
 int main() {
-    /*
+    
     int s = 500;
 
     int ny1 = s; int nx1 = s;
@@ -29,23 +30,24 @@ int main() {
     generate(ny2, nx2, D2.data());
     //print(ny2, nx2, D2.data());
 
-    //sw.record();
+    sw.record();
     base_multiply(ny1, nx1, D1.data(), ny2, nx2, D2.data(), result_base.data());
     //print(ny1, nx2, result_base.data());
-    //sw.record();
+    sw.record();
 
     multiply(ny1, nx1, D1.data(), ny2, nx2, D2.data(), result_fast.data());
     //print(ny1, nx2, result_fast.data());
-    //sw.record();
-    //sw.print();
+    sw.record();
+    sw.print();
 
     double cumsum = 0;
     for (int i = 0; i < ny1*nx2; i++) {
         cumsum += abs(result_base[i] - result_fast[i]);
     }
     std::cout << "\nCumulative error: " << cumsum << std::endl;
-    */
+    
 
+    /*
     int x = 8000;
     int y = 8000;
 
@@ -67,4 +69,5 @@ int main() {
 
     sw.record();
     sw.print();
+    */
 }

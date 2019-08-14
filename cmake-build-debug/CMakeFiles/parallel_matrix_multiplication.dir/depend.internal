@@ -7,4 +7,5 @@ CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.o
  ../mm/base.cc
  ../mm/cp.cc
  ../mm/cp.h
+ ../mm/debug.cpp
  /cygdrive/c/Users/rulat/parallel-matrix-multiplication/cp-common/main.cc

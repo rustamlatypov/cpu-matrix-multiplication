@@ -39,14 +39,32 @@ vector.h
 ../mm/vector.h
 cp.h
 ../mm/cp.h
-stopwatch.h
-../mm/stopwatch.h
 
 ../mm/cp.h
 
+../mm/debug.cpp
+iostream
+-
+iomanip
+-
+vector
+-
+random
+-
+algorithm
+-
+cassert
+-
+vector.h
+../mm/vector.h
+
 /cygdrive/c/Users/rulat/parallel-matrix-multiplication/cp-common/main.cc
+debug.cpp
+/cygdrive/c/Users/rulat/parallel-matrix-multiplication/cp-common/debug.cpp
 cp.cc
 /cygdrive/c/Users/rulat/parallel-matrix-multiplication/cp-common/cp.cc
 base.cc
 /cygdrive/c/Users/rulat/parallel-matrix-multiplication/cp-common/base.cc
+stopwatch.h
+/cygdrive/c/Users/rulat/parallel-matrix-multiplication/cp-common/stopwatch.h
 
