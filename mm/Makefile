@@ -10,6 +10,9 @@ vpath %.cc ../cp-common:../common
 main: main.o cp.o
 	$(CXX) $(LDFLAGS) $^ -o $@
 
+main.o: main.cpp
+	$(CXX) $(LDFLAGS) $^ -c $@
+
 cp-test: cp-test.o cp.o error.o
 	$(CXX) $(LDFLAGS) $^ -o $@
 
