@@ -1,7 +1,7 @@
 bin=cp-test cp-benchmark
 include ../common/Makefile.common
 
-SOURCES+=./../cp-common/*.cc ./../common/*.cc
+SOURCES+=./../cp-common/*.cc ./../common/*.cc *.cpp
 CXXFLAGS+=-I ./ -I ./../cp-common -I ./../common -fopenmp
 LDFLAGS+=-fopenmp
 vpath %.h ../cp-common:../common
