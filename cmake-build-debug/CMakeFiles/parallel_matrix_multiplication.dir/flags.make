@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++11 -fopenmp -g   -std=gnu++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/cygdrive/c/Users/rulat/parallel-matrix-multiplication/common 
+CXX_INCLUDES = -I/cygdrive/c/Users/rulat/parallel-matrix-multiplication/common -I/cygdrive/c/Users/rulat/parallel-matrix-multiplication/mm 
 

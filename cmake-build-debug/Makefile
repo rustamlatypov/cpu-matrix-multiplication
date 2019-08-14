@@ -123,32 +123,32 @@ parallel_matrix_multiplication/fast:
 	$(MAKE) -f CMakeFiles/parallel_matrix_multiplication.dir/build.make CMakeFiles/parallel_matrix_multiplication.dir/build
 .PHONY : parallel_matrix_multiplication/fast
 
-mm/main.o: mm/main.cpp.o
+cp-common/main.o: cp-common/main.cc.o
 
-.PHONY : mm/main.o
+.PHONY : cp-common/main.o
 
 # target to build an object file
-mm/main.cpp.o:
-	$(MAKE) -f CMakeFiles/parallel_matrix_multiplication.dir/build.make CMakeFiles/parallel_matrix_multiplication.dir/mm/main.cpp.o
-.PHONY : mm/main.cpp.o
+cp-common/main.cc.o:
+	$(MAKE) -f CMakeFiles/parallel_matrix_multiplication.dir/build.make CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.o
+.PHONY : cp-common/main.cc.o
 
-mm/main.i: mm/main.cpp.i
+cp-common/main.i: cp-common/main.cc.i
 
-.PHONY : mm/main.i
+.PHONY : cp-common/main.i
 
 # target to preprocess a source file
-mm/main.cpp.i:
-	$(MAKE) -f CMakeFiles/parallel_matrix_multiplication.dir/build.make CMakeFiles/parallel_matrix_multiplication.dir/mm/main.cpp.i
-.PHONY : mm/main.cpp.i
+cp-common/main.cc.i:
+	$(MAKE) -f CMakeFiles/parallel_matrix_multiplication.dir/build.make CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.i
+.PHONY : cp-common/main.cc.i
 
-mm/main.s: mm/main.cpp.s
+cp-common/main.s: cp-common/main.cc.s
 
-.PHONY : mm/main.s
+.PHONY : cp-common/main.s
 
 # target to generate assembly for a file
-mm/main.cpp.s:
-	$(MAKE) -f CMakeFiles/parallel_matrix_multiplication.dir/build.make CMakeFiles/parallel_matrix_multiplication.dir/mm/main.cpp.s
-.PHONY : mm/main.cpp.s
+cp-common/main.cc.s:
+	$(MAKE) -f CMakeFiles/parallel_matrix_multiplication.dir/build.make CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.s
+.PHONY : cp-common/main.cc.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... parallel_matrix_multiplication"
 	@echo "... edit_cache"
-	@echo "... mm/main.o"
-	@echo "... mm/main.i"
-	@echo "... mm/main.s"
+	@echo "... cp-common/main.o"
+	@echo "... cp-common/main.i"
+	@echo "... cp-common/main.s"
 .PHONY : help
 
 

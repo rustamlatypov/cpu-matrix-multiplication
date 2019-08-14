@@ -57,27 +57,27 @@ include CMakeFiles/parallel_matrix_multiplication.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/parallel_matrix_multiplication.dir/flags.make
 
-CMakeFiles/parallel_matrix_multiplication.dir/mm/main.cpp.o: CMakeFiles/parallel_matrix_multiplication.dir/flags.make
-CMakeFiles/parallel_matrix_multiplication.dir/mm/main.cpp.o: ../mm/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/rulat/parallel-matrix-multiplication/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/parallel_matrix_multiplication.dir/mm/main.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parallel_matrix_multiplication.dir/mm/main.cpp.o -c /cygdrive/c/Users/rulat/parallel-matrix-multiplication/mm/main.cpp
+CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.o: CMakeFiles/parallel_matrix_multiplication.dir/flags.make
+CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.o: ../cp-common/main.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/rulat/parallel-matrix-multiplication/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.o -c /cygdrive/c/Users/rulat/parallel-matrix-multiplication/cp-common/main.cc
 
-CMakeFiles/parallel_matrix_multiplication.dir/mm/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/parallel_matrix_multiplication.dir/mm/main.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/rulat/parallel-matrix-multiplication/mm/main.cpp > CMakeFiles/parallel_matrix_multiplication.dir/mm/main.cpp.i
+CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/rulat/parallel-matrix-multiplication/cp-common/main.cc > CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.i
 
-CMakeFiles/parallel_matrix_multiplication.dir/mm/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parallel_matrix_multiplication.dir/mm/main.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/rulat/parallel-matrix-multiplication/mm/main.cpp -o CMakeFiles/parallel_matrix_multiplication.dir/mm/main.cpp.s
+CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/rulat/parallel-matrix-multiplication/cp-common/main.cc -o CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.s
 
 # Object files for target parallel_matrix_multiplication
 parallel_matrix_multiplication_OBJECTS = \
-"CMakeFiles/parallel_matrix_multiplication.dir/mm/main.cpp.o"
+"CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.o"
 
 # External object files for target parallel_matrix_multiplication
 parallel_matrix_multiplication_EXTERNAL_OBJECTS =
 
-parallel_matrix_multiplication.exe: CMakeFiles/parallel_matrix_multiplication.dir/mm/main.cpp.o
+parallel_matrix_multiplication.exe: CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.o
 parallel_matrix_multiplication.exe: CMakeFiles/parallel_matrix_multiplication.dir/build.make
 parallel_matrix_multiplication.exe: CMakeFiles/parallel_matrix_multiplication.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/rulat/parallel-matrix-multiplication/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable parallel_matrix_multiplication.exe"

@@ -4,13 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/cygdrive/c/Users/rulat/parallel-matrix-multiplication/mm/main.cpp" "/cygdrive/c/Users/rulat/parallel-matrix-multiplication/cmake-build-debug/CMakeFiles/parallel_matrix_multiplication.dir/mm/main.cpp.o"
+  "/cygdrive/c/Users/rulat/parallel-matrix-multiplication/cp-common/main.cc" "/cygdrive/c/Users/rulat/parallel-matrix-multiplication/cmake-build-debug/CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../common"
+  "../mm"
   )
 
 # Targets to which this target links.

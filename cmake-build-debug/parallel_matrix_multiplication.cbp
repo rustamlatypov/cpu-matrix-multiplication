@@ -35,6 +35,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/cygdrive/c/Users/rulat/parallel-matrix-multiplication/common"/>
+					<Add directory="/cygdrive/c/Users/rulat/parallel-matrix-multiplication/mm"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/x86_64-pc-cygwin"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/backward"/>
@@ -57,6 +58,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/cygdrive/c/Users/rulat/parallel-matrix-multiplication/common"/>
+					<Add directory="/cygdrive/c/Users/rulat/parallel-matrix-multiplication/mm"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/x86_64-pc-cygwin"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/backward"/>
@@ -82,7 +84,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/cygdrive/c/Users/rulat/parallel-matrix-multiplication/mm/main.cpp">
+		<Unit filename="/cygdrive/c/Users/rulat/parallel-matrix-multiplication/cp-common/main.cc">
 			<Option target="parallel_matrix_multiplication"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/rulat/parallel-matrix-multiplication/CMakeLists.txt">

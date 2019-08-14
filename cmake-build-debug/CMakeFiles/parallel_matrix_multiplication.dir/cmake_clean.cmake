@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/parallel_matrix_multiplication.dir/mm/main.cpp.o"
+  "CMakeFiles/parallel_matrix_multiplication.dir/cp-common/main.cc.o"
   "parallel_matrix_multiplication.pdb"
   "parallel_matrix_multiplication.exe"
   "libparallel_matrix_multiplication.dll.a"
