@@ -2,7 +2,7 @@ bin=run test benchmark
 include ../common/Makefile.common
 
 SOURCES+=./../common/*.cc ./../algo/*.cc
-CXXFLAGS+=-I ./ -I ./../cp-common -I ./../common -fopenmp
+CXXFLAGS+=-I ./ -I ./../common -fopenmp
 LDFLAGS+=-fopenmp
 
 run: run.o
