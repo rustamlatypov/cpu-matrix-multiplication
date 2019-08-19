@@ -45,7 +45,7 @@ static bool test(int ny, int nm, int nx) {
     gen(nm, nx, D2.data());
 
     std::vector<double> result(ny * nx);
-    multiply(ny, nm, nx, D1.data(), D2.data(), result.data());
+    fast_multiply(ny, nm, nx, D1.data(), D2.data(), result.data());
 
     float error = verify_result(ny, nm, nx, D1.data(), D2.data(), result.data(), 20);
     bool pass = error < error_limit;

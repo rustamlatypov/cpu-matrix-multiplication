@@ -34,7 +34,7 @@ int main() {
     //print(ny, nx, result_base.data());
     sw.record();
 
-    multiply(ny, nm, nx, D1.data(), D2.data(), result_fast.data());
+    fast_multiply(ny, nm, nx, D1.data(), D2.data(), result_fast.data());
     //print(ny, nx, result_fast.data());
     sw.record();
     sw.print();
