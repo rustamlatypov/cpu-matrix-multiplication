@@ -6,7 +6,7 @@
 #include <cassert>
 
 #include "fast.cc"
-#include "slow.cc"
+#include "base.cc"
 #include "error.h"
 
 
