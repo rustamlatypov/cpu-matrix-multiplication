@@ -30,7 +30,7 @@ int main(int argc, const char** argv) {
     int dim;
 
     if (argc == 1) {
-        dim = 1000;
+        dim = 5;
     } else if(argc == 2) {
         dim = std::stoi(argv[1]);
     } else {
@@ -62,7 +62,7 @@ int main(int argc, const char** argv) {
     sw.record();
 
     fast_multiply(ny, nm, nx, D1.data(), D2.data(), fast_result.data());
-    //print(ny, nx, fast_result.data());
+    print(ny, nx, fast_result.data());
     sw.record();
     sw.print();
 
