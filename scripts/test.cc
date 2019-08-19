@@ -89,9 +89,9 @@ int main(int argc, const char** argv) {
 
     if(argc == 1) {
 
-        for(int i = 50; i < 100; i++) {
-            for(int j = 50; j < 100; j++) {
-                for(int k = 50; k < 100; k++) {
+        for(int i = 50; i < 55; i++) {
+            for(int j = 50; j < 60; j++) {
+                for(int k = 50; k < 65; k++) {
                     run_test(i, j, k);
                 }
             }
