@@ -104,7 +104,7 @@ void multiply(int ny1, int nx1, const double* D1_,
                 block[4] += a0[2]*b0;
                 block[5] += a0[2]*b1;
 
-                block[6] += a0[3]*b1;
+                block[6] += a0[3]*b0;
                 block[7] += a0[3]*b1;
 
 
