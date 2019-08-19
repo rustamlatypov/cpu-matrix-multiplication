@@ -25,7 +25,7 @@ float verify_result(int ny, int nm, int nx, double* D1, double* D2, double* resu
     double cumsum = 0.0f;
 
     std::vector<double> correct(ny * nx);
-    base_multiply(ny, nm, D1, nm, nx, D2, correct.data());
+    base_multiply(ny, nm, nx, D1, D2, correct.data());
 
     for (int i = 0; i < iter; i++) {
         for (int j = 0; j < ny*nx; j++) {
@@ -45,7 +45,7 @@ static bool test(int ny, int nm, int nx) {
     gen(nm, nx, D2.data());
 
     std::vector<double> result(ny * nx);
-    multiply(ny, nm, D1.data(), nm, nx, D2.data(), result.data());
+    multiply(ny, nm, nx, D1.data(), D2.data(), result.data());
 
     float error = verify_result(ny, nm, nx, D1.data(), D2.data(), result.data(), 20);
     bool pass = error < error_limit;

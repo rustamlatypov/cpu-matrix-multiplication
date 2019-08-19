@@ -1,7 +1,11 @@
 #include <iostream>
 
-void base_multiply(int ny1, int nx1, const double* D1,
-        int ny2, int nx2, const double* D2, double* result) {
+void base_multiply(int ny, int nm, int nx, const double* D1, const double* D2, double* result) {
+
+    int ny1 = ny;
+    int nx1 = nm;
+    //int ny2 = nm;
+    int nx2 = nx;
 
     #pragma omp parallel for
     for (int i = 0; i < ny1; i++) {

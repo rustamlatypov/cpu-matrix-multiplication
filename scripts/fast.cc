@@ -45,8 +45,12 @@ double4_t* pad(int nyv, int ny, int nx, const double* data_, int P) {
 }
 
 
-void multiply(int ny1, int nx1, const double* D1_,
-              int ny2, int nx2, const double* D2__, double* result) {
+void multiply(int ny, int nm, int nx, const double* D1_, const double* D2__, double* result) {
+
+    int ny1 = ny;
+    int nx1 = nm;
+    int ny2 = nm;
+    int nx2 = nx;
 
     constexpr int P = 4;
     constexpr int A = 2;
