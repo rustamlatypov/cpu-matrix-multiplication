@@ -7,7 +7,7 @@ void base_multiply(int ny, int nm, int nx, const double* D1, const double* D2, d
     //int ny2 = nm;
     int nx2 = nx;
 
-    #pragma omp parallel for
+    //#pragma omp parallel for
     for (int i = 0; i < ny1; i++) {
         for (int j = 0; j < nx2; j++) {
 

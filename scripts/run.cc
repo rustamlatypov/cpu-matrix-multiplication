@@ -20,7 +20,7 @@ int main(int argc, const char** argv) {
     int dim;
 
     if (argc == 1) {
-        dim = 5000;
+        dim = 1000;
     } else if(argc == 2) {
         dim = std::stoi(argv[1]);
     } else {
@@ -31,10 +31,7 @@ int main(int argc, const char** argv) {
     int ny = dim; int nm = dim; int nx = dim;
 
     std::vector<double> D1(ny * nm);
-    std::fill(D1.begin(), D1.end(), 0);
-
     std::vector<double> D2(nm * nx);
-    std::fill(D2.begin(), D2.end(), 0);
 
     std::vector<double> base_result(ny * nx);
     std::fill(base_result.begin(), base_result.end(), 0);
