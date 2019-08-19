@@ -89,10 +89,10 @@ int main(int argc, const char** argv) {
 
     if(argc == 1) {
 
-        for(int i = 50; i < 55; i++) {
-            for(int j = 50; j < 60; j++) {
-                for(int k = 50; k < 65; k++) {
-                    run_test(i, j, k);
+        for(int ny = 50; ny < 55; ny++) {
+            for(int nm = 50; nm < 60; nm++) {
+                for(int nx = 50; nx < 65; nx++) {
+                    run_test(ny, nm, nx);
                 }
             }
         }
@@ -108,7 +108,7 @@ int main(int argc, const char** argv) {
             }
         }
 
-        std::cout << passcount << "/" << testcount << " tests passed.\n";
+        std::cout << std::endl << passcount << "/" << testcount << " tests passed.\n";
         if(has_fails) {
             std::cout
                 << "To repeat the first failed test with more output, run:\n"
