@@ -87,26 +87,37 @@ static void run_test(int ny, int nm, int nx) {
 
 int main(int argc, const char** argv) {
 
-    std::vector<int> nxs = {10,50,100,200,500,1000};
-    std::vector<int> nms = {5,30,60,80,100,150};
-    std::vector<int> nys = {2,5,10,100,200};
-    for(int ny : nys) {
-        for(int nm : nms) {
-            for(int nx : nxs) {
-                run_test(ny, nm, nx);
+    if(argc == 1) {
+        std::vector<int> nxs = {10,50,100,200,500,1000};
+        std::vector<int> nms = {5,30,60,80,100,150};
+        std::vector<int> nys = {2,5,10,100,200};
+        for(int ny : nys) {
+            for(int nm : nms) {
+                for(int nx : nxs) {
+                    run_test(ny, nm, nx);
+                }
             }
         }
-    }
 
-    std::cout << passcount << "/" << testcount << " tests passed.\n";
-    if(has_fails) {
-        std::cout
-            << "To repeat the first failed test with more output, run:\n"
-            << argv[0] << " "
-            << first_fail.ny << " "
-            << first_fail.nm << " "
-            << first_fail.nx << std::endl;
-        exit(EXIT_FAILURE);
+        std::cout << passcount << "/" << testcount << " tests passed.\n";
+        if(has_fails) {
+            std::cout
+                << "To repeat the first failed test with more output, run:\n"
+                << argv[0] << " "
+                << first_fail.ny << " "
+                << first_fail.nm << " "
+                << first_fail.nx << std::endl;
+            exit(EXIT_FAILURE);
+        }
+    } else if(argc == 4) {
+        int ny = std::stoi(argv[1]);
+        int nm = std::stoi(argv[2]);
+        int nx = std::stoi(argv[3]);
+        run_test(ny, nm, nx);
+        if(has_fails) {
+            exit(EXIT_FAILURE);
+        }
+    } else {
+        std::cout << "Usage:\n  test\n  test <ny> <nm> <nx>\n";
     }
-
 }

@@ -27,7 +27,7 @@ static void benchmark(int dim) {
 
 int main(int argc, const char** argv) {
     if (argc < 2 || argc > 3) {
-        error("usage: benchmark [dim] [iterations]");
+        error("usage: benchmark <dim> <iterations>");
     }
     int dim = std::stoi(argv[1]);
     int iter = argc == 3 ? std::stoi(argv[2]) : 1;
