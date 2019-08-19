@@ -10,11 +10,11 @@
 #include "error.h"
 
 
-constexpr float error_limit = 1e-3;
+constexpr double error_limit = 1e-3;
 
 
 
-static void gen(int ny, int nx, float* data) {
+static void gen(int ny, int nx, double* data) {
     std::mt19937 rng;
     const float a = std::numeric_limits<float>::max();
     std::uniform_real_distribution<double> unif(-a, a);
@@ -25,9 +25,8 @@ static void gen(int ny, int nx, float* data) {
 float verify_result(int ny, int nm, int nx, double* D1, double* D2, double* result, int iter) {
     double cumsum = 0.0f;
 
-    std::vector<float> correct(ny * nx);
-    base_multiply(ny, nm, D1, nm, nx, D2, correct)
-    int ny2, int nx2, const double* D2, double* result)
+    std::vector<double> correct(ny * nx);
+    base_multiply(ny, nm, D1, nm, nx, D2, correct.data());
 
     for (int i = 0; i < iter; i++) {
         for (int i = 0; i < ny*nx; i++) {
@@ -35,19 +34,19 @@ float verify_result(int ny, int nm, int nx, double* D1, double* D2, double* resu
         }
     }
 
-    return cumsum
+    return cumsum;
 }
 
 
-static bool test(int ny, int nx, int mode, bool verbose) {
-    std::vector<float> D1(ny * nm);
-    std::vector<float> D2(nm * nx);
+static bool test(int ny, int nm, int nx, int mode, bool verbose) {
+    std::vector<double> D1(ny * nm);
+    std::vector<double> D2(nm * nx);
 
-    gen(ny, ny, nm, D1.data())
-    gen(ny, nm, nx, D2.data())
+    gen(ny, nm, D1.data());
+    gen(nm, nx, D2.data());
 
-    std::vector<float> result(ny * nx);
-    multiply(ny, nm, D1.data(), nm, nx, D2.data(), result.data())
+    std::vector<double> result(ny * nx);
+    multiply(ny, nm, D1.data(), nm, nx, D2.data(), result.data());
 
     float error = verify_result(ny, nm, nx, D1.data(), D2.data(), result.data(), 20);
     bool pass = error < error_limit;
@@ -88,38 +87,27 @@ static void run_test(int ny, int nm, int nx, int mode, bool verbose) {
 }
 
 int main(int argc, const char** argv) {
-    if(argc == 1) {
 
-        std::vector<int> modes = {0,1,2,3};
-        std::vector<int> nxs = {10,50,100,200,500,1000};
-        std::vector<int> nms = {5,30,60,80,100,150};
-        std::vector<int> nys = {2,5,10,100,200};
-        for(int ny : nys)
-        for(int nm : nms)
-        for(int nx : nxs)
-        for(int mode : modes)
-            run_test(ny, nm, nx, mode, false);
+    std::vector<int> modes = {0,1,2,3};
+    std::vector<int> nxs = {10,50,100,200,500,1000};
+    std::vector<int> nms = {5,30,60,80,100,150};
+    std::vector<int> nys = {2,5,10,100,200};
+    for(int ny : nys)
+    for(int nm : nms)
+    for(int nx : nxs)
+    for(int mode : modes)
+        run_test(ny, nm, nx, mode, false);
 
-        std::cout << passcount << "/" << testcount << " tests passed.\n";
-        if(has_fails) {
-            std::cout 
-                << "To repeat the first failed test with more output, run:\n"
-                << argv[0] << " "
-                << first_fail.ny << " "
-                << first_fail.nm << " "
-                << first_fail.nx << " "
-                << first_fail.mode << std::endl;
-            exit(EXIT_FAILURE);
-        }
-    } else if(argc == 4) {
-        int ny = std::stoi(argv[1]);
-        int nx = std::stoi(argv[2]);
-        int mode = std::stoi(argv[3]);
-        run_test(ny, nx, mode, true);
-        if(has_fails) {
-            exit(EXIT_FAILURE);
-        }
-    } else {
-        std::cout << "Usage:\n  test\n  test <ny> <nx> <mode>\n";
+    std::cout << passcount << "/" << testcount << " tests passed.\n";
+    if(has_fails) {
+        std::cout
+            << "To repeat the first failed test with more output, run:\n"
+            << argv[0] << " "
+            << first_fail.ny << " "
+            << first_fail.nm << " "
+            << first_fail.nx << " "
+            << first_fail.mode << std::endl;
+        exit(EXIT_FAILURE);
     }
+
 }
