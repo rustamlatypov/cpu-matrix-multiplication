@@ -1,6 +1,6 @@
 #include <math.h>
 
-#include "debug.cpp"
+#include "debug.cc"
 #include "base.cc"
 #include "fast.cc"
 #include "stopwatch.h"
@@ -9,7 +9,7 @@ ppc::stopwatch sw;
 
 static void gen(int ny, int nx, double* data) {
     std::mt19937 rng(42);
-    const float a = std::numeric_limits<float>::max();
+    const double a = std::numeric_limits<short>::max();
     std::uniform_real_distribution<double> unif(-a, a);
     std::generate(data, data+nx*ny, [&]{ return unif(rng); });
 }
@@ -20,7 +20,7 @@ int main(int argc, const char** argv) {
     int dim;
 
     if (argc == 1) {
-        dim = 1000;
+        dim = 10;
     } else if(argc == 2) {
         dim = std::stoi(argv[1]);
     } else {
@@ -44,15 +44,15 @@ int main(int argc, const char** argv) {
     //print(ny, nm, D1.data());
 
     gen(nm, nx, D2.data());
-    //print(nm, nxm, D2.data());
+    //print(nm, nx, D2.data());
 
     sw.record();
     base_multiply(ny, nm, nx, D1.data(), D2.data(), base_result.data());
-    //print(ny, nx, result_base.data());
+    print(ny, nx, base_result.data());
     sw.record();
 
     fast_multiply(ny, nm, nx, D1.data(), D2.data(), fast_result.data());
-    //print(ny, nx, result_fast.data());
+    print(ny, nx, fast_result.data());
     sw.record();
     sw.print();
 

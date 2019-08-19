@@ -9,7 +9,7 @@
 #include "fast.cc"
 #include "base.cc"
 #include "error.h"
-#include "debug.cpp"
+#include "debug.cc"
 
 constexpr double error_limit = 1e-3;
 
@@ -17,13 +17,13 @@ constexpr double error_limit = 1e-3;
 
 static void gen(int ny, int nx, double* data) {
     std::mt19937 rng(42);
-    const float a = std::numeric_limits<float>::max();
+    const double a = std::numeric_limits<short>::max();
     std::uniform_real_distribution<double> unif(-a, a);
     std::generate(data, data+nx*ny, [&]{ return unif(rng); });
 }
 
 
-float verify_result(int ny, int nm, int nx, double* D1, double* D2, double* result, int iter) {
+double verify_result(int ny, int nm, int nx, double* D1, double* D2, double* result, int iter) {
     double cumsum = 0.0f;
 
     std::vector<double> correct(ny * nx);
@@ -49,9 +49,9 @@ static bool test(int ny, int nm, int nx) {
     std::vector<double> result(ny * nx);
     fast_multiply(ny, nm, nx, D1.data(), D2.data(), result.data());
 
-    print(ny, nx, result.data());
+    //print(ny, nx, result.data());
 
-    float error = verify_result(ny, nm, nx, D1.data(), D2.data(), result.data(), 20);
+    double error = verify_result(ny, nm, nx, D1.data(), D2.data(), result.data(), 10);
     bool pass = error < error_limit;
 
     std::cout << std::fixed << std::setprecision(3);
