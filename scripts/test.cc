@@ -29,8 +29,8 @@ float verify_result(int ny, int nm, int nx, double* D1, double* D2, double* resu
     base_multiply(ny, nm, D1, nm, nx, D2, correct.data());
 
     for (int i = 0; i < iter; i++) {
-        for (int i = 0; i < ny*nx; i++) {
-            cumsum += abs(result[i] - correct[i]);
+        for (int j = 0; j < ny*nx; j++) {
+            cumsum += abs(result[j] - correct[j]);
         }
     }
 
@@ -38,7 +38,7 @@ float verify_result(int ny, int nm, int nx, double* D1, double* D2, double* resu
 }
 
 
-static bool test(int ny, int nm, int nx, int mode, bool verbose) {
+static bool test(int ny, int nm, int nx) {
     std::vector<double> D1(ny * nm);
     std::vector<double> D2(nm * nx);
 
@@ -59,20 +59,19 @@ static bool test(int ny, int nm, int nx, int mode, bool verbose) {
 
 
 static bool has_fails = false;
-static struct { int ny; int nm; int nx; int mode; } first_fail = {};
+static struct { int ny; int nm; int nx;} first_fail = {};
 static int passcount = 0;
 static int testcount = 0;
 
 
 // To be used in batch mode to keep track of test suite progress
-static void run_test(int ny, int nm, int nx, int mode, bool verbose) {
+static void run_test(int ny, int nm, int nx) {
     std::cout << "test "
         << std::setw(4) << ny << ' '
         << std::setw(4) << nm << ' '
         << std::setw(4) << nx << ' '
-        << std::setw(1) << mode << ' '
         << std::flush;
-    bool pass = test(ny, nm, nx, mode, verbose);
+    bool pass = test(ny, nm, nx);
     std::cout << (pass ? "OK\n" : "ERR\n");
     if(pass) {
         passcount++;
@@ -81,22 +80,23 @@ static void run_test(int ny, int nm, int nx, int mode, bool verbose) {
         first_fail.ny = ny;
         first_fail.nm = nm;
         first_fail.nx = nx;
-        first_fail.mode = mode;
     }
     testcount++;
 }
 
+
 int main(int argc, const char** argv) {
 
-    std::vector<int> modes = {0,1,2,3};
     std::vector<int> nxs = {10,50,100,200,500,1000};
     std::vector<int> nms = {5,30,60,80,100,150};
     std::vector<int> nys = {2,5,10,100,200};
-    for(int ny : nys)
-    for(int nm : nms)
-    for(int nx : nxs)
-    for(int mode : modes)
-        run_test(ny, nm, nx, mode, false);
+    for(int ny : nys) {
+        for(int nm : nms) {
+            for(int nx : nxs) {
+                run_test(ny, nm, nx);
+            }
+        }
+    }
 
     std::cout << passcount << "/" << testcount << " tests passed.\n";
     if(has_fails) {
@@ -105,8 +105,7 @@ int main(int argc, const char** argv) {
             << argv[0] << " "
             << first_fail.ny << " "
             << first_fail.nm << " "
-            << first_fail.nx << " "
-            << first_fail.mode << std::endl;
+            << first_fail.nx << std::endl;
         exit(EXIT_FAILURE);
     }
 
