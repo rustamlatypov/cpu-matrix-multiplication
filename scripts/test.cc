@@ -118,6 +118,6 @@ int main(int argc, const char** argv) {
             exit(EXIT_FAILURE);
         }
     } else {
-        std::cout << "Usage:\n  test\n  test <ny> <nm> <nx>\n";
+        std::cout << "Usage:\n  test <ny> <nm> <nx>\n";
     }
 }
