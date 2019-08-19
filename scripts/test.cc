@@ -3,6 +3,7 @@
 #include <vector>
 #include <random>
 #include <algorithm>
+#include <math.h>
 #include <cassert>
 
 #include "fast.cc"
@@ -29,7 +30,7 @@ float verify_result(int ny, int nm, int nx, double* D1, double* D2, double* resu
 
     for (int i = 0; i < iter; i++) {
         for (int j = 0; j < ny*nx; j++) {
-            cumsum += abs(result[j] - correct[j]);
+            cumsum += fabs(result[j] - correct[j]);
         }
     }
 
