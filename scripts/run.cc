@@ -40,7 +40,7 @@ int main() {
     sw.print();
 
     double cumsum = 0;
-    for (int i = 0; i < ny1*nx2; i++) {
+    for (int i = 0; i < ny*nx; i++) {
         cumsum += abs(result_base[i] - result_fast[i]);
     }
     std::cout << "\nCumulative error: " << cumsum << std::endl;
