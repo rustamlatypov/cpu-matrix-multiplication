@@ -3,8 +3,8 @@
 #include <cmath>
 #include <vector>
 #include <omp.h>
+
 #include "vector.h"
-using namespace std;
 
 
 void transpose(int ny, int nx, const double* data_, double* data) {

@@ -9,7 +9,6 @@
 #include "base.cc"
 #include "error.h"
 
-
 constexpr double error_limit = 1e-3;
 
 

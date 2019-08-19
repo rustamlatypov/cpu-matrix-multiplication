@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <random>
+
 #include "fast.cc"
 #include "error.h"
 #include "timer.h"
