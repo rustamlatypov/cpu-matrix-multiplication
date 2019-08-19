@@ -87,7 +87,7 @@ static void run_test(int ny, int nm, int nx) {
 
 int main(int argc, const char** argv) {
 
-    if(argc == 1) {
+    if (argc == 1) {
 
         for(int ny = 50; ny < 55; ny++) {
             for(int nm = 50; nm < 60; nm++) {
