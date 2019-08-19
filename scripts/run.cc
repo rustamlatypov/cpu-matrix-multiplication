@@ -9,7 +9,7 @@ ppc::stopwatch sw;
 
 static void gen(int ny, int nx, double* data) {
     std::mt19937 rng(42);
-    const double a = 100;
+    const double a = 10;
     std::uniform_real_distribution<double> unif(-a, a);
     std::generate(data, data+nx*ny, [&]{ return unif(rng); });
 }
@@ -41,10 +41,10 @@ int main(int argc, const char** argv) {
 
 
     gen(ny, nm, D1.data());
-    //print(ny, nm, D1.data());
+    print(ny, nm, D1.data());
 
     gen(nm, nx, D2.data());
-    //print(nm, nx, D2.data());
+    print(nm, nx, D2.data());
 
     sw.record();
     base_multiply(ny, nm, nx, D1.data(), D2.data(), base_result.data());
