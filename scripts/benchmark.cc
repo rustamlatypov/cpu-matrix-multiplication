@@ -20,7 +20,8 @@ static void benchmark(int dim) {
     }
     std::cout << "cp\t" << dim << "\t" << std::flush;
     { ppc::timer t; multiply(dim, dim, data.data(),
-                             dim, dim, data.data(), result.data()); }
+                             dim, dim, data.data(),
+                             result.data()); }
     std::cout << std::endl;
 }
 
