@@ -88,6 +88,15 @@ static void run_test(int ny, int nm, int nx) {
 int main(int argc, const char** argv) {
 
     if(argc == 1) {
+
+        for(int i = 50; i < 100; i++) {
+            for(int j = 50; j < 100; j++) {
+                for(int k = 50; k < 100; k++) {
+                    run_test(i, j, k);
+                }
+            }
+        }
+
         std::vector<int> nxs = {10,50,100,200,300,1000};
         std::vector<int> nms = {15,75,150,300,450,1500};
         std::vector<int> nys = {5,25,50,100,150,500};
