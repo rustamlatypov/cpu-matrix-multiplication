@@ -8,35 +8,34 @@ int main() {
     
     int s = 1000;
 
-    int ny1 = s; int nx1 = s;
-    int ny2 = s; int nx2 = s;
+    int ny = s; int nm = s; int nx = s;
 
-    std::vector<double> D1(ny1 * nx1);
+    std::vector<double> D1(ny * nm);
     std::fill(D1.begin(), D1.end(), 0);
 
-    std::vector<double> D2(ny2 * nx2);
+    std::vector<double> D2(nm * nx);
     std::fill(D2.begin(), D2.end(), 0);
 
-    std::vector<double> result_base(ny1 * nx2);
+    std::vector<double> result_base(ny * nx);
     std::fill(result_base.begin(), result_base.end(), 0);
 
-    std::vector<double> result_fast(ny1 * nx2);
+    std::vector<double> result_fast(ny * nx);
     std::fill(result_fast.begin(), result_fast.end(), 0);
 
 
-    generate(ny1, nx1, D1.data());
-    //print(ny1, nx1, D1.data());
+    generate(ny, nm, D1.data());
+    //print(ny, nm, D1.data());
 
-    generate(ny2, nx2, D2.data());
-    //print(ny2, nx2, D2.data());
+    generate(nm, nx, D2.data());
+    //print(nm, nxm, D2.data());
 
     sw.record();
-    base_multiply(ny1, nx1, D1.data(), ny2, nx2, D2.data(), result_base.data());
-    //print(ny1, nx2, result_base.data());
+    base_multiply(ny, nm, nx, D1.data(), D2.data(), result_base.data());
+    //print(ny, nx, result_base.data());
     sw.record();
 
-    multiply(ny1, nx1, D1.data(), ny2, nx2, D2.data(), result_fast.data());
-    //print(ny1, nx2, result_fast.data());
+    multiply(ny, nm, nx, D1.data(), D2.data(), result_fast.data());
+    //print(ny, nx, result_fast.data());
     sw.record();
     sw.print();
 
