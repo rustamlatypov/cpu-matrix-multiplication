@@ -18,7 +18,7 @@ constexpr double error_limit = 1e-3;
 static void gen(int ny, int nx, double* data) {
     std::mt19937 rng(42);
     const double a = 100;
-    std::uniform_real_distribution<double> unif(-a, a);
+    std::uniform_real_distribution<double> unif(0.0f, 10.0f);
     std::generate(data, data+nx*ny, [&]{ return unif(rng); });
 }
 
@@ -51,7 +51,7 @@ static bool test(int ny, int nm, int nx) {
 
     //print(ny, nx, result.data());
 
-    double error = verify_result(ny, nm, nx, D1.data(), D2.data(), result.data(), 10);
+    double error = verify_result(ny, nm, nx, D1.data(), D2.data(), result.data(), 20);
     bool pass = error < error_limit;
 
     std::cout << std::fixed << std::setprecision(3);
