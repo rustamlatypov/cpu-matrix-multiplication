@@ -11,7 +11,7 @@
 static void print(int ny, int nx, const double *matrix) {
     for (int j = 0; j < ny; j++) {
         for (int i = 0; i < nx; i++) {
-            float x = matrix[j * nx + i];
+            double x = matrix[j * nx + i];
             if (std::abs(x) < 10.0) {
                 printf("% -7.3f", x);
             } else {

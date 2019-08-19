@@ -9,12 +9,14 @@ ppc::stopwatch sw;
 #include <limits>
 
 
+
 static void gen(int ny, int nx, double* data) {
     std::mt19937 rng(42);
-    const double a = std::numeric_limits<double>::max();
+    const short a = std::numeric_limits<short>::max();
     std::uniform_real_distribution<double> unif(-a,a);
     std::generate(data, data+nx*ny, [&]{ return unif(rng); });
 }
+
 
 
 int main(int argc, const char** argv) {
@@ -30,7 +32,7 @@ int main(int argc, const char** argv) {
     int dim;
 
     if (argc == 1) {
-        dim = 5;
+        dim = 3000;
     } else if(argc == 2) {
         dim = std::stoi(argv[1]);
     } else {
@@ -66,10 +68,13 @@ int main(int argc, const char** argv) {
     sw.record();
     sw.print();
 
-    double cumsum = 0;
+    double cumsum = 0.0f;
     for (int i = 0; i < ny*nx; i++) {
         cumsum += fabs(base_result[i] - fast_result[i]);
     }
     std::cout << "\nCumulative error: " << cumsum << std::endl;
 
+    std::cout.precision(9999999999);
+    std::cout << base_result[0] << std::endl;
+    std::cout << fast_result[0] << std::endl;
 }
