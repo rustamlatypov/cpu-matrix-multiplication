@@ -6,6 +6,8 @@
 #include "stopwatch.h"
 ppc::stopwatch sw;
 
+#include <limits>
+
 
 static void gen(int ny, int nx, double* data) {
     std::mt19937 rng(42);
@@ -15,6 +17,14 @@ static void gen(int ny, int nx, double* data) {
 
 
 int main(int argc, const char** argv) {
+
+
+    const double mini = std::numeric_limits<double>::min();
+    const double maxi = std::numeric_limits<double>::max();
+
+    std::cout << mini << '\n' << maxi << std::endl;
+
+
 
     int dim;
 
@@ -51,7 +61,7 @@ int main(int argc, const char** argv) {
     sw.record();
 
     fast_multiply(ny, nm, nx, D1.data(), D2.data(), fast_result.data());
-    print(ny, nx, fast_result.data());
+    //print(ny, nx, fast_result.data());
     sw.record();
     sw.print();
 
