@@ -1,8 +1,8 @@
-bin=test benchmark run
+bin=test benchmark run 
 include Makefile.common
 
 SOURCES+= ./../scripts/*.cc 
-CXXFLAGS+=-I ./ -I ./../common -fopenmp
+CXXFLAGS+=-I ./../common -fopenmp
 LDFLAGS+=-fopenmp
 
 run: run.o

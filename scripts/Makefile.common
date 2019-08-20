@@ -41,8 +41,5 @@ all: $(bin)
 depend:
 	$(CXX) -MM $(CXXFLAGS) -x c++ $(wildcard $(SOURCES)) > Makefile.dep
 
-clean: cleanthis
-	@$(MAKE) -s -C ../common cleanthis
-
-cleanthis:
+clean:
 	rm -f $(bin) *.o *.s *.asm1 *.asm2
