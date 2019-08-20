@@ -34,18 +34,18 @@ int main(int argc, const char** argv) {
     std::cout << mini << '\n' << maxi << std::endl;
     */
 
-    int dim;
+    int dim; int iter;
     if (argc == 1) {
         dim = 1000;
-    } else if(argc == 2) {
+        iter = 3;
+    } else if(argc == 3) {
         dim = std::stoi(argv[1]);
+        iter = std::stoi(argv[2]);
     } else {
-        std::cout << "Usage:\trun <dim>\n";
+        std::cout << "Usage:\trun <dim> <iter>\n";
         return 0;
     }
 
-
-    int iter = 3;
     std::vector<double> base_time(iter);
     std::vector<double> fast_time(iter);
 
@@ -88,8 +88,8 @@ int main(int argc, const char** argv) {
     float fast = accumulate( fast_time.begin(), fast_time.end(), 0.0)/fast_time.size();
     float error = accumulate( cumerror.begin(), cumerror.end(), 0.0)/cumerror.size();
 
-    std::cout << "Average of " << iter << " runs: " << std::endl;
-    std::cout << "Base: " << base << ", Fast: " << fast << ", Ratio: " << base/fast  << "\n" << std::endl;
+    std::cout << "Average of " << iter << " runs: \n" << "Base: " << base << ", Fast: " << fast
+    << ", Ratio: " << base/fast  << ", Error: " << error << "\n" << std::endl;
     /*
     std::cout.precision(9999999999);
     std::cout << base_result[0] << std::endl;
