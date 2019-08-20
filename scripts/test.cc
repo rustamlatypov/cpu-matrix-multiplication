@@ -8,7 +8,6 @@
 
 #include "fast.cc"
 #include "base.cc"
-#include "error.h"
 #include "helper.cc"
 
 constexpr double error_limit = 1e-3;

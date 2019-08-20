@@ -25,7 +25,7 @@ static void benchmark(int dim) {
 
 int main(int argc, const char** argv) {
     if (argc < 2 || argc > 3) {
-        std::cout << "Usage:\tbenchmark <dim> <iterations>\n";
+        std::cout << "Usage:\tbenchmark <dim> <iterations>" << std::endl;
     }
     int dim = std::stoi(argv[1]);
     int iter = argc == 3 ? std::stoi(argv[2]) : 1;

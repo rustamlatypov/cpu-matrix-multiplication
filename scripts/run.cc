@@ -2,9 +2,10 @@
 #include <chrono>
 #include <limits>
 
-#include "helper.cc"
-#include "base.cc"
 #include "fast.cc"
+#include "base.cc"
+#include "helper.cc"
+
 
 
 using c = std::chrono::high_resolution_clock;
