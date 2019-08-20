@@ -89,7 +89,7 @@ int main(int argc, const char** argv) {
     float error = accumulate( cumerror.begin(), cumerror.end(), 0.0)/cumerror.size();
 
     std::cout << "Average of " << iter << " runs: " << std::endl;
-    std::cout << "Base: " << base << ", Fast: " << fast << ", Ratio: " << base/fast << std::endl;
+    std::cout << "Base: " << base << ", Fast: " << fast << ", Ratio: " << base/fast  << "\n" << std::endl;
     /*
     std::cout.precision(9999999999);
     std::cout << base_result[0] << std::endl;
