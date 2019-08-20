@@ -32,7 +32,7 @@ int main(int argc, const char** argv) {
     int dim;
 
     if (argc == 1) {
-        dim = 3000;
+        dim = 1000;
     } else if(argc == 2) {
         dim = std::stoi(argv[1]);
     } else {
