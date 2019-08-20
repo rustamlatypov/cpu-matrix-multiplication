@@ -1,14 +1,9 @@
 #include <math.h>
-#include <chrono>
 #include <limits>
 
 #include "fast.cc"
 #include "base.cc"
 #include "helper.cc"
-
-
-using c = std::chrono::high_resolution_clock;
-using time_point = decltype(c::now());
 
 
 double validate(int ny, int nx, double* D1, double* D2, int iter) {

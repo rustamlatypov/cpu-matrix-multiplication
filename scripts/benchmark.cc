@@ -6,7 +6,6 @@
 
 #include "fast.cc"
 #include "helper.cc"
-#include "timer.h"
 
 static void benchmark(int dim) {
     std::vector<double> D1(dim * dim);
@@ -17,7 +16,11 @@ static void benchmark(int dim) {
     gen(dim, dim, D2.data());
 
     std::cout << "cp\t" << dim << "\t" << std::flush;
-    { ppc::timer t; fast_multiply(dim, dim, dim, D1.data(), D2.data(), result.data()); }
+    time_point t1 = c::now();
+    fast_multiply(dim, dim, dim, D1.data(), D2.data(), result.data());
+    time_point t2 = c::now();
+    double t = (t2-t1).count() / double(1E9);
+    
     std::cout << std::endl;
 }
 
