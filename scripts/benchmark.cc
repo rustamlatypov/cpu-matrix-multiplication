@@ -5,21 +5,19 @@
 #include <random>
 
 #include "fast.cc"
+#include "helper.cc"
 #include "timer.h"
 
 static void benchmark(int dim) {
-    std::mt19937 rng;
-    std::uniform_real_distribution<float> u(0.0f, 1.0f);
-    std::vector<double> data(dim * dim);
+    std::vector<double> D1(dim * dim);
+    std::vector<double> D2(dim * dim);
     std::vector<double> result(dim * dim);
-    for (int y = 0; y < dim; ++y) {
-        for (int x = 0; x < dim; ++x) {
-            float v = u(rng);
-            data[x + dim * y] = v;
-        }
-    }
+
+    gen(dim, dim, D1.data());
+    gen(dim, dim, D2.data());
+
     std::cout << "cp\t" << dim << "\t" << std::flush;
-    { ppc::timer t; fast_multiply(dim, dim, dim, data.data(), data.data(), result.data()); }
+    { ppc::timer t; fast_multiply(dim, dim, dim, D1.data(), D2.data(), result.data()); }
     std::cout << std::endl;
 }
 
