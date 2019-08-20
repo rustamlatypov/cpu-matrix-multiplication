@@ -8,6 +8,8 @@
 #include "vector.h"
 
 
+constexpr double error_limit = 1e-3;
+
 
 static void print(int ny, int nx, const double *matrix) {
     for (int j = 0; j < ny; j++) {

@@ -10,8 +10,6 @@
 #include "base.cc"
 #include "helper.cc"
 
-constexpr double error_limit = 1e-3;
-
 
 
 static bool test(int ny, int nm, int nx) {
