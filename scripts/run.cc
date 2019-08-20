@@ -7,10 +7,8 @@
 #include "helper.cc"
 
 
-
 using c = std::chrono::high_resolution_clock;
 using time_point = decltype(c::now());
-std::vector<time_point> timePoints;
 
 
 double validate(int ny, int nx, double* D1, double* D2, int iter) {
