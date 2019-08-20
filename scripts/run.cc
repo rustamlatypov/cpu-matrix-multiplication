@@ -40,7 +40,7 @@ int main(int argc, const char** argv) {
     } else if(argc == 2) {
         dim = std::stoi(argv[1]);
     } else {
-        std::cout << "Usage:\n  run <dim>\n";
+        std::cout << "Usage:\trun <dim>\n";
         return 0;
     }
 
