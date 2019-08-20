@@ -24,12 +24,13 @@ static void benchmark(int dim) {
 }
 
 int main(int argc, const char** argv) {
-    if (argc < 2 || argc > 3) {
+    if (argc == 3) {
+        int dim = std::stoi(argv[1]);
+        int iter = std::stoi(argv[2]);
+        for (int i = 0; i < iter; ++i) {
+            benchmark(dim);
+        }
+    } else {
         std::cout << "Usage:\tbenchmark <dim> <iterations>" << std::endl;
-    }
-    int dim = std::stoi(argv[1]);
-    int iter = argc == 3 ? std::stoi(argv[2]) : 1;
-    for (int i = 0; i < iter; ++i) {
-        benchmark(dim);
     }
 }
