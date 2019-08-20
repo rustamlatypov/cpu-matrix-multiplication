@@ -9,34 +9,10 @@
 #include "fast.cc"
 #include "base.cc"
 #include "error.h"
-#include "debug.cc"
+#include "helper.cc"
 
 constexpr double error_limit = 1e-3;
 
-
-
-static void gen(int ny, int nx, double* data) {
-    std::mt19937 rng(42);
-    const short a = std::numeric_limits<short>::max();
-    std::uniform_real_distribution<double> unif(-a,a);
-    std::generate(data, data+nx*ny, [&]{ return unif(rng); });
-}
-
-
-double verify_result(int ny, int nm, int nx, double* D1, double* D2, double* result, int iter) {
-    double cumsum = 0.0f;
-
-    std::vector<double> correct(ny * nx);
-    base_multiply(ny, nm, nx, D1, D2, correct.data());
-
-    for (int i = 0; i < iter; i++) {
-        for (int j = 0; j < ny*nx; j++) {
-            cumsum += fabs(result[j] - correct[j]);
-        }
-    }
-
-    return cumsum;
-}
 
 
 static bool test(int ny, int nm, int nx) {
@@ -51,7 +27,10 @@ static bool test(int ny, int nm, int nx) {
 
     //print(ny, nx, result.data());
 
-    double error = verify_result(ny, nm, nx, D1.data(), D2.data(), result.data(), 20);
+    std::vector<double> correct(ny * nx);
+    base_multiply(ny, nm, nx, D1.data(), D2.data(), correct.data());
+
+    double error = verify_result(ny, nx, result.data(), correct.data(), 20);
     bool pass = error < error_limit;
 
     std::cout << std::fixed << std::setprecision(3);
@@ -130,6 +109,6 @@ int main(int argc, const char** argv) {
             exit(EXIT_FAILURE);
         }
     } else {
-        std::cout << "Usage:\n  test <ny> <nm> <nx>\n";
+        std::cout << "Usage:\ttest <ny> <nm> <nx>\n";
     }
 }

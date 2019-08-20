@@ -1,38 +1,41 @@
 #include <math.h>
-
-#include "debug.cc"
-#include "base.cc"
-#include "fast.cc"
-#include "stopwatch.h"
-ppc::stopwatch sw;
-
+#include <chrono>
 #include <limits>
 
+#include "helper.cc"
+#include "base.cc"
+#include "fast.cc"
 
 
-static void gen(int ny, int nx, double* data) {
-    std::mt19937 rng(42);
-    const short a = std::numeric_limits<short>::max();
-    std::uniform_real_distribution<double> unif(-a,a);
-    std::generate(data, data+nx*ny, [&]{ return unif(rng); });
+using c = std::chrono::high_resolution_clock;
+using time_point = decltype(c::now());
+std::vector<time_point> timePoints;
+
+
+double validate(int ny, int nx, double* D1, double* D2, int iter) {
+
+    double cumsum = 0.0f;
+    for (int j = 0; j < iter; j++) {
+        for (int i = 0; i < ny*nx; i++) {
+            cumsum += fabs(D1[i] - D2[i]);
+        }
+    }
+    return cumsum;
 }
-
 
 
 int main(int argc, const char** argv) {
 
-
+    /*
     const double mini = std::numeric_limits<double>::min();
     const double maxi = std::numeric_limits<double>::max();
-
     std::cout << mini << '\n' << maxi << std::endl;
-
-
+    */
 
     int dim;
 
     if (argc == 1) {
-        dim = 3000;
+        dim = 1000;
     } else if(argc == 2) {
         dim = std::stoi(argv[1]);
     } else {
@@ -58,21 +61,15 @@ int main(int argc, const char** argv) {
     gen(nm, nx, D2.data());
     //print(nm, nx, D2.data());
 
-    sw.record();
     base_multiply(ny, nm, nx, D1.data(), D2.data(), base_result.data());
     //print(ny, nx, base_result.data());
-    sw.record();
 
     fast_multiply(ny, nm, nx, D1.data(), D2.data(), fast_result.data());
-    print(ny, nx, fast_result.data());
-    sw.record();
-    sw.print();
+    //print(ny, nx, fast_result.data());
 
-    double cumsum = 0.0f;
-    for (int i = 0; i < ny*nx; i++) {
-        cumsum += fabs(base_result[i] - fast_result[i]);
-    }
-    std::cout << "\nCumulative error: " << cumsum << std::endl;
+    double error = validate(ny, nx, base_result.data(), fast_result.data(), 1);
+
+    std::cout << "\nCumulative error: " << error << std::endl;
 
     std::cout.precision(9999999999);
     std::cout << base_result[0] << std::endl;

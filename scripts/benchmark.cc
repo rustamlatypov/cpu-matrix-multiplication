@@ -5,7 +5,6 @@
 #include <random>
 
 #include "fast.cc"
-#include "error.h"
 #include "timer.h"
 
 static void benchmark(int dim) {
@@ -26,7 +25,7 @@ static void benchmark(int dim) {
 
 int main(int argc, const char** argv) {
     if (argc < 2 || argc > 3) {
-        error("usage: benchmark <dim> <iterations>");
+        std::cout << "Usage:\tbenchmark <dim> <iterations>\n";
     }
     int dim = std::stoi(argv[1]);
     int iter = argc == 3 ? std::stoi(argv[2]) : 1;
