@@ -23,12 +23,13 @@ static void benchmark(int dim) {
 
 int main(int argc, const char** argv) {
 
+    int dim; int iter;
     if (argc == 3) {
-        int dim = std::stoi(argv[1]);
-        int iter = std::stoi(argv[2]);
+        dim = std::stoi(argv[1]);
+        iter = std::stoi(argv[2]);
     } else if (argc == 1) {
-        int dim = 3000;
-        int iter = 10;
+        dim = 3000;
+        iter = 10;
     } else {
         std::cout << "Usage:\tbenchmark <dim> <iterations>" << std::endl;
         return 0;
