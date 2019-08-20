@@ -35,12 +35,9 @@ int main(int argc, const char** argv) {
     int dim; int iter;
     if (argc == 1) {
         dim = 1000;
-<<<<<<< HEAD
     } else if(argc == 2) {
-=======
         iter = 3;
     } else if(argc == 3) {
->>>>>>> c5f08cf4c01faa90004513b74de7edec1e247cd9
         dim = std::stoi(argv[1]);
         iter = std::stoi(argv[2]);
     } else {
