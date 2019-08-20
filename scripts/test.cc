@@ -106,6 +106,6 @@ int main(int argc, const char** argv) {
             exit(EXIT_FAILURE);
         }
     } else {
-        std::cout << "Usage:\ttest <ny> <nm> <nx>" std::endl;
+        std::cout << "Usage:\ttest <ny> <nm> <nx>" << std::endl;
     }
 }
