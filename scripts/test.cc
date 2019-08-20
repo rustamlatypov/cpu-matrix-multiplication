@@ -87,7 +87,7 @@ int main(int argc, const char** argv) {
             }
         }
 
-        std::cout << std::endl << passcount << "/" << testcount << " tests passed.\n\n";
+        std::cout << passcount << "/" << testcount << " tests passed.";
         if(has_fails) {
             std::cout
                 << "To repeat the first failed test with more output, run:\n"
