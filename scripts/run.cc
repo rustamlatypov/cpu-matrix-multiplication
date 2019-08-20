@@ -35,7 +35,6 @@ int main(int argc, const char** argv) {
     int dim; int iter;
     if (argc == 1) {
         dim = 1000;
-    } else if(argc == 2) {
         iter = 3;
     } else if(argc == 3) {
         dim = std::stoi(argv[1]);
