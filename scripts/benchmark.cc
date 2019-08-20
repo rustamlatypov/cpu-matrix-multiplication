@@ -22,13 +22,18 @@ static void benchmark(int dim) {
 }
 
 int main(int argc, const char** argv) {
-    if (argc == 3) {
-        int dim = std::stoi(argv[1]);
-        int iter = std::stoi(argv[2]);
-        for (int i = 0; i < iter; ++i) {
-            benchmark(dim);
-        }
-    } else {
+    if (argc == 2 || argc > 3) {
         std::cout << "Usage:\tbenchmark <dim> <iterations>" << std::endl;
+        return 0;
+    }
+
+    int dim = 3000; int iter = 10;
+    if (argc == 3) {
+        dim = std::stoi(argv[1]);
+        iter = std::stoi(argv[2]);
+    }
+
+    for (int i = 0; i < iter; ++i) {
+        benchmark(dim);
     }
 }
