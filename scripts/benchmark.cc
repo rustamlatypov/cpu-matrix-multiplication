@@ -22,7 +22,7 @@ static void benchmark(int dim) {
     double t = (t2-t1).count() / double(1E9);
     
     std::cout.precision(3);
-    std::cout << t << std::flush;
+    printf("%.3f\n", t);
 }
 
 int main(int argc, const char** argv) {
