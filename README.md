@@ -2,7 +2,6 @@
 
 ## Results
 
-OSX, Intel Core i5-7600 Kaby Lake CPU 3.5 GHz. Average scores for 10 runs with ``n`` sized input arrays:
 
 ```
 n = 4000
