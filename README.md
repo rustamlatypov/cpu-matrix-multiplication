@@ -1,4 +1,4 @@
-## Parallelized matrix multiplication 
+## Parallelized CPU matrix multiplication 
 
 ## Results
 
