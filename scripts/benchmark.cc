@@ -21,7 +21,7 @@ static void benchmark(int dim) {
     time_point t2 = c::now();
     double t = (t2-t1).count() / double(1E9);
     
-    std::cout << std::endl;
+    std::cout << t << std::endl;
 }
 
 int main(int argc, const char** argv) {
