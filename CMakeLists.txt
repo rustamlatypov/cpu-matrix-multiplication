@@ -8,4 +8,4 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O -fopenmp")
 include_directories(common)
 include_directories(scripts)
 
-add_executable(parallel_matrix_multiplication scripts/run.cc)
+add_executable(parallel_matrix_multiplication scripts/test.cc)
