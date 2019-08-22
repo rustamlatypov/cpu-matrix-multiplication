@@ -14,13 +14,13 @@ parallel:      2.1675
 
 n = 6000
 sequential:    1454.7 
-parallel:      3.8700	ratio: 375.9
+parallel:      3.8732	ratio: 375.9
   
 n = 7000
-sequential:    1454.7 
-parallel:      3.8700	ratio: 375.9     
+sequential:    2604.8
+parallel:      6.7220	ratio: 387.5    
 
 n = 8000
-sequential:    1454.7 
-parallel:      3.8700	ratio: 375.9     
+sequential:    5037.0
+parallel:      12.383 	ratio: 406.8     
 ```
