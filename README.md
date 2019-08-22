@@ -1,7 +1,7 @@
 ## Parallelized CPU matrix multiplication 
 
 ## Results
-
+Linux, Intel Xeon E3-1230v5 Skylake 3.4–3.8 GHz
 
 ```
 n = 4000
