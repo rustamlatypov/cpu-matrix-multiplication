@@ -83,9 +83,8 @@ int main(int argc, const char** argv) {
 
     std::cout << "Average of " << iter << " runs: \n" << "Base: " << base << ", Fast: " << fast
     << ", Ratio: " << base/fast  << ", Error: " << error << "\n" << std::endl;
-    /*
+
     std::cout.precision(9999999999);
-    std::cout << base_result[0] << std::endl;
-    std::cout << fast_result[0] << std::endl;
-    */
+    std::cout << "base: " << base_result[0] << std::endl;
+    std::cout << "fast: " << fast_result[0] << std::endl;
 }
