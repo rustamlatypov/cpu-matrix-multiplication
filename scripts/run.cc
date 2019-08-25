@@ -43,17 +43,15 @@ int main(int argc, const char** argv) {
     std::vector<double> fast_result(ny * nx);
     std::vector<double> cumerror(ny * nx);
 
+    std::fill(base_result.begin(), base_result.end(), 0);
+    std::fill(fast_result.begin(), fast_result.end(), 0);
+    gen(ny, nm, D1.data());
+    //print(ny, nm, D1.data());
+    gen(nm, nx, D2.data());
+    //print(nm, nx, D2.data());
+
     for (int i = 0; i < iter; i++)
     {
-        std::fill(base_result.begin(), base_result.end(), 0);
-        std::fill(fast_result.begin(), fast_result.end(), 0);
-
-        gen(ny, nm, D1.data());
-        //print(ny, nm, D1.data());
-
-        gen(nm, nx, D2.data());
-        //print(nm, nx, D2.data());
-
         time_point t1 = c::now();
         base_multiply(ny, nm, nx, D1.data(), D2.data(), base_result.data());
         //print(ny, nx, base_result.data());
@@ -76,10 +74,10 @@ int main(int argc, const char** argv) {
 
     std::cout << "Average of " << iter << " runs: " <<  std::endl;
     std::cout << "n = " << dim  << std::endl;
-
+    
     printf("Sequential: %9.3f \n", base);
     printf("Parallel:   %9.3f \n", fast);
-    printf("Ratio:      %9.3f \n", base/fast);
+    printf("Speedup:    %9.3f \n", base/fast);
     printf("Error:      %9.3f \n\n", error);
 
     /*
