@@ -74,10 +74,17 @@ int main(int argc, const char** argv) {
     float fast = accumulate( fast_time.begin(), fast_time.end(), 0.0)/fast_time.size();
     float error = accumulate( cumerror.begin(), cumerror.end(), 0.0)/cumerror.size();
 
-    std::cout << "Average of " << iter << " runs: \n" << "Base: " << base << ", Fast: " << fast
-    << ", Ratio: " << base/fast  << ", Error: " << error << "\n" << std::endl;
+    std::cout << "Average of " << iter << " runs: " <<  std::endl;
+    std::cout << "n = " << dim  << std::endl;
 
+    printf("Sequential: %9.3f \n", base);
+    printf("Parallel:   %9.3f \n", fast);
+    printf("Ratio:      %9.3f \n", base/fast);
+    printf("Error:      %9.3f \n\n", error);
+
+    /*
     std::cout.precision(9999999999);
     std::cout << "base: " << base_result[0] << std::endl;
     std::cout << "fast: " << fast_result[0] << std::endl;
+    */
 }

@@ -7,6 +7,8 @@
 #include "fast.cc"
 #include "helper.cc"
 
+std::vector<float> times;
+
 static void benchmark(int dim) {
     std::vector<double> D1(dim * dim);
     std::vector<double> D2(dim * dim);
@@ -15,13 +17,14 @@ static void benchmark(int dim) {
     gen(dim, dim, D1.data());
     gen(dim, dim, D2.data());
 
-    std::cout << "cp\t" << dim << "\t" << std::flush;
+    std::cout << dim << "\t " << std::flush;
     time_point t1 = c::now();
     fast_multiply(dim, dim, dim, D1.data(), D2.data(), result.data());
     time_point t2 = c::now();
     double t = (t2-t1).count() / double(1E9);
     
     printf("%.3f\n", t);
+    times.push_back(t);
 }
 
 int main(int argc, const char** argv) {
@@ -41,5 +44,8 @@ int main(int argc, const char** argv) {
     for (int i = 0; i < iter; ++i) {
         benchmark(dim);
     }
-    std::cout << std::endl;
+
+    float avg = accumulate( times.begin(), times.end(), 0.0)/times.size();
+
+    printf("Average: %.3f\n\n", avg);
 }
