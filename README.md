@@ -53,8 +53,8 @@ sequential:    1498.6
 parallel:      3.6714	ratio: 408.2
   
 n = 7000
-sequential:    2679.8
-parallel:      6.8740	ratio: 389.8  
+sequential:    2948.5
+parallel:      6.38565	ratio: 461.743
 
 n = 8000
 sequential:    5037.0
