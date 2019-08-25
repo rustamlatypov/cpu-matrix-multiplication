@@ -22,7 +22,7 @@ Running both implementations on the same matrices for `iter` times and outputing
 Running the fast implementation on different matrices of dimension `dim` for `iter` times and outputing the running times and the total average. 
 
 ### Error term
-
+The error term is defined to be the sum of the element wise absolute difference of the two matrices.
 
 
 ## Parallel implementation
