@@ -34,7 +34,7 @@ int main(int argc, const char** argv) {
         dim = 3000;
         iter = 10;
     } else {
-        std::cout << "Usage:\tbenchmark <dim> <iterations>" << std::endl;
+        std::cout << "Usage:\tbenchmark <dim> <iter>" << std::endl;
         return 0;
     }
 

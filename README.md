@@ -1,6 +1,6 @@
 # Parallelized CPU matrix multiplication 
 
-Developed during July-August, 2019.
+Developed during June-August, 2019.
 
 ## Description
 
@@ -8,9 +8,18 @@ A console interface for testing and benchmarking two matrix multiplication imple
 
 ## Instructions for building and using
 
+Built for a multicore linux system that supports AVX operations. Use `make -j` to build binaries and `make clean` to clean up the directory. When built there are three command available: `./run <dim> <iter>`, `./test <ny> <nm> <nx>` and `./benchmark <dim> <iter>`.
+
+- `./run <dim> <iter>`
+
+- `./test <ny> <nm> <nx>`
+
+- `./benchmark <dim> <iter>` 
+
+
 
 ## Parallel implementation
-
+???
 
 ## Results
 Linux g++-8, -march=native -O2 -fopenmp 
