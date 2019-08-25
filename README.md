@@ -14,6 +14,7 @@ A console interface for testing and benchmarking two matrix multiplication imple
 
 ## Results
 Linux g++-8, -march=native -O2 -fopenmp 
+
 Intel Xeon E3-1230v5 Skylake 3.4–3.8 GHz
 
 ```
