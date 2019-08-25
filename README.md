@@ -29,6 +29,10 @@ The error term is defined to be the sum of the element wise absolute difference 
 ???
 
 
+## Remarks
+
+
+
 ## Results
 The results are captured using `./run n 2`, with n = 4000, 5000, 6000, 7000, 8000. 
 
