@@ -2,24 +2,27 @@
 
 Developed during June-August, 2019.
 
+
 ## Description
 
 A console interface for testing and benchmarking two matrix multiplication implementations. Both use the same basic algorithm running O(n^3) for matrices of dimension n. The base implementation is sequential and the fast implementation is parallel. 
+
 
 ## Instructions for building and using
 
 Built for a multicore linux system that supports AVX operations. Use `make -j` to build binaries and `make clean` to clean up the directory. When built there are three command available: `./run <dim> <iter>`, `./test <ny> <nm> <nx>` and `./benchmark <dim> <iter>`.
 
-- `./run <dim> <iter>`
+- `./run <dim> <iter>` default: dim=1000, iter=3
 
-- `./test <ny> <nm> <nx>`
+- `./test <ny> <nm> <nx>` default: ny=, nm=, nx=
 
-- `./benchmark <dim> <iter>` 
+- `./benchmark <dim> <iter>` default: dim=3000, iter=10
 
 
 
 ## Parallel implementation
 ???
+
 
 ## Results
 Linux g++-8, -march=native -O2 -fopenmp 
@@ -40,13 +43,14 @@ sequential:    1498.6
 parallel:      3.6714	ratio: 408.2
   
 n = 7000
-sequential:    2604.8
-parallel:      6.7220	ratio: 387.5    
+sequential:    2679.8
+parallel:      6.8740	ratio: 389.8  
 
 n = 8000
 sequential:    5037.0
 parallel:      12.383 	ratio: 406.8     
 ```
+
 
 ## Author
 
