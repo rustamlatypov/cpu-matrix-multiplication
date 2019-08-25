@@ -20,13 +20,6 @@ double validate(int ny, int nx, double* D1, double* D2, int iter) {
 
 int main(int argc, const char** argv) {
 
-    /*
-
-    const double mini = std::numeric_limits<double>::min();
-    const double maxi = std::numeric_limits<double>::max();
-    std::cout << mini << '\n' << maxi << std::endl;
-    */
-
     int dim; int iter;
     if (argc == 1) {
         dim = 1000;
