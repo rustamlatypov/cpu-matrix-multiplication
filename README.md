@@ -42,8 +42,8 @@ Intel Xeon E3-1230v5 Skylake 3.4–3.8 GHz
 ```
 n = 2000
 Sequential:    31.942 
-Parallel:       0.135 
-Ratio:        236.488 
+Parallel:       0.135
+Ratio:        236.488
 
 n = 3000
 Sequential:   135.225 
@@ -60,8 +60,22 @@ Sequential:   771.384
 Parallel:       2.129 
 Ratio:        362.402 
 
+n = 6000
+Sequential:  1419.958 
+Parallel:       3.850 
+Ratio:        368.842
+Error:          0.000
 
+n = 7000
+Sequential:  2482.789 
+Parallel:       6.635 
+Ratio:        374.196 
+Error:          0.000
 
+n = 8000
+Sequential:  5149.222 
+Parallel:      12.172 
+Ratio:        423.022 
 
 n = 4000
 sequential:    388.01
