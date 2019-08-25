@@ -13,13 +13,13 @@ A console interface for testing and benchmarking two matrix multiplication imple
 Built for a multicore linux system that supports AVX operations. Use `make -j` to build binaries and `make clean` to clean up the directory. When built there are three command available: `./run <dim> <iter>`, `./test <ny> <nm> <nx>` and `./benchmark <dim> <iter>`.
 
 - `./run <dim> <iter>` default: dim=1000, iter=3 <br/>
-Running both implementations on the same matrices for `iter` times and outputing the average running times, the speedup and the error term.
+Runs both implementations on the same matrices for `iter` times and outputs the average running times, the speedup and the error term.
 
 - `./test <ny> <nm> <nx>` default: ny,nm,nx in {5,1500} <br/>
 Runs extensive tests with different matrices and different values for ny, nm and nx. Dimension wise the multiplication is (ny x nm)(nm x nx). Each combination is run 20 times and the error term is accumulated and outputed. 
 
 - `./benchmark <dim> <iter>` default: dim=3000, iter=10 <br/>
-Running the fast implementation on different matrices of dimension `dim` for `iter` times and outputing the running times and the total average. 
+Runs the fast implementation on different matrices of dimension `dim` for `iter` times and outputs the running times and the total average. 
 
 ### Error term
 The error term is defined to be the sum of the element wise absolute difference of the two matrices.
