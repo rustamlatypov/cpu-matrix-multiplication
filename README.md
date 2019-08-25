@@ -14,7 +14,7 @@ Built for a multicore linux system that supports AVX operations. Use `make -j` t
 
 - `./run <dim> <iter>` default: dim=1000, iter=3
 
-- `./test <ny> <nm> <nx>` default: ny{\displaystyle \in }, nm=, nx=
+- `./test <ny> <nm> <nx>` default: ny,nm,nx in {5,1500}
 
 - `./benchmark <dim> <iter>` default: dim=3000, iter=10
 
