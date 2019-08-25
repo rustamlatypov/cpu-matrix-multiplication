@@ -30,8 +30,9 @@ The error term is defined to be the sum of the element wise absolute difference 
 
 
 ## Results
-Linux g++-8, -march=native -O2 -fopenmp 
+The results are captured using `./run n 2`, with n=4000,5000,6000,7000,8000. 
 
+Linux g++-8, -march=native -O2 -fopenmp <br/>
 Intel Xeon E3-1230v5 Skylake 3.4–3.8 GHz
 
 ```
