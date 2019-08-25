@@ -10,7 +10,7 @@ A console interface for testing and benchmarking two matrix multiplication imple
 
 ## Building and running
 
-Built for a multicore linux system that supports AVX operations. Use `make -j` to build binaries and `make clean` to clean up the directory. When built there are three command available: `./run <dim> <iter>`, `./test <ny> <nm> <nx>` and `./benchmark <dim> <iter>`.
+Built for a multicore linux system that supports AVX operations. Use `make -j` to build binaries and `make clean` to clean up the directory. When built there are three command available: `./run <dim> <iter>`, `./test <ny> <nm> <nx>` and `./benchmark <dim> <iter>`. Assembly code for file x can be produced by running `make x.asm1` and `make x.asm2`.
 
 - `./run <dim> <iter>` default: dim=1000, iter=3 <br/>
 Runs both implementations on the same matrices for `iter` times and outputs the average running times, the speedup and the error term.
@@ -30,7 +30,7 @@ The error term is defined to be the sum of the element wise absolute difference 
 
 
 ## Remarks
-
+On some computers the compiler has difficulties producing FMA instructions resulting in rounding errors. Since large numbers are used, rounding errors accumulate and result in a high error term even though the implementation is correct. This can be fixed by compiler optimization. 
 
 
 ## Results
@@ -40,6 +40,27 @@ Linux g++-8, -march=native -O2 -fopenmp <br/>
 Intel Xeon E3-1230v5 Skylake 3.4–3.8 GHz
 
 ```
+n = 2000
+Sequential:    31.942 
+Parallel:       0.135 
+Ratio:        236.488 
+
+n = 3000
+Sequential:   135.225 
+Parallel:       0.435 
+Ratio:        310.608
+
+n = 4000
+Sequential:   366.699 
+Parallel:       0.965 
+Ratio:        380.182 
+Error:          0.000 
+
+
+
+
+
+
 n = 4000
 sequential:    388.01
 parallel:      0.9805	ratio: 395.8
