@@ -36,7 +36,7 @@ On some computers the compiler has difficulties producing FMA instructions resul
 ## Results
 The results are captured using `./run n 2`, with n = 4000, 5000, 6000, 7000, 8000. 
 
-Linux g++-8, -march=native -O2 -fopenmp <br/>
+Linux, g++-8 -march=native -O2 -fopenmp <br/>
 Intel Xeon E3-1230v5 Skylake 3.4–3.8 GHz
 
 ```
