@@ -4,7 +4,7 @@ Developed during July-August, 2019.
 
 ## Description
 
-A console interface for testing and benchmarking two matrix multiplication implementations. Both use the same basic algorithm running O(n^3) for nxn matrices. The base implementation is sequential and the fast implementation is parallel. 
+A console interface for testing and benchmarking two matrix multiplication implementations. Both use the same basic algorithm running $O(n^3)$ for $n /times n$ matrices. The base implementation is sequential and the fast implementation is parallel. 
 
 ## Instructions for building and using
 
