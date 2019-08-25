@@ -54,9 +54,11 @@ n = 4000
 Sequential:   366.699 
 Parallel:       0.965 
 Ratio:        380.182 
-Error:          0.000 
 
-
+n = 5000
+Sequential:   771.384 
+Parallel:       2.129 
+Ratio:        362.402 
 
 
 
