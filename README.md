@@ -64,13 +64,11 @@ n = 6000
 Sequential:  1419.958 
 Parallel:       3.850 
 Ratio:        368.842
-Error:          0.000
 
 n = 7000
 Sequential:  2482.789 
 Parallel:       6.635 
 Ratio:        374.196 
-Error:          0.000
 
 n = 8000
 Sequential:  5149.222 
