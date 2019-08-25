@@ -15,11 +15,10 @@ Built for a multicore linux system that supports AVX operations. Use `make -j` t
 - `./run <dim> <iter>` default: dim=1000, iter=3 <br/>
 Running both implementations on the same matrices for `iter` times and outputing the average running times, the speedup and the error term.
 
-- `./test <ny> <nm> <nx>` default: ny,nm,nx in {5,1500}
+- `./test <ny> <nm> <nx>` default: ny,nm,nx in {5,1500} <br/>
 
 
-- `./benchmark <dim> <iter>` default: dim=3000, iter=10
-
+- `./benchmark <dim> <iter>` default: dim=3000, iter=10 <br/>
 Running the fast implementation on different matrices of dimension `dim` for `iter` times and outputing the running times and the total average. 
 
 ### Error term
