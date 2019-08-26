@@ -5,7 +5,7 @@
 #include <random>
 
 #include "fast.cc"
-#include "helper.cc"
+#include "helper.h"
 
 std::vector<float> times;
 

@@ -6,6 +6,9 @@
 #include <cassert>
 #include <chrono>
 
+#ifndef HELPER
+#define HELPER
+
 #include "vector.h"
 
 using c = std::chrono::high_resolution_clock;
@@ -65,3 +68,5 @@ double verify_result(int ny, int nx, double* D1, double* D2, int iter) {
     }
     return cumsum;
 }
+
+#endif

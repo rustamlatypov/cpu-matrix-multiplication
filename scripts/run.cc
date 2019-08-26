@@ -3,7 +3,7 @@
 
 #include "fast.cc"
 #include "base.cc"
-#include "helper.cc"
+#include "helper.h"
 
 
 double validate(int ny, int nx, double* D1, double* D2, int iter) {
@@ -22,8 +22,8 @@ int main(int argc, const char** argv) {
 
     int dim; int iter;
     if (argc == 1) {
-        dim = 1000;
-        iter = 3;
+        dim = 10;
+        iter = 1;
     } else if(argc == 3) {
         dim = std::stoi(argv[1]);
         iter = std::stoi(argv[2]);

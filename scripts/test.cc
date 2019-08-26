@@ -8,7 +8,7 @@
 
 #include "fast.cc"
 #include "base.cc"
-#include "helper.cc"
+#include "helper.h"
 
 
 
