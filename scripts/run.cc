@@ -22,8 +22,8 @@ int main(int argc, const char** argv) {
 
     int dim; int iter;
     if (argc == 1) {
-        dim = 10;
-        iter = 1;
+        dim = 1000;
+        iter = 3;
     } else if(argc == 3) {
         dim = std::stoi(argv[1]);
         iter = std::stoi(argv[2]);

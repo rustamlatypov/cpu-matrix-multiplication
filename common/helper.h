@@ -1,3 +1,6 @@
+#ifndef HELPER
+#define HELPER
+
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -5,10 +8,6 @@
 #include <algorithm>
 #include <cassert>
 #include <chrono>
-
-#ifndef HELPER
-#define HELPER
-
 #include "vector.h"
 
 using c = std::chrono::high_resolution_clock;

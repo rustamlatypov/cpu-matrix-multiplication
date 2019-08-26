@@ -12,27 +12,22 @@
 using c = std::chrono::high_resolution_clock;
 using time_point = decltype(c::now());
 
-void transpose(int ny, int nx, const double* data_, double* data) {
 
-    #pragma omp parallel for
-    for (int i = 0; i < ny; i++) {
-        for (int j = 0; j < nx; j++) {
-            data[j*ny+i] = data_[i*nx+j];
-        }
-    }
-}
+// horizontal padding such that rows are devisible by P*A
+// 1  2  3  4  5     1  2  3  4  5
+// 6  7  8  9  10    6  7  8  9  10
+// 11 12 13 14 15 => 11 12 13 14 15
+// 16 17 18 19 20    16 17 18 19 20
+// 21 22 23 24 25    21 22 23 24 25
+//                   0  0  0  0  0
+//                   0  0  0  0  0
+//                   0  0  0  0  0
+
+// when A*B, pad1 is for A and pad2 is for B
+
 
 double4_t* pad1(int nyv, int ny, int nx, const double* data_, int P) {
 
-    // horizontal padding such that rows are devisible by P*A
-    // 1  2  3  4  5     1  2  3  4  5
-    // 6  7  8  9  10    6  7  8  9  10
-    // 11 12 13 14 15 => 11 12 13 14 15
-    // 16 17 18 19 20    16 17 18 19 20
-    // 21 22 23 24 25    21 22 23 24 25
-    //                   0  0  0  0  0
-    //                   0  0  0  0  0
-    //                   0  0  0  0  0
     double4_t* data = double4_alloc(nyv*nx);
 
     #pragma omp parallel for
@@ -49,25 +44,18 @@ double4_t* pad1(int nyv, int ny, int nx, const double* data_, int P) {
     return data;
 }
 
-double4_t* pad2(int nyv, int ny, int nx, const double* data_, int P) {
 
-    // horizontal padding such that rows are devisible by P*A
-    // 1  2  3  4  5     1  2  3  4  5
-    // 6  7  8  9  10    6  7  8  9  10
-    // 11 12 13 14 15 => 11 12 13 14 15
-    // 16 17 18 19 20    16 17 18 19 20
-    // 21 22 23 24 25    21 22 23 24 25
-    //                   0  0  0  0  0
-    //                   0  0  0  0  0
-    //                   0  0  0  0  0
+double4_t* pad2(int nyv, int nx, int ny, const double* data_, int P) {
+
+
     double4_t* data = double4_alloc(nyv*nx);
 
-#pragma omp parallel for
+    #pragma omp parallel for
     for (int j = 0; j < nyv; j++) {
         for (int i = 0; i < nx; i++) {
             for (int k = 0; k < P; k++) {
 
-                data[j*nx+i][k] = j*P+k < ny ? data_[(i*P+k)*nx+j] : 0;
+                data[j*nx+i][k] = j*P+k < ny ? data_[i*ny+(j*P+k)] : 0;
 
             }
         }
@@ -77,8 +65,7 @@ double4_t* pad2(int nyv, int ny, int nx, const double* data_, int P) {
 }
 
 
-
-void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2__, double* result) {
+void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_, double* result) {
 
     int ny1 = ny;
     int nx1 = nm;
@@ -100,24 +87,12 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2__
 
 
     double4_t* D1 = pad1(nyv1, ny1, nx1, D1_, P);
+    double4_t* D2 = pad2(nyv2, ny2, nx2, D2_, P);
 
-    std::vector<double> D2_(ny2*nx2);
-    std::fill(D2_.begin(), D2_.end(), 0);
+    ny2 = nx2;
 
-    time_point t1 = c::now();
-    transpose(ny2, nx2, D2__, D2_.data());
-    time_point t2 = c::now();
-    double t = (t2-t1).count() / double(1E9);
-    printf("%.3f\n", t);
-
-    int aux = nx2;
-    nx2 = ny2;
-    ny2 = aux;
-    //print(ny2, nx2, D2_.data());
-
-    double4_t* D2 = pad1(nyv2, ny2, nx2, D2_.data(), P);
-    print_v(D1, nyv1, nx1, P);
-    print_v(D2, nyv2, nx2, P);
+    //print_v(D1, nyv1, nx1, P);
+    //print_v(D2, nyv2, nx2, P);
 
     #pragma omp parallel for
     for (int j = 0; j < nyb1; j++) {
