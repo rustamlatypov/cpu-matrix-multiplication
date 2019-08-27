@@ -4,6 +4,7 @@
 #include "base.cc"
 #include "helper.h"
 
+
 int main(int argc, const char** argv) {
 
     int dim; int iter;

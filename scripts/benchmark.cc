@@ -8,11 +8,12 @@
 
 std::vector<double> times;
 
+
 static void benchmark(int dim, int iter) {
     std::vector<double> D1(dim * dim);
     std::vector<double> D2(dim * dim);
     std::vector<double> result(dim * dim);
-    
+
     gen(dim, dim, D1.data());
     gen(dim, dim, D2.data());
 
