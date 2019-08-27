@@ -85,7 +85,7 @@ template<typename F, typename... Args>
 double funcTime(F func, Args&&... args){
     TimeVar t1=timeNow();
     func(std::forward<Args>(args)...);
-    return duration(timeNow()-t1);
+    return duration(timeNow()-t1) / double(1E9);
 }
 
 #endif
