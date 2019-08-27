@@ -17,13 +17,7 @@ static void benchmark(int dim) {
     gen(dim, dim, D1.data());
     gen(dim, dim, D2.data());
 
-    std::cout << dim << "\t " << std::flush;
-    /*
-    time_point t1 = c::now();
-    fast_multiply(dim, dim, dim, D1.data(), D2.data(), result.data());
-    time_point t2 = c::now();
-    double t = (t2-t1).count() / double(1E9);*/
-
+    printf("%d\t");
     double t = funcTime(fast_multiply, dim, dim, dim, D1.data(), D2.data(), result.data());
     
     printf("%.3f\n", t);
