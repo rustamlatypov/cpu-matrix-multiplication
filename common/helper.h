@@ -7,12 +7,14 @@
 #include <random>
 #include <algorithm>
 #include <cassert>
+#include <utility>
 #include <chrono>
 #include <limits>
 #include "vector.h"
 
+/*
 using c = std::chrono::high_resolution_clock;
-using time_point = decltype(c::now());
+using time_point = decltype(c::now());*/
 constexpr double error_limit = 1e-3;
 
 
@@ -72,6 +74,18 @@ double verify_result(int ny, int nx, double* D1, double* D2, int iter) {
 
 double get_avg(std::vector<double> v) {
     return accumulate( v.begin(), v.end(), 0.0)/v.size();
+}
+
+typedef std::chrono::high_resolution_clock::time_point TimeVar;
+
+#define duration(a) std::chrono::duration_cast<std::chrono::nanoseconds>(a).count()
+#define timeNow() std::chrono::high_resolution_clock::now()
+
+template<typename F, typename... Args>
+double funcTime(F func, Args&&... args){
+    TimeVar t1=timeNow();
+    func(std::forward<Args>(args)...);
+    return duration(timeNow()-t1);
 }
 
 #endif

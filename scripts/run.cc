@@ -51,18 +51,24 @@ int main(int argc, const char** argv) {
     //print(nm, nx, D2.data());
 
     for (int i = 0; i < iter; i++)
-    {
+    {   
+        /*
         time_point t1 = c::now();
         base_multiply(ny, nm, nx, D1.data(), D2.data(), base_result.data());
         //print(ny, nx, base_result.data());
         time_point t2 = c::now();
-        base_time[i] = (t2-t1).count() / double(1E9);
+        base_time[i] = (t2-t1).count() / double(1E9);*/
 
+        base_time[i] = funcTime(base_multiply(ny, nm, nx, D1.data(), D2.data(), base_result.data()));
+
+        /*
         t1 = c::now();
         fast_multiply(ny, nm, nx, D1.data(), D2.data(), fast_result.data());
         //print(ny, nx, fast_result.data());
         t2 = c::now();
-        fast_time[i] = (t2-t1).count() / double(1E9);
+        fast_time[i] = (t2-t1).count() / double(1E9);*/
+
+        fast_time[i] = funcTime(fast_multiply(ny, nm, nx, D1.data(), D2.data(), fast_result.data()));
 
         double error = validate(ny, nx, base_result.data(), fast_result.data(), 1);
         cumerror[i] = error;
@@ -80,9 +86,5 @@ int main(int argc, const char** argv) {
     printf("Speedup:    %9.3f \n", base/fast);
     printf("Error:      %9.3f \n\n", error);
 
-    /*
-    std::cout.precision(9999999999);
-    std::cout << "base: " << base_result[0] << std::endl;
-    std::cout << "fast: " << fast_result[0] << std::endl;
-    */
+
 }
