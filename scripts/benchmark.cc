@@ -7,7 +7,7 @@
 #include "fast.cc"
 #include "helper.h"
 
-std::vector<float> times;
+std::vector<double> times;
 
 static void benchmark(int dim) {
     std::vector<double> D1(dim * dim);
