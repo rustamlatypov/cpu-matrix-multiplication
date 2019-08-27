@@ -66,7 +66,7 @@ static void run_test(int ny, int nm, int nx) {
 int main(int argc, const char** argv) {
 
     if (argc == 1) {
-
+        /*
         for(int ny = 50; ny < 55; ny++) {
             for(int nm = 50; nm < 60; nm++) {
                 for(int nx = 50; nx < 65; nx++) {
@@ -81,6 +81,14 @@ int main(int argc, const char** argv) {
         for(int ny : nys) {
             for(int nm : nms) {
                 for(int nx : nxs) {
+                    run_test(ny, nm, nx);
+                }
+            }
+        }*/
+
+        for(int ny = 10; ny < 15; ny++) {
+            for(int nm = 10; nm < 15; nm++) {
+                for(int nx = 10; nx < 15 nx++) {
                     run_test(ny, nm, nx);
                 }
             }
