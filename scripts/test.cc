@@ -38,8 +38,8 @@ static bool test(int ny, int nm, int nx) {
 
 static bool has_fails = false;
 static struct { int ny; int nm; int nx;} first_fail = {};
-static int passcount = 0;
-static int testcount = 0;
+static int pass_count = 0;
+static int test_count = 0;
 
 
 // To be used in batch mode to keep track of test suite progress
@@ -52,14 +52,14 @@ static void run_test(int ny, int nm, int nx) {
     bool pass = test(ny, nm, nx);
     std::cout << (pass ? "OK\n" : "ERR\n");
     if(pass) {
-        passcount++;
+        pass_count++;
     } else if(!has_fails) {
         has_fails = true;
         first_fail.ny = ny;
         first_fail.nm = nm;
         first_fail.nx = nx;
     }
-    testcount++;
+    test_count++;
 }
 
 
