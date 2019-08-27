@@ -4,14 +4,8 @@
 #include <vector>
 #include <omp.h>
 #include <chrono>
-
 #include "vector.h"
 #include "helper.h"
-
-
-using c = std::chrono::high_resolution_clock;
-using time_point = decltype(c::now());
-
 
 // horizontal padding such that rows are devisible by P*A
 // 1  2  3  4  5     1  2  3  4  5
@@ -156,4 +150,5 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     }
     free(D1);
     free(D2);
+    print(ny1, nx2, result);
 }
