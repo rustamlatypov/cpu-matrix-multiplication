@@ -52,9 +52,8 @@ static void print_v(double4_t* data, int nyv, int nx, int P) {
     std::cout << std::endl;
 }
 
-
+std::mt19937 rng(42);
 static void gen(int ny, int nx, double* data) {
-    std::mt19937 rng(42);
     const short a = std::numeric_limits<short>::max();
     std::uniform_real_distribution<double> unif(-a,a);
     std::generate(data, data+nx*ny, [&]{ return unif(rng); });
