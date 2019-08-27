@@ -4,11 +4,6 @@
 #include "base.cc"
 #include "helper.h"
 
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wunused-function"
-#pragma GCC diagnostic pop
-
-
 int main(int argc, const char** argv) {
 
     int dim; int iter;

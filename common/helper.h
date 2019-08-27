@@ -12,45 +12,7 @@
 #include <limits>
 #include "vector.h"
 
-/*
-using c = std::chrono::high_resolution_clock;
-using time_point = decltype(c::now());*/
 constexpr double error_limit = 1e-3;
-
-
-static void print(int ny, int nx, const double *matrix) {
-    for (int j = 0; j < ny; j++) {
-        for (int i = 0; i < nx; i++) {
-            double x = matrix[j * nx + i];
-            if (std::abs(x) < 10.0) {
-                printf("% -7.3f", x);
-            } else {
-                printf("% -7.0e", x);
-            }
-        }
-        std::cout << '\n';
-    }
-    std::cout << '\n';
-}
-
-static void print_v(double4_t* data, int nyv, int nx, int P) {
-    for (int j = 0; j < nyv; j++) {
-        for (int k = 0; k < P; k++) {
-            for (int i = 0; i < nx; i++) {
-
-                double x = data[j * nx + i][k];
-
-                if (std::abs(x) < 10.0) {
-                    printf("% -7.3f", x);
-                } else {
-                    printf("% -7.0e", x);
-                }
-            }
-            std::cout << std::endl;
-        }
-    }
-    std::cout << std::endl;
-}
 
 std::mt19937 rng(42);
 static void gen(int ny, int nx, double* data) {
@@ -86,5 +48,41 @@ double funcTime(F func, Args&&... args){
     func(std::forward<Args>(args)...);
     return duration(timeNow()-t1) / double(1E9);
 }
+
+/*
+static void print(int ny, int nx, const double *matrix) {
+    for (int j = 0; j < ny; j++) {
+        for (int i = 0; i < nx; i++) {
+            double x = matrix[j * nx + i];
+            if (std::abs(x) < 10.0) {
+                printf("% -7.3f", x);
+            } else {
+                printf("% -7.0e", x);
+            }
+        }
+        std::cout << '\n';
+    }
+    std::cout << '\n';
+}
+
+static void print_v(double4_t* data, int nyv, int nx, int P) {
+    for (int j = 0; j < nyv; j++) {
+        for (int k = 0; k < P; k++) {
+            for (int i = 0; i < nx; i++) {
+
+                double x = data[j * nx + i][k];
+
+                if (std::abs(x) < 10.0) {
+                    printf("% -7.3f", x);
+                } else {
+                    printf("% -7.0e", x);
+                }
+            }
+            std::cout << std::endl;
+        }
+    }
+    std::cout << std::endl;
+}
+*/
 
 #endif
