@@ -66,8 +66,8 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int ny2 = nm;
     int nx2 = nx;
 
-    constexpr int P = 2;
-    constexpr int A = 2;
+    constexpr int P = 8;
+    constexpr int A = 4;
 
     int nye1 = ny1;
     while (nye1%(P*A) != 0) nye1++;
