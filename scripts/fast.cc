@@ -81,6 +81,12 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int nyv2 = nye2/P;
     int nyb2 = nyv2/A;
 
+    double t = funcTime(pad1, nyv1, ny1, nx1, D1_, P);
+    printf("%.3f\n", t);
+
+    t = funcTime(pad2, nyv2, ny2, nx2, D2_, P);
+    printf("%.3f\n", t);
+
     double4_t* D1 = pad1(nyv1, ny1, nx1, D1_, P);
     double4_t* D2 = pad2(nyv2, ny2, nx2, D2_, P);
 
@@ -98,11 +104,11 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
             for (int k = 0; k < nx1; k++) {
                 
-                double4_t a0 = D1[(j*A)*nx1 + A*k];
-                double4_t a1 = D1[(j*A)*nx1 + A*k + 1];
+                double4_t a0 = D1[(j*A)*nx1 + 2*k];
+                double4_t a1 = D1[(j*A)*nx1 + 2*k + 1];
 
-                double4_t b0 = D2[(i*A)*nx1 + A*k];
-                double4_t b1 = D2[(i*A)*nx1 + A*k + 1];
+                double4_t b0 = D2[(i*A)*nx1 + 2*k];
+                double4_t b1 = D2[(i*A)*nx1 + 2*k + 1];
 
                 
                 block[0] += a0[0]*b0;
