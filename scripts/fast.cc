@@ -7,7 +7,7 @@
 #include "vector.h"
 #include "helper.h"
 
-// horizontal padding such that rows are devisible by P*A
+// vertical padding such that rows are devisible by P*A
 // 1  2  3  4  5     1  2  3  4  5
 // 6  7  8  9  10    6  7  8  9  10
 // 11 12 13 14 15 => 11 12 13 14 15
@@ -68,14 +68,16 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
     constexpr int P = 4;
     constexpr int A = 2;
+    int div = A*2==P ? P : P*A 
+
 
     int nye1 = ny1;
-    while (nye1%(P*A) != 0) nye1++;
+    while (nye1%div != 0) nye1++;
     int nyv1 = nye1/P;
     int nyb1 = nyv1/A;
 
     int nye2 = nx2;
-    while (nye2%(P*A) != 0) nye2++;
+    while (nye2%div != 0) nye2++;
     int nyv2 = nye2/P;
     int nyb2 = nyv2/A;
 
