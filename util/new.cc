@@ -98,11 +98,11 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
             for (int k = 0; k < nx1; k++) {
                 
-                double4_t a0 = D1[(j*A)*nx1 + 2*k];
-                double4_t a1 = D1[(j*A)*nx1 + 2*k + 1];
+                double4_t a0 = D1[(j*A)*nx1 + A*k];
+                double4_t a1 = D1[(j*A)*nx1 + A*k + 1];
 
-                double4_t b0 = D2[(i*A)*nx1 + 2*k];
-                double4_t b1 = D2[(i*A)*nx1 + 2*k + 1];
+                double4_t b0 = D2[(i*A)*nx1 + A*k];
+                double4_t b1 = D2[(i*A)*nx1 + A*k + 1];
 
                 
                 block[0] += a0[0]*b0;
