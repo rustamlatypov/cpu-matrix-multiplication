@@ -86,13 +86,13 @@ int main(int argc, const char** argv) {
             }
         }*/
 
-        for(int ny = 10; ny < 15; ny++) {
-            for(int nm = 10; nm < 15; nm++) {
-                for(int nx = 10; nx < 15; nx++) {
-                    run_test(ny, nm, nx);
-                }
-            }
-        }
+        run_test(10, 10, 10);
+        run_test(10, 10, 10);
+        run_test(10, 10, 10);
+        run_test(10, 10, 10);
+
+
+
 
         std::cout << passcount << "/" << testcount << " tests passed.\n" << std::endl;
         if(has_fails) {
