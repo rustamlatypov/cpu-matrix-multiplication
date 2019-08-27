@@ -45,7 +45,7 @@ int main(int argc, const char** argv) {
         benchmark(dim);
     }
 
-    float avg = accumulate( times.begin(), times.end(), 0.0)/times.size();
+    float avg = get_avg(times);
 
     printf("Average: %.3f\n\n", avg);
 }

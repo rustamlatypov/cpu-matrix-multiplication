@@ -68,9 +68,9 @@ int main(int argc, const char** argv) {
         cumerror[i] = error;
     }
 
-    float base = accumulate( base_time.begin(), base_time.end(), 0.0)/base_time.size();
-    float fast = accumulate( fast_time.begin(), fast_time.end(), 0.0)/fast_time.size();
-    float error = accumulate( cumerror.begin(), cumerror.end(), 0.0)/cumerror.size();
+    double base = get_avg(base_time);
+    double fast = get_avg(fast_time);
+    double error = get_avg(cumerror)
 
     std::cout << "Average of " << iter << " runs: " <<  std::endl;
     std::cout << "n = " << dim  << std::endl;

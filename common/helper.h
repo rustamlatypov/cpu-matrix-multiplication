@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <cassert>
 #include <chrono>
+#include <limits>
 #include "vector.h"
 
 using c = std::chrono::high_resolution_clock;
@@ -66,6 +67,11 @@ double verify_result(int ny, int nx, double* D1, double* D2, int iter) {
         }
     }
     return cumsum;
+}
+
+
+double get_avg(std::vector<double> v) {
+    return accumulate( v.begin(), v.end(), 0.0)/v.size();
 }
 
 #endif

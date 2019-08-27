@@ -1,4 +1,4 @@
-# Parallel CPU matrix multiplication 
+﻿# Parallel CPU matrix multiplication 
 
 Developed during June-August, 2019.
 
@@ -22,7 +22,7 @@ Runs both implementations on different matrices and different combinations of ny
 Runs the parallel implementation on different matrices of dimension `dim` for `iter` times and outputs the running times and the total average.
 
 ### Error term
-The error term is defined to be the sum of the element wise absolute difference of the two result matrices produced by the two different implementations.
+The error term is defined to be the sum of the element wise absolute difference of the two result matrices produced by the implementations.
 
 
 ## Parallel implementation
