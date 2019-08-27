@@ -68,7 +68,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
     constexpr int P = 4;
     constexpr int A = 2;
-    int div = A*2==P ? P : P*A 
+    int div = A*2==P ? P : P*A;
 
 
     int nye1 = ny1;
