@@ -88,7 +88,7 @@ int main(int argc, const char** argv) {
 
         for(int ny = 10; ny < 15; ny++) {
             for(int nm = 10; nm < 15; nm++) {
-                for(int nx = 10; nx < 15 nx++) {
+                for(int nx = 10; nx < 15; nx++) {
                     run_test(ny, nm, nx);
                 }
             }
