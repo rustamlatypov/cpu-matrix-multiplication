@@ -43,6 +43,5 @@ int main(int argc, const char** argv) {
     }
 
     float avg = get_avg(times);
-
     printf("Average: %.3f\n\n", avg);
 }

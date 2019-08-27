@@ -6,18 +6,6 @@
 #include "helper.h"
 
 
-double validate(int ny, int nx, double* D1, double* D2, int iter) {
-
-    double cumsum = 0.0f;
-    for (int j = 0; j < iter; j++) {
-        for (int i = 0; i < ny*nx; i++) {
-            cumsum += fabs(D1[i] - D2[i]);
-        }
-    }
-    return cumsum;
-}
-
-
 int main(int argc, const char** argv) {
 
     int dim; int iter;
@@ -55,7 +43,7 @@ int main(int argc, const char** argv) {
         base_time[i] = funcTime(base_multiply, ny, nm, nx, D1.data(), D2.data(), base_result.data());
         fast_time[i] = funcTime(fast_multiply, ny, nm, nx, D1.data(), D2.data(), fast_result.data());
 
-        double error = validate(ny, nx, base_result.data(), fast_result.data(), 1);
+        double error = verify_result(ny, nx, base_result.data(), fast_result.data(), 1);
         cumerror[i] = error;
     }
 
