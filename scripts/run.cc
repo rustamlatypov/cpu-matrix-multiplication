@@ -57,6 +57,4 @@ int main(int argc, const char** argv) {
     printf("Parallel:   %9.3f \n", fast);
     printf("Speedup:    %9.3f \n", base/fast);
     printf("Error:      %9.3f \n\n", error);
-
-
 }
