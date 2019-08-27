@@ -1,6 +1,5 @@
 #include <math.h>
 #include <limits>
-
 #include "fast.cc"
 #include "base.cc"
 #include "helper.h"

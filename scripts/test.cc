@@ -5,7 +5,6 @@
 #include <algorithm>
 #include <math.h>
 #include <cassert>
-
 #include "fast.cc"
 #include "base.cc"
 #include "helper.h"

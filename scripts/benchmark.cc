@@ -3,7 +3,6 @@
 #include <iostream>
 #include <vector>
 #include <random>
-
 #include "fast.cc"
 #include "helper.h"
 
