@@ -70,7 +70,7 @@ int main(int argc, const char** argv) {
 
     double base = get_avg(base_time);
     double fast = get_avg(fast_time);
-    double error = get_avg(cumerror)
+    double error = get_avg(cumerror);
 
     std::cout << "Average of " << iter << " runs: " <<  std::endl;
     std::cout << "n = " << dim  << std::endl;
