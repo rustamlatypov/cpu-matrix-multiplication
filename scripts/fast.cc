@@ -95,9 +95,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
             double4_t block[A*A*P] = {double4_0};
 
             for (int k = 0; k < nx1; k++) {
-
-                __builtin_prefetch(&D1[(j*A)*nx1 + k + 10]);
-                __builtin_prefetch(&D2[(j*A)*nx1 + k + 10]);
+                
                 double4_t a0 = D1[(j*A)*nx1 + k];
                 double4_t a1 = D1[(j*A+1)*nx1 + k];
 
