@@ -16,7 +16,7 @@ Built for a multicore linux system that supports AVX operations. Use `make -j` t
 Runs both implementations on the same matrices for `iter` times and outputs the average running times, the speedup and the error term.
 
 - `./test <ny> <nm> <nx>` default: ny,nm,nx in {5,1500} <br/>
-Runs both implementations on different matrices and different combinations of ny, nm and nx. Dimension wise the multiplication is (ny*nm)(nm*nx). Each combination is run 10 times and the error term is accumulated and outputed. Each test passes if the accumulated error is below 1e-3. 
+Runs both implementations on different matrices and different combinations of ny, nm and nx. Dimension wise the multiplication is (ny'nm)(nm'nx). Each combination is run 10 times and the error term is accumulated and outputed. Each test passes if the accumulated error is below 1e-3. 
 
 - `./benchmark <dim> <iter>` default: dim=3000, iter=10 <br/>
 Runs the parallel implementation on the same matrices of dimensions `dim` for `iter` times and outputs the running times and the total average.
