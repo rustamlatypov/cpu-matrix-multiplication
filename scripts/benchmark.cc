@@ -8,7 +8,7 @@
 
 std::vector<double> times;
 
-static void benchmark(int dim) {
+static void benchmark(int dim, int iter) {
     std::vector<double> D1(dim * dim);
     std::vector<double> D2(dim * dim);
     std::vector<double> result(dim * dim);
@@ -16,11 +16,12 @@ static void benchmark(int dim) {
     gen(dim, dim, D1.data());
     gen(dim, dim, D2.data());
 
-    printf("%d\t", dim);
-    double t = funcTime(fast_multiply, dim, dim, dim, D1.data(), D2.data(), result.data());
-    
-    printf("%.3f\n", t);
-    times.push_back(t);
+    for (int i = 0; i < iter; i++) {
+        printf("%d\t", dim);
+        double t = funcTime(fast_multiply, dim, dim, dim, D1.data(), D2.data(), result.data());
+        printf("%.3f\n", t);
+        times.push_back(t);
+    }
 }
 
 int main(int argc, const char** argv) {
@@ -37,9 +38,7 @@ int main(int argc, const char** argv) {
         return 0;
     }
 
-    for (int i = 0; i < iter; ++i) {
-        benchmark(dim);
-    }
+    benchmark(dim, iter);
 
     float avg = get_avg(times);
     printf("Average: %.3f\n\n", avg);
