@@ -24,7 +24,7 @@ static void benchmark(int dim) {
     time_point t2 = c::now();
     double t = (t2-t1).count() / double(1E9);*/
 
-    double t = funcTime(fast_multiply(dim, dim, dim, D1.data(), D2.data(), result.data()));
+    double t = funcTime(fast_multiply, dim, dim, dim, D1.data(), D2.data(), result.data());
     
     printf("%.3f\n", t);
     times.push_back(t);

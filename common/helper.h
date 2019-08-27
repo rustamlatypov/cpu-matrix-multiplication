@@ -76,8 +76,8 @@ double get_avg(std::vector<double> v) {
     return accumulate( v.begin(), v.end(), 0.0)/v.size();
 }
 
-typedef std::chrono::high_resolution_clock::time_point TimeVar;
 
+typedef std::chrono::high_resolution_clock::time_point TimeVar;
 #define duration(a) std::chrono::duration_cast<std::chrono::nanoseconds>(a).count()
 #define timeNow() std::chrono::high_resolution_clock::now()
 
