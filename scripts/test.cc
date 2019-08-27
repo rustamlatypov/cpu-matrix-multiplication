@@ -84,7 +84,7 @@ int main(int argc, const char** argv) {
                     run_test(ny, nm, nx);
                 }
             }
-
+        }
 
         std::cout << passcount << "/" << testcount << " tests passed.\n" << std::endl;
         if(has_fails) {
