@@ -17,7 +17,7 @@ static void benchmark(int dim) {
     gen(dim, dim, D1.data());
     gen(dim, dim, D2.data());
 
-    printf("%d\t");
+    printf("%d\t", dim);
     double t = funcTime(fast_multiply, dim, dim, dim, D1.data(), D2.data(), result.data());
     
     printf("%.3f\n", t);
