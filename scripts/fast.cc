@@ -30,7 +30,7 @@ double4_t* pad1(int nyv, int ny, int nx, const double* data_, int P) {
             for (int k = 0; k < P; k++) {
 
                 data[j*nx+i][k] = j*P+k < ny ? data_[(j*P+k)*nx+i] : 0;
-                data[j*nx+i+1][k] = j*P+k < ny ? data_[(j*P+k+P)*nx+i] : 0;
+                data[j*nx+i+1][k] = j*P*2+k < ny ? data_[(j*P+k+P)*nx+i] : 0;
 
             }
         }
@@ -51,7 +51,7 @@ double4_t* pad2(int nyv, int nx, int ny, const double* data_, int P) {
             for (int k = 0; k < P; k++) {
 
                 data[j*nx+i][k] = j*P+k < ny ? data_[i*ny+(j*P+k)] : 0;
-                data[j*nx+i+1][k] = j*P+k < ny ? data_[i*ny+(j*P+k+P)] : 0;
+                data[j*nx+i+1][k] = j*P*2+k < ny ? data_[i*ny+(j*P+k+P)] : 0;
 
             }
         }
