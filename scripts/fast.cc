@@ -25,7 +25,7 @@ double4_t* pad1(int nyv, int ny, int nx, const double* data_, int P) {
     double4_t* data = double4_alloc(nyv*nx);
 
     #pragma omp parallel for
-    for (int j = 0; j < nyv; j++) {
+    for (int j = 0; j < nyv; j=j+2) {
         for (int i = 0; i < nx; i++) {
             for (int k = 0; k < P; k++) {
 
