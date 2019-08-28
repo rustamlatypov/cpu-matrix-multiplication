@@ -28,8 +28,14 @@ The error term is defined to be the sum of the element wise absolute difference 
 ## Parallel implementation
 Working with doubles and AVX requires 32-byte memory alignment and a vector framework. These are provided in ``vector.h`` with type ``double4_t`` holding 4 doubles, 8 bytes each. Multicore processing is handled by OpenMP.
 
-Let A and B be of type ``double*`` representing matrices as a row wise array. The goal is to produce matrix A x B = C. As preprocessing, A and the transpose of B are transformed into a column wise type ``double4_t*`` representation with 0 valued vertical padding.
+Let A and B be of type ``double*`` representing matrices as a row wise array. The goal is to produce matrix A x B = C. As preprocessing, A and the transpose of B are transformed into a column wise type ``double4_t*`` representation with 0 valued vertical padding. C is calculated one 16 vector (64 value) block at a time moving column wise. 
 
+The logic behind this lies in the outer product. Using the memory layout mensioned previously, the first vector 
+
+Using this approach reuses registers and memory caches efficiently reducing memory access bottlenecks.
+
+
+Both padding and the main execution loop are wrapped with ``#pragma omp parallel for`` for multicore processing since all threads should recieve similar loads. 
 
 
 
@@ -55,12 +61,15 @@ Sequential:   366.686
 Parallel:       0.855
 Speedup:      429.095
 
-
 n = 5000
 Sequential:   838.840
 Parallel:       1.664
 Speedup:      504.129
 
+n = 6000
+Sequential:  1419.769
+Parallel:       2.971
+Speedup:      477.899
 
 
 
