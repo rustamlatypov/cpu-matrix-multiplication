@@ -41,6 +41,22 @@ g++-8 -march=native -O2 -fopenmp <br/>
 Intel Xeon E3-1230v5 Skylake 3.4–3.8 GHz
 
 ```
+n = 3000
+Sequential:   134.710
+Parallel:       0.353
+Speedup:      381.489
+Error:          0.000
+
+
+Average of 1 runs:
+n = 4000
+Sequential:   366.686
+Parallel:       0.855
+Speedup:      429.095
+Error:          0.000
+
+
+
 n = 2000
 Sequential:    31.942 
 Parallel:       0.135
