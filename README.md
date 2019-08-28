@@ -1,4 +1,4 @@
-﻿# Parallel CPU matrix multiplication 
+# Parallel CPU matrix multiplication 
 
 Developed during June-August, 2019.
 
@@ -12,13 +12,13 @@ A console interface for testing and benchmarking two matrix multiplication imple
 
 ## Building and running
 
-Built for a multicore linux system that supports 256-bit wide SIMD operations. Use `make -j` to build binaries and `make clean` to clean up the directory. When built there are three command available: `./run <dim> <iter>`, `./test <ny> <nm> <nx>` and `./benchmark <dim> <iter>`. Assembly code for file x can be produced by running `make x.asm1` and `make x.asm2`.
+Built for a multicore linux system that supports 256-bit wide SIMD operations. Use `make -j` to build binaries and `make clean` to clean up the directory. When built there are three commands available: `./run <dim> <iter>`, `./test <ny> <nm> <nx>` and `./benchmark <dim> <iter>`. Assembly code for file x can be produced by running `make x.asm1` and `make x.asm2`. For the following commands. Either none or all parameters should be given to the following commands.
 
 - `./run <dim> <iter>` default: dim=1000, iter=3 <br/>
 Runs both implementations on the same matrices for `iter` times and outputs the average running times, the speedup and the error term.
 
-- `./test <ny> <nm> <nx>` default: ny,nm,nx in {5,1500} <br/>
-Runs both implementations on different matrices and different combinations of ny, nm and nx. Dimension wise the multiplication is (ny•nm)(nm•nx). Each combination is run 10 times and the error term is accumulated and outputed. Each test passes if the accumulated error is below 1e-3. 
+- `./test <ny> <nm> <nx> <print>` default: ny,nm,nx in {5,1500}, print=0 <br/>
+Runs both implementations on different matrices and different combinations of ny, nm and nx. Dimension wise the multiplication is (ny•nm)(nm•nx). Each combination is run 10 times and the error term is accumulated and outputed. Each test passes if the accumulated error is below 1e-3. Printing can be enabled by assigning any number to <print>. 
 
 - `./benchmark <dim> <iter>` default: dim=3000, iter=10 <br/>
 Runs the parallel implementation on the same matrices of dimensions `dim` for `iter` times and outputs the running times and the total average.
@@ -82,48 +82,6 @@ n = 7000
 Sequential:  2458.338
 Parallel:       4.759
 Speedup:      516.607
-
-1
-3000    0.609
-3000    0.584
-3000    0.595
-3000    0.583
-3000    0.595
-3000    0.588
-3000    0.591
-3000    0.595
-3000    0.583
-3000    0.595
-Average: 0.592
-
-2
-3000    0.365
-3000    0.353
-3000    0.362
-3000    0.354
-3000    0.353
-3000    0.382
-3000    0.354
-3000    0.375
-3000    0.360
-3000    0.353
-Average: 0.361
-
-3
-3000    0.470
-3000    0.473
-3000    0.470
-3000    0.472
-3000    0.469
-3000    0.473
-3000    0.500
-3000    0.471
-3000    0.469
-3000    0.470
-Average: 0.474
-
-
-
 
 ```
 

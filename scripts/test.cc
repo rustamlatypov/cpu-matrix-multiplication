@@ -105,7 +105,16 @@ int main(int argc, const char** argv) {
         int ny = std::stoi(argv[1]);
         int nm = std::stoi(argv[2]);
         int nx = std::stoi(argv[3]);
-        bool flag = std::stoi(argv[4])==0 ? false : true;
+        bool flag;
+        if (std::stoi(argv[4] == 1) {
+            flag = true
+        } else if (std::stoi(argv[4] == 0) {
+            flag = false
+        } else {
+            std::cout << "Usage:\ttest <ny> <nm> <nx> <print>" << std::endl;
+            exit(EXIT_FAILURE);
+        }
+
         run_test(ny, nm, nx, flag);
         if(has_fails) {
             exit(EXIT_FAILURE);
