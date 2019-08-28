@@ -140,7 +140,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                 block[22] += a2[3]*b0;
                 block[23] += a2[3]*b1;
             }
-
+            /*
             for (int jj1 = 0; jj1 < P*3; jj1++) {
                 for (int jj2 = 0; jj2 < S; jj2++) {
 
@@ -156,7 +156,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                     }
 
                 }
-            }
+            }*/
         }
     }
     free(D1);
