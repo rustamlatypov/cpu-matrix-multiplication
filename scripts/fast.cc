@@ -83,7 +83,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
     constexpr int P = 4;
     constexpr int A = 1;
-    constexpr int B = 2;
+    constexpr int B = 3;
 
     int nye1 = ny1;
     while (nye1%(P*A) != 0) nye1++;
@@ -151,19 +151,24 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
                 double4_t b0 = D2[(i*B)*nx1 + k];
                 double4_t b1 = D2[(i*B+1)*nx1 + k];
+                double4_t b2 = D2[(i*B+2)*nx1 + k];
 
                 
                 block[0] += a00*b0;
                 block[1] += a00*b1;
+                block[2] += a00*b2;
    
-                block[2] += a01*b0;
-                block[3] += a01*b1;
+                block[3] += a01*b0;
+                block[4] += a01*b1;
+                block[5] += a01*b2;
 
-                block[4] += a02*b0;
-                block[5] += a02*b1;
-                
-                block[6] += a03*b0;
-                block[7] += a03*b1;
+                block[6] += a02*b0;
+                block[7] += a02*b1;
+                block[8] += a02*b2;
+            
+                block[9] += a03*b0;
+                block[10] += a03*b1;
+                block[11] += a03*b2;
 
                 /*
                 block[8] += a10*b0;
