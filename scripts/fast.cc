@@ -74,7 +74,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int ny2 = nm;
     int nx2 = nx;
 
-    std::std::vector<double> test(ny*nm);
+    std::vector<double> test(ny*nm);
     transpose(ny, nm, D1_, result.data());
 
     print(ny,nm,D1_);
