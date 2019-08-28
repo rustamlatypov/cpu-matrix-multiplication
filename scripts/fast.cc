@@ -43,9 +43,9 @@ double4_t* pad1(int nyv, int ny, int nx, const double* data_, int P) {
 
 double4_t* pad2(int nyv, int nx, int ny, const double* data_, int P) {
 
-	
+
     double4_t* data = double4_alloc(nyv*nx);
-    
+
     #pragma omp parallel for
     for (int j = 0; j < nyv; j++) {
         for (int i = 0; i < nx; i++) {
@@ -69,7 +69,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int nx2 = nx;
 
     constexpr int P = 4;
-    constexpr int S = 2;
+    constexpr int S = 1;
 
     int nye1 = ny1;
     while (nye1%(P*S) != 0) nye1++;
@@ -96,12 +96,18 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
             for (int k = 0; k < nx1; k++) {
                 
                 double4_t a0 = D1[(j*S)*nx1 + k];
-                double4_t a1 = D1[(j*S+1)*nx1 + k];
+                //double4_t a1 = D1[(j*S+1)*nx1 + k];
 
                 double4_t b0 = D2[(i*S)*nx1 + k];
-                double4_t b1 = D2[(i*S+1)*nx1 + k];
+                //double4_t b1 = D2[(i*S+1)*nx1 + k];
 
-                
+                block[0] += a0[0]*b0;
+                block[1] += a0[1]*b0;
+
+                block[2] += a0[2]*b0;
+                block[3] += a0[3]*b0;
+
+                /*
                 block[0] += a0[0]*b0;
                 block[1] += a0[0]*b1;
 
@@ -126,6 +132,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
                 block[14] += a1[3]*b0;
                 block[15] += a1[3]*b1;
+                */
             }
 
             for (int jj1 = 0; jj1 < P*S; jj1++) {
