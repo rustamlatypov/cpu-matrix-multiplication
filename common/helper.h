@@ -17,7 +17,7 @@ constexpr double error_limit = 1e-3;
 std::mt19937 rng(42);
 static void gen(int ny, int nx, double* data) {
     const short a = std::numeric_limits<short>::max();
-    std::uniform_real_distribution<double> unif(-a,a);
+    std::uniform_real_distribution<double> unif(-10,10);
     std::generate(data, data+nx*ny, [&]{ return unif(rng); });
 }
 
