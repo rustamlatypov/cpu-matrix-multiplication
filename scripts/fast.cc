@@ -19,6 +19,14 @@
 
 // when A*B, pad1 is for A and pad2 is for B
 
+void transpose(int ny, int nx, const double* D, double* result) {
+
+	for (int j = 0; j < ny; j++) {
+        for (int i = 0; i < nx; i++) {
+        	result[i*ny+j] = D[j*nx+i];
+        }
+    }
+}
 
 double4_t* pad1(int nyv, int ny, int nx, const double* data_, int P) {
 
@@ -66,8 +74,15 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int ny2 = nm;
     int nx2 = nx;
 
+    //std::vector<double> test(ny*nm);
+    //transpose(ny, nm, D1_, test.data());
+
+    //print(ny,nm,D1_);
+    //print(nm,ny,test.data());
+
     constexpr int P = 4;
     constexpr int A = 2;
+    constexpr int B = 3;
 
     int nye1 = ny1;
     while (nye1%(P*A) != 0) nye1++;
@@ -75,69 +90,136 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int nyb1 = nyv1/A;
 
     int nye2 = nx2;
-    while (nye2%(P*A) != 0) nye2++;
+    while (nye2%(P*B) != 0) nye2++;
     int nyv2 = nye2/P;
-    int nyb2 = nyv2/A;
+    int nyb2 = nyv2/B;
 
     double4_t* D1 = pad1(nyv1, ny1, nx1, D1_, P);
     double4_t* D2 = pad2(nyv2, ny2, nx2, D2_, P);
 
     ny2 = nx2;
 
-    //print_v(D1, nyv1, nx1, P);
-    //print_v(D2, nyv2, nx2, P);
-
     #pragma omp parallel for
     for (int j = 0; j < nyb1; j++) {
 
         for (int i = 0; i < nyb2; i++) {
 
-            double4_t block[A*A*P] = {double4_0};
+            double4_t block[A*B*P] = {double4_0};
 
             for (int k = 0; k < nx1; k++) {
-                
-                double4_t a0 = D1[(j*A)*nx1 + k];
-                double4_t a1 = D1[(j*A+1)*nx1 + k];
+               
+            	double4_t a0 = D1[(j*A)*nx1 + k];
+            	double4_t a1 = D1[(j*A+1)*nx1 + k];
+
+                double4_t b0 = D2[(i*B)*nx1 + k];
+                double4_t b1 = D2[(i*B+1)*nx1 + k];
+                double4_t b2 = D2[(i*B+2)*nx1 + k];
+              
+
+                block[0] += a0[0]*b0;
+                block[1] += a0[0]*b1;
+                block[2] += a0[0]*b2;
+
+                block[3] += a0[1]*b0;
+                block[4] += a0[1]*b1;
+                block[5] += a0[1]*b2;
+
+                block[6] += a0[2]*b0;
+                block[7] += a0[2]*b1;
+                block[8] += a0[2]*b2;
+
+                block[9] += a0[3]*b0;
+                block[10] += a0[3]*b1;
+                block[11] += a0[3]*b2;
+
+
+                block[12] += a1[0]*b0;
+                block[13] += a1[0]*b1;
+                block[14] += a1[0]*b2;
+
+                block[15] += a1[1]*b0;
+                block[16] += a1[1]*b1;
+                block[17] += a1[1]*b2;
+
+                block[18] += a1[2]*b0;
+                block[19] += a1[2]*b1;
+                block[20] += a1[2]*b2;
+
+                block[21] += a1[3]*b0;
+                block[22] += a1[3]*b1;
+                block[23] += a1[3]*b2;
+
+
+
+                /*
+                //double4_t a0 = D1[(j*A)*nx1 + k];
+            	double a00 = test[k*ny1 + j*A*P + 0];
+            	double a01 = test[k*ny1 + j*A*P + 1];
+            	double a02 = test[k*ny1 + j*A*P + 2];
+            	double a03 = test[k*ny1 + j*A*P + 3];
+
+                //double4_t a1 = D1[(j*A+1)*nx1 + k];
+                double a10 =  test[k*ny1 + (j*A+1)*P + 0];
+                double a11 =  test[k*ny1 + (j*A+1)*P + 1];
+                double a12 =  test[k*ny1 + (j*A+1)*P + 2];
+                double a13 =  test[k*ny1 + (j*A+1)*P + 3];
+                */
+
+                /*
+                //double4_t a0 = D1[(j*A)*nx1 + k];
+            	double a00 = D1_[(j*A*P+0)*nx1 + k];
+            	double a01 = D1_[(j*A*P+1)*nx1 + k];
+            	double a02 = D1_[(j*A*P+2)*nx1 + k];
+            	double a03 = D1_[(j*A*P+3)*nx1 + k];
+
+            	
+                //double4_t a1 = D1[(j*A+1)*nx1 + k];
+                double a10 =  D1_[((j*A+1)*P+0)*nx1 + k];
+                double a11 =  D1_[((j*A+1)*P+1)*nx1 + k];
+                double a12 =  D1_[((j*A+1)*P+2)*nx1 + k];
+                double a13 =  D1_[((j*A+1)*P+3)*nx1 + k];
 
                 double4_t b0 = D2[(i*A)*nx1 + k];
                 double4_t b1 = D2[(i*A+1)*nx1 + k];
+				*/
 
-                
-                block[0] += a0[0]*b0;
-                block[1] += a0[0]*b1;
+                /*
+                block[0] += a00*b0;
+                block[1] += a00*b1;
 
-                block[2] += a0[1]*b0;
-                block[3] += a0[1]*b1;
+                block[2] += a01*b0;
+                block[3] += a01*b1;
 
-                block[4] += a0[2]*b0;
-                block[5] += a0[2]*b1;
+                block[4] += a02*b0;
+                block[5] += a02*b1;
 
-                block[6] += a0[3]*b0;
-                block[7] += a0[3]*b1;
+                block[6] += a03*b0;
+                block[7] += a03*b1;
 
 
-                block[8] += a1[0]*b0;
-                block[9] += a1[0]*b1;
+                block[8] += a10*b0;
+                block[9] += a10*b1;
 
-                block[10] += a1[1]*b0;
-                block[11] += a1[1]*b1;
+                block[10] += a11*b0;
+                block[11] += a11*b1;
 
-                block[12] += a1[2]*b0;
-                block[13] += a1[2]*b1;
+                block[12] += a12*b0;
+                block[13] += a12*b1;
 
-                block[14] += a1[3]*b0;
-                block[15] += a1[3]*b1;
+                block[14] += a13*b0;
+                block[15] += a13*b1;
+                */
             }
-
+            
             for (int jj1 = 0; jj1 < P*A; jj1++) {
-                for (int jj2 = 0; jj2 < A; jj2++) {
+                for (int jj2 = 0; jj2 < B; jj2++) {
                     for (int ii = 0; ii < P; ii++) {
 
                         int jjj = j*A * P + jj1;
-                        int iii = i*A * P + jj2*P + ii;
+                        int iii = i*B * P + jj2*P + ii;
 
                         if (jjj < ny1 && iii < ny2) {
-                            result[jjj * ny2 + iii] = block[jj1*A+jj2][ii];
+                            result[jjj * ny2 + iii] = block[jj1*B+jj2][ii];
                         }
 
                     }
