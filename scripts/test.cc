@@ -55,7 +55,7 @@ static void run_test(int ny, int nm, int nx, bool flag) {
         << std::setw(4) << nx << ' '
         << std::flush;
     bool pass = test(ny, nm, nx, flag);
-    std::cout << (pass ? "OK\n" : "ERR\n") << std::endl; 
+    std::cout << (pass ? "OK\n" : "ERR\n");
     if(pass) {
         pass_count++;
     } else if(!has_fails) {
