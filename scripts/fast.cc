@@ -133,9 +133,9 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                         int jjj = j*A * P + jj1;
                         int iii = i*A * P + jj2*P + ii;
 
-                        //if (jjj < ny1 && iii < ny2) {
+                        if (jjj < ny1 && iii < ny2) {
                             result[jjj * ny2 + iii] = block[jj1*A+jj2][ii];
-                        //}
+                        }
 
                     }
                 }
