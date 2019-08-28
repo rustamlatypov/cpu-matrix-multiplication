@@ -67,7 +67,7 @@ static void print(int ny, int nx, const double *matrix) {
 }
 
 static void print_v(double4_t* data, int nyv, int nx, int P) {
-     printf("\n");
+    printf("\n");
     for (int j = 0; j < nyv; j++) {
         for (int k = 0; k < P; k++) {
             for (int i = 0; i < nx; i++) {
