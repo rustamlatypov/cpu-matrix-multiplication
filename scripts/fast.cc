@@ -84,7 +84,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
     ny2 = nx2;
 
-    //#pragma omp parallel for
+    #pragma omp parallel for
     for (int j = 0; j < nyb1; j++) {
 
         for (int i = 0; i < nyb2; i++) {
@@ -93,10 +93,14 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
             for (int k = 0; k < nx1; k++) {
                 
-                double4_t a0 = D1[(j*A)*nx1 + k];
+                //double4_t a0 = D1[(j*A)*nx1 + k];
 
-                printf("%f\n", a0[0]);
-                printf("%f\n", D1_[(j*A)*nx1*P + k]);
+                //printf("%f\n", a0[0]);
+                //printf("%f\n", D1_[(j*A)*nx1*P + k]);
+            	double a00 = D1_[(j*A)*nx1*P + k]
+            	double a01 = D1_[(j*A+1)*nx1*P + k]
+            	double a02 = D1_[(j*A+2)*nx1*P + k]
+            	double a03 = D1_[(j*A+3)*nx1*P + k]
 
                 double4_t a1 = D1[(j*A+1)*nx1 + k];
 
@@ -104,17 +108,17 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                 double4_t b1 = D2[(i*A+1)*nx1 + k];
 
                 
-                block[0] += a0[0]*b0;
-                block[1] += a0[0]*b1;
+                block[0] += a00*b0;
+                block[1] += a00*b1;
 
-                block[2] += a0[1]*b0;
-                block[3] += a0[1]*b1;
+                block[2] += a01*b0;
+                block[3] += a01*b1;
 
-                block[4] += a0[2]*b0;
-                block[5] += a0[2]*b1;
+                block[4] += a02*b0;
+                block[5] += a02*b1;
 
-                block[6] += a0[3]*b0;
-                block[7] += a0[3]*b1;
+                block[6] += a03*b0;
+                block[7] += a03*b1;
 
 
                 block[8] += a1[0]*b0;
