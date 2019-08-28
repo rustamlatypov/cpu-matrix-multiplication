@@ -114,8 +114,13 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                 double4_t b0 = D2[(i*B)*nx1 + k];
                 double4_t b1 = D2[(i*B+1)*nx1 + k];
                 
-
                 
+                block[0] += a0[0]*b0;
+                block[1] += a0[0]*b1;
+
+                block[2] += a0[1]*b0;
+                block[3] += a0[1]*b1;
+
                 block[4] += a0[2]*b0;
                 block[5] += a0[2]*b1;
 
