@@ -100,31 +100,40 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
                 double4_t b0 = D2[(i*3)*nx1 + k];
                 double4_t b1 = D2[(i*3+1)*nx1 + k];
+                double4_t b2 = D2[(i*3+2)*nx1 + k];
         
                 block[0] += a0[0]*b0;
                 block[1] += a0[0]*b1;
+                block[1] += a0[0]*b2;
 
                 block[2] += a0[1]*b0;
                 block[3] += a0[1]*b1;
+                block[3] += a0[1]*b2;
 
                 block[4] += a0[2]*b0;
                 block[5] += a0[2]*b1;
+                block[5] += a0[2]*b2;
 
                 block[6] += a0[3]*b0;
                 block[7] += a0[3]*b1;
+                block[7] += a0[3]*b2;
 
 
                 block[8] += a1[0]*b0;
                 block[9] += a1[0]*b1;
+                block[9] += a1[0]*b2;
 
                 block[10] += a1[1]*b0;
                 block[11] += a1[1]*b1;
+                block[11] += a1[1]*b2;
 
                 block[12] += a1[2]*b0;
                 block[13] += a1[2]*b1;
+                block[13] += a1[2]*b2;
 
                 block[14] += a1[3]*b0;
                 block[15] += a1[3]*b1;
+                block[15] += a1[3]*b2;
             }
 
             for (int jj1 = 0; jj1 < P*S; jj1++) {
