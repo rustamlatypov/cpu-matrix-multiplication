@@ -209,7 +209,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                 for (int jj2 = 0; jj2 < B; jj2++) {
                     for (int ii = 0; ii < P; ii++) {
 
-                        int jjj = j*B * P + jj1;
+                        int jjj = j*A * P + jj1;
                         int iii = i*B * P + jj2*P + ii;
 
                         if (jjj < ny1 && iii < ny2) {
