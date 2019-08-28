@@ -97,10 +97,10 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
                 //printf("%f\n", a0[0]);
                 //printf("%f\n", D1_[(j*A)*nx1*P + k]);
-            	double a00 = D1_[(j*A)*nx1*P + k];
-            	double a01 = D1_[(j*A+1)*nx1*P + k];
-            	double a02 = D1_[(j*A+2)*nx1*P + k];
-            	double a03 = D1_[(j*A+3)*nx1*P + k];
+            	double a00 = D1_[(j*A*P)*nx1 + k];
+            	double a01 = D1_[(j*A*P+1)*nx1 + k];
+            	double a02 = D1_[(j*A*P+2)*nx1 + k];
+            	double a03 = D1_[(j*A*P+3)*nx1 + k];
 
                 double4_t a1 = D1[(j*A+1)*nx1 + k];
 
