@@ -72,14 +72,14 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     constexpr int S = 2;
 
     int nye1 = ny1;
-    while (nye1%(P*S) != 0) nye1++;
+    while (nye1%(P*3) != 0) nye1++;
     int nyv1 = nye1/P;
-    int nyb1 = nyv1/S;
+    int nyb1 = nyv1/3;
 
     int nye2 = nx2;
-    while (nye2%(P*3) != 0) nye2++;
+    while (nye2%(P*S) != 0) nye2++;
     int nyv2 = nye2/P;
-    int nyb2 = nyv2/3;
+    int nyb2 = nyv2/S;
 
     double4_t* D1 = pad1(nyv1, ny1, nx1, D1_, P);
     double4_t* D2 = pad2(nyv2, ny2, nx2, D2_, P);
@@ -95,45 +95,50 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
             for (int k = 0; k < nx1; k++) {
                 
-                double4_t a0 = D1[(j*S)*nx1 + k];
-                double4_t a1 = D1[(j*S+1)*nx1 + k];
+                double4_t a0 = D1[(j*3)*nx1 + k];
+                double4_t a1 = D1[(j*3+1)*nx1 + k];
+                double4_t a2 = D1[(j*3+2)*nx1 + k];
 
-                double4_t b0 = D2[(i*3)*nx1 + k];
-                double4_t b1 = D2[(i*3+1)*nx1 + k];
-                double4_t b2 = D2[(i*3+2)*nx1 + k];
+                double4_t b0 = D2[(i*S)*nx1 + k];
+                double4_t b1 = D2[(i*S+1)*nx1 + k];
         
                 block[0] += a0[0]*b0;
                 block[1] += a0[0]*b1;
-                block[2] += a0[0]*b2;
 
-                block[3] += a0[1]*b0;
-                block[4] += a0[1]*b1;
-                block[5] += a0[1]*b2;
+                block[2] += a0[1]*b0;
+                block[3] += a0[1]*b1;
 
-                block[6] += a0[2]*b0;
-                block[7] += a0[2]*b1;
-                block[8] += a0[2]*b2;
+                block[4] += a0[2]*b0;
+                block[5] += a0[2]*b1;
 
-                block[9] += a0[3]*b0;
-                block[10] += a0[3]*b1;
-                block[11] += a0[3]*b2;
+                block[6] += a0[3]*b0;
+                block[7] += a0[3]*b1;
 
 
-                block[12] += a1[0]*b0;
-                block[13] += a1[0]*b1;
-                block[14] += a1[0]*b2;
+                block[8] += a1[0]*b0;
+                block[9] += a1[0]*b1;
 
-                block[15] += a1[1]*b0;
-                block[16] += a1[1]*b1;
-                block[17] += a1[1]*b2;
+                block[10] += a1[1]*b0;
+                block[11] += a1[1]*b1;
 
-                block[18] += a1[2]*b0;
-                block[19] += a1[2]*b1;
-                block[20] += a1[2]*b2;
+                block[12] += a1[2]*b0;
+                block[13] += a1[2]*b1;
 
-                block[21] += a1[3]*b0;
-                block[22] += a1[3]*b1;
-                block[23] += a1[3]*b2;
+                block[14] += a1[3]*b0;
+                block[15] += a1[3]*b1;
+
+
+                block[16] += a2[0]*b0;
+                block[17] += a2[0]*b1;
+
+                block[18] += a2[1]*b0;
+                block[19] += a2[1]*b1;
+
+                block[20] += a2[2]*b0;
+                block[21] += a2[2]*b1;
+
+                block[22] += a2[3]*b0;
+                block[23] += a2[3]*b1;
             }
 
             for (int jj1 = 0; jj1 < P*3; jj1++) {
@@ -145,7 +150,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                         int iii = i*S * P + jj2*P + ii;
 
                         if (jjj < ny1 && iii < ny2) {
-                            result[jjj * ny2 + iii] = block[jj1*S+jj2][ii];
+                            result[jjj * ny2 + iii] = block[jj1*3+jj2][ii];
                         }
 
                     }
