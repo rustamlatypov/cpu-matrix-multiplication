@@ -5,7 +5,7 @@ Developed during June-August, 2019.
 
 ## Description
 
-A console interface for testing and benchmarking two matrix multiplication implementations. Both use the same basic algorithm running O(n^3) for matrices of dimension n. The base implementation is sequential and the fast implementation is parallel.
+A console interface for testing and benchmarking two matrix multiplication implementations. Both use the same basic algorithm running O(n^3) for matrices of dimension n. The base implementation is sequential and the fast implementation is parallel. Both implementations work with double values exclusively. 
 
 
 ## Building and running
@@ -26,7 +26,11 @@ The error term is defined to be the sum of the element wise absolute difference 
 
 
 ## Parallel implementation
-???
+Working with doubles and AVX requires 32-byte memory alignment and a vector framework. These are provided in ``vector.h`` with type ``double4_t`` holding 4 doubles, 8 bytes each. Multicore processing is handled by OpenMP.
+
+Let A and B be of type ``double*`` representing matrices as a row wise array. The goal is to produce matrix A x B = C. As preprocessing, A and the transpose of B are transformed into a column wise type ``double4_t*`` representation with 0 valued vertical padding.
+
+
 
 
 ## Remarks
@@ -50,6 +54,12 @@ n = 4000
 Sequential:   366.686
 Parallel:       0.855
 Speedup:      429.095
+
+
+n = 5000
+Sequential:   838.840
+Parallel:       1.664
+Speedup:      504.129
 
 
 

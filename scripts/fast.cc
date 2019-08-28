@@ -7,7 +7,7 @@
 #include "vector.h"
 #include "helper.h"
 
-// vertical padding such that rows are devisible by P*A
+// Vertical padding such that rows are devisible by P*A
 // 1  2  3  4  5     1  2  3  4  5
 // 6  7  8  9  10    6  7  8  9  10
 // 11 12 13 14 15 => 11 12 13 14 15
@@ -17,7 +17,9 @@
 //                   0  0  0  0  0
 //                   0  0  0  0  0
 
-// when A*B, pad1 is for A and pad2 is for B
+// When A*B, pad1 is for A and pad2 is for B
+// pad1 is straighforward vertical padding
+// pad2 performes a transpose as well as vertical padding
 
 
 double4_t* pad1(int nyv, int ny, int nx, const double* data_, int P) {
