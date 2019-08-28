@@ -8,7 +8,7 @@ $(error could not find a suitable C++ complier)
 endif
 
 # Basic C++ compiler flags
-CXXFLAGS=-g -std=c++1z -Wall -Wextra -g memcheck.c -o memcheck
+CXXFLAGS=-g -std=c++1z -Wall -Wextra
 CXXFLAGS+=-Werror -Wno-error=unknown-pragmas -Wno-error=unused-but-set-variable -Wno-error=unused-local-typedefs -Wno-error=unused-function -Wno-error=unused-label -Wno-error=unused-value -Wno-error=unused-variable -Wno-error=unused-parameter -Wno-error=unused-but-set-parameter
 CXXFLAGS+=-march=native $(shell ../util/find-flags)
 
