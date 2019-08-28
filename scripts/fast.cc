@@ -62,8 +62,8 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int nyv2 = nye2/P;
     int nyb2 = nyv2/B;
     
-    std::vector<double> D1(nye1*nm);
-    std::memcpy(D1.data(), D1_, ny*nm*sizeof(double));
+    //std::vector<double> D1(nye1*nm);
+    //std::memcpy(D1.data(), D1_, ny*nm*sizeof(double));
     
     double4_t* D2 = pad2(nyv2, ny2, nx2, D2_, P);
     ny2 = nx2;
@@ -77,15 +77,15 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
             for (int k = 0; k < nx1; k++) {
                 
-            	double a00 = D1[(j*A*P+0)*nx1 + k];
-            	double a01 = D1[(j*A*P+1)*nx1 + k];
-            	double a02 = D1[(j*A*P+2)*nx1 + k];
-            	double a03 = D1[(j*A*P+3)*nx1 + k];
+            	double a00 = D1_[(j*A*P+0)*nx1 + k];
+            	double a01 = D1_[(j*A*P+1)*nx1 + k];
+            	double a02 = D1_[(j*A*P+2)*nx1 + k];
+            	double a03 = D1_[(j*A*P+3)*nx1 + k];
                 
-                double a10 = D1[((j*A+1)*P+0)*nx1 + k];
-                double a11 = D1[((j*A+1)*P+1)*nx1 + k];
-                double a12 = D1[((j*A+1)*P+2)*nx1 + k];
-                double a13 = D1[((j*A+1)*P+3)*nx1 + k];
+                double a10 = D1_[((j*A+1)*P+0)*nx1 + k];
+                double a11 = D1_[((j*A+1)*P+1)*nx1 + k];
+                double a12 = D1_[((j*A+1)*P+2)*nx1 + k];
+                double a13 = D1_[((j*A+1)*P+3)*nx1 + k];
 
                 double4_t b0 = D2[(i*B)*nx1 + k];
                 double4_t b1 = D2[(i*B+1)*nx1 + k];
