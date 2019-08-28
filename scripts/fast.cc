@@ -19,7 +19,7 @@
 
 // when A*B, pad1 is for A and pad2 is for B
 
-double* transpose(int ny, int nx, const double* D, double* result) {
+void transpose(int ny, int nx, const double* D, double* result) {
 
 	for (int j = 0; j < ny; j++) {
         for (int i = 0; i < nx; i++) {
