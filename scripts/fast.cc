@@ -83,9 +83,9 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     double4_t* D2 = pad2(nyv2, ny2, nx2, D2_, P);
 
     ny2 = nx2;
-
-    //print_v(D1, nyv1, nx1, P);
-    //print_v(D2, nyv2, nx2, P);
+    
+    print_v(D1, nyv1, nx1, P);
+    print_v(D2, nyv2, nx2, P);
 
     #pragma omp parallel for
     for (int j = 0; j < nyb1; j++) {
@@ -147,5 +147,5 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     }
     free(D1);
     free(D2);
-    //print(ny1, nx2, result);
+    print(ny1, nx2, result);
 }
