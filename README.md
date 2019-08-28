@@ -3,9 +3,11 @@
 Developed during June-August, 2019.
 
 
+
 ## Description
 
 A console interface for testing and benchmarking two matrix multiplication implementations. Both use the same basic algorithm running O(n^3) for matrices of dimension n. The base implementation is sequential and the fast implementation is parallel. Both implementations work with double values exclusively. 
+
 
 
 ## Building and running
@@ -25,6 +27,7 @@ Runs the parallel implementation on the same matrices of dimensions `dim` for `i
 The error term is defined to be the sum of the element wise absolute difference of the two result matrices produced by the implementations.
 
 
+
 ## Parallel implementation
 
 In matrix multiplication memory access is the bottleneck rather than processing power. So in addition to multicore processing and SIMD, a optimized memory access pattern is necessary.
@@ -42,10 +45,12 @@ Both padding and the main execution loop are wrapped with ``#pragma omp parallel
 
 
 ## Remarks
+
 On some computers the compiler has difficulties producing FMA instructions resulting in rounding errors. Since large numbers are used, rounding errors accumulate and result in a high error term even though the implementation is correct. This can be fixed by compiler optimization. 
 
 
 ## Results
+
 The results are captured using `./run n 2`, with different n values. 
 
 Ubuntu 18.04.3 <br/> 
