@@ -73,6 +73,15 @@ Sequential:   769.893
 Parallel:       1.644 
 Speedup:      468.347 
 
+n = 6000
+Sequential:  1435.166 
+Parallel:       2.799 
+Speedup:      512.822
+
+n = 7000
+Sequential:  2466.168 
+Parallel:       4.764 
+Speedup:      517.708
 
 
 
