@@ -114,10 +114,10 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
             	double a03 = D1_[k*ny1 + j*A*P + 3];
 
                 //double4_t a1 = D1[(j*A+1)*nx1 + k];
-                double a10 =  D1_[[k*ny1 + (j*A+1)*P + 0];
-                double a11 =  D1_[[k*ny1 + (j*A+1)*P + 1];
-                double a12 =  D1_[[k*ny1 + (j*A+1)*P + 2];
-                double a13 =  D1_[[k*ny1 + (j*A+1)*P + 3];
+                double a10 =  D1_[k*ny1 + (j*A+1)*P + 0];
+                double a11 =  D1_[k*ny1 + (j*A+1)*P + 1];
+                double a12 =  D1_[k*ny1 + (j*A+1)*P + 2];
+                double a13 =  D1_[k*ny1 + (j*A+1)*P + 3];
 
                 double4_t b0 = D2[(i*A)*nx1 + k];
                 double4_t b1 = D2[(i*A+1)*nx1 + k];
