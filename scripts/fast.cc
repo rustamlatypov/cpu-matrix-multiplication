@@ -93,8 +93,8 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int nyv2 = nye2/P;
     int nyb2 = nyv2/A;
 
-    double4_t* D1 = pad1(nyv1, ny1, nx1, D1_, P);
-    //double4_t* D2 = pad2(nyv2, ny2, nx2, D2_, P);
+    //double4_t* D1 = pad1(nyv1, ny1, nx1, D1_, P);
+    double4_t* D2 = pad2(nyv2, ny2, nx2, D2_, P);
 
     ny2 = nx2;
 
@@ -178,7 +178,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
             }
         }
     }
-    free(D1);
-    //free(D2);
+    //free(D1);
+    free(D2);
     //print(ny1, nx2, result);
 }
