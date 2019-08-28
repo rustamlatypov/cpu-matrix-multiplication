@@ -56,7 +56,7 @@ static void print(int ny, int nx, const double *matrix) {
         for (int i = 0; i < nx; i++) {
             double x = matrix[j * nx + i];
             if (std::abs(x) < 10.0) {
-                printf("% -7.5f", x);
+                printf("% -9.5f", x);
             } else {
                 printf("% -7.0e", x);
             }
