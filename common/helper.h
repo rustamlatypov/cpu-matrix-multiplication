@@ -49,7 +49,7 @@ double funcTime(F func, Args&&... args){
     return duration(timeNow()-t1) / double(1E9);
 }
 
-
+/*
 static void print(int ny, int nx, const double *matrix) {
     printf("\n");
     for (int j = 0; j < ny; j++) {
@@ -85,6 +85,6 @@ static void print_v(double4_t* data, int nyv, int nx, int P) {
     }
     printf("\n");
 }
-
+*/
 
 #endif

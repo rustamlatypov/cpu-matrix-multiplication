@@ -145,7 +145,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     free(D1);
     free(D2);
 
-    print(ny, nm, D1_);
-    print(nm, nx, D2_);
-    print(ny, nx, result);
+    //print(ny, nm, D1_);
+    //print(nm, nx, D2_);
+    //print(ny, nx, result);
 }
