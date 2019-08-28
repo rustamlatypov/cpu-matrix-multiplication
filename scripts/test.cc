@@ -74,9 +74,9 @@ int main(int argc, const char** argv) {
             }
         }
 
-        std::vector<int> nxs = {10,50,100,200,300,1000};
-        std::vector<int> nms = {15,75,150,300,450,1500};
         std::vector<int> nys = {5,25,50,100,150,500};
+        std::vector<int> nms = {15,75,150,300,450,1500};
+        std::vector<int> nxs = {10,50,100,200,300,1000};
         for(int ny : nys) {
             for(int nm : nms) {
                 for(int nx : nxs) {
