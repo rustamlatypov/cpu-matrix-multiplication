@@ -10,7 +10,7 @@ A console interface for testing and benchmarking two matrix multiplication imple
 
 ## Building and running
 
-Built for a multicore linux system that supports AVX operations. Use `make -j` to build binaries and `make clean` to clean up the directory. When built there are three command available: `./run <dim> <iter>`, `./test <ny> <nm> <nx>` and `./benchmark <dim> <iter>`. Assembly code for file x can be produced by running `make x.asm1` and `make x.asm2`.
+Built for a multicore linux system that supports 256-bit wide SIMD operations. Use `make -j` to build binaries and `make clean` to clean up the directory. When built there are three command available: `./run <dim> <iter>`, `./test <ny> <nm> <nx>` and `./benchmark <dim> <iter>`. Assembly code for file x can be produced by running `make x.asm1` and `make x.asm2`.
 
 - `./run <dim> <iter>` default: dim=1000, iter=3 <br/>
 Runs both implementations on the same matrices for `iter` times and outputs the average running times, the speedup and the error term.
@@ -27,15 +27,15 @@ The error term is defined to be the sum of the element wise absolute difference 
 
 ## Parallel implementation
 
-In matrix multiplication memory access is the bottleneck rather than processing power. So in addition to multicore processing and AVX, a optimized memory access pattern is necessary.
+In matrix multiplication memory access is the bottleneck rather than processing power. So in addition to multicore processing and SIMD, a optimized memory access pattern is necessary.
 
-Working with doubles and AVX requires 32-byte memory alignment and a vector framework. These are provided in ``vector.h`` with type ``double4_t`` holding 4 doubles, 8 bytes each. Multicore processing is handled by OpenMP.
+Working with doubles and SIMD requires 32-byte memory alignment and a vector framework. These are provided in ``vector.h`` with type ``double4_t`` holding 4 doubles, 8 bytes each. Multicore processing is handled by OpenMP.
 
 Let A and B be of type ``double*`` representing matrices as a row wise array. The goal is to produce matrix A x B = C. As preprocessing, A and the transpose of B are transformed into a type ``double4_t*`` representation with vertical vectors and 0 valued vertical padding. Although the vectors run vertically, the memory layout is such that is goes through the *rows* of the vertical vectors, from top to bottom and from left to right. 
 
 This memory layout enables the efficient use of the outer product. The first vector row of A and the first vector row of B can be used to accumulate a 4x4=16 sized block with repeated outer products. This block can then by assigned to be the left top corner of matrix C. Similarly, any 16 sized block of C can be calculated by scanning the correct rows of A and B. 
 
-Following the same logic, even a 8x8=64 and 12x12=144 sized blocks can be used. The block size controls the tradoff between register/L1/L2/L3 reuse and a 8x8=64 sized block is the best choice for the system. 
+Following the same logic, even a 8x8=64 and 12x12=144 sized blocks can be used. The block size controls the tradoff between register/L1/L2/L3 reuse and a 8x8=64 sized block is optimal for this setup. 
 
 Both padding and the main execution loop are wrapped with ``#pragma omp parallel for`` for multicore processing since all threads should recieve similar loads. 
 
