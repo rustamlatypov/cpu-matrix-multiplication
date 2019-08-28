@@ -107,13 +107,13 @@ int main(int argc, const char** argv) {
         int nx = std::stoi(argv[3]);
         bool flag;
         if (std::stoi(argv[4] == 1)) {
-            flag = true
+            flag = true;
         } else if (std::stoi(argv[4] == 0)) {
-            flag = false
+            flag = false;
         } else {
             std::cout << "Usage:\ttest <ny> <nm> <nx> <print>" << std::endl;
             exit(EXIT_FAILURE);
-        };
+        }
 
         run_test(ny, nm, nx, flag);
         if(has_fails) {
