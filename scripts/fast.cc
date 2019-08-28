@@ -81,7 +81,9 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     //print(nm,ny,test.data());
 
     constexpr int P = 4;
-    constexpr int A = 2;
+    
+    constexpr int A = 1;
+    constexpr int B = 4;
 
     int nye1 = ny1;
     while (nye1%(P*A) != 0) nye1++;
@@ -89,9 +91,9 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int nyb1 = nyv1/A;
 
     int nye2 = nx2;
-    while (nye2%(P*A) != 0) nye2++;
+    while (nye2%(P*B) != 0) nye2++;
     int nyv2 = nye2/P;
-    int nyb2 = nyv2/A;
+    int nyb2 = nyv2/B;
 
     //double4_t* D1 = pad1(nyv1, ny1, nx1, D1_, P);
     double4_t* D2 = pad2(nyv2, ny2, nx2, D2_, P);
@@ -103,7 +105,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
         for (int i = 0; i < nyb2; i++) {
 
-            double4_t block[A*A*P] = {double4_0};
+            double4_t block[A*B*P] = {double4_0};
 
             for (int k = 0; k < nx1; k++) {
                 
@@ -113,14 +115,17 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
             	double a02 = D1_[(j*A*P+2)*nx1 + k];
             	double a03 = D1_[(j*A*P+3)*nx1 + k];
 
+            	/*
                 //double4_t a1 = D1[(j*A+1)*nx1 + k];
                 double a10 =  D1_[((j*A+1)*P+0)*nx1 + k];
                 double a11 =  D1_[((j*A+1)*P+1)*nx1 + k];
                 double a12 =  D1_[((j*A+1)*P+2)*nx1 + k];
-                double a13 =  D1_[((j*A+1)*P+3)*nx1 + k];
+                double a13 =  D1_[((j*A+1)*P+3)*nx1 + k];*/
 
                 double4_t b0 = D2[(i*A)*nx1 + k];
                 double4_t b1 = D2[(i*A+1)*nx1 + k];
+                double4_t b1 = D2[(i*A+2)*nx1 + k];
+                double4_t b1 = D2[(i*A+3)*nx1 + k];
 
                 /*
                 //double4_t a0 = D1[(j*A)*nx1 + k];
