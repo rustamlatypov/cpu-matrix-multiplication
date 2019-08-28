@@ -113,7 +113,7 @@ int main(int argc, const char** argv) {
         } else {
             std::cout << "Usage:\ttest <ny> <nm> <nx> <print>" << std::endl;
             exit(EXIT_FAILURE);
-        }
+        };
 
         run_test(ny, nm, nx, flag);
         if(has_fails) {
