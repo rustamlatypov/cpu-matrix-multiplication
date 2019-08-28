@@ -95,8 +95,8 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                 
                 double4_t a0 = D1[(j*A)*nx1 + k];
 
-                printf("%d\n", a0[0]);
-                printf("%d\n", D1_[(j*A)*nx1*P + k]);
+                printf("%f\n", a0[0]);
+                printf("%f\n", D1_[(j*A)*nx1*P + k]);
 
                 double4_t a1 = D1[(j*A+1)*nx1 + k];
 
