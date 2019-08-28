@@ -26,14 +26,16 @@ The error term is defined to be the sum of the element wise absolute difference 
 
 
 ## Parallel implementation
+
+In matrix multiplication memory access is the bottleneck rather than processing power. So in addition to multicore processing and AVX, a optimized memory access pattern is necessary.
+
 Working with doubles and AVX requires 32-byte memory alignment and a vector framework. These are provided in ``vector.h`` with type ``double4_t`` holding 4 doubles, 8 bytes each. Multicore processing is handled by OpenMP.
 
-Let A and B be of type ``double*`` representing matrices as a row wise array. The goal is to produce matrix A x B = C. As preprocessing, A and the transpose of B are transformed into a type ``double4_t*`` representation with vertical vectors and 0 valued vertical padding. Although the vectors run vertically, the memory layout is such that is goes through the *rows* of the vertical vectors, from top to bottom and from left to right. C is calculated one 16 vector (64 value) block at a time moving vertically up to bottom and left to right.
+Let A and B be of type ``double*`` representing matrices as a row wise array. The goal is to produce matrix A x B = C. As preprocessing, A and the transpose of B are transformed into a type ``double4_t*`` representation with vertical vectors and 0 valued vertical padding. Although the vectors run vertically, the memory layout is such that is goes through the *rows* of the vertical vectors, from top to bottom and from left to right. 
 
-The logic behind this lies in the outer product. Using the memory layout mensioned previously, the first vector 
+This memory layout enables the efficient use of the outer product. The first vector row of A and the first vector row of B can be used to accumulate a 4x4=16 sized block with repeated outer products. This block can then by assigned to be the left top corner of matrix C. Similarly, any 16 sized block of C can be calculated by scanning the correct rows of A and B. 
 
-Using this approach reuses registers and memory caches efficiently reducing memory access bottlenecks.
-
+Following the same logic, even a 8x8=64 and 12x12=144 sized blocks can be used. The block size controls the tradoff between register/L1/L2/L3 reuse and a 8x8=64 sized block is the best choice for the system. 
 
 Both padding and the main execution loop are wrapped with ``#pragma omp parallel for`` for multicore processing since all threads should recieve similar loads. 
 
@@ -46,7 +48,7 @@ On some computers the compiler has difficulties producing FMA instructions resul
 ## Results
 The results are captured using `./run n 2`, with different n values. 
 
-Ubuntu 18.04.3 <br/>
+Ubuntu 18.04.3 <br/> 
 g++-8 -march=native -O2 -fopenmp <br/>
 Intel Xeon E3-1230v5 Skylake 3.4–3.8 GHz
 
@@ -66,7 +68,15 @@ Sequential:   838.840
 Parallel:       1.664
 Speedup:      504.129
 
+n = 5000
+Sequential:   777.810
+Parallel:       1.656
+Speedup:      469.664
 
+n = 5000
+Sequential:   777.599
+Parallel:       1.656
+Speedup:      469.597
 
 n = 6000
 Sequential:  1419.769
@@ -77,6 +87,8 @@ n = 6000
 Sequential:  1429.605
 Parallel:       3.031
 Speedup:      471.718
+
+
 
 
 
