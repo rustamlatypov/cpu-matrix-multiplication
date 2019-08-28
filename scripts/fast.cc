@@ -19,6 +19,14 @@
 
 // when A*B, pad1 is for A and pad2 is for B
 
+double* transpose(int ny, int nx, double* D, double* result) {
+
+	for (int j = 0; j < ny; j++) {
+        for (int i = 0; i < nx; i++) {
+        	result[i*ny+j] = D[j*nx+i];
+        }
+    }
+}
 
 double4_t* pad1(int nyv, int ny, int nx, const double* data_, int P) {
 
@@ -66,6 +74,12 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int ny2 = nm;
     int nx2 = nx;
 
+    std::std::vector<double> test(ny*nm);
+    transpose(ny, nm, D1_, result.data());
+
+    print(ny,nm,D1_);
+    print(nm,ny,test);
+
     constexpr int P = 4;
     constexpr int A = 2;
 
@@ -94,14 +108,12 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
             for (int k = 0; k < nx1; k++) {
                 
                 //double4_t a0 = D1[(j*A)*nx1 + k];
-                
             	double a00 = D1_[(j*A*P+0)*nx1 + k];
             	double a01 = D1_[(j*A*P+1)*nx1 + k];
             	double a02 = D1_[(j*A*P+2)*nx1 + k];
             	double a03 = D1_[(j*A*P+3)*nx1 + k];
 
                 //double4_t a1 = D1[(j*A+1)*nx1 + k];
-
                 double a10 =  D1_[((j*A+1)*P+0)*nx1 + k];
                 double a11 =  D1_[((j*A+1)*P+1)*nx1 + k];
                 double a12 =  D1_[((j*A+1)*P+2)*nx1 + k];
