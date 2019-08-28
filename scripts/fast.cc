@@ -84,9 +84,6 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
     ny2 = nx2;
 
-    //print_v(D1, nyv1, nx1, P);
-    //print_v(D2, nyv2, nx2, P);
-
     #pragma omp parallel for
     for (int j = 0; j < nyb1; j++) {
 
@@ -128,7 +125,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                 block[14] += a1[3]*b0;
                 block[15] += a1[3]*b1;
             }
-            /*
+            
             for (int jj1 = 0; jj1 < P*A; jj1++) {
                 for (int jj2 = 0; jj2 < A; jj2++) {
                     for (int ii = 0; ii < P; ii++) {
@@ -136,13 +133,13 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                         int jjj = j*A * P + jj1;
                         int iii = i*A * P + jj2*P + ii;
 
-                        if (jjj < ny1 && iii < ny2) {
+                        //if (jjj < ny1 && iii < ny2) {
                             result[jjj * ny2 + iii] = block[jj1*A+jj2][ii];
-                        }
+                        //}
 
                     }
                 }
-            }*/
+            }
         }
     }
     free(D1);
