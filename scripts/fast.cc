@@ -87,14 +87,14 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     while (nye1%(P*A) != 0) nye1++;
     int nyv1 = nye1/P;
     int nyb1 = nyv1/A;
-
+    
     int nye2 = nx2;
     while (nye2%(P*A) != 0) nye2++;
     int nyv2 = nye2/P;
     int nyb2 = nyv2/A;
 
     double4_t* D1 = pad1(nyv1, ny1, nx1, D1_, P);
-    double4_t* D2 = pad2(nyv2, ny2, nx2, D2_, P);
+    //double4_t* D2 = pad2(nyv2, ny2, nx2, D2_, P);
 
     ny2 = nx2;
 
@@ -135,6 +135,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                 double a12 =  test[k*ny1 + (j*A+1)*P + 2];
                 double a13 =  test[k*ny1 + (j*A+1)*P + 3];
                 */
+
                 block[0] += a00*b0;
                 block[1] += a00*b1;
 
