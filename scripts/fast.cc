@@ -82,7 +82,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
     constexpr int P = 4;
     constexpr int A = 1;
-    constexpr int B = 1;
+    constexpr int B = 2;
 
     int nye1 = ny1;
     while (nye1%(P*A) != 0) nye1++;
@@ -90,9 +90,9 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int nyb1 = nyv1/A;
 
     int nye2 = nx2;
-    while (nye2%(P*A) != 0) nye2++;
+    while (nye2%(P*B) != 0) nye2++;
     int nyv2 = nye2/P;
-    int nyb2 = nyv2/A;
+    int nyb2 = nyv2/B;
 
     double4_t* D1 = pad1(nyv1, ny1, nx1, D1_, P);
     double4_t* D2 = pad2(nyv2, ny2, nx2, D2_, P);
@@ -104,18 +104,26 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
         for (int i = 0; i < nyb2; i++) {
 
-            double4_t block[A*A*P] = {double4_0};
+            double4_t block[A*B*P] = {double4_0};
 
             for (int k = 0; k < nx1; k++) {
                
             	double4_t a0 = D1[(j*A)*nx1 + k];
-                double4_t b0 = D2[(i*A)*nx1 + k];
+
+                double4_t b0 = D2[(i*B)*nx1 + k];
+                double4_t b0 = D2[(i*B+1)*nx1 + k];
                 
                 block[0] += a0[0]*b0;
-                block[1] += a0[1]*b0;
+                block[1] += a0[0]*b1;
 
-                block[2] += a0[2]*b0;
-                block[3] += a0[3]*b0;
+                block[2] += a0[1]*b0;
+                block[3] += a0[1]*b1;
+
+                block[4] += a0[2]*b0;
+                block[5] += a0[2]*b1;
+
+                block[6] += a0[3]*b0;
+                block[7] += a0[3]*b1;
 
                 /*
                 block[4] += a0[2]*b0;
@@ -198,14 +206,14 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
             }
             
             for (int jj1 = 0; jj1 < P*A; jj1++) {
-                for (int jj2 = 0; jj2 < A; jj2++) {
+                for (int jj2 = 0; jj2 < B; jj2++) {
                     for (int ii = 0; ii < P; ii++) {
 
-                        int jjj = j*A * P + jj1;
-                        int iii = i*A * P + jj2*P + ii;
+                        int jjj = j*B * P + jj1;
+                        int iii = i*B * P + jj2*P + ii;
 
                         if (jjj < ny1 && iii < ny2) {
-                            result[jjj * ny2 + iii] = block[jj1*A+jj2][ii];
+                            result[jjj * ny2 + iii] = block[jj1*B+jj2][ii];
                         }
 
                     }
@@ -213,7 +221,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
             }
         }
     }
-    //free(D1);
+    free(D1);
     free(D2);
     //print(ny1, nx2, result);
 }
