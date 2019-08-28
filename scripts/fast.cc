@@ -127,15 +127,15 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                 block[15] += a1[3]*b1;
             }
 
-            for (int jj1 = 0; jj1 < P*3; jj1++) {
-                for (int jj2 = 0; jj2 < S; jj2++) {
+            for (int jj1 = 0; jj1 < P*S; jj1++) {
+                for (int jj2 = 0; jj2 < 3; jj2++) {
                     for (int ii = 0; ii < P; ii++) {
 
-                        int jjj = j*S * P + jj1;
-                        int iii = i*3 * P + jj2*P + ii;
+                        int jjj = j*3 * P + jj1;
+                        int iii = i*S * P + jj2*P + ii;
 
                         if (jjj < ny1 && iii < ny2) {
-                            result[jjj * ny2 + iii] = block[jj1*S+jj2][ii];
+                            result[jjj * ny2 + iii] = block[jj1*3+jj2][ii];
                         }
 
                     }
