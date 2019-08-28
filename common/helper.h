@@ -51,6 +51,7 @@ double funcTime(F func, Args&&... args){
 
 
 static void print(int ny, int nx, const double *matrix) {
+    printf("\n");
     for (int j = 0; j < ny; j++) {
         for (int i = 0; i < nx; i++) {
             double x = matrix[j * nx + i];
@@ -60,12 +61,13 @@ static void print(int ny, int nx, const double *matrix) {
                 printf("% -7.0e", x);
             }
         }
-        std::cout << '\n';
+        printf("\n");
     }
-    std::cout << '\n';
+    printf("\n");
 }
 
 static void print_v(double4_t* data, int nyv, int nx, int P) {
+     printf("\n");
     for (int j = 0; j < nyv; j++) {
         for (int k = 0; k < P; k++) {
             for (int i = 0; i < nx; i++) {
@@ -78,10 +80,10 @@ static void print_v(double4_t* data, int nyv, int nx, int P) {
                     printf("% -7.0e", x);
                 }
             }
-            std::cout << std::endl;
+            printf("\n");
         }
     }
-    std::cout << std::endl;
+    printf("\n");
 }
 
 
