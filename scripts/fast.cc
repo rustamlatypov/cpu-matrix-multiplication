@@ -141,8 +141,8 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
                     for (int ii = 0; ii < P; ii++) {
 
-                        int jjj = j*S * P + jj1;
-                        int iii = i*3 * P + jj2*P + ii;
+                        int jjj = j*3 * P + jj1;
+                        int iii = i*S * P + jj2*P + ii;
 
                         if (jjj < ny1 && iii < ny2) {
                             result[jjj * ny2 + iii] = block[jj1*S+jj2][ii];
