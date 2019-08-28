@@ -104,40 +104,40 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
         
                 block[0] += a0[0]*b0;
                 block[1] += a0[0]*b1;
-                block[1] += a0[0]*b2;
+                block[2] += a0[0]*b2;
 
-                block[2] += a0[1]*b0;
-                block[3] += a0[1]*b1;
-                block[3] += a0[1]*b2;
+                block[3] += a0[1]*b0;
+                block[4] += a0[1]*b1;
+                block[5] += a0[1]*b2;
 
-                block[4] += a0[2]*b0;
-                block[5] += a0[2]*b1;
-                block[5] += a0[2]*b2;
+                block[6] += a0[2]*b0;
+                block[7] += a0[2]*b1;
+                block[8] += a0[2]*b2;
 
-                block[6] += a0[3]*b0;
-                block[7] += a0[3]*b1;
-                block[7] += a0[3]*b2;
+                block[9] += a0[3]*b0;
+                block[10] += a0[3]*b1;
+                block[11] += a0[3]*b2;
 
 
-                block[8] += a1[0]*b0;
-                block[9] += a1[0]*b1;
-                block[9] += a1[0]*b2;
+                block[12] += a1[0]*b0;
+                block[13] += a1[0]*b1;
+                block[14] += a1[0]*b2;
 
-                block[10] += a1[1]*b0;
-                block[11] += a1[1]*b1;
-                block[11] += a1[1]*b2;
+                block[15] += a1[1]*b0;
+                block[16] += a1[1]*b1;
+                block[17] += a1[1]*b2;
 
-                block[12] += a1[2]*b0;
-                block[13] += a1[2]*b1;
-                block[13] += a1[2]*b2;
+                block[18] += a1[2]*b0;
+                block[19] += a1[2]*b1;
+                block[20] += a1[2]*b2;
 
-                block[14] += a1[3]*b0;
-                block[15] += a1[3]*b1;
-                block[15] += a1[3]*b2;
+                block[21] += a1[3]*b0;
+                block[22] += a1[3]*b1;
+                block[23] += a1[3]*b2;
             }
 
-            for (int jj1 = 0; jj1 < P*S; jj1++) {
-                for (int jj2 = 0; jj2 < 3; jj2++) {
+            for (int jj1 = 0; jj1 < P*3; jj1++) {
+                for (int jj2 = 0; jj2 < S; jj2++) {
 
                     for (int ii = 0; ii < P; ii++) {
 
