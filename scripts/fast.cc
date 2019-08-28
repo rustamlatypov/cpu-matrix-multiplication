@@ -103,7 +103,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
         for (int i = 0; i < nyb2; i++) {
 
-            double4_t block[A*B*P] = {double4_0};
+            double4_t block[A*A*P] = {double4_0};
 
             for (int k = 0; k < nx1; k++) {
                 
