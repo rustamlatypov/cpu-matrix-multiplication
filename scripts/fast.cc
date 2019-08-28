@@ -81,7 +81,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     //print(nm,ny,test.data());
 
     constexpr int P = 4;
-    constexpr int A = 3;
+    constexpr int A = 2;
     constexpr int B = 2;
 
     int nye1 = ny1;
@@ -109,13 +109,12 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
             for (int k = 0; k < nx1; k++) {
                
             	double4_t a0 = D1[(j*A)*nx1 + k];
-            	double4_t a1 = D1[(j*A+1)*nx1 + k];
-            	double4_t a2 = D1[(j*A+2)*nx1 + k];
+                double4_t a1 = D1[(j*A+1)*nx1 + k];
 
-                double4_t b0 = D2[(i*B)*nx1 + k];
-                double4_t b1 = D2[(i*B+1)*nx1 + k];
-               
+                double4_t b0 = D2[(i*A)*nx1 + k];
+                double4_t b1 = D2[(i*A+1)*nx1 + k];
 
+                
                 block[0] += a0[0]*b0;
                 block[1] += a0[0]*b1;
 
@@ -140,21 +139,6 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
                 block[14] += a1[3]*b0;
                 block[15] += a1[3]*b1;
-
-
-                block[16] += a2[0]*b0;
-                block[17] += a2[0]*b1;
-
-                block[18] += a2[1]*b0;
-                block[19] += a2[1]*b1;
-
-                block[20] += a2[2]*b0;
-                block[21] += a2[2]*b1;
-
-                block[22] += a2[3]*b0;
-                block[23] += a2[3]*b1;
-
-
 
                 /*
                 //double4_t a0 = D1[(j*A)*nx1 + k];
