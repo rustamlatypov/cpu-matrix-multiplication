@@ -78,6 +78,11 @@ Sequential:  1429.605
 Parallel:       3.031
 Speedup:      471.718
 
+n = 7000
+Sequential:  2458.338
+Parallel:       4.759
+Speedup:      516.607
+
 ```
 
 ## Author
