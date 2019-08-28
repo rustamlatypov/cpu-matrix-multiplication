@@ -32,8 +32,11 @@ static bool test(int ny, int nm, int nx, bool flag) {
     std::cout << '\t' << error / error_limit << '\t';
 
     if (flag) {
+        printf("\n%s\n", "A");
         print(ny, nm, D1.data());
+        printf("\n%s\n", "B");
         print(nm, nx, D2.data());
+        printf("\n%s\n", "A*B");
         print(ny, nx, result.data());
     }
 
