@@ -19,7 +19,7 @@
 
 // when A*B, pad1 is for A and pad2 is for B
 
-double* transpose(int ny, int nx, double* D, double* result) {
+double* transpose(int ny, int nx, const double* D, double* result) {
 
 	for (int j = 0; j < ny; j++) {
         for (int i = 0; i < nx; i++) {
@@ -78,7 +78,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     transpose(ny, nm, D1_, result.data());
 
     print(ny,nm,D1_);
-    print(nm,ny,test);
+    print(nm,ny,test.data());
 
     constexpr int P = 4;
     constexpr int A = 2;
