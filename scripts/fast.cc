@@ -87,7 +87,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     while (nye1%(P*A) != 0) nye1++;
     int nyv1 = nye1/P;
     int nyb1 = nyv1/A;
-    
+
     int nye2 = nx2;
     while (nye2%(P*A) != 0) nye2++;
     int nyv2 = nye2/P;
@@ -179,6 +179,6 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
         }
     }
     free(D1);
-    free(D2);
+    //free(D2);
     //print(ny1, nx2, result);
 }
