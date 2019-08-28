@@ -173,7 +173,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                 block[11] += a11*b1;
 
                 block[12] += a12*b0;
-                block[13] += a12*b
+                block[13] += a12*b1;
 
                 block[14] += a13*b0;
                 block[15] += a13*b1;
