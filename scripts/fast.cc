@@ -74,8 +74,8 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int ny2 = nm;
     int nx2 = nx;
 
-    //std::vector<double> test(ny*nm);
-    //transpose(ny, nm, D1_, test.data());
+    std::vector<double> test(ny*nm);
+    transpose(ny, nm, D1_, test.data());
 
     //print(ny,nm,D1_);
     //print(nm,ny,test.data());
@@ -108,16 +108,16 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
             for (int k = 0; k < nx1; k++) {
                 
                 //double4_t a0 = D1[(j*A)*nx1 + k];
-            	double a00 = D1_[k*ny1 + j*A*P + 0];
-            	double a01 = D1_[k*ny1 + j*A*P + 1];
-            	double a02 = D1_[k*ny1 + j*A*P + 2];
-            	double a03 = D1_[k*ny1 + j*A*P + 3];
+            	double a00 = D1_[(j*A*P+0)*nx1 + k];
+            	double a01 = D1_[(j*A*P+1)*nx1 + k];
+            	double a02 = D1_[(j*A*P+2)*nx1 + k];
+            	double a03 = D1_[(j*A*P+3)*nx1 + k];
 
                 //double4_t a1 = D1[(j*A+1)*nx1 + k];
-                double a10 =  D1_[k*ny1 + (j*A+1)*P + 0];
-                double a11 =  D1_[k*ny1 + (j*A+1)*P + 1];
-                double a12 =  D1_[k*ny1 + (j*A+1)*P + 2];
-                double a13 =  D1_[k*ny1 + (j*A+1)*P + 3];
+                double a10 =  D1_[((j*A+1)*P+0)*nx1 + k];
+                double a11 =  D1_[((j*A+1)*P+1)*nx1 + k];
+                double a12 =  D1_[((j*A+1)*P+2)*nx1 + k];
+                double a13 =  D1_[((j*A+1)*P+3)*nx1 + k];
 
                 double4_t b0 = D2[(i*A)*nx1 + k];
                 double4_t b1 = D2[(i*A+1)*nx1 + k];
