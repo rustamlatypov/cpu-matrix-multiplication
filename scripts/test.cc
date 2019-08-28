@@ -106,9 +106,9 @@ int main(int argc, const char** argv) {
         int nm = std::stoi(argv[2]);
         int nx = std::stoi(argv[3]);
         bool flag;
-        if (std::stoi(argv[4] == 1)) {
+        if (std::stoi(argv[4]) == 1) {
             flag = true;
-        } else if (std::stoi(argv[4] == 0)) {
+        } else if (std::stoi(argv[4]) == 0) {
             flag = false;
         } else {
             std::cout << "Usage:\ttest <ny> <nm> <nx> <print>" << std::endl;
