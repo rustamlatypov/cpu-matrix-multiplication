@@ -139,7 +139,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
             	
                 //double4_t a1 = D1[(j*A+1)*nx1 + k];
-                /
+                
                 double a10 =  D1[((j*A+1)*P+0)*nx1 + k];
                 double a11 =  D1[((j*A+1)*P+1)*nx1 + k];
                 double a12 =  D1[((j*A+1)*P+2)*nx1 + k];
@@ -149,9 +149,8 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
                 double4_t b0 = D2[(i*B)*nx1 + k];
                 double4_t b1 = D2[(i*B+1)*nx1 + k];
-                double4_t b2 = D2[(i*B+2)*nx1 + k];
-				
 
+			
                 
                 block[0] += a00*b0;
                 block[1] += a00*b1;
