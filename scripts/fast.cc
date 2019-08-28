@@ -93,7 +93,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int nyv2 = nye2/P;
     int nyb2 = nyv2/A;
 
-    //double4_t* D1 = pad1(nyv1, ny1, nx1, D1_, P);
+    double4_t* D1 = pad1(nyv1, ny1, nx1, D1_, P);
     double4_t* D2 = pad2(nyv2, ny2, nx2, D2_, P);
 
     ny2 = nx2;
@@ -106,7 +106,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
             double4_t block[A*A*P] = {double4_0};
 
             for (int k = 0; k < nx1; k++) {
-                
+                /*
                 //double4_t a0 = D1[(j*A)*nx1 + k];
             	double a00 = D1_[(j*A*P+0)*nx1 + k];
             	double a01 = D1_[(j*A*P+1)*nx1 + k];
@@ -122,8 +122,8 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
                 double4_t b0 = D2[(i*A)*nx1 + k];
                 double4_t b1 = D2[(i*A+1)*nx1 + k];
-
-                /*
+				*/
+                
                 //double4_t a0 = D1[(j*A)*nx1 + k];
             	double a00 = test[k*ny1 + j*A*P + 0];
             	double a01 = test[k*ny1 + j*A*P + 1];
@@ -135,7 +135,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                 double a11 =  test[k*ny1 + (j*A+1)*P + 1];
                 double a12 =  test[k*ny1 + (j*A+1)*P + 2];
                 double a13 =  test[k*ny1 + (j*A+1)*P + 3];
-                */
+                
 
                 block[0] += a00*b0;
                 block[1] += a00*b1;
