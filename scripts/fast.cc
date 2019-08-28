@@ -101,7 +101,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     std::fill(D1.data()+ny*nm, D1.data()+nye1*nm, 0);
     
 
-    //double4_t* D2 = pad2(nyv2, ny2, nx2, D2_, P);
+    double4_t* D2 = pad2(nyv2, ny2, nx2, D2_, P);
 
     ny2 = nx2;
 
@@ -173,7 +173,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                 block[11] += a11*b1;
 
                 block[12] += a12*b0;
-                block[13] += a12*b1;
+                block[13] += a12*b
 
                 block[14] += a13*b0;
                 block[15] += a13*b1;
