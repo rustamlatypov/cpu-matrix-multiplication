@@ -24,7 +24,7 @@ double4_t* pad1(int nyv, int ny, int nx, const double* data_, int P) {
 
     double4_t* data = double4_alloc(nyv*nx);
 
-    #pragma omp parallel for
+    //#pragma omp parallel for
     for (int j = 0; j < nyv; j++) {
         for (int i = 0; i < nx; i++) {
             for (int k = 0; k < P; k++) {
@@ -44,7 +44,7 @@ double4_t* pad2(int nyv, int nx, int ny, const double* data_, int P) {
 
     double4_t* data = double4_alloc(nyv*nx);
 
-    #pragma omp parallel for
+    //#pragma omp parallel for
     for (int j = 0; j < nyv; j++) {
         for (int i = 0; i < nx; i++) {
             for (int k = 0; k < P; k++) {
@@ -87,7 +87,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     //print_v(D1, nyv1, nx1, P);
     //print_v(D2, nyv2, nx2, P);
 
-    #pragma omp parallel for
+    //#pragma omp parallel for
     for (int j = 0; j < nyb1; j++) {
 
         for (int i = 0; i < nyb2; i++) {
