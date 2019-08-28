@@ -62,11 +62,12 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int nyv2 = nye2/P;
     int nyb2 = nyv2/B;
     
-
-    //std::vector<double> D1(nye1*nm);
-    //std::memcpy(D1.data(), D1_, ny*nm*sizeof(double));
-
-    const double* D1 = D1_;
+    if (nx1==nye1) {
+        const double* D1 = D1_;
+    } else {
+        std::vector<double> D1(nye1*nm);
+        std::memcpy(D1.data(), D1_, ny*nm*sizeof(double));
+    }
     
     double4_t* D2 = pad2(nyv2, ny2, nx2, D2_, P);
     ny2 = nx2;
