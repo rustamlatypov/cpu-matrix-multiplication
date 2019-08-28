@@ -65,14 +65,14 @@ static void run_test(int ny, int nm, int nx) {
 int main(int argc, const char** argv) {
 
     if (argc == 1) {
-        
+        /*
         for(int ny = 50; ny < 55; ny++) {
             for(int nm = 50; nm < 60; nm++) {
                 for(int nx = 50; nx < 65; nx++) {
                     run_test(ny, nm, nx);
                 }
             }
-        }
+        }*/
 
         std::vector<int> nys = {5,25,50,100,150,500};
         std::vector<int> nms = {15,75,150,300,450,1500};
