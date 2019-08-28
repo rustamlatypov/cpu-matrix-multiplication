@@ -6,9 +6,8 @@
 #include <omp.h>
 #include <chrono>
 #include "vector.h"
-#include "helper.h"
 
-// vertical padding such that rows are devisible by P*A
+// vertical padding such that number of rows is devisible by P*A
 // 1  2  3  4  5     1  2  3  4  5
 // 6  7  8  9  10    6  7  8  9  10
 // 11 12 13 14 15 => 11 12 13 14 15
@@ -18,10 +17,8 @@
 //                   0  0  0  0  0
 //                   0  0  0  0  0
 
-// when A*B, pad1 is for A and pad2 is for B
-
-
-double4_t* pad2(int nyv, int nx, int ny, const double* data_, int P) {
+// both transposing and vertical padding
+double4_t* pad(int nyv, int nx, int ny, const double* data_, int P) {
 
 
     double4_t* data = double4_alloc(nyv*nx);
@@ -65,7 +62,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     std::vector<double> D1(nye1*nm);
     std::memcpy(D1.data(), D1_, ny*nm*sizeof(double));
     
-    double4_t* D2 = pad2(nyv2, ny2, nx2, D2_, P);
+    double4_t* D2 = pad(nyv2, ny2, nx2, D2_, P);
     ny2 = nx2;
 
     #pragma omp parallel for
@@ -105,7 +102,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                 block[6] += a03*b0;
                 block[7] += a03*b1;
 
-                    
+                
                 block[8] += a10*b0;
                 block[9] += a10*b1;
 
@@ -135,6 +132,8 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
             }
         }
     }
+
     free(D2);
-    //print(ny1, nx2, result);
 }
+
+

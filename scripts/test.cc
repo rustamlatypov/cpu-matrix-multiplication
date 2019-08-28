@@ -10,7 +10,7 @@
 #include "helper.h"
 
 
-static bool test(int ny, int nm, int nx) {
+static bool test(int ny, int nm, int nx, bool flag) {
     std::vector<double> D1(ny * nm);
     std::vector<double> D2(nm * nx);
 
@@ -31,6 +31,12 @@ static bool test(int ny, int nm, int nx) {
     std::cout << std::fixed << std::setprecision(3);
     std::cout << '\t' << error / error_limit << '\t';
 
+    if (flag) {
+        print(ny, nm, D1.data());
+        print(nm, nx, D2.data());
+        print(ny, nx, result.data());
+    }
+
     return pass;
 }
 
@@ -42,14 +48,14 @@ static int test_count = 0;
 
 
 // To be used in batch mode to keep track of test suite progress
-static void run_test(int ny, int nm, int nx) {
+static void run_test(int ny, int nm, int nx, bool flag) {
     std::cout << "test "
         << std::setw(4) << ny << ' '
         << std::setw(4) << nm << ' '
         << std::setw(4) << nx << ' '
         << std::flush;
-    bool pass = test(ny, nm, nx);
-    std::cout << (pass ? "OK\n" : "ERR\n");
+    bool pass = test(ny, nm, nx, flag);
+    std::cout << (pass ? "OK\n" : "ERR\n") << std::endl; 
     if(pass) {
         pass_count++;
     } else if(!has_fails) {
@@ -65,14 +71,14 @@ static void run_test(int ny, int nm, int nx) {
 int main(int argc, const char** argv) {
 
     if (argc == 1) {
-        /*
+        
         for(int ny = 50; ny < 55; ny++) {
             for(int nm = 50; nm < 60; nm++) {
                 for(int nx = 50; nx < 65; nx++) {
-                    run_test(ny, nm, nx);
+                    run_test(ny, nm, nx, false);
                 }
             }
-        }*/
+        }
 
         std::vector<int> nys = {5,25,50,100,150,500};
         std::vector<int> nms = {15,75,150,300,450,1500};
@@ -80,7 +86,7 @@ int main(int argc, const char** argv) {
         for(int ny : nys) {
             for(int nm : nms) {
                 for(int nx : nxs) {
-                    run_test(ny, nm, nx);
+                    run_test(ny, nm, nx, false);
                 }
             }
         }
@@ -95,15 +101,16 @@ int main(int argc, const char** argv) {
                 << first_fail.nx << std::endl;
             exit(EXIT_FAILURE);
         }
-    } else if(argc == 4) {
+    } else if(argc == 5) {
         int ny = std::stoi(argv[1]);
         int nm = std::stoi(argv[2]);
         int nx = std::stoi(argv[3]);
-        run_test(ny, nm, nx);
+        bool flag = std::stoi(argv[4])==0 ? false : true;
+        run_test(ny, nm, nx, flag);
         if(has_fails) {
             exit(EXIT_FAILURE);
         }
     } else {
-        std::cout << "Usage:\ttest <ny> <nm> <nx>" << std::endl;
+        std::cout << "Usage:\ttest <ny> <nm> <nx> <print>" << std::endl;
     }
 }
