@@ -75,7 +75,7 @@ static void print_v(double4_t* data, int nyv, int nx, int P) {
                 double x = data[j * nx + i][k];
 
                 if (std::abs(x) < 10.0) {
-                    printf("% -7.3f", x);
+                    printf("% -7.5f", x);
                 } else {
                     printf("% -7.0e", x);
                 }
