@@ -77,7 +77,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int nyb1 = nyv1/S;
 
     int nye2 = nx2;
-    while (nye2%(P*S) != 0) nye2++;
+    while (nye2%(P*3) != 0) nye2++;
     int nyv2 = nye2/P;
     int nyb2 = nyv2/3;
 
