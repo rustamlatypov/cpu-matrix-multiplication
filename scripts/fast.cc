@@ -124,8 +124,6 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
                 double4_t b0 = D2[(i*A)*nx1 + k];
                 double4_t b1 = D2[(i*A+1)*nx1 + k];
-                double4_t b1 = D2[(i*A+2)*nx1 + k];
-                double4_t b1 = D2[(i*A+3)*nx1 + k];
 
                 /*
                 //double4_t a0 = D1[(j*A)*nx1 + k];
