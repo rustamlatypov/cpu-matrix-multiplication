@@ -7,6 +7,7 @@
 #include "helper.h"
 
 std::vector<double> times;
+std::vector<double> cpus;
 
 
 static void benchmark(int dim, int iter) {
@@ -21,9 +22,11 @@ static void benchmark(int dim, int iter) {
         printf("%d\t ", dim);
         double t = funcTime(fast_multiply, dim, dim, dim, D1.data(), D2.data(), result.data());
         printf("%.3f\t", t);
-        double cpu_usage = 2*dim*dim*dim/230000000000;
-        printf("%.3f\n", cpu_usage);
         times.push_back(t);
+
+        double cpu_usage = 2*dim*dim*dim/t/230000000000;
+        printf("%.3f\n", cpu_usage);
+        cpus.push_back(cpu_usage);
     }
 }
 
@@ -43,6 +46,7 @@ int main(int argc, const char** argv) {
 
     benchmark(dim, iter);
 
-    float avg = get_avg(times);
-    printf("Average: %.3f\n\n", avg);
+    float avg1 = get_avg(times);
+    float avg2 = get_avg(cpus);
+    printf("Average: %.3f\t%.3f\n\n", avg1, avg2);
 }
