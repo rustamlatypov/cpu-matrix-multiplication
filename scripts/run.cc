@@ -21,6 +21,8 @@ int main(int argc, const char** argv) {
 
     std::vector<double> base_time(iter);
     std::vector<double> fast_time(iter);
+    std::vector<double> cpu1(iter);
+    std::vector<double> cpu2(iter);
 
     int ny = dim; int nm = dim; int nx = dim;
     std::vector<double> D1(ny * nm);
@@ -29,8 +31,6 @@ int main(int argc, const char** argv) {
     std::vector<double> base_result(ny * nx);
     std::vector<double> fast_result(ny * nx);
     std::vector<double> cumerror(ny * nx);
-    std::vector<double> cpu1;
-    std::vector<double> cpu2;
 
     std::fill(base_result.begin(), base_result.end(), 0);
     std::fill(fast_result.begin(), fast_result.end(), 0);
