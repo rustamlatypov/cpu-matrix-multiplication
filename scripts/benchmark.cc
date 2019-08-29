@@ -24,7 +24,8 @@ static void benchmark(int dim, int iter) {
         printf("%.3f\t", t);
         times.push_back(t);
 
-        double cpu_usage = 2*dim/1000*dim/1000*dim/1000/t/230;
+
+        double cpu_usage = 2*dim*dim/1000000*dim/1000/t/230;
         printf("%.3f\n", cpu_usage);
         cpus.push_back(cpu_usage);
     }
