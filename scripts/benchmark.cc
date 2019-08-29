@@ -44,7 +44,7 @@ int main(int argc, const char** argv) {
         return 0;
     }
 
-    std::cout << "dim      time    cpu" << std::endl;
+    std::cout << "dim      time   cpu" << std::endl;
     benchmark(dim, iter);
 
     float avg1 = get_avg(times);
