@@ -45,10 +45,10 @@ int main(int argc, const char** argv) {
         return 0;
     }
 
-    std::cout << "dim      time   cpu" << std::endl;
+    std::cout << std::endl << "dim      time   cpu" << std::endl;
     benchmark(dim, iter);
 
     float avg1 = get_avg(times);
     float avg2 = get_avg(cpus);
-    printf("Average: %.3f\t%.3f\n\n", avg1, avg2);
+    printf("\nAverage: %.3f\t%.3f\n\n", avg1, avg2);
 }

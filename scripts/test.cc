@@ -74,7 +74,9 @@ static void run_test(int ny, int nm, int nx, bool flag) {
 int main(int argc, const char** argv) {
 
     if (argc == 1) {
-        
+
+        std::cout << std::endl;
+
         for(int ny = 50; ny < 55; ny++) {
             for(int nm = 50; nm < 60; nm++) {
                 for(int nx = 50; nx < 65; nx++) {
@@ -118,7 +120,10 @@ int main(int argc, const char** argv) {
             exit(EXIT_FAILURE);
         }
 
+        std::cout << std::endl;
         run_test(ny, nm, nx, flag);
+        std::cout << std::endl;
+
         if(has_fails) {
             exit(EXIT_FAILURE);
         }
