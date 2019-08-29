@@ -62,7 +62,7 @@ int main(int argc, const char** argv) {
     std::cout << "Average of " << iter << " runs: " <<  std::endl;
     std::cout << "n = " << dim  << std::endl;
     
-    std::cout << "\t\t\t\t time   cpu" << std::endl;
+    std::cout << "\t\t time   cpu" << std::endl;
     printf("Sequential: %9.3f \t %.4f\n", base, cp1);
     printf("Parallel:   %9.3f \t %.4f\n\n", fast, cp2);
     printf("Speedup:    %9.3f \n", base/fast);
