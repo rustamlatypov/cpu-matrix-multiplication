@@ -67,13 +67,13 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
     #pragma omp parallel for
 
-    for (int n = 0; n < nyb1; n=n+2) {
+    for (int n = 0; n < nyb1; n=n+3) {
 
-	    for (int j = n; j < n+2; j++) {
+	    for (int j = n; j < n+3; j++) {
 
-	    	for (int m = 0; m < nyb2; m=m+2) {
+	    	for (int m = 0; m < nyb2; m=m+3) {
 
-		        for (int i = m; i < m+2; i++) {
+		        for (int i = m; i < m+3; i++) {
 
 		            double4_t block[A*B*P] = {double4_0};
 
