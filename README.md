@@ -1,4 +1,4 @@
-# Parallel CPU matrix multiplication 
+﻿# Parallel CPU matrix multiplication 
 
 Developed during June-August, 2019.
 
@@ -58,6 +58,9 @@ g++-8 -march=native -O2 -fopenmp <br/>
 Intel Xeon E3-1230v5 Skylake 3.4–3.8 GHz
 
 ```
+
+lowerbound = 2*n^3/230*10^9
+
 n = 3000
 Sequential:   134.492 
 Parallel:       0.353 
@@ -82,6 +85,11 @@ n = 7000
 Sequential:  2466.168 
 Parallel:       4.764 
 Speedup:      517.708
+
+n = 8000
+Sequential:  5086.581
+Parallel:       7.285
+Speedup:      698.271
 
 
 
