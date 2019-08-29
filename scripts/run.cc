@@ -59,7 +59,7 @@ int main(int argc, const char** argv) {
     double cp1 = get_avg(cpu1);
     double cp2 = get_avg(cpu2);
 
-    std::cout << "n = " << dim  << "\niter = " << iter << std::endl;
+    std::cout << "iter = " << iter  << "\nn = " << dim << std::endl;
     std::cout << "\t\ttime     cpu" << std::endl;
 
     printf("Sequential: %9.3f \t %.4f\n", base, cp1);
