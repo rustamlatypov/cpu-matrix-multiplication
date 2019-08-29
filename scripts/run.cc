@@ -29,6 +29,8 @@ int main(int argc, const char** argv) {
     std::vector<double> base_result(ny * nx);
     std::vector<double> fast_result(ny * nx);
     std::vector<double> cumerror(ny * nx);
+    std::vector<double> cpu1;
+    std::vector<double> cpu2;
 
     std::fill(base_result.begin(), base_result.end(), 0);
     std::fill(fast_result.begin(), fast_result.end(), 0);
@@ -44,17 +46,24 @@ int main(int argc, const char** argv) {
 
         double error = verify_result(ny, nx, base_result.data(), fast_result.data(), 1);
         cumerror[i] = error;
+
+        double n = dim;
+        cpu1[i] = 2*n*n*n/base_time[i]/230000000000;
+        cpu2[i] = 2*n*n*n/fast_time[i]/230000000000;
     }
 
     double base = get_avg(base_time);
     double fast = get_avg(fast_time);
     double error = get_avg(cumerror);
 
+    double cp1 = get_avg(cpu1);
+    double cp2 = get_avg(cpu2);
+
     std::cout << "Average of " << iter << " runs: " <<  std::endl;
     std::cout << "n = " << dim  << std::endl;
     
-    printf("Sequential: %9.3f \n", base);
-    printf("Parallel:   %9.3f \n\n", fast);
+    printf("Sequential: %9.3f \t %.3f\n", base, cp1);
+    printf("Parallel:   %9.3f \t %.3f\n\n", fast, cp2);
     printf("Speedup:    %9.3f \n", base/fast);
     printf("Error:      %9.3f \n\n", error);
 }
