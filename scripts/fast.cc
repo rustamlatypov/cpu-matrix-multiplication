@@ -65,7 +65,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     double4_t* D2 = pad(nyv2, ny2, nx2, D2_, P);
     ny2 = nx2;
 
-    int na = 3;
+    int na = 4;
     int nb = 1;
 
     #pragma omp parallel for
