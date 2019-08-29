@@ -66,72 +66,77 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     ny2 = nx2;
 
     #pragma omp parallel for
-    for (int j = 0; j < nyb1; j++) {
 
-        for (int i = 0; i < nyb2; i++) {
+    for (int n = 0; n < nyb1; n=n+2) {
 
-            double4_t block[A*B*P] = {double4_0};
+	    for (int j = n; j < n+2; j++) {
 
-            for (int k = 0; k < nx1; k++) {
-                
-            	double a00 = D1[(j*A*P+0)*nx1 + k];
-            	double a01 = D1[(j*A*P+1)*nx1 + k];
-            	double a02 = D1[(j*A*P+2)*nx1 + k];
-            	double a03 = D1[(j*A*P+3)*nx1 + k];
-                
-                
-                double a10 = D1[((j*A+1)*P+0)*nx1 + k];
-                double a11 = D1[((j*A+1)*P+1)*nx1 + k];
-                double a12 = D1[((j*A+1)*P+2)*nx1 + k];
-                double a13 = D1[((j*A+1)*P+3)*nx1 + k];
-                
-                
-                double4_t b0 = D2[(i*B)*nx1 + k];
-                double4_t b1 = D2[(i*B+1)*nx1 + k];
+	        for (int i = 0; i < nyb2; i++) {
 
-                
-                block[0] += a00*b0;
-                block[1] += a00*b1;
+	            double4_t block[A*B*P] = {double4_0};
 
-                block[2] += a01*b0;
-                block[3] += a01*b1;
+	            for (int k = 0; k < nx1; k++) {
+	                
+	            	double a00 = D1[(j*A*P+0)*nx1 + k];
+	            	double a01 = D1[(j*A*P+1)*nx1 + k];
+	            	double a02 = D1[(j*A*P+2)*nx1 + k];
+	            	double a03 = D1[(j*A*P+3)*nx1 + k];
+	                
+	                
+	                double a10 = D1[((j*A+1)*P+0)*nx1 + k];
+	                double a11 = D1[((j*A+1)*P+1)*nx1 + k];
+	                double a12 = D1[((j*A+1)*P+2)*nx1 + k];
+	                double a13 = D1[((j*A+1)*P+3)*nx1 + k];
+	                
+	                
+	                double4_t b0 = D2[(i*B)*nx1 + k];
+	                double4_t b1 = D2[(i*B+1)*nx1 + k];
 
-                block[4] += a02*b0;
-                block[5] += a02*b1;
-        
-                block[6] += a03*b0;
-                block[7] += a03*b1;
+	                
+	                block[0] += a00*b0;
+	                block[1] += a00*b1;
 
-                
-                block[8] += a10*b0;
-                block[9] += a10*b1;
+	                block[2] += a01*b0;
+	                block[3] += a01*b1;
 
-                block[10] += a11*b0;
-                block[11] += a11*b1;
+	                block[4] += a02*b0;
+	                block[5] += a02*b1;
+	        
+	                block[6] += a03*b0;
+	                block[7] += a03*b1;
 
-                block[12] += a12*b0;
-                block[13] += a12*b1;
+	                
+	                block[8] += a10*b0;
+	                block[9] += a10*b1;
 
-                block[14] += a13*b0;
-                block[15] += a13*b1;
-            }
-            
-            for (int jj1 = 0; jj1 < P*A; jj1++) {
-                for (int jj2 = 0; jj2 < B; jj2++) {
-                    for (int ii = 0; ii < P; ii++) {
+	                block[10] += a11*b0;
+	                block[11] += a11*b1;
 
-                        int jjj = j*A * P + jj1;
-                        int iii = i*B * P + jj2*P + ii;
+	                block[12] += a12*b0;
+	                block[13] += a12*b1;
 
-                        if (jjj < ny1 && iii < ny2) {
-                            result[jjj * ny2 + iii] = block[jj1*B+jj2][ii];
-                        }
+	                block[14] += a13*b0;
+	                block[15] += a13*b1;
+	            }
+	            
+	            for (int jj1 = 0; jj1 < P*A; jj1++) {
+	                for (int jj2 = 0; jj2 < B; jj2++) {
+	                    for (int ii = 0; ii < P; ii++) {
 
-                    }
-                }
-            }
-        }
-    }
+	                        int jjj = j*A * P + jj1;
+	                        int iii = i*B * P + jj2*P + ii;
+
+	                        if (jjj < ny1 && iii < ny2) {
+	                            result[jjj * ny2 + iii] = block[jj1*B+jj2][ii];
+	                        }
+
+	                    }
+	                }
+	            }
+	        }
+	    }
+	}
+
 
     free(D2);
 }
