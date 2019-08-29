@@ -54,7 +54,7 @@ int main(int argc, const char** argv) {
     std::cout << "n = " << dim  << std::endl;
     
     printf("Sequential: %9.3f \n", base);
-    printf("Parallel:   %9.3f \n", fast);
+    printf("Parallel:   %9.3f \n\n", fast);
     printf("Speedup:    %9.3f \n", base/fast);
     printf("Error:      %9.3f \n\n", error);
 }
