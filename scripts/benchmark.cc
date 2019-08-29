@@ -21,7 +21,7 @@ static void benchmark(int dim, int iter) {
         printf("%d\t ", dim);
         double t = funcTime(fast_multiply, dim, dim, dim, D1.data(), D2.data(), result.data());
         printf("%.3f\t", t);
-        double cpu_usage = 2*dim*dim*dim/t/230;
+        double cpu_usage = 2*dim*dim*dim/t/230000000000;
         printf("%.3f\n", cpu_usage);
         times.push_back(t);
     }
