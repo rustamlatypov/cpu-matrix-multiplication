@@ -11,7 +11,7 @@ int main(int argc, const char** argv) {
     	std::string s1 = "\n";
     	std::string s2 = "\n";
     	std::string s3 = "\n";
-    	std::string s4 = "   './help'\n   Expains the commands in short.";
+    	std::string s4 = "   './help'\n   Expains the commands in short.\n";
 
     	std::string s5 = "Author: Rustam Latypov, rustam.latypov@aalto.fi)";
 
