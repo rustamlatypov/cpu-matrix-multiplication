@@ -2,5 +2,7 @@
 
 int main(int argc, const char** argv) {
     
-    printf("rock\n");
+    if (argc==1) {
+		printf("rock\n");
+    }
 }
