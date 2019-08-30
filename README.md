@@ -6,7 +6,7 @@ Developed during June-August, 2019.
 
 ## Description
 
-A console interface for testing and benchmarking a optimized parallel matrix multiplication implementation. It is benchmarked against a naive sequential implementation. Both implementations use the same basic algorithm running in **O(n^3)** for square matrices of dimension n and use double-precision.
+A console interface for testing and benchmarking a optimized parallel matrix multiplication implementation. It is benchmarked against a naive sequential implementation. Both implementations use the same basic algorithm running in **O(n^3)** for square matrices of dimension **n** and use double-precision.
 
 
 ## Platform
@@ -36,7 +36,7 @@ Expains in the commands in short.
 The error term is defined to be the sum of the element wise absolute difference of the two result matrices produced by the implementations.
 
 ### CPU usage
-With FMA instructions the platform is able to perform ≈230G double-precision floating point operations per second. Since matrix multiplication takes 2n^3 floating point operations, the CPU usage for running time t is given by 2n^3/t/230G. 
+With FMA instructions the platform is able to perform **≈230G** double-precision floating point operations per second. Since matrix multiplication takes **2n^3** floating point operations, the CPU usage for running time **t** is given by **2n^3/t/230G**. 
 
 
 ## Parallel implementation
