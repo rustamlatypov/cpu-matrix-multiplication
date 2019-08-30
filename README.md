@@ -11,6 +11,10 @@ A console interface for testing and benchmarking a optimized parallel matrix mul
 
 ## Platform
 
+Ubuntu 18.04.3 <br/> 
+GCC 8 <br/> 
+-std=c++17 -march=native -O2 -fopenmp <br/>
+Intel Xeon E3-1230v5 Skylake 3.4–3.8 GHz
 
 
 ## Building and running
@@ -58,10 +62,6 @@ On some computers the compiler has difficulties producing FMA instructions resul
 ## Results
 
 The results are captured using `./run n 2`, with different n values. 
-
-Ubuntu 18.04.3 <br/> 
-g++-8 -march=native -O2 -fopenmp <br/>
-Intel Xeon E3-1230v5 Skylake 3.4–3.8 GHz
 
 ```
 
