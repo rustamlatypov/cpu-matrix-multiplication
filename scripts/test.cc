@@ -116,7 +116,7 @@ int main(int argc, const char** argv) {
         } else if (std::stoi(argv[4]) == 0) {
             verbose = false;
         } else {
-            std::cout << "Usage:\ttest <ny> <nm> <nx> <print>" << std::endl;
+            std::cout << "Usage:\ttest <ny> <nm> <nx> <verbose>" << std::endl;
             exit(EXIT_FAILURE);
         }
 
