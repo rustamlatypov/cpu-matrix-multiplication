@@ -4,8 +4,8 @@ int main(int argc, const char** argv) {
     
     if (argc==1) {
 
-    	std::string s4 = "./help <br/> Expains the commands in short.";
+    	string s4 = "./help <br/> Expains the commands in short.";
 
-		printf("%s\n", s4);
+    	std::cout << s4 << std::endl;
     }
 }
