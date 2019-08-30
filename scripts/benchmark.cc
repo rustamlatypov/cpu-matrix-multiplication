@@ -5,13 +5,13 @@
 #include <random>
 #include "fast.cc"
 #include "helper.h"
+(void) print;
 
 std::vector<double> times;
 std::vector<double> cpus;
 
 
 static void benchmark(int dim, int iter) {
-	(void) print;
 
     std::vector<double> D1(dim * dim);
     std::vector<double> D2(dim * dim);
