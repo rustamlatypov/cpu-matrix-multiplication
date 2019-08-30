@@ -6,22 +6,24 @@ Developed during June-August, 2019.
 
 ## Description
 
-A console interface for testing and benchmarking two matrix multiplication implementations. Both use the same basic algorithm running O(n^3) for matrices of dimension n. The base implementation is sequential and the fast implementation is parallel. Both implementations work with double values exclusively. 
-
+A console interface for testing and benchmarking a optimized parallel matrix multiplication implementation. It is benchmarked against a naive sequential implementation. Both implementations use the same basic algorithm running in ``O(n^3)`` for squere matrices of dimension ``n`` and use double-precision.
 
 
 ## Building and running
 
-Built for a multicore linux system that supports 256-bit wide SIMD operations. Use `make -j` to build binaries and `make clean` to clean up the directory. When built there are three commands available: `./run <dim> <iter>`, `./test <ny> <nm> <nx>` and `./benchmark <dim> <iter>`. Assembly code for file x can be produced by running `make x.asm1` and `make x.asm2`. For the following commands. Either none or all parameters should be given to the following commands.
+Built for a multicore linux system that supports 256-bit wide SIMD operations. Use `make -j` to build binaries and `make clean` to clean up the directory. When built there are four commands available: `./run <dim> <iter>`, `./test <ny> <nm> <nx> <verbose>`, `./benchmark <dim> <iter>` and `./help`. Assembly code for file x can be produced by running `make x.asm1` and `make x.asm2`. Either none or all parameters should be given to the following commands.
 
 - `./run <dim> <iter>` default: dim=1000, iter=3 <br/>
 Runs both implementations on the same matrices for `iter` times and outputs the average running times, the speedup and the error term.
 
-- `./test <ny> <nm> <nx> <print>` default: ny,nm,nx in {5,1500}, print=0 <br/>
+- `./test <ny> <nm> <nx> <verbose>` default: ny,nm,nx in {5,1500}, print=0 <br/>
 Runs both implementations on different matrices and different combinations of ny, nm and nx. Dimension wise the multiplication is (ny•nm)(nm•nx). Each combination is run 10 times and the error term is accumulated and outputed. Each test passes if the accumulated error is below 1e-3. Printing can be enabled by assigning any number to <print>. 
 
 - `./benchmark <dim> <iter>` default: dim=3000, iter=10 <br/>
 Runs the parallel implementation on the same matrices of dimensions `dim` for `iter` times and outputs the running times and the total average.
+
+- `./help` <br/>
+Expains in the commands in short.
 
 ### Error term
 The error term is defined to be the sum of the element wise absolute difference of the two result matrices produced by the implementations.
