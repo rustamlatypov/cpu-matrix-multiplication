@@ -36,7 +36,7 @@ Expains in the commands in short.
 The error term is defined to be the sum of the element wise absolute difference of the two result matrices produced by the implementations.
 
 ### CPU usage
-With FMA instructions the platform is able to perform ≈230x10^9 double-precision floating point operations per second. Since matrix multiplication takes 2n^3 floating point operations, the cpu usage for running time `t` is given by 2*n^3/t/230*10^9. 
+With FMA instructions the platform is able to perform ≈230G double-precision floating point operations per second. Since matrix multiplication takes 2n^3 floating point operations, the cpu usage for running time `t` is given by 2*n^3/t/230*10^9. 
 
 
 ## Parallel implementation
