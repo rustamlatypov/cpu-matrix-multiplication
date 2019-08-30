@@ -3,7 +3,7 @@
 #include "fast.cc"
 #include "base.cc"
 #include "helper.h"
-
+(void) print
 
 int main(int argc, const char** argv) {
 

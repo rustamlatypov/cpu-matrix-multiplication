@@ -5,6 +5,7 @@
 #include <random>
 #include "fast.cc"
 #include "helper.h"
+(void) print
 
 std::vector<double> times;
 std::vector<double> cpus;
