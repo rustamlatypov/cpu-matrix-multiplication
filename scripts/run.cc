@@ -3,10 +3,10 @@
 #include "fast.cc"
 #include "base.cc"
 #include "helper.h"
-(void) print;
 
 int main(int argc, const char** argv) {
 
+    (void) print;
     int dim; int iter;
     if (argc == 1) {
         dim = 1000;
