@@ -75,7 +75,8 @@ int main(int argc, const char** argv) {
 
     if (argc == 1) {
 
-        std::cout << std::endl;
+        std::cout << std::endl; 
+        std::cout << "       ny   nm   nx     error" << std::endl;
 
         for(int ny = 50; ny < 55; ny++) {
             for(int nm = 50; nm < 60; nm++) {
@@ -121,6 +122,7 @@ int main(int argc, const char** argv) {
         }
 
         std::cout << std::endl;
+        std::cout << "       ny   nm   nx     error" << std::endl;
         run_test(ny, nm, nx, verbose);
         std::cout << std::endl;
 
