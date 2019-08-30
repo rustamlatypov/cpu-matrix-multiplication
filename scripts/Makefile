@@ -1,4 +1,4 @@
-bin=test benchmark run 
+bin=test benchmark run help
 include Makefile.common
 
 SOURCES+= ./../scripts/*.cc 
@@ -12,4 +12,7 @@ test: test.o
 	$(CXX) $(LDFLAGS) $^ -o $@
 
 benchmark: benchmark.o 
+	$(CXX) $(LDFLAGS) $^ -o $@
+
+help: help.o 
 	$(CXX) $(LDFLAGS) $^ -o $@
