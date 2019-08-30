@@ -1,4 +1,4 @@
 int main(int argc, const char** argv) {
 
-    printf("rock\n", );
+    printf("rock\n");
 }
