@@ -12,18 +12,6 @@ CXXFLAGS=-g -std=c++1z -Wall -Wextra
 CXXFLAGS+=-Werror -Wno-error=unknown-pragmas -Wno-error=unused-but-set-variable -Wno-error=unused-local-typedefs -Wno-error=unused-function -Wno-error=unused-label -Wno-error=unused-value -Wno-error=unused-variable -Wno-error=unused-parameter -Wno-error=unused-but-set-parameter
 CXXFLAGS+=-march=native $(shell ../util/find-flags)
 
-# ASAN flags if debug mode, otherwise -O3
-ifeq ($(DEBUG),1)
-else ifeq ($(DEBUG),2)
-CXXFLAGS+=-fsanitize=address -fsanitize=undefined
-LDFLAGS+=-fsanitize=address -fsanitize=undefined
-else ifeq ($(DEBUG),3)
-CXXFLAGS+=-D_GLIBCXX_DEBUG
-CXXFLAGS+=-fsanitize=address -fsanitize=undefined
-LDFLAGS+=-fsanitize=address -fsanitize=undefined
-else
-CXXFLAGS+=-O3
-endif
 
 SOURCES:=*.cc
 
