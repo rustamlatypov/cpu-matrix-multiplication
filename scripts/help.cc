@@ -6,6 +6,6 @@ int main(int argc, const char** argv) {
 
     	std::string s4 = "./help <br/> Expains the commands in short.";
 
-		printf("s4\n");
+		printf("%s\n", s4);
     }
 }
