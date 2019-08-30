@@ -4,5 +4,6 @@
 run
 benchmark
 test
+help
 /.idea/*
 /cmake-build-debug/*
