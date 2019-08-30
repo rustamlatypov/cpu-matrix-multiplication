@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <string>
 
-int main(int argc, const char** argv) {
+int main(int argc, (void) argv) {
     
     if (argc==1) {
     	std::cout << std::endl;
