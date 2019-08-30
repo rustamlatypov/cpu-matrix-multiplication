@@ -10,7 +10,7 @@
 #include "helper.h"
 
 
-static bool test(int ny, int nm, int nx, bool flag) {
+static bool test(int ny, int nm, int nx, bool verbose) {
     std::vector<double> D1(ny * nm);
     std::vector<double> D2(nm * nx);
 
@@ -31,7 +31,7 @@ static bool test(int ny, int nm, int nx, bool flag) {
     std::cout << std::fixed << std::setprecision(3);
     std::cout << '\t' << error / error_limit << '\t';
 
-    if (flag) {
+    if (verbose) {
         printf("\n\n%s", "A");
         print(ny, nm, D1.data());
         printf("\n%s", "B");
@@ -51,13 +51,13 @@ static int test_count = 0;
 
 
 // To be used in batch mode to keep track of test suite progress
-static void run_test(int ny, int nm, int nx, bool flag) {
+static void run_test(int ny, int nm, int nx, bool verbose) {
     std::cout << "test "
         << std::setw(4) << ny << ' '
         << std::setw(4) << nm << ' '
         << std::setw(4) << nx << ' '
         << std::flush;
-    bool pass = test(ny, nm, nx, flag);
+    bool pass = test(ny, nm, nx, verbose);
     std::cout << (pass ? "OK\n" : "ERR\n");
     if(pass) {
         pass_count++;
@@ -110,24 +110,24 @@ int main(int argc, const char** argv) {
         int ny = std::stoi(argv[1]);
         int nm = std::stoi(argv[2]);
         int nx = std::stoi(argv[3]);
-        bool flag;
+        bool verbose;
         if (std::stoi(argv[4]) == 1) {
-            flag = true;
+            verbose = true;
         } else if (std::stoi(argv[4]) == 0) {
-            flag = false;
+            verbose = false;
         } else {
             std::cout << "Usage:\ttest <ny> <nm> <nx> <print>" << std::endl;
             exit(EXIT_FAILURE);
         }
 
         std::cout << std::endl;
-        run_test(ny, nm, nx, flag);
+        run_test(ny, nm, nx, verbose);
         std::cout << std::endl;
 
         if(has_fails) {
             exit(EXIT_FAILURE);
         }
     } else {
-        std::cout << "Usage:\ttest <ny> <nm> <nx> <print>" << std::endl;
+        std::cout << "Usage:\ttest <ny> <nm> <nx> <verbose>" << std::endl;
     }
 }
