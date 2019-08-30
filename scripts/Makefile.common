@@ -1,6 +1,3 @@
-.PHONY: all clean depend test test1 test2 benchmark benchmark1 benchmark2
-.DELETE_ON_ERROR:
-
 # Try to find suitable C++ compiler
 CXX:=$(shell ../util/find-cxx)
 ifeq ($(CXX),)
