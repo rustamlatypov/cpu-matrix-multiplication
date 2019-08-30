@@ -12,6 +12,9 @@ Runs the parallel implementation on the same square matrices of dimension `dim` 
 "
     	s4 = "`./help` <br/>
 Expains the commands in short."
-		printf("rock\n");
+		printf("s1\n");
+		printf("s2\n");
+		printf("s3\n");
+		printf("s4\n");
     }
 }
