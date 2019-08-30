@@ -2,8 +2,9 @@
 #include <algorithm>
 #include <string>
 
-int main(int argc, (void) argv) {
+int main(int argc, const char** argv) {
     
+    (void) argv;
     if (argc==1) {
     	std::cout << std::endl;
 
