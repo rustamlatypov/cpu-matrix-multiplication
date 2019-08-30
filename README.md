@@ -11,7 +11,7 @@ A console interface for testing and benchmarking a optimized parallel matrix mul
 
 ## Platform
 
-Ubuntu 18.04.3, GCC 8 <br/> 
+Ubuntu 18.04.3, GCC 7.4.0 <br/> 
 `-std=c++17 -march=native -O2 -fopenmp` <br/>
 Intel Xeon E3-1230v5 Skylake 3.4–3.8 GHz
 
