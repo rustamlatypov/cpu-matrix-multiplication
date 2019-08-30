@@ -13,10 +13,13 @@ int main(int argc, const char** argv) {
     	std::string s3 = "\n";
     	std::string s4 = "   './help'\n   Expains the commands in short.";
 
+    	std::string s5 = "Author: Rustam Latypov, rustam.latypov@aalto.fi)";
+
     	std::cout << s1 << std::endl;
     	std::cout << s2 << std::endl;
     	std::cout << s3 << std::endl;
     	std::cout << s4 << std::endl;
+    	std::cout << s5 << std::endl;
     	std::cout << std::endl;
     }
 }
