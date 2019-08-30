@@ -14,7 +14,7 @@ int main(int argc, const char** argv) {
     	std::string s4 = "   './help'\n   Expains the commands in short.\n";
 
     	std::string s5 = "   author: Rustam Latypov\n"
-    					 "email:  rlatypov1337@gmail.com";
+    					 "   email:  rlatypov1337@gmail.com";
 
     	std::cout << s1 << std::endl;
     	std::cout << s2 << std::endl;
