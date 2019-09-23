@@ -78,7 +78,6 @@ Parallel
 Speedup         
 CPU usage       
 
-
 n = 4000
 Sequential      
 Parallel        
