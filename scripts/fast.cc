@@ -99,19 +99,19 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                         */
 
                         volatile double a00 = D1[0];
-                        volatile double a01 = D1[1];
-                        volatile double a02 = D1[2];
-                        volatile double a03 = D1[3];
+                        volatile double a01 = D1[0];
+                        volatile double a02 = D1[0];
+                        volatile double a03 = D1[0];
 
 
-                        volatile double a10 = D1[4];
-                        volatile double a11 = D1[5];
-                        volatile double a12 = D1[6];
-                        volatile double a13 = D1[7];
+                        volatile double a10 = D1[0];
+                        volatile double a11 = D1[0];
+                        volatile double a12 = D1[0];
+                        volatile double a13 = D1[0];
 
 
                         volatile double4_t b0 = D2[0];
-                        volatile double4_t b1 = D2[1];
+                        volatile double4_t b1 = D2[0];
 		                
 		                block[0] += a00*b0;
 		                block[1] += a00*b1;
