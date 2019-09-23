@@ -38,7 +38,7 @@ The error term is defined to be the sum of the element wise absolute difference 
 ### CPU usage
 Taking FMA instructions into account, the platform is able to perform **≈230G** double-precision floating point operations per second. Since matrix multiplication takes **2n^3** floating point operations, the CPU usage for running time **t** is given by **2n^3/t/230G**. The lower bound for a matrix multiplication is thus **2n^3/230G**. 
 
-The CPU usages calculations use a hardcoded variable for this specific platform. If one wishes to adjust for their own system, the number of double-precision floating point operations per second should be changed in variable `platform_spec` in `common/helper.h`
+The CPU usages calculations use a hardcoded variable for this specific platform. If one wishes to adjust for their own system, variable `platform_spec` in `common/helper.h` should be changed to the systems number of double-precision floating point operations per second.
 
 
 ## Parallel implementation
@@ -47,13 +47,18 @@ In matrix multiplication memory access is the bottleneck rather than processing 
 
 Working with doubles and SIMD requires 32-byte memory alignment and a vector framework. These are provided in ``vector.h`` with type ``double4_t`` holding 4 doubles, 8 bytes each. Multicore processing is handled by OpenMP.
 
-Let A and B be of type ``double*`` representing matrices as a row wise array. The goal is to produce matrix A x B = C. As preprocessing, A and the transpose of B are transformed into a type ``double4_t*`` representation with vertical vectors and 0 valued vertical padding. Although the vectors run vertically, the memory layout is such that is goes through the *rows* of the vertical vectors, from top to bottom and from left to right. 
+Let A and B be of type ``double*`` representing matrices as a row wise array. The goal is to produce matrix A x B = C. As preprocessing, B is transformed into a type ``double4_t*`` representation with horizontal vectors and 0 valued horizontal padding. Although the vectors run horizontally, the memory layout is such that is goes through the *columns* of the horizontal vectors, from top to bottom and from left to right. 
 
-This memory layout enables the efficient use of the outer product. The first vector row of A and the first vector row of B can be used to accumulate a 4x4=16 sized block with repeated outer products. This block can then by assigned to be the left top corner of matrix C. Similarly, any 16 sized block of C can be calculated by scanning the correct rows of A and B. 
+This memory layout enables the efficient use of the outer product. Using the first four rows of A and the first column of horizontal vectors of B, a 4x4=16 sized block of C can be accumulated using the outer product. This block can then be copied to the the left top corner of C. Similarly, any 16 sized block of C can be computed by scanning the correct rows of A and the correct column of horizontal vectors of B. 
 
-Following the same logic, even a 8x8=64 and 12x12=144 sized blocks can be used. The block size controls the tradoff between register/L1/L2/L3 reuse and a 8x8=64 sized block is optimal for this setup. 
 
-Both padding and the main execution loop are wrapped with ``#pragma omp parallel for`` for multicore processing since all threads should recieve similar loads. 
+Following the same logic, even 8x8=64 or 12x12=144 sized blocks can be used. The block size controls the tradoff between register/L1/L2/L3 reuse. Experimentation showed that a 64 sized block is optimal for this platform. 
+
+
+On top of this, 2x2 tiling is used to further optimize memory reuse in the large memory caches. So instead of computing 64 sized blocks, superblocks of 4x64 blocks are computed.  
+
+
+Both transformation of B and the main execution loop are wrapped with ``#pragma omp parallel for`` for multicore processing since all threads should recieve similar loads. 
 
 
 
@@ -62,7 +67,7 @@ Both padding and the main execution loop are wrapped with ``#pragma omp parallel
 On some computers the compiler has difficulties producing FMA instructions resulting in rounding errors. Since large numbers are used, rounding errors accumulate and result in a high error term even though the implementation is correct. This can be fixed by tweaking the compiler parameters. 
 
 
-## Results
+## Results and analysis
 
 The results are captured using `./run n 2`, with different n values. 
 

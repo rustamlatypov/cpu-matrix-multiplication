@@ -124,7 +124,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
 
                         block[8] += a10*b0;
-                        block[9] += a10*b1;;
+                        block[9] += a10*b1;
 
                         block[10] += a11*b0;
                         block[11] += a11*b1;
