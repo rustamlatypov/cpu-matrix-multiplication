@@ -8,7 +8,7 @@ int main(int argc, const char** argv) {
 
     printf("hello");
 
-    //(void) print;
+    (void) print;
     int dim; int iter;
     if (argc == 1) {
         dim = 1000;
