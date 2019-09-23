@@ -69,7 +69,7 @@ On some computers the compiler has difficulties producing FMA instructions resul
 
 ## Results and analysis
 
-The results are captured using `./run n 2`, with different n values. 
+The results are captured using `run n 2`, with different n values. 
 
 ```
 
