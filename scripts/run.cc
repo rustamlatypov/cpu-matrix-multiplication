@@ -6,8 +6,6 @@
 
 int main(int argc, const char** argv) {
 
-    printf("hello");
-
     (void) print;
     int dim; int iter;
     if (argc == 1) {
