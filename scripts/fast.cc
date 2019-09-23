@@ -7,17 +7,14 @@
 #include <chrono>
 #include "vector.h"
 
-// vertical padding such that number of rows is devisible by P*A
-// 1  2  3  4  5     1  2  3  4  5
-// 6  7  8  9  10    6  7  8  9  10
-// 11 12 13 14 15 => 11 12 13 14 15
-// 16 17 18 19 20    16 17 18 19 20
-// 21 22 23 24 25    21 22 23 24 25
-//                   0  0  0  0  0
-//                   0  0  0  0  0
-//                   0  0  0  0  0
+// horizontal padding such that number of columns is devisible by P*A
+// 1  2  3  4  5     1  2  3  4  5  0  0  0
+// 6  7  8  9  10    6  7  8  9  10 0  0  0
+// 11 12 13 14 15 => 11 12 13 14 15 0  0  0
+// 16 17 18 19 20    16 17 18 19 20 0  0  0
+// 21 22 23 24 25    21 22 23 24 25 0  0  0
 
-// both transposing and vertical padding
+// horizontal padding for D2
 double4_t* pad(int nyv, int nx, int ny, const double* data_, int P) {
 
 
@@ -65,8 +62,8 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     double4_t* D2 = pad(nyv2, ny2, nx2, D2_, P);
     ny2 = nx2;
 
-    int na = 2;
-    int nb = 2;
+    int na = 1;
+    int nb = 1;
 
     #pragma omp parallel for
     for (int n = 0; n < nyb1; n=n+na) {
@@ -80,7 +77,6 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 		            double4_t block[A*B*P] = {double4_0};
 
 		            for (int k = 0; k < nx1; k++) {
-
 
 		            	double a00 = D1[(j*A*P+0)*nx1 + k];
 		            	double a01 = D1[(j*A*P+1)*nx1 + k];
