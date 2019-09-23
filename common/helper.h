@@ -13,11 +13,12 @@
 #include "vector.h"
 
 constexpr double error_limit = 1e-3;
+constexpr double platform_spec = 230000000000;
 
 std::mt19937 rng(42);
 static void gen(int ny, int nx, double* data) {
-    const short a = std::numeric_limits<short>::max();
-    std::uniform_real_distribution<double> unif(-a,a);
+    //const short a = std::numeric_limits<short>::max();
+    std::uniform_real_distribution<double> unif(-1,1);
     std::generate(data, data+nx*ny, [&]{ return unif(rng); });
 }
 
@@ -65,5 +66,9 @@ static void print(int ny, int nx, const double *matrix) {
     }
     printf("\n");
 }
+
+
+double calculate_cpu(double n, double t) { return 2.0*n*n*n/t/platform_spec; }
+
 
 #endif

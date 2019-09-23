@@ -48,8 +48,9 @@ int main(int argc, const char** argv) {
         cumerror[i] = error;
 
         double n = dim;
-        cpu1[i] = 2*n*n*n/base_time[i]/230000000000;
-        cpu2[i] = 2*n*n*n/fast_time[i]/230000000000;
+
+        cpu1[i] = calculate_cpu(n, base_time[i]);
+        cpu2[i] = calculate_cpu(n, fast_time[i]);
     }
 
     double base = get_avg(base_time);
