@@ -67,8 +67,6 @@ static void print(int ny, int nx, const double *matrix) {
     printf("\n");
 }
 
-printf("hello");
-
 double calculate_cpu(double n, double t) { return 2.0*n*n*n/t/platform_spec; }
 
 

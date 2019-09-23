@@ -7,6 +7,7 @@
 #include <chrono>
 #include "vector.h"
 
+
 // horizontal padding such that number of columns is devisible by P*A
 // 1  2  3  4  5     1  2  3  4  5  0  0  0
 // 6  7  8  9  10    6  7  8  9  10 0  0  0
@@ -37,6 +38,8 @@ double4_t* pad(int nyv, int nx, int ny, const double* data_, int P) {
 
 void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_, double* result) {
 
+    printf("hello");
+    
     int ny1 = ny;
     int nx1 = nm;
     int ny2 = nm;
