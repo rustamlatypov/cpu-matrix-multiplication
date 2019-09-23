@@ -18,9 +18,7 @@
 // horizontal padding for D2
 double4_t* pad(int nyv, int nx, int ny, const double* data_, int P) {
 
-    printf("here");
     double4_t* data = double4_alloc(nyv*nx);
-    printf("now");
 
     #pragma omp parallel for
     for (int j = 0; j < nyv; j++) {
