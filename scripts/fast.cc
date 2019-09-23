@@ -42,7 +42,6 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int ny2 = nm;
     int nx2 = nx;
 
-    printf("hello");
     constexpr int P = 4;
     constexpr int A = 2;
     constexpr int B = 2;
@@ -59,7 +58,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     
     std::vector<double> D1(nye1*nm);
     std::memcpy(D1.data(), D1_, ny*nm*sizeof(double));
-    
+
 
     double4_t* D2 = pad(nyv2, ny2, nx2, D2_, P);
     ny2 = nx2;
