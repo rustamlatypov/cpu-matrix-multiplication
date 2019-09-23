@@ -75,6 +75,12 @@ The results are captured using `run n 2`, with different n values.
 
 lowerbound = 2*n^3/230*10^9
 
+fresh
+
+
+
+
+
 n = 3000
 Sequential:   134.492 
 Parallel:       0.353 

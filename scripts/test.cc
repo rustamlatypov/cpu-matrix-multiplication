@@ -10,6 +10,7 @@
 #include "helper.h"
 
 
+
 static bool test(int ny, int nm, int nx, bool verbose) {
     std::vector<double> D1(ny * nm);
     std::vector<double> D2(nm * nx);

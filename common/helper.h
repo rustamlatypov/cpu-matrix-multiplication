@@ -12,6 +12,8 @@
 #include <limits>
 #include "vector.h"
 
+
+
 constexpr double error_limit = 1e-3;
 constexpr double platform_spec = 230000000000;
 

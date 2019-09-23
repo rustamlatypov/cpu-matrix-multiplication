@@ -7,18 +7,19 @@
 #include <chrono>
 #include "vector.h"
 
-//double calculate_cpu(double n, double t) { return 2.0*n*n*n/t/platform_spec; }
 
-// horizontal padding such that number of columns is devisible by P*A
-// 1  2  3  4  5     1  2  3  4  5  0  0  0
-// 6  7  8  9  10    6  7  8  9  10 0  0  0
-// 11 12 13 14 15 => 11 12 13 14 15 0  0  0
-// 16 17 18 19 20    16 17 18 19 20 0  0  0
-// 21 22 23 24 25    21 22 23 24 25 0  0  0
 
-// horizontal padding for D2
 double4_t* pad(int nyv, int nx, int ny, const double* data_, int P) {
 
+    /*
+     * horizontal padding such that number of columns is devisible by P*B
+     * 1  2  3  4  5     1  2  3  4  5  0  0  0
+     * 6  7  8  9  10    6  7  8  9  10 0  0  0
+     * 11 12 13 14 15 => 11 12 13 14 15 0  0  0
+     * 16 17 18 19 20    16 17 18 19 20 0  0  0
+     * 21 22 23 24 25    21 22 23 24 25 0  0  0
+     *
+     */
 
     double4_t* data = double4_alloc(nyv*nx);
 
@@ -39,6 +40,15 @@ double4_t* pad(int nyv, int nx, int ny, const double* data_, int P) {
 
 void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_, double* result) {
 
+    /*
+     * matrix multiplication of dimensions (ny*nm)(nm*nx)=(ny*nx)
+     *
+     * P: the amount of values to be stored in double4_t
+     * A: block dimension of D1
+     * B: block dimension of D2
+     *
+     */
+
     int ny1 = ny;
     int nx1 = nm;
     int ny2 = nm;
@@ -58,6 +68,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int nyv2 = nye2/P;
     int nyb2 = nyv2/B;
 
+    // not to read out of boundaries, since one step is one block
     std::vector<double> D1(nye1*nm);
     std::memcpy(D1.data(), D1_, ny*nm*sizeof(double));
 
@@ -65,6 +76,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     double4_t* D2 = pad(nyv2, ny2, nx2, D2_, P);
     ny2 = nx2;
 
+    // tiling parameters
     int na = 1;
     int nb = 1;
 
@@ -77,6 +89,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
                 for (int i = m; i < m+nb; i++) {
 
+                    // 64 value block to accumulate to
                     double4_t block[A*B*P] = {double4_0};
 
                     for (int k = 0; k < nx1; k++) {
@@ -95,6 +108,8 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                         double4_t b1 = D2[(i*B+1)*nx1 + k];
 
                         /*
+                        to be able to test cpu without memory bottleneck
+
                         volatile double a00 = D1[0];
                         volatile double a01 = D1[0];
                         volatile double a02 = D1[0];
@@ -135,6 +150,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                         block[15] += a13*b1;
                     }
 
+                    // write accumulated block back to memory
                     for (int jj1 = 0; jj1 < P*A; jj1++) {
                         for (int jj2 = 0; jj2 < B; jj2++) {
                             for (int ii = 0; ii < P; ii++) {
