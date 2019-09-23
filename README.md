@@ -18,18 +18,18 @@ Intel Xeon E3-1230v5 Skylake 3.4–3.8 GHz
 
 ## Building and running
 
-Built for a multicore linux system that supports 256-bit wide SIMD operations. In `/scripts` Use `make -j` to build binaries and `make clean` to clean up the directory. When built, there are four commands available: `./run <dim> <iter>`, `./test <ny> <nm> <nx> <verbose>`, `./benchmark <dim> <iter>` and `./help`. Assembly code for file x can be produced by running `make x.asm1` and `make x.asm2`. Either none or all parameters should be given to the following commands.
+Built for a multicore linux system that supports 256-bit wide SIMD operations. In `/scripts` Use `make -j` to build binaries and `make clean` to clean up the directory. When built, there are four commands available: `run <dim> <iter>`, `test <ny> <nm> <nx> <verbose>`, `benchmark <dim> <iter>` and `help`. Assembly code for file x can be produced by running `make x.asm1` and `make x.asm2`. Either none or all parameters should be given to the following commands.
 
-- `./run <dim> <iter>` default: `dim=1000`, `iter=3` <br/>
+- `run <dim> <iter>` default: `dim=1000`, `iter=3` <br/>
 Runs both implementations on the same square matrices of dimension `dim` for `iter` times and outputs the average running times, cpu usages, the speedup obtained and the error term.
 
-- `./test <ny> <nm> <nx> <verbose>` default: `ny,nm,nx in {5,1500}`, `verbose=0` <br/>
+- `test <ny> <nm> <nx> <verbose>` default: `ny,nm,nx in {5,1500}`, `verbose=0` <br/>
 Runs both implementations on different matrices and different combinations of `ny`, `nm` and `nx`. Dimension wise the multiplication is `(ny*nm)(nm*nx)`. Each combination is run **10** times and the error term is accumulated and outputted. Each test passes if the accumulated error is below **1e-3** (can be adjusted by changing `error_limit` in `/common/helper.h`). Matrices can be outputted by setting `verbose=1`. 
 
-- `./benchmark <dim> <iter>` default: `dim=3000`, `iter=10` <br/>
+- `benchmark <dim> <iter>` default: `dim=3000`, `iter=10` <br/>
 Runs the parallel implementation on the same square matrices of dimension `dim` for `iter` times and outputs running times, cpu usages and the their averages.
 
-- `./help` <br/>
+- `help` <br/>
 Expains the commands in short.
 
 ### Error term
@@ -67,78 +67,51 @@ Both transformation of B and the main execution loop are wrapped with ``#pragma 
 On some computers the compiler has difficulties producing FMA instructions resulting in rounding errors. Since large numbers are used, rounding errors accumulate and result in a high error term even though the implementation is correct. This can be fixed by tweaking the compiler parameters. 
 
 
-## Results and analysis
+## Results
 
 The results are captured using `run n 2`, with different n values. 
 
 ```
-
-lowerbound = 2*n^3/230*10^9
-
-fresh
-
-
-
-
-
 n = 3000
-Sequential:   134.492 
-Parallel:       0.353 
-Speedup:      381.372 
+Sequential      
+Parallel        
+Speedup         
+CPU usage       
+
 
 n = 4000
-Sequential:   366.784 
-Parallel:       0.840 
-Speedup:      436.670
+Sequential      
+Parallel        
+Speedup         
+CPU usage       
 
 n = 5000
-Sequential:   769.893 
-Parallel:       1.644 
-Speedup:      468.347 
+Sequential      
+Parallel        
+Speedup         
+CPU usage       
 
 n = 6000
-Sequential:  1435.166 
-Parallel:       2.799 
-Speedup:      512.822
+Sequential      
+Parallel        
+Speedup         
+CPU usage       
 
 n = 7000
-Sequential:  2466.168 
-Parallel:       4.764 
-Speedup:      517.708
+Sequential      
+Parallel        
+Speedup         
+CPU usage       
 
 n = 8000
-Sequential:  5086.581
-Parallel:       7.285
-Speedup:      698.271
-
-
-
-n = 3000
-Sequential:   134.710
-Parallel:       0.353
-Speedup:      381.489
-
-n = 4000
-Sequential:   366.686
-Parallel:       0.855
-Speedup:      429.095
-
-n = 5000
-Sequential:   777.599
-Parallel:       1.656
-Speedup:      469.597
-
-n = 6000
-Sequential:  1429.605
-Parallel:       3.031
-Speedup:      471.718
-
-n = 7000
-Sequential:  2458.338
-Parallel:       4.759
-Speedup:      516.607
-
+Sequential      
+Parallel        
+Speedup         
+CPU usage       
 ```
+
+
+
 
 ## Author
 
