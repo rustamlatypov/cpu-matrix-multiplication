@@ -51,8 +51,10 @@ int main(int argc, const char** argv) {
 
         double n = dim;
 
-        cpu1[i] = calculate_cpu(n, base_time[i]);
-        cpu2[i] = calculate_cpu(n, fast_time[i]);
+        cpu1[i] = 1;
+        //calculate_cpu(n, base_time[i]);
+        cpu2[i] = 1;
+        //calculate_cpu(n, fast_time[i]);
     }
 
     double base = get_avg(base_time);
