@@ -15,7 +15,10 @@
 // 21 22 23 24 25    21 22 23 24 25 0  0  0
 
 // horizontal padding for D2
-double4_t* pad(int nyv, int nx, int ny, const double* data_, int P, double4_t* data) {
+double4_t* pad(int nyv, int nx, int ny, const double* data_, int P) {
+
+
+    double4_t* data = double4_alloc(nyv*nx);
 
     #pragma omp parallel for
     for (int j = 0; j < nyv; j++) {
@@ -56,8 +59,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     std::vector<double> D1(nye1*nm);
     std::memcpy(D1.data(), D1_, ny*nm*sizeof(double));
 
-    double4_t* data = double4_alloc(nyv2*ny2);
-    double4_t* D2 = pad(nyv2, ny2, nx2, D2_, P, data);
+    double4_t* D2 = pad(nyv2, ny2, nx2, D2_, P);
     ny2 = nx2;
 
     int na = 1;
@@ -149,8 +151,8 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
         }
     }
 
-
-    free(data);
+    printf("hello");
+    free(D2);
 }
 
 
