@@ -7,6 +7,7 @@
 #include <chrono>
 #include "vector.h"
 
+//double calculate_cpu(double n, double t) { return 2.0*n*n*n/t/platform_spec; }
 
 // horizontal padding such that number of columns is devisible by P*A
 // 1  2  3  4  5     1  2  3  4  5  0  0  0
@@ -17,6 +18,7 @@
 
 // horizontal padding for D2
 double4_t* pad(int nyv, int nx, int ny, const double* data_, int P) {
+
 
     double4_t* data = double4_alloc(nyv*nx);
 

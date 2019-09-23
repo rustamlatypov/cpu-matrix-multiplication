@@ -47,12 +47,10 @@ int main(int argc, const char** argv) {
         double error = verify_result(ny, nx, base_result.data(), fast_result.data(), 1);
         cumerror[i] = error;
 
-        //double n = dim;
+        double n = dim;
 
-        cpu1[i] = 1;
-        //calculate_cpu(n, base_time[i]);
-        cpu2[i] = 1;
-        //calculate_cpu(n, fast_time[i]);
+        cpu1[i] = calculate_cpu(n, base_time[i]);
+        cpu2[i] = calculate_cpu(n, fast_time[i]);
     }
 
     double base = get_avg(base_time);
