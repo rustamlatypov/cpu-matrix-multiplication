@@ -74,10 +74,9 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int nyv2 = nye2/P;
     int nyb2 = nyv2/B;
 
-    // not to read out of boundaries, since one step is one block
-
     const double* D1 = D1_;
 
+    // pad only if going to read out of bounds, because step size is one block
     if (nye1!=ny) {
         double *padded = new double[nye1*nm];
         std::memcpy(padded, D1_, ny*nm*sizeof(double));
@@ -98,7 +97,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
                 for (int i = m; i < m+nb; i++) {
 
-                    // 64 value block to accumulate to
+                    // A*B*P sized block to accumulate to
                     double4_t block[A*B*P] = {double4_0};
 
                     // performace critical loop
@@ -181,7 +180,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
         }
     }
 
-    if (nye1!=ny) delete D1;
+    if (nye1!=ny) delete [D1];
     free(D2);
 }
 

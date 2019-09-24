@@ -111,7 +111,7 @@ The logarithmic plot shows how do the running times develop. The speedup seems t
 
 CPU usage seems to fluxuate around **0.66**. By using volatile pointers, the memory bottleneck can be removed and the aforementioned theoretical computatinal power can be tested. Using this trick, CPU usage grows **0.82-0.88** for **n=2000-7000**. So for these test cases, the parallel implementation is **75-80%** of the theoretical limit.
 
-Using larger matrices for testing leads to problems. Reliable timing becomes difficult for both sequential and parallel implementations due to CPU behaviour under low usage and the large memory requirement of the matrices. These problems are not present when using volatile pointers, and it can be confirmed that CPU usage approaches 1 when `n` is large enough.
+Using larger matrices for testing leads to problems. Reliable timing becomes difficult for both sequential and parallel implementations due to CPU behaviour under low usage and the large memory requirement of the matrices. These problems are not present when using volatile pointers, and it can be confirmed that CPU usage indeed approaches unity when `n` is large enough.
 
 
 
