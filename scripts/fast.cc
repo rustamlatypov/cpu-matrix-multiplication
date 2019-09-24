@@ -78,9 +78,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
     const double* D1 = D1_;
 
-
     if (nye1!=ny) {
-        printf("fug");
         double *padded = new double[nye1*nm];
         std::memcpy(padded, D1_, ny*nm*sizeof(double));
         D1 = padded;
@@ -183,7 +181,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
         }
     }
 
-    delete D1;
+    if (nye1!=ny) delete D1;
     free(D2);
 }
 
