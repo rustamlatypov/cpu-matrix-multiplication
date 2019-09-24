@@ -104,12 +104,6 @@ Sequential      2462.2
 Parallel         4.531
 Speedup          543.4
 CPU usage        0.658
-
-n = 8000
-Sequential      4866.5
-Parallel         7.495
-Speedup          649.3
-CPU usage        0.594
 ```
 
 <img src="https://github.com/rustamlatypov/cpu-matrix-multiplication/blob/master/R/Rplot.png" width="650">
