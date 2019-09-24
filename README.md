@@ -69,49 +69,50 @@ On some computers the compiler has difficulties producing FMA instructions resul
 ```
 n = 2000
 Sequential       31.71
-Parallel         0.104
-Speedup          304.9
-CPU usage        0.668
+Parallel         0.098
+Speedup          323.6
+CPU usage        0.713
 
 n = 3000
 Sequential      134.78
-Parallel         0.350
-Speedup          385.1
-CPU usage        0.672
+Parallel         0.321
+Speedup          419.9
+CPU usage        0.731
 
 n = 4000    
 Sequential      366.72
-Parallel         0.839
-Speedup          437.1
-CPU usage        0.663
+Parallel         0.775
+Speedup          473.2
+CPU usage        0.718
 
 n = 5000
 Sequential      775.73
-Parallel         1.651
-Speedup          469.9
-CPU usage        0.661
+Parallel         1.511
+Speedup          513.4
+CPU usage        0.719
 
 n = 6000
 Sequential      1428.5
-Parallel         2.836
-Speedup          503.7
-CPU usage        0.662
+Parallel         2.605
+Speedup          548.4
+CPU usage        0.721
 
 n = 7000
 Sequential      2462.2
-Parallel         4.531
-Speedup          543.4
-CPU usage        0.658
+Parallel         4.477
+Speedup          550.8
+CPU usage        0.667
 ```
+
 
 <img src="https://github.com/rustamlatypov/cpu-matrix-multiplication/blob/master/R/Rplot.png" width="650">
 
 
-The logarithmic plot shows how do the running times develop. The speedup seems to increase with `n` and probably has an upper limit of around **600**.
+The logarithmic plot shows how do the running times develop. The speedup seems to increase with **n** and probably has an upper limit of around **550**.
 
-CPU usage seems to fluxuate around **0.66**. By using volatile pointers, the memory bottleneck can be removed and the aforementioned theoretical computatinal power can be tested. Using this trick, CPU usage grows **0.82-0.88** for **n=2000-7000**. So for these test cases, the parallel implementation is **75-80%** of the theoretical limit.
+CPU usage seems to fluxuate around **0.72** which is still quite far from unity. By using volatile pointers, the memory bottleneck can be removed from the performance critical loop and the aforementioned theoretical computatinal power can be assesed. Using this trick, CPU usage grows from **0.82 (n=2000)** to **0.88 (n=7000)**. So for these test cases, the parallel implementation is **82-88%** of the theoretical limit.
 
-Using larger matrices for testing leads to problems. Reliable timing becomes difficult for both sequential and parallel implementations due to CPU behaviour under low usage and the large memory requirement of the matrices. These problems are not present when using volatile pointers, and it can be confirmed that CPU usage indeed approaches unity when `n` is large enough.
+Using larger matrices for testing leads to problems. Reliable timing becomes difficult for both sequential and parallel implementations due to CPU behaviour under low usage and the large memory requirement of the matrices. These problems are not present when using volatile pointers, and it can be confirmed that CPU usage indeed approaches unity when **n** is large enough.
 
 
 
