@@ -50,8 +50,7 @@ Let A and B be of type ``double*`` representing matrices as a row wise array. Th
 This memory layout enables the efficient use of the outer product. Using the first four rows of A and the first column of horizontal vectors of B, a 4x4=16 sized block of C can be accumulated using the outer product. This block can then be copied to the the left top corner of C. Similarly, any 16 sized block of C can be computed by scanning the correct rows of A and the correct column of horizontal vectors of B. 
 
 
-Following the same logic, even 8x8=64 or 12x12=144 sized blocks can be used. The block size controls the tradoff between register/L1/L2/L3 reuse. Experimentation showed that a 64 sized block is optimal for this platform. 
-
+Following the same logic, even 8x8=64 or 12x12=144 sized blocks can be used. The block size controls the tradoff between register/L1/L2/L3 reuse. The best performance for this platform was observed with a 64 sized block.
 
 Tiling is coded in as `na` and `nb` parameters. However, lower performace with large matrices was observed with this technique and thus not used.
 
