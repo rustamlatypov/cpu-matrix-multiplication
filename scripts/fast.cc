@@ -153,7 +153,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                         block[14] += a13*b0;
                         block[15] += a13*b1;
                     }
-
+                    /*
                     // write accumulated block back to memory
                     for (int jj1 = 0; jj1 < P*A; jj1++) {
                         for (int jj2 = 0; jj2 < B; jj2++) {
@@ -169,7 +169,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
                             }
                         }
-                    }
+                    }*/
                 }
             }
         }
