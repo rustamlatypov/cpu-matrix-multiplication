@@ -55,7 +55,7 @@ This memory layout enables the efficient use of the outer product. Using the fir
 Following the same logic, even 8x8=64 or 12x12=144 sized blocks can be used. The block size controls the tradoff between register/L1/L2/L3 reuse. Experimentation showed that a 64 sized block is optimal for this platform. 
 
 
-On top of this, 2x2 tiling is used to further optimize memory reuse in the large memory caches. So instead of computing 64 sized blocks, superblocks of 4x64 blocks are computed.  
+On top of this, 3x3 tiling is used to further optimize memory reuse in the large memory caches. So instead of computing 64 sized blocks, superblocks of 9x64 blocks are computed.  
 
 
 Both transformation of B and the main execution loop are wrapped with ``#pragma omp parallel for`` for multicore processing since all threads should recieve similar loads. 
