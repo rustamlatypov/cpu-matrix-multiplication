@@ -61,7 +61,9 @@ Both transformation of B and the main execution loop are wrapped with ``#pragma 
 
 ## Remarks
 
-On some computers the compiler has difficulties producing FMA instructions resulting in rounding errors. Since large numbers are used, rounding errors accumulate and result in a high error term even though the implementation is correct. This can be fixed by tweaking the compiler parameters. 
+On some computers the compiler has difficulties producing FMA instructions resulting in rounding errors. 
+
+Rounding errors result in a high error term even though the implementation is correct. This can be fixed by tweaking the compiler parameters. 
 
 
 ## Results

@@ -26,7 +26,7 @@ static bool test(int ny, int nm, int nx, bool verbose) {
     std::vector<double> correct(ny * nx);
     base_multiply(ny, nm, nx, D1.data(), D2.data(), correct.data());
 
-    double error = verify_result(ny, nx, result.data(), correct.data(), 20);
+    double error = verify_result(ny, nx, result.data(), correct.data(), 10);
     bool pass = error < error_limit;
 
     std::cout << std::fixed << std::setprecision(3);
