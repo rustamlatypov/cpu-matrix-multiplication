@@ -74,45 +74,45 @@ The results are captured using `run n 2`, with different n values.
 ```
 n = 2000
 Sequential      31.71
-Parallel        0.101
-Speedup         313.96
-CPU usage       0.693
+Parallel        0.104
+Speedup         304.904
+CPU usage       0.668
 
 n = 3000
 Sequential      134.784
-Parallel        0.337
-Speedup         399.953
-CPU usage       0.697
+Parallel        0.350
+Speedup         385.097
+CPU usage       0.672
 
 n = 4000    
 Sequential      366.719
-Parallel        0.933
-Speedup         393.054
-CPU usage       0.598
+Parallel        0.839
+Speedup         437.091
+CPU usage       0.663
 
 n = 5000
 Sequential      775.725
-Parallel        2.181
-Speedup         355.674
-CPU usage       0.499
+Parallel        1.651
+Speedup         480.325
+CPU usage       0.661
 
 n = 6000
 Sequential      1428.54
-Parallel        4.850
-Speedup         294.544
-CPU usage       0.388
+Parallel        2.836
+Speedup         503.717
+CPU usage       0.662
 
 n = 7000
 Sequential      2462.25
-Parallel        9.995
-Speedup         246.348
-CPU usage       0.299
+Parallel        4.531
+Speedup         543.423
+CPU usage       0.658
 
 n = 8000
-Sequential      5117.9
-Parallel        17.861
-Speedup         
-CPU usage       0.252
+Sequential      5086.581
+Parallel        7.495
+Speedup         687.243
+CPU usage       0.594
 ```
 
 
