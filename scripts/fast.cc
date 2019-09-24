@@ -22,7 +22,7 @@ double4_t* pad(int nyv, int nx, int ny, const double* data_, int P) {
      */
 
     double4_t* data = double4_alloc(nyv*nx);
-    /*
+
     #pragma omp parallel for
     for (int j = 0; j < nyv; j++) {
         for (int i = 0; i < nx; i++) {
@@ -32,7 +32,7 @@ double4_t* pad(int nyv, int nx, int ny, const double* data_, int P) {
 
             }
         }
-    }*/
+    }
 
     return data;
 }
@@ -76,12 +76,10 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
     // not to read out of boundaries, since one step is one block
     std::vector<double> D1(nye1*nm);
-    //std::memcpy(D1.data(), D1_, ny*nm*sizeof(double));
+    std::memcpy(D1.data(), D1_, ny*nm*sizeof(double));
 
     double4_t* D2 = pad(nyv2, ny2, nx2, D2_, P);
     ny2 = nx2;
-
-    double dummy = 0.0;
 
     // main execution loops
     #pragma omp parallel for
@@ -165,8 +163,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                                 int iii = i*B * P + jj2*P + ii;
 
                                 if (jjj < ny1 && iii < ny2) {
-                                    //jjj * ny2 + iii result[0]
-                                    dummy = block[jj1*B+jj2][ii];
+                                    result[jjj * ny2 + iii] = block[jj1*B+jj2][ii];
                                 }
 
                             }
