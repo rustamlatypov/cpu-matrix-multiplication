@@ -36,16 +36,14 @@ Expains the commands in short.
 The error term is defined to be the sum of the element wise absolute difference of the two result matrices produced by the implementations. It is assumed that the sequential implementation is correct.
 
 ### CPU usage
-Taking FMA instructions into account, the platform is able to perform **≈230G** double-precision floating point operations per second. Since matrix multiplication takes **2n^3** floating point operations, the CPU usage for running time **t** is given by **2n^3/t/230G**. The lower bound for a matrix multiplication is thus **2n^3/230G**. 
+Taking FMA instructions into account, this platform is able to perform **≈230G** double-precision floating point operations per second. Since matrix multiplication takes **2n^3** floating point operations, the CPU usage for running time **t** is given by **2n^3/t/230G**. The lower bound for a matrix multiplication is thus **2n^3/230G**. 
 
 The CPU usages calculations use a hardcoded variable for this specific platform. If one wishes to adjust for their own system, variable `platform_spec` in `common/helper.h` should be changed to the systems number of double-precision floating point operations per second.
 
 
 ## Parallel implementation
 
-In matrix multiplication memory access is the bottleneck rather than processing power. So in addition to multicore processing and SIMD, a optimized memory access pattern is necessary.
-
-Working with doubles and SIMD requires 32-byte memory alignment and a vector framework. These are provided in ``vector.h`` with type ``double4_t`` holding 4 doubles, 8 bytes each. Multicore processing is handled by OpenMP.
+In matrix multiplication memory access is the bottleneck rather than processing power. So in addition to multicore processing and SIMD, a optimized memory access pattern is necessary. Working with doubles and SIMD requires 32-byte memory alignment and a vector framework. These are provided in ``vector.h`` with type ``double4_t`` holding 4 doubles, 8 bytes each. Multicore processing is handled by OpenMP.
 
 Let A and B be of type ``double*`` representing matrices as a row wise array. The goal is to produce matrix A x B = C. As preprocessing, B is transformed into a type ``double4_t*`` representation with horizontal vectors and 0 valued horizontal padding. Although the vectors run horizontally, the memory layout is such that is goes through the *columns* of the horizontal vectors, from top to bottom and from left to right. 
 
