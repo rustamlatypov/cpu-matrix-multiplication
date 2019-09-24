@@ -79,6 +79,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     // tiling parameters
     int na = 1;
     int nb = 1;
+    
 
     #pragma omp parallel for
     for (int n = 0; n < nyb1; n=n+na) {
