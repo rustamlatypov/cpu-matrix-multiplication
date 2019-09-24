@@ -112,7 +112,8 @@ Speedup         678.67
 CPU usage        0.594
 ```
 
-![alt text](https://github.com/rustamlatypov/cpu-matrix-multiplication/blob/master/R/Rplot.png)
+<img src="https://github.com/rustamlatypov/cpu-matrix-multiplication/blob/master/R/Rplot.png" width="650">
+
 
 
 
