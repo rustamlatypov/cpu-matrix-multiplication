@@ -78,8 +78,8 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     //std::vector<double> D1(nye1*nm);
     //std::memcpy(D1.data(), D1_, ny*nm*sizeof(double));
 
-    double* D1 = D1_;
-    
+    const double* D1 = D1_;
+
     double4_t* D2 = pad(nyv2, ny2, nx2, D2_, P);
     ny2 = nx2;
 
