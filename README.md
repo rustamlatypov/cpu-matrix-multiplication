@@ -66,8 +66,6 @@ On some computers the compiler has difficulties producing FMA instructions resul
 
 ## Results
 
-The results are captured using `run n 2`, with different n values. 
-
 ```
 n = 2000
 Sequential       31.71
@@ -111,7 +109,9 @@ CPU usage        0.658
 
 The logarithmic plot shows how do the running times develop compared to each other. With large matrices it becomes hard to time the sequential implementation, since the CPU is idling most of the time. Even though the speedup seems to increase, I believe that 
 
-CPU usage seems to fluxuate around 0.66. Despite the aforementioned theoretical lower bound, removing the memory bottleneck by using volatile pointers yielded CPU usage of around 0.8. Meaning that this implementation is not far behind the practical lower bound. 
+CPU usage seems to fluxuate around 0.66. By using volatile pointers, the memory bottleneck can be removed and the theoretical computatinal power can be tested. Using this trick, CPU usage grows from 0.82 to 0.88 for n=2000 to n=7000. So for this test cases, the parallel implementation is 75-80% of the theoretical limit.
+
+Using larger matrices for testing leads to problems. Reliable timing becomes difficult for both sequential and parallel implementations due to CPU behaviour under low usage and the large memory requirement of the matrices.
 
 
 
