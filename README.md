@@ -55,7 +55,7 @@ Following the same logic, even 8x8=64 or 12x12=144 sized blocks can be used. The
 Tiling is coded in and was experimented with. However, lower performace with large matrices was observed with this technique and thus set to 1x1, effectively doing nothing.
 
 
-Both transformation of B and the main execution loop are wrapped with ``#pragma omp parallel for`` for multicore processing since all threads should recieve similar loads. 
+Both the transformation of B and the main execution loop are wrapped with ``#pragma omp parallel for`` for multicore processing since all threads should recieve similar loads. 
 
 
 
