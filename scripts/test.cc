@@ -105,7 +105,8 @@ int main(int argc, const char** argv) {
                 << argv[0] << " "
                 << first_fail.ny << " "
                 << first_fail.nm << " "
-                << first_fail.nx << std::endl;
+                << first_fail.nx << " "
+                << "1"           << std::endl;
             exit(EXIT_FAILURE);
         }
     } else if(argc == 5) {
