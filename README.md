@@ -6,7 +6,7 @@ Developed during June-September, 2019.
 
 ## Description
 
-A console interface for testing and benchmarking an optimized parallel matrix multiplication implementation. It is benchmarked against a naive sequential implementation. Both implementations use the same basic **O(n^3)** algorithm for square matrices of dimension **n** and use double-precision.
+A console interface for testing and benchmarking an optimized parallel matrix multiplication implementation. It is benchmarked against a naive sequential implementation. Both implementations use double-precision and the same basic **O(n^3)** algorithm for square matrices of dimension **n**.
 
 
 ## Platform
