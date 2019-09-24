@@ -30,7 +30,7 @@ Runs both implementations on different matrices and different combinations of `n
 Runs the parallel implementation on the same square matrices of dimension `dim` for `iter` times and outputs running times, cpu usages and the their averages.
 
 - `help` <br/>
-A cheatsheet.
+Command cheatsheet.
 
 ### Error term
 The error term is defined to be the sum of the element wise absolute difference of the two result matrices produced by the implementations. It is assumed that the sequential implementation is correct.
