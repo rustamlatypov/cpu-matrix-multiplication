@@ -55,7 +55,7 @@ This memory layout enables the efficient use of the outer product. Using the fir
 Following the same logic, even 8x8=64 or 12x12=144 sized blocks can be used. The block size controls the tradoff between register/L1/L2/L3 reuse. Experimentation showed that a 64 sized block is optimal for this platform. 
 
 
-On top of this, 3x3 tiling is used to further optimize memory reuse in the large memory caches. So instead of computing 64 sized blocks, superblocks of 9x64 blocks are computed.  
+Tiling was coded in as `na` and `nb` parameters. However, lower performace with large matrices was observed with this technique and thus not used.
 
 
 Both transformation of B and the main execution loop are wrapped with ``#pragma omp parallel for`` for multicore processing since all threads should recieve similar loads. 
@@ -73,46 +73,46 @@ The results are captured using `run n 2`, with different n values.
 
 ```
 n = 2000
-Sequential      31.71
-Parallel        0.104
-Speedup         304.904
-CPU usage       0.668
+Sequential       31.71
+Parallel         0.104
+Speedup         304.90
+CPU usage        0.668
 
 n = 3000
-Sequential      134.784
-Parallel        0.350
-Speedup         385.097
-CPU usage       0.672
+Sequential      134.78
+Parallel         0.350
+Speedup         385.10
+CPU usage        0.672
 
 n = 4000    
-Sequential      366.719
-Parallel        0.839
-Speedup         437.091
-CPU usage       0.663
+Sequential      366.72
+Parallel         0.839
+Speedup         437.10
+CPU usage        0.663
 
 n = 5000
-Sequential      775.725
-Parallel        1.651
-Speedup         480.325
-CPU usage       0.661
+Sequential      775.73
+Parallel         1.651
+Speedup         480.33
+CPU usage        0.661
 
 n = 6000
-Sequential      1428.54
-Parallel        2.836
-Speedup         503.717
-CPU usage       0.662
+Sequential      1428.5
+Parallel         2.836
+Speedup         503.72
+CPU usage        0.662
 
 n = 7000
-Sequential      2462.25
-Parallel        4.531
-Speedup         543.423
-CPU usage       0.658
+Sequential      2462.2
+Parallel         4.531
+Speedup         543.42
+CPU usage        0.658
 
 n = 8000
-Sequential      5086.581
-Parallel        7.495
-Speedup         687.243
-CPU usage       0.594
+Sequential      5086.6
+Parallel         7.495
+Speedup         687.24
+CPU usage        0.594
 ```
 
 
