@@ -30,7 +30,7 @@ Runs both implementations on different matrices and different combinations of `n
 Runs the parallel implementation on the same square matrices of dimension `dim` for `iter` times and outputs running times, cpu usages and the their averages.
 
 - `help` <br/>
-Expains the commands in short.
+A cheatsheet.
 
 ### Error term
 The error term is defined to be the sum of the element wise absolute difference of the two result matrices produced by the implementations. It is assumed that the sequential implementation is correct.
@@ -61,9 +61,7 @@ Both transformation of B and the main execution loop are wrapped with ``#pragma 
 
 ## Remarks
 
-On some computers the compiler has difficulties producing FMA instructions resulting in rounding errors. 
-
-Rounding errors result in a high error term even though the implementation is correct. This can be fixed by tweaking the compiler parameters. 
+On some computers the compiler has difficulties producing FMA instructions resulting in rounding errors. Since the error term is accumulated though multiple iterations, rounding errors can problems even though the implementation is correct. This can be fixed by tweaking the compiler parameters. 
 
 
 ## Results

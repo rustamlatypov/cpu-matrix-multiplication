@@ -6,7 +6,7 @@
 #include <math.h>
 #include <cassert>
 #include "fast.cc"
-#include "base.cc"
+#include "slow.cc"
 #include "helper.h"
 
 
@@ -24,7 +24,7 @@ static bool test(int ny, int nm, int nx, bool verbose) {
     //print(ny, nx, result.data());
 
     std::vector<double> correct(ny * nx);
-    base_multiply(ny, nm, nx, D1.data(), D2.data(), correct.data());
+    slow_multiply(ny, nm, nx, D1.data(), D2.data(), correct.data());
 
     double error = verify_result(ny, nx, result.data(), correct.data(), 10);
     bool pass = error < error_limit;
