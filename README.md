@@ -115,9 +115,9 @@ CPU usage        0.594
 <img src="https://github.com/rustamlatypov/cpu-matrix-multiplication/blob/master/R/Rplot.png" width="650">
 
 
+The logarithmic plot shows how do the running times develop compared to each other. With large matrices it becomes hard to time the sequential implementation, since the CPU is idling most of the time. Even though the speedup seems to increase, I believe that 
 
-
-
+Despite the aforementioned theoretical lower bound, removing the memory bottleneck by using volatile pointers yielded only 0.8-0.9 CPU usage. Meaning that this implementation is not far behind the practical limit of this operation.  
 
 
 ## Author
