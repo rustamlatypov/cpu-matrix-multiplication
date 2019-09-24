@@ -47,6 +47,9 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
      * A: block dimension of D1
      * B: block dimension of D2
      *
+     * na: tiling parameter for D1
+     * nb: tiling parameter for D2
+     *
      */
 
     int ny1 = ny;
@@ -58,13 +61,16 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     constexpr int A = 2;
     constexpr int B = 2;
 
+    constexpr int na = 1;
+    constexpr int nb = 1;
+
     int nye1 = ny1;
-    while (nye1%(P*A) != 0) nye1++;
+    while (nye1%(P*A*na) != 0) nye1++;
     int nyv1 = nye1/P;
     int nyb1 = nyv1/A;
 
     int nye2 = nx2;
-    while (nye2%(P*B) != 0) nye2++;
+    while (nye2%(P*B*nb) != 0) nye2++;
     int nyv2 = nye2/P;
     int nyb2 = nyv2/B;
 
@@ -72,14 +78,10 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     std::vector<double> D1(nye1*nm);
     std::memcpy(D1.data(), D1_, ny*nm*sizeof(double));
 
-
     double4_t* D2 = pad(nyv2, ny2, nx2, D2_, P);
     ny2 = nx2;
 
-    // tiling parameters
-    int na = 1;
-    int nb = 1;
-
+    // main execution loops
     #pragma omp parallel for
     for (int n = 0; n < nyb1; n=n+na) {
 
@@ -92,6 +94,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                     // 64 value block to accumulate to
                     double4_t block[A*B*P] = {double4_0};
 
+                    // performace critical loop
                     for (int k = 0; k < nx1; k++) {
 
                         double a00 = D1[(j*A*P+0)*nx1 + k];
