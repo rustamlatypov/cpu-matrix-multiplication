@@ -61,8 +61,8 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     constexpr int A = 2;
     constexpr int B = 2;
 
-    constexpr int na = 3;
-    constexpr int nb = 3;
+    constexpr int na = 4;
+    constexpr int nb = 4;
 
     int nye1 = ny1;
     while (nye1%(P*A*na) != 0) nye1++;
