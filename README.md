@@ -55,7 +55,7 @@ This memory layout enables the efficient use of the outer product. Using the fir
 Following the same logic, even 8x8=64 or 12x12=144 sized blocks can be used. The block size controls the tradoff between register/L1/L2/L3 reuse. Experimentation showed that a 64 sized block is optimal for this platform. 
 
 
-Tiling was coded in as `na` and `nb` parameters. However, lower performace with large matrices was observed with this technique and thus not used.
+Tiling is coded in as `na` and `nb` parameters. However, lower performace with large matrices was observed with this technique and thus not used.
 
 
 Both transformation of B and the main execution loop are wrapped with ``#pragma omp parallel for`` for multicore processing since all threads should recieve similar loads. 
@@ -93,25 +93,25 @@ CPU usage        0.663
 n = 5000
 Sequential      775.73
 Parallel         1.651
-Speedup         480.33
+Speedup         469.86
 CPU usage        0.661
 
 n = 6000
 Sequential      1428.5
 Parallel         2.836
-Speedup         503.72
+Speedup         503.70
 CPU usage        0.662
 
 n = 7000
 Sequential      2462.2
 Parallel         4.531
-Speedup         543.42
+Speedup         543.41
 CPU usage        0.658
 
 n = 8000
 Sequential      5086.6
 Parallel         7.495
-Speedup         687.24
+Speedup         678.67
 CPU usage        0.594
 ```
 
