@@ -80,7 +80,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
     std::vector<double> padded(nye1*nm);
     if (nye1!=ny) {
-        printf("fug")
+        printf("fug");
         std::memcpy(padded.data(), D1_, ny*nm*sizeof(double));
         D1 = padded.data();
     }
