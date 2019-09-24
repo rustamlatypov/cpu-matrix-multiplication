@@ -77,13 +77,13 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     // not to read out of boundaries, since one step is one block
 
     const double* D1 = D1_;
-
-    //std::vector<double> padded(nye1*nm);
+    /*
+    std::vector<double> padded(nye1*nm);
     if (nye1!=ny) {
         printf("fug");
         std::memcpy(padded.data(), D1_, ny*nm*sizeof(double));
         D1 = padded.data();
-    }
+    }*/
 
 
     double4_t* D2 = pad(nyv2, ny2, nx2, D2_, P);
