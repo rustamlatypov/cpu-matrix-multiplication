@@ -180,7 +180,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
         }
     }
 
-    if (nye1!=ny) delete [D1];
+    if (nye1!=ny) delete D1[];
     free(D2);
 }
 
