@@ -7,3 +7,6 @@ test
 help
 /.idea/*
 /cmake-build-debug/*
+.Rhistory
+.DS_Store
+.RData	
