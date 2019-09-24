@@ -75,10 +75,17 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int nyb2 = nyv2/B;
 
     // not to read out of boundaries, since one step is one block
-    //std::vector<double> D1(nye1*nm);
-    //std::memcpy(D1.data(), D1_, ny*nm*sizeof(double));
 
-    const double* D1 = D1_;
+    const double* D1;
+
+    if (nye1==ny) {
+        D1 = D1_;
+    } else {
+        std::vector<double> D11(nye1*nm);
+        std::memcpy(D11.data(), D1_, ny*nm*sizeof(double));
+        D1 = D11.data();
+    }
+
 
     double4_t* D2 = pad(nyv2, ny2, nx2, D2_, P);
     ny2 = nx2;
