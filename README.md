@@ -72,38 +72,44 @@ On some computers the compiler has difficulties producing FMA instructions resul
 The results are captured using `run n 2`, with different n values. 
 
 ```
+n = 2000
+Sequential      31.71
+Parallel        0.101
+Speedup         313.96
+CPU usage       0.693
+
 n = 3000
-Sequential      
+Sequential      134.784
 Parallel        0.337
-Speedup         
+Speedup         399.953
 CPU usage       0.697
 
-n = 4000
-Sequential      
+n = 4000    
+Sequential      366.719
 Parallel        0.933
-Speedup         
+Speedup         393.054
 CPU usage       0.598
 
 n = 5000
-Sequential      
+Sequential      775.725
 Parallel        2.181
-Speedup         
+Speedup         355.674
 CPU usage       0.499
 
 n = 6000
-Sequential      
+Sequential      1428.54
 Parallel        4.850
-Speedup         
+Speedup         294.544
 CPU usage       0.388
 
 n = 7000
-Sequential      
+Sequential      2462.25
 Parallel        9.995
-Speedup         
+Speedup         246.348
 CPU usage       0.299
 
 n = 8000
-Sequential      
+Sequential      5117.9
 Parallel        17.861
 Speedup         
 CPU usage       0.252

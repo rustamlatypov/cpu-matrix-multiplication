@@ -61,8 +61,8 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     constexpr int A = 2;
     constexpr int B = 2;
 
-    constexpr int na = 3;
-    constexpr int nb = 3;
+    constexpr int na = 2;
+    constexpr int nb = 2;
 
     int nye1 = ny1;
     while (nye1%(P*A*na) != 0) nye1++;
@@ -97,7 +97,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                     // performace critical loop
                     for (int k = 0; k < nx1; k++) {
 
-                        
+
                         double a00 = D1[(j*A*P+0)*nx1 + k];
                         double a01 = D1[(j*A*P+1)*nx1 + k];
                         double a02 = D1[(j*A*P+2)*nx1 + k];
