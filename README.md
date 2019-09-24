@@ -72,43 +72,43 @@ The results are captured using `run n 2`, with different n values.
 n = 2000
 Sequential       31.71
 Parallel         0.104
-Speedup         304.90
+Speedup          304.9
 CPU usage        0.668
 
 n = 3000
 Sequential      134.78
 Parallel         0.350
-Speedup         385.10
+Speedup          385.1
 CPU usage        0.672
 
 n = 4000    
 Sequential      366.72
 Parallel         0.839
-Speedup         437.10
+Speedup          437.1
 CPU usage        0.663
 
 n = 5000
 Sequential      775.73
 Parallel         1.651
-Speedup         469.86
+Speedup          469.9
 CPU usage        0.661
 
 n = 6000
 Sequential      1428.5
 Parallel         2.836
-Speedup         503.70
+Speedup          503.7
 CPU usage        0.662
 
 n = 7000
 Sequential      2462.2
 Parallel         4.531
-Speedup         543.41
+Speedup          543.4
 CPU usage        0.658
 
 n = 8000
-Sequential      5086.6
+Sequential      4866.5
 Parallel         7.495
-Speedup         678.67
+Speedup          649.3
 CPU usage        0.594
 ```
 
@@ -117,7 +117,9 @@ CPU usage        0.594
 
 The logarithmic plot shows how do the running times develop compared to each other. With large matrices it becomes hard to time the sequential implementation, since the CPU is idling most of the time. Even though the speedup seems to increase, I believe that 
 
-Despite the aforementioned theoretical lower bound, removing the memory bottleneck by using volatile pointers yielded only 0.8-0.9 CPU usage. Meaning that this implementation is not far behind the practical limit of this operation.  
+CPU usage seems to fluxuate around 0.66. Despite the aforementioned theoretical lower bound, removing the memory bottleneck by using volatile pointers yielded CPU usage of around 0.8. Meaning that this implementation is not far behind the practical lower bound. 
+
+
 
 
 ## Author
