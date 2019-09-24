@@ -52,7 +52,7 @@ This memory layout enables the efficient use of the outer product. Using the fir
 
 Following the same logic, even 8x8=64 or 12x12=144 sized blocks can be used. The block size controls the tradoff between register/L1/L2/L3 reuse. The best performance for this platform was observed with a 64 sized block.
 
-Tiling is coded in as `na` and `nb` parameters. However, lower performace with large matrices was observed with this technique and thus not used.
+Tiling is coded in and was experimented with. However, lower performace with large matrices was observed with this technique and thus set to 1x1, effectively doing nothing.
 
 
 Both transformation of B and the main execution loop are wrapped with ``#pragma omp parallel for`` for multicore processing since all threads should recieve similar loads. 
