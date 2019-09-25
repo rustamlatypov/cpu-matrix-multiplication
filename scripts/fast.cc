@@ -58,8 +58,8 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int nx2 = nx;
 
     constexpr int P = 4;
-    constexpr int A = 2;
-    constexpr int B = 3;
+    constexpr int A = 3;
+    constexpr int B = 2;
 
     constexpr int na = 1;
     constexpr int nb = 1;
@@ -114,9 +114,14 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                         double a12 = D1[((j*A+1)*P+2)*nx1 + k];
                         double a13 = D1[((j*A+1)*P+3)*nx1 + k];
 
+                        double a20 = D1[((j*A+2)*P+0)*nx1 + k];
+                        double a21 = D1[((j*A+2)*P+1)*nx1 + k];
+                        double a22 = D1[((j*A+2)*P+2)*nx1 + k];
+                        double a23 = D1[((j*A+2)*P+3)*nx1 + k];
+
                         double4_t b0 = D2[(i*B)*nx1 + k];
                         double4_t b1 = D2[(i*B+1)*nx1 + k];
-                        double4_t b2 = D2[(i*B+2)*nx1 + k];
+
 
                         /*
                         // to be able to test cpu without memory bottleneck
@@ -138,36 +143,40 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
                         block[0] += a00*b0;
                         block[1] += a00*b1;
-                        block[2] += a00*b2;
 
-                        block[3] += a01*b0;
-                        block[4] += a01*b1;
-                        block[5] += a01*b2;
+                        block[2] += a01*b0;
+                        block[3] += a01*b1;
 
-                        block[6] += a02*b0;
-                        block[7] += a02*b1;
-                        block[8] += a02*b2;
+                        block[4] += a02*b0;
+                        block[5] += a02*b1;
 
-                        block[9] += a03*b0;
-                        block[10] += a03*b1;
-                        block[11] += a03*b2;
+                        block[6] += a03*b0;
+                        block[7] += a03*b1;
 
 
-                        block[12] += a10*b0;
-                        block[13] += a10*b1;
-                        block[14] += a10*b2;
+                        block[8] += a10*b0;
+                        block[9] += a10*b1;
 
-                        block[15] += a11*b0;
-                        block[16] += a11*b1;
-                        block[17] += a11*b2;
+                        block[10] += a11*b0;
+                        block[11] += a11*b1;
 
-                        block[18] += a12*b0;
-                        block[19] += a12*b1;
-                        block[20] += a12*b2;
+                        block[12] += a12*b0;
+                        block[13] += a12*b1;
 
-                        block[21] += a13*b0;
-                        block[22] += a13*b1;
-                        block[23] += a13*b2;
+                        block[14] += a13*b0;
+                        block[15] += a13*b1;
+
+                        block[16] += a20*b0;
+                        block[17] += a20*b1;
+
+                        block[18] += a21*b0;
+                        block[19] += a21*b1;
+
+                        block[20] += a22*b0;
+                        block[21] += a22*b1;
+
+                        block[22] += a23*b0;
+                        block[23] += a23*b1;
                     }
 
                     // write accumulated block back to memory
