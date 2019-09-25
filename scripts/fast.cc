@@ -58,7 +58,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
     int nx2 = nx;
 
     constexpr int P = 4;
-    constexpr int A = 3;
+    constexpr int A = 2;
     constexpr int B = 2;
 
     constexpr int na = 1;
@@ -114,11 +114,6 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                         double a12 = D1[((j*A+1)*P+2)*nx1 + k];
                         double a13 = D1[((j*A+1)*P+3)*nx1 + k];
 
-                        double a20 = D1[((j*A+2)*P+0)*nx1 + k];
-                        double a21 = D1[((j*A+2)*P+1)*nx1 + k];
-                        double a22 = D1[((j*A+2)*P+2)*nx1 + k];
-                        double a23 = D1[((j*A+2)*P+3)*nx1 + k];
-
                         double4_t b0 = D2[(i*B)*nx1 + k];
                         double4_t b1 = D2[(i*B+1)*nx1 + k];
 
@@ -166,17 +161,6 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                         block[14] += a13*b0;
                         block[15] += a13*b1;
 
-                        block[16] += a20*b0;
-                        block[17] += a20*b1;
-
-                        block[18] += a21*b0;
-                        block[19] += a21*b1;
-
-                        block[20] += a22*b0;
-                        block[21] += a22*b1;
-
-                        block[22] += a23*b0;
-                        block[23] += a23*b1;
                     }
 
                     // write accumulated block back to memory
