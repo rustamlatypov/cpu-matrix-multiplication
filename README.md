@@ -32,6 +32,9 @@ Runs the parallel implementation on the same square matrices of dimension `dim` 
 - `help` <br/>
 Command cheatsheet.
 
+### Timing
+Timing is performed using `std::chrono::high_resolution_clock`.
+
 ### Error term
 The error term is defined to be the sum of the element wise absolute difference of the two result matrices produced by the implementations. It is assumed that the sequential implementation is correct.
 
