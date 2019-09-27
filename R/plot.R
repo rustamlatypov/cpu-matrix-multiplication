@@ -4,8 +4,6 @@ para = c(0.098, 0.321, 0.775, 1.511, 2.605, 4.477) + 1
 
 data <- data.frame(n, base, para)
 
-#log = "y" 
-
 par(mar = c(5,5,5,5))
 plot(data$n, data$base, type="b", xlab = "n", ylab = "seconds", bty = "n", log = "y",
      lwd = 1.6, cex = 1.2, cex.axis = 1.3, cex.lab = 1.3, ylim=c(0.9,6000))
