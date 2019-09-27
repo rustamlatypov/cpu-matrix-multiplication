@@ -117,8 +117,9 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                         double4_t b0 = D2[(i*B)*nx1 + k];
                         double4_t b1 = D2[(i*B+1)*nx1 + k];
 
+
                         /*
-                        //to be able to test cpu without memory bottleneck
+                        // to be able to test cpu without memory bottleneck
 
                         volatile double a00 = D1[0];
                         volatile double a01 = D1[0];
@@ -131,7 +132,8 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
                         volatile double a13 = D1[0];
 
                         volatile double4_t b0 = D2[0];
-                        volatile double4_t b1 = D2[0];*/
+                        volatile double4_t b1 = D2[0];
+                        */
 
 
                         block[0] += a00*b0;
@@ -158,6 +160,7 @@ void fast_multiply(int ny, int nm, int nx, const double* D1_, const double* D2_,
 
                         block[14] += a13*b0;
                         block[15] += a13*b1;
+
                     }
 
                     // write accumulated block back to memory
