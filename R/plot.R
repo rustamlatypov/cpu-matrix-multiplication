@@ -12,4 +12,4 @@ lines(data$n, data$para, type="b", lwd = 1.6, cex = 1.2)
 
 
 text(5000, 1800, "Sequential", cex = 1.3)
-text(4830, 5.4, "Parallel", cex = 1.3)
+text(4880, 5.4, "Parallel", cex = 1.3)

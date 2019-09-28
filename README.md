@@ -108,7 +108,7 @@ CPU usage        0.667
 ```
 
 
-<img src="https://github.com/rustamlatypov/cpu-matrix-multiplication/blob/master/R/Rplot.png" width="650">
+<img src="https://github.com/rustamlatypov/cpu-matrix-multiplication/blob/master/R/Rplot00.png" width="650">
 
 
 The logarithmic plot shows how the running times develop. The speedup increases initially with **n** and probably has an upper limit of around **550**.
