@@ -1,7 +1,7 @@
 bin=test benchmark run help
 include Makefile.common
 
-SOURCES+= ./../scripts/*.cc 
+SOURCES+= scripts/*.cc 
 CXXFLAGS+=-I ./../common -std=c++17 -march=native -O2 -fopenmp 
 LDFLAGS+=-fopenmp
 
