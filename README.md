@@ -18,7 +18,7 @@ Intel Xeon E3-1230v5 Skylake 3.4–3.8 GHz
 
 ## Building and running
 
-Built for a multicore Linux system that supports 256-bit wide SIMD operations. In `/scripts` use `make -j` to build the binaries and `make clean` to clean up the directory. Assembly code for file x can be produced by running `make x.asm1` and `make x.asm2`. When built, there are four commands available: `run <dim> <iter>`, `test <ny> <nm> <nx> <verbose>`, `benchmark <dim> <iter>` and `help`.  Either none or all parameters should be given.
+Built for a multicore Linux system that supports 256-bit wide SIMD operations. In `/scripts` run `make -j` to build the binaries and `make clean` to clean up the directory. Assembly code for file x can be produced by running `make x.asm1` and `make x.asm2`. When built, there are four commands available: `run <dim> <iter>`, `test <ny> <nm> <nx> <verbose>`, `benchmark <dim> <iter>` and `help`.  Either none or all parameters should be given.
 
 - `run <dim> <iter>` default: `dim=1000`, `iter=3` <br/>
 Runs both implementations on the same square matrices of dimension `dim` for `iter` times and outputs the average running times, CPU usages, the speedup obtained and the error term.
