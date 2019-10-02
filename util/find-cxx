@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for a in "g++-8" "g++-7" "g++-6" "g++-5" "g++"; do
+for a in "g++-9" "g++-8" "g++-7" "g++-6" "g++-5" "g++"; do
     if "$a" "-dumpversion" > /dev/null 2>&1; then
         case "$($a -dumpversion)" in
         [78]*)
