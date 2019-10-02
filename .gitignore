@@ -10,4 +10,4 @@ help
 .Rhistory
 .DS_Store
 .RData
-CMakeFiles	
+CMakeLists.txt.user
