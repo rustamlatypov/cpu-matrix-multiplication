@@ -9,4 +9,5 @@ help
 /cmake-build-debug/*
 .Rhistory
 .DS_Store
-.RData	
+.RData
+CMakeFiles	
