@@ -109,11 +109,11 @@ CPU usage        0.667
 <img src="https://github.com/rustamlatypov/cpu-matrix-multiplication/blob/master/R/Rplot00.png" width="650">
 
 
-The logarithmic plot shows how the running times develop. The speedup increases initially with **n** and probably has an upper limit of around **550**.
+The logarithmic plot shows how the running times develop. The speedup increases initially with n and probably has an upper limit of around 550.
 
-CPU usage seems to fluctuate around **0.72** which is still quite far from unity. Using volatile pointers removes the memory bottleneck from the performance critical loop and the aforementioned theoretical computational power can be assessed. Using this trick, CPU usage grows from **0.82 (n=2000)** to **0.88 (n=7000)**. So taking overhead into account, for these test cases, the CPU usage of this parallel implementation is **82-88%** of the theoretical limit.
+CPU usage seems to fluctuate around 0.72 which is still quite far from unity. Using volatile pointers removes the memory bottleneck from the performance critical loop and the aforementioned theoretical computational power can be assessed. Using this trick, CPU usage grows from 0.82 (n=2000) to 0.88 (n=7000). So taking overhead into account, for these test cases, the CPU usage of this parallel implementation is 82-88% of the theoretical limit.
 
-Using larger matrices for testing leads to problems. Reliable timing becomes difficult for both sequential and parallel implementations due to CPU behaviour under low usage and the large memory requirement of the matrices. This effect is already visible when **n=7000** as a dip in CPU usage. However, these problems are not present when using volatile pointers. And it can be confirmed that CPU usage indeed approaches unity when **n** is large enough and the portion of overhead is insignificant.
+Using larger matrices for testing leads to problems. Reliable timing becomes difficult for both sequential and parallel implementations due to CPU behaviour under low usage and the large memory requirement of the matrices. This effect is already visible when n=7000 as a dip in CPU usage. However, these problems are not present when using volatile pointers. And it can be confirmed that CPU usage indeed approaches unity when n is large enough and the portion of overhead is insignificant.
 
 
 ## Author
