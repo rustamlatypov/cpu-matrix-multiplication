@@ -1,4 +1,4 @@
-# CPU Parallel matrix multiplication 
+# CPU parallel matrix multiplication 
 
 Developed during June-September, 2019.
 
