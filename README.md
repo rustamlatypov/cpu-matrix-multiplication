@@ -6,7 +6,7 @@ Developed during June-September, 2019.
 
 ## Description
 
-A command-line interface for testing and benchmarking an optimized parallel matrix multiplication implementation. It is benchmarked against a naive sequential implementation. Both implementations use double-precision and the same basic **O(n^3)** algorithm for square matrices of dimension **n**.
+A command-line interface for testing and benchmarking an optimized parallel matrix multiplication implementation. It is benchmarked against a naive sequential implementation. Both implementations use double-precision and the same basic O(n^3) algorithm for square matrices of dimension n.
 
 
 ## Platform
@@ -24,7 +24,7 @@ Built for a multicore Linux system that supports 256-bit wide SIMD operations. I
 Runs both implementations on the same square matrices of dimension `dim` for `iter` times and outputs the average running times, CPU usages, the speedup obtained and the error term.
 
 - `test <ny> <nm> <nx> <verbose>` default: `ny,nm,nx in {5,1500}`, `verbose=0` <br/>
-Runs both implementations on different matrices and different combinations of `ny`, `nm` and `nx`. Dimension wise the multiplication is `(ny*nm)(nm*nx)`. Each combination is run **10** times and the error term is accumulated and outputted. Each test passes if the accumulated error is below **1e-3** (can be adjusted by changing `error_limit` in `/common/helper.h`). Matrices can be outputted by setting `verbose=1`. 
+Runs both implementations on different matrices and different combinations of `ny`, `nm` and `nx`. Dimension wise the multiplication is `(ny*nm)(nm*nx)`. Each combination is run 10 times and the error term is accumulated and outputted. Each test passes if the accumulated error is below 1e-3 (can be adjusted by changing `error_limit` in `/common/helper.h`). Matrices can be outputted by setting `verbose=1`. 
 
 - `benchmark <dim> <iter>` default: `dim=3000`, `iter=10` <br/>
 Runs the parallel implementation on the same square matrices of dimension `dim` for `iter` times and outputs running times, CPU usages and the their averages.
@@ -39,7 +39,7 @@ Timing is performed using `std::chrono::high_resolution_clock`.
 The error term is defined to be the sum of the element wise absolute difference of the two result matrices produced by the implementations. It is assumed that the sequential implementation is correct.
 
 ### CPU usage
-Taking FMA instructions into account, this platform is able to perform **≈230G** double-precision floating point operations per second. Since matrix multiplication takes **2n^3** floating point operations, the CPU usage for running time **t** is given by **2n^3/t/230G**. The lower bound for a matrix multiplication is thus **2n^3/230G**. 
+Taking FMA instructions into account, this platform is able to perform ≈230G double-precision floating point operations per second. Since matrix multiplication takes 2n^3 floating point operations, the CPU usage for running time t is given by 2n^3/t/230G. The lower bound for a matrix multiplication is thus 2n^3/230G. 
 
 The CPU usages calculations use a hardcoded variable for this specific platform. If one wishes to adjust for their own system, variable `platform_spec` in `common/helper.h` should be changed to the system's number of double-precision floating point operations per second.
 
