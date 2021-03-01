@@ -6,7 +6,7 @@ Developed during June-September, 2019.
 
 ## Description
 
-A command-line tool for testing and benchmarking an optimized parallel matrix multiplication implementation. It is benchmarked against a naive sequential implementation. Both implementations use double-precision and the same basic O(n^3) algorithm for square matrices of dimension n.
+A command-line tool for testing and benchmarking an optimized parallel matrix multiplication implementation. It is benchmarked against a naive sequential implementation. Both implementations use double-precision and the basic O(n^3) algorithm for multiplying square matrices of dimension n.
 
 
 ## Platform
